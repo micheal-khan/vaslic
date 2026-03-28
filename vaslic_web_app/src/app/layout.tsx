@@ -8,6 +8,7 @@ import {
   Righteous,
 } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -67,7 +68,9 @@ export default function RootLayout({
       data-theme="avant-garde"
     >
       <body className="antialiased min-h-screen bg-vaslic-surface text-vaslic-on-surface">
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

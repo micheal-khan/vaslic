@@ -9,7 +9,7 @@ export default function StreetNavbar() {
             style={{ background: "rgba(9,9,11,0.8)", backdropFilter: "blur(20px)" }}
         >
             <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto w-full">
-                <Link href="/street">
+                <Link href="/">
                     <span
                         className="text-2xl font-black italic tracking-tighter uppercase cursor-pointer"
                         style={{ color: YELLOW, fontFamily: "'Space Grotesk', sans-serif" }}

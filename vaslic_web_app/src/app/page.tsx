@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ShoppingBag, User, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import HomeNavbar from "@/components/navbars/HomeNavbar";
 
 // ─── Hero slices ─────────────────────────────────────────────────────────────
 const heroSlices = [
@@ -176,26 +177,7 @@ export default function HomePage() {
   return (
     <div className="bg-black text-white overflow-x-hidden" style={{ fontFamily: "'Manrope', sans-serif" }}>
 
-      {/* ── Fixed Navbar ── */}
-      <nav className="fixed top-0 w-full z-[100]" style={{ background: "rgba(0,0,0,0.4)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <div className="flex justify-between items-center px-12 h-20">
-          <div className="flex items-center space-x-12">
-            {[{ href: "#gothic", label: "Gothic" }, { href: "#bohemian", label: "Bohemian" }, { href: "#avant", label: "Avant" }].map((l) => (
-              <a key={l.href} href={l.href} className="text-neutral-400 hover:text-white transition-colors duration-300 uppercase text-[10px] tracking-[0.2em] font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{l.label}</a>
-            ))}
-          </div>
-          <Link href="/" className="text-2xl font-black text-white tracking-[0.4em] uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>VASLIC</Link>
-          <div className="flex items-center space-x-12">
-            {[{ href: "#street", label: "Street" }, { href: "#funky", label: "Funky" }].map((l) => (
-              <a key={l.href} href={l.href} className="text-neutral-400 hover:text-white transition-colors duration-300 uppercase text-[10px] tracking-[0.2em] font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{l.label}</a>
-            ))}
-            <div className="flex items-center space-x-6 ml-4">
-              <ShoppingBag className="text-white cursor-pointer hover:scale-110 transition-transform" size={20} />
-              <User className="text-white cursor-pointer hover:scale-110 transition-transform" size={20} />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <HomeNavbar />
 
       {/* ── Hero: 5-panel cinematic morphing ── */}
       <section className="relative h-screen w-full flex overflow-hidden bg-black">

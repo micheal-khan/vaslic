@@ -10,7 +10,7 @@ export default function AvantGardeNavbar() {
             style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(20px)" }}
         >
             <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto w-full">
-                <Link href="/avant-garde">
+                <Link href="/">
                     <div
                         className="text-3xl font-black tracking-tighter text-zinc-900 cursor-pointer"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}

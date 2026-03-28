@@ -11,7 +11,7 @@ export default function BohemianNavbar() {
             style={{ background: BG }}
         >
             <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto w-full">
-                <Link href="/bohemian">
+                <Link href="/">
                     <div
                         className="text-2xl font-black cursor-pointer"
                         style={{ color: TERRA, fontFamily: "'Space Grotesk', sans-serif" }}
