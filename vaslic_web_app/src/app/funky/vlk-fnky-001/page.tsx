@@ -446,44 +446,8 @@ export default function NeonSynthWavePage() {
                 </div>
             </footer>
 
-            {/* ── Theme Switcher Dock (centre bottom) ── */}
-            <div
-                className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] p-2 flex gap-1 border border-white/10 shadow-2xl"
-                style={{ background: "rgba(13,13,43,0.7)", backdropFilter: "blur(12px)" }}
-            >
-                <Link href="/gothic">
-                    <button className="p-2 transition-colors group" style={{ background: "transparent" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${CYAN}33`; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
-                    >
-                        <span className="material-symbols-outlined" style={{ color: "white" }}>theater_comedy</span>
-                    </button>
-                </Link>
-                <Link href="/bohemian">
-                    <button className="p-2 transition-colors group" style={{ background: "transparent" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${PINK}33`; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
-                    >
-                        <span className="material-symbols-outlined" style={{ color: "white" }}>palette</span>
-                    </button>
-                </Link>
-                <Link href="/funky">
-                    <button
-                        className="px-4 py-2 font-black text-xs text-black"
-                        style={{ background: CYAN, fontFamily: "'Righteous', sans-serif" }}
-                    >
-                        FUNKY ACTIVE
-                    </button>
-                </Link>
-                <Link href="/street">
-                    <button className="p-2 transition-colors group" style={{ background: "transparent" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${LIME}33`; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
-                    >
-                        <span className="material-symbols-outlined" style={{ color: "white" }}>style</span>
-                    </button>
-                </Link>
-            </div>
+            {/* ── Theme Dock ── */}
+            <ThemeDock />
 
             {/* ── Google Fonts + Material Icons ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Righteous&family=Nunito:wght@300;400;600;700&display=swap" />
