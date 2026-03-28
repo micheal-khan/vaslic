@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Space+Grotesk:wght@300;400;700&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#d8ca23",
+              "background": "#0d0d2b",
+              "on-surface-variant": "#bec8cf",
+              "on-primary": "#003548",
+              "outline": "#889299",
+              "surface-variant": "#353535",
+              "inverse-on-surface": "#313030",
+              "primary": "#72d2ff",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "on-tertiary": "#363100",
+              "tertiary": "#d8ca23",
+              "on-tertiary-fixed": "#1f1c00",
+              "on-error-container": "#ffdad6",
+              "inverse-surface": "#e5e2e1",
+              "surface-tint": "#72d2ff",
+              "on-primary-fixed-variant": "#004d66",
+              "error": "#ffb4ab",
+              "primary-fixed": "#c1e8ff",
+              "on-error": "#690005",
+              "surface-container": "#20201f",
+              "on-surface": "#e5e2e1",
+              "on-secondary-fixed": "#410000",
+              "surface-container-high": "#2a2a2a",
+              "on-secondary-container": "#ff9a8a",
+              "on-primary-fixed": "#001e2b",
+              "error-container": "#93000a",
+              "surface": "#0d0d2b",
+              "on-secondary": "#690000",
+              "on-primary-container": "#002e3e",
+              "tertiary-container": "#bbae00",
+              "primary-fixed-dim": "#72d2ff",
+              "on-background": "#e5e2e1",
+              "surface-dim": "#0d0d2b",
+              "on-secondary-fixed-variant": "#920703",
+              "surface-container-highest": "#353535",
+              "secondary-fixed": "#ffdad4",
+              "secondary": "#ffb4a8",
+              "secondary-fixed-dim": "#ffb4a8",
+              "primary-container": "#289bc8",
+              "inverse-primary": "#006687",
+              "surface-container-low": "#1c1b1b",
+              "tertiary-fixed": "#f5e642",
+              "outline-variant": "#3e484e",
+              "secondary-container": "#920703",
+              "on-tertiary-container": "#464100",
+              "surface-bright": "#393939",
+              "surface-container-lowest": "#0e0e0e",
+              "funky-cyan": "#00f5d4",
+              "funky-pink": "#ff2d9b",
+              "funky-lime": "#b6ff00"
+            },
+            fontFamily: {
+              "headline": ["Righteous"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .zigzag-divider {
+            height: 20px;
+            background: linear-gradient(135deg, #00f5d4 25%, transparent 25%) -10px 0, linear-gradient(225deg, #ff2d9b 25%, transparent 25%) -10px 0, linear-gradient(315deg, #00f5d4 25%, transparent 25%), linear-gradient(45deg, #ff2d9b 25%, transparent 25%);
+            background-size: 20px 20px;
+            background-color: #b6ff00;
+        }
+        .ticker-wrap { overflow: hidden; white-space: nowrap; }
+        .ticker { display: inline-block; animation: scroll 30s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .cassette-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='40' viewBox='0 0 60 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 5h40v30H10V5zm4 4v16h32V9H14zm6 20a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm20 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+        }
+        .text-color-cycle {
+            background: linear-gradient(to right, #00f5d4, #ff2d9b, #b6ff00, #00f5d4);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine { to { background-position: 300% center; } }
+        .asymmetric-collage { clip-path: polygon(2% 0%, 100% 5%, 95% 100%, 0% 90%); }
+        .stamp { transform: rotate(-15deg); border: 4px solid currentColor; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body cassette-bg min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-[#0d0d2b] dark:bg-[#0d0d2b] shadow-[0_4px_20px_rgba(0,245,212,0.15)] docked full-width top-0 z-50 flex justify-between items-center w-full px-8 py-6 max-w-none sticky">
+<div class="text-3xl font-['Righteous'] text-[#00f5d4] drop-shadow-[0_0_8px_rgba(0,245,212,0.6)]">VASLIC</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Righteous'] uppercase tracking-widest text-sm text-[#00f5d4] border-b-4 border-[#00f5d4] pb-1" href="#">Drops</a>
+<a class="font-['Righteous'] uppercase tracking-widest text-sm text-slate-400 hover:text-white transition-colors" href="#">Archive</a>
+<a class="font-['Righteous'] uppercase tracking-widest text-sm text-slate-400 hover:text-white transition-colors" href="#">Collections</a>
+<a class="font-['Righteous'] uppercase tracking-widest text-sm text-slate-400 hover:text-white transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#00f5d4] material-symbols-outlined hover:translate-x-1 transition-all duration-200" data-icon="shopping_cart">shopping_cart</button>
+<button class="text-[#00f5d4] material-symbols-outlined hover:translate-x-1 transition-all duration-200" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<!-- Ticker Marquee -->
+<div class="bg-funky-lime text-[#0d0d2b] py-2 ticker-wrap border-y-2 border-[#0d0d2b]">
+<div class="ticker font-headline text-lg uppercase tracking-tighter">
+            Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions.   •   
+            Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions.   •   
+            Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions.   •   
+        </div>
+</div>
+<!-- Hero / Category Header -->
+<header class="relative px-8 py-20 flex flex-col items-center overflow-hidden">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-funky-pink/20 blur-[100px]"></div>
+<div class="absolute -bottom-10 -right-10 w-96 h-96 bg-funky-cyan/10 blur-[120px]"></div>
+<h1 class="text-7xl md:text-9xl font-headline text-color-cycle leading-none mb-4 text-center">FUNKY</h1>
+<p class="text-2xl md:text-4xl font-headline text-color-cycle tracking-wide mb-8 text-center italic">Something for Everyone</p>
+<div class="max-w-2xl text-center z-10">
+<p class="text-lg font-medium text-funky-lime mb-4">THE CURATED CHAOS COLLECTION</p>
+<p class="text-on-surface-variant font-body">Limited edition artifacts for the retro-future enthusiast. Each drop is a heartbeat in time. Once it's partied out, it's gone! No encores!</p>
+</div>
+</header>
+<div class="zigzag-divider"></div>
+<!-- Product Grid -->
+<main class="max-w-7xl mx-auto px-8 py-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-funky-cyan transform rotate-2 group-hover:rotate-0 transition-transform"></div>
+<div class="relative bg-surface-container-low p-6 h-full flex flex-col border-2 border-white/10">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-[#0d0d2b] text-funky-cyan px-3 py-1 font-label text-xs font-bold tracking-widest">VLK-FNKY-001</span>
+<span class="text-funky-pink font-headline text-sm italic">EDITION 1 OF 50</span>
+</div>
+<div class="aspect-square bg-funky-cyan/20 overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover mix-blend-screen grayscale hover:grayscale-0 transition-all duration-500" data-alt="abstract retro-futuristic sculpture with neon lighting and geometric shadows in a deep navy studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApUrqlamyuucDO7eyu8YtWlNIQkEb730KdJxa-ClGc4emu9BsK4huWj7HrFVRvsYnRiNRgHGgypjfI_UlCJIRlXqX4TaxG5fCwcJIPK4BPlyxpxsTi7IL_uyWRbv5U5sS9FBAPGwngzxPPFnR0kfQEIIs-Y3FvJeFCkQsON7jEV6gAgPzJZ4gLUaz4Cf1Wk4io83nTb5o-dI_326IhQKydbQCQWInHrZWSTL20duPPDKcrZkIUUybn8f-WRVLvldGoSTcwTQT5dfM"/>
+<div class="absolute bottom-2 left-2 bg-funky-lime text-[#0d0d2b] px-2 py-1 font-headline text-xs">NEVER REPRINTED</div>
+</div>
+<h3 class="font-headline text-3xl mb-2 text-white">NEON PULSE VEST</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Experimental weave technology paired with 80s synthwave aesthetics.</p>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-funky-lime font-headline text-lg">12 UNITS LEFT</p>
+<p class="text-white font-headline text-2xl">$189.00</p>
+</div>
+<button class="bg-gradient-to-r from-funky-cyan to-funky-pink text-white px-6 py-3 font-headline hover:scale-105 active:scale-95 transition-transform">JOIN WAITLIST</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-funky-pink transform -rotate-2 group-hover:rotate-0 transition-transform"></div>
+<div class="relative bg-surface-container-low p-6 h-full flex flex-col border-2 border-white/10">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-[#0d0d2b] text-funky-cyan px-3 py-1 font-label text-xs font-bold tracking-widest">VLK-FNKY-042</span>
+<span class="text-funky-pink font-headline text-sm italic">EDITION 1 OF 25</span>
+</div>
+<div class="aspect-square bg-funky-pink/20 overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover mix-blend-screen grayscale hover:grayscale-0 transition-all duration-500" data-alt="retro analog synthesizer buttons and lights with glowing neon pink and cyan overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4jcYzNaRyM5WKHwy_GR3l4PETCjC2VP6Ejh4GrcyIEkb4dOipxYsC4fkwvv_OlsF7tDVTMdtS_C6aVHFpqjnSWS-vJmflfKzqIt0b7O83NJWFvc8lLt2e6AdHrKMlKpqIb7S9kMpVGiyhV1P8MFr2wNfROk9SC8YwX-VXd1oQLPXpyTtThQxYXg7--s1XoA-YFWcoZ8OAJuqlL7ivjQ0Oy4G_MRxlN8DFKML5YoTqpFiQNA6BpV_JzWBZ_k-JZjuI_opUeb3tRGQ"/>
+</div>
+<h3 class="font-headline text-3xl mb-2 text-white">CHRONOS DECK</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Analog feedback loop processor in a handheld polycarbonate chassis.</p>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-funky-lime font-headline text-lg">3 UNITS LEFT</p>
+<p class="text-white font-headline text-2xl">$420.00</p>
+</div>
+<button class="bg-gradient-to-r from-funky-cyan to-funky-pink text-white px-6 py-3 font-headline hover:scale-105 active:scale-95 transition-transform">JOIN WAITLIST</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-funky-lime transform rotate-1 group-hover:rotate-0 transition-transform"></div>
+<div class="relative bg-surface-container-low p-6 h-full flex flex-col border-2 border-white/10">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-[#0d0d2b] text-funky-cyan px-3 py-1 font-label text-xs font-bold tracking-widest">VLK-FNKY-099</span>
+<span class="text-funky-pink font-headline text-sm italic">EDITION 1 OF 100</span>
+</div>
+<div class="aspect-square bg-funky-lime/20 overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover mix-blend-screen grayscale hover:grayscale-0 transition-all duration-500" data-alt="collection of vintage gaming consoles and tapes stylized with extreme saturated neon colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_S3CDq3CtgiXlAydJSXKwFKP28mhOVKkAhtqLqsYOFLPgeXOv86cJOir23MjN0ynsAVuCXbo2bedI9nQ-wmQlgpA2zgwKErRbtqF0d-lp6ZX8sGZyoF-BZ-OtzZ5zjHY4XEUJ1sCii5cX16fqoEiX-qYcxlEcA23GR-MlND4ScmI7rsFpnFGWwgM2BcY3GyXmU1fIKcUlF5w647jvdDs6SD_wCAwlBL2wJAR1W9H4iTcMu18Tft5LFzPfLC5oEO7raFTT9knDCls"/>
+</div>
+<h3 class="font-headline text-3xl mb-2 text-white">STATIC CAPSULE</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Wearable digital storage that looks like a glitch in the simulation.</p>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-funky-lime font-headline text-lg">48 UNITS LEFT</p>
+<p class="text-white font-headline text-2xl">$89.00</p>
+</div>
+<button class="bg-gradient-to-r from-funky-cyan to-funky-pink text-white px-6 py-3 font-headline hover:scale-105 active:scale-95 transition-transform">JOIN WAITLIST</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="zigzag-divider"></div>
+<!-- Retired Designs Section -->
+<section class="bg-surface-container-lowest py-24 px-8 overflow-hidden">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-headline text-5xl text-funky-pink mb-16 text-center underline decoration-funky-lime underline-offset-8">THE VAULT: RETIRED RELEASES</h2>
+<div class="bg-white/5 p-12 relative border-l-8 border-funky-pink asymmetric-collage">
+<div class="absolute top-10 right-10 stamp text-error font-headline text-4xl px-4 py-2 opacity-80 border-8 border-error uppercase">SOLD OUT — NO ENCORE</div>
+<ul class="space-y-8 font-headline text-2xl md:text-4xl text-white/30 italic">
+<li class="relative">
+<span class="line-through decoration-funky-pink decoration-4 block">001. VOID WALKER BOOTS</span>
+<span class="text-sm font-label text-funky-cyan not-italic uppercase tracking-widest">Released: Sept 2023 • Vault Sealed</span>
+</li>
+<li class="relative">
+<span class="line-through decoration-funky-lime decoration-4 block">002. LASER-CUT KIMONO (V2)</span>
+<span class="text-sm font-label text-funky-cyan not-italic uppercase tracking-widest">Released: Nov 2023 • Gone Forever</span>
+</li>
+<li class="relative">
+<span class="line-through decoration-funky-pink decoration-4 block">003. CYBER-PUNK HEADSET ALPHA</span>
+<span class="text-sm font-label text-funky-cyan not-italic uppercase tracking-widest">Released: Jan 2024 • No Reprints</span>
+</li>
+<li class="relative">
+<span class="line-through decoration-funky-lime decoration-4 block">004. OBLIVION GLASSES</span>
+<span class="text-sm font-label text-funky-cyan not-italic uppercase tracking-widest">Released: Feb 2024 • Out of Stock</span>
+</li>
+</ul>
+</div>
+<p class="mt-12 text-center font-headline text-funky-cyan text-xl tracking-widest animate-pulse">
+                SCARCITY ALERT: ONCE IT'S PARTIED OUT, IT'S GONE! NO ENCORES!
+            </p>
+</div>
+</section>
+<!-- BottomNavBar -->
+<footer class="md:hidden">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-safe bg-[#0d0d2b]/80 backdrop-blur-xl border-t border-[#00f5d4]/20 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] z-50">
+<div class="flex flex-col items-center justify-center bg-[#00f5d4] text-[#0d0d2b] p-3 scale-110">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Righteous'] text-[10px] uppercase">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#00f5d4]/60 p-3 hover:bg-[#00f5d4]/10 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-['Righteous'] text-[10px] uppercase">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#00f5d4]/60 p-3 hover:bg-[#00f5d4]/10 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-['Righteous'] text-[10px] uppercase">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#00f5d4]/60 p-3 hover:bg-[#00f5d4]/10 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Righteous'] text-[10px] uppercase">Profile</span>
+</div>
+</div>
+</footer>
+<!-- Desktop Footer -->
+<footer class="hidden md:block py-20 px-8 bg-[#0d0d2b] border-t-2 border-funky-cyan/20">
+<div class="max-w-7xl mx-auto grid grid-cols-4 gap-12">
+<div>
+<div class="text-3xl font-['Righteous'] text-[#00f5d4] mb-6">VASLIC</div>
+<p class="text-on-surface-variant font-label text-xs leading-relaxed">DESIGNED IN THE FUTURE. DELIVERED TO THE NOW. NO REFUNDS ONCE THE BOX IS OPENED. SCARCITY IS THE ONLY CONSTANT.</p>
+</div>
+<div>
+<h4 class="font-headline text-funky-pink mb-4">CATEGORIES</h4>
+<ul class="space-y-2 font-label text-sm text-on-surface-variant">
+<li class="hover:text-funky-lime cursor-pointer">STREETWEAR</li>
+<li class="hover:text-funky-lime cursor-pointer">TECH-WEAR</li>
+<li class="hover:text-funky-lime cursor-pointer">ANALOG TOOLS</li>
+<li class="hover:text-funky-lime cursor-pointer">SOUNDSCAPES</li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline text-funky-pink mb-4">LEGAL</h4>
+<ul class="space-y-2 font-label text-sm text-on-surface-variant">
+<li class="hover:text-funky-lime cursor-pointer">TERMS OF DROP</li>
+<li class="hover:text-funky-lime cursor-pointer">VAULT ACCESS</li>
+<li class="hover:text-funky-lime cursor-pointer">PRIVACY BYTES</li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline text-funky-pink mb-4">NEWSLETTER</h4>
+<div class="flex">
+<input class="bg-surface-container-high border-none font-label text-sm px-4 py-2 w-full focus:ring-1 focus:ring-funky-cyan" placeholder="ENTER SYNC ID" type="email"/>
+<button class="bg-funky-cyan text-[#0d0d2b] px-4 font-headline text-xs">JOIN</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&amp;family=Manrope:wght@400;500;700&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#920703",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "on-secondary": "#690000",
+              "primary-container": "#289bc8",
+              "inverse-on-surface": "#313030",
+              "surface-container-lowest": "#0e0e0e",
+              "outline": "#889299",
+              "on-surface": "#e5e2e1",
+              "primary": "#72d2ff",
+              "surface-container-highest": "#353535",
+              "tertiary-fixed": "#f5e642",
+              "surface-variant": "#353535",
+              "on-error": "#690005",
+              "tertiary": "#d8ca23",
+              "tertiary-fixed-dim": "#d8ca23",
+              "surface-tint": "#72d2ff",
+              "surface-dim": "#131313",
+              "on-tertiary-fixed": "#1f1c00",
+              "secondary": "#ffb4a8",
+              "on-secondary-fixed-variant": "#920703",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed": "#410000",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary": "#363100",
+              "on-background": "#e5e2e1",
+              "error": "#ffb4ab",
+              "surface-bright": "#393939",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-container": "#002e3e",
+              "primary-fixed": "#c1e8ff",
+              "surface": "#ffffff",
+              "background": "#ffffff",
+              "tertiary-container": "#bbae00",
+              "on-primary-fixed-variant": "#004d66",
+              "on-primary-fixed": "#001e2b",
+              "surface-container": "#f8f8f8",
+              "surface-container-high": "#f0f0f0",
+              "on-surface-variant": "#1a1a1a",
+              "on-secondary-container": "#ff9a8a",
+              "secondary-fixed-dim": "#ffb4a8",
+              "secondary-fixed": "#ffdad4",
+              "primary-fixed-dim": "#72d2ff",
+              "outline-variant": "#3e484e",
+              "on-primary": "#003548",
+              "error-container": "#93000a",
+              "inverse-primary": "#006687",
+              "on-tertiary-container": "#464100",
+              "avant-red": "#c0392b",
+              "avant-cobalt": "#2980b9",
+              "avant-ochre": "#e67e22"
+            },
+            fontFamily: {
+              "headline": ["Bebas Neue"],
+              "body": ["Space Grotesk"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .paint-reveal { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+        .text-vertical { writing-mode: vertical-rl; }
+        .paint-stroke { position: relative; }
+        .paint-stroke::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: #c0392b;
+            clip-path: polygon(2% 16%, 10% 32%, 20% 18%, 28% 44%, 39% 12%, 48% 38%, 59% 22%, 69% 48%, 82% 15%, 91% 33%, 100% 14%, 98% 85%, 85% 72%, 72% 95%, 58% 78%, 45% 92%, 31% 75%, 19% 88%, 8% 70%, 1% 82%);
+        }
+        .paint-stroke-cobalt::after { background: #2980b9; }
+        .paint-stroke-ochre::after { background: #e67e22; }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        .brush-bg {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M10 80 Q 50 10 90 80 T 170 80' fill='none' stroke='black' stroke-width='40'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 font-body overflow-x-hidden selection:bg-avant-red selection:text-white">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl flex justify-between items-center px-8 h-24 max-w-full mx-auto">
+<div class="text-3xl font-black text-white tracking-widest uppercase font-headline">VASLIC</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-headline font-bold tracking-tighter uppercase text-neutral-400 hover:text-white transition-colors duration-300" href="#">Gothic</a>
+<a class="font-headline font-bold tracking-tighter uppercase text-neutral-400 hover:text-white transition-colors duration-300" href="#">Bohemian</a>
+<a class="font-headline font-bold tracking-tighter uppercase text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Avant-Garde</a>
+<a class="font-headline font-bold tracking-tighter uppercase text-neutral-400 hover:text-white transition-colors duration-300" href="#">Street</a>
+<a class="font-headline font-bold tracking-tighter uppercase text-neutral-400 hover:text-white transition-colors duration-300" href="#">Funky</a>
+</div>
+<div class="flex gap-6 items-center">
+<button class="text-white hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-white hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-24 min-h-screen relative">
+<!-- Painterly SVG Background Overlays -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+<svg class="absolute top-[10%] -left-[5%] w-[40%] opacity-20 transform -rotate-12" viewbox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M10,100 C50,20 150,180 250,100 C350,20 450,180 490,100" fill="none" stroke="#2980b9" stroke-linecap="round" stroke-width="60"></path>
+</svg>
+<svg class="absolute top-[40%] -right-[10%] w-[50%] opacity-15 transform rotate-45" viewbox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M20,50 Q150,150 300,50 T480,150" fill="none" stroke="#e67e22" stroke-linecap="round" stroke-width="80"></path>
+</svg>
+<svg class="absolute bottom-[20%] left-[20%] w-[30%] opacity-20 transform -rotate-3" viewbox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M10,100 L490,100" fill="none" stroke="#c0392b" stroke-dasharray="20,10" stroke-linecap="round" stroke-width="120"></path>
+</svg>
+</div>
+<!-- Header Section -->
+<section class="px-8 py-20 max-w-7xl mx-auto flex flex-col md:flex-row items-baseline gap-4">
+<h1 class="font-headline text-[15vw] md:text-[12rem] leading-none tracking-tighter text-neutral-900 m-0">AVANT</h1>
+<div class="flex flex-col">
+<h1 class="font-headline text-[15vw] md:text-[12rem] leading-none tracking-tighter text-neutral-900 m-0 -mt-8 md:-mt-16">GARDE</h1>
+<p class="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-400 mt-2 max-w-xs">Selected artifacts for the intentional few.</p>
+</div>
+</section>
+<!-- Infinite Ticker -->
+<div class="bg-neutral-900 text-white overflow-hidden py-4 border-y border-neutral-800">
+<div class="animate-ticker">
+<span class="font-headline text-2xl uppercase tracking-widest px-8">Once it's gone, it's gone. <span class="text-avant-red">Forever.</span> No reprints. No restocks. No exceptions.</span>
+<span class="font-headline text-2xl uppercase tracking-widest px-8">Once it's gone, it's gone. <span class="text-avant-red">Forever.</span> No reprints. No restocks. No exceptions.</span>
+<span class="font-headline text-2xl uppercase tracking-widest px-8">Once it's gone, it's gone. <span class="text-avant-red">Forever.</span> No reprints. No restocks. No exceptions.</span>
+</div>
+</div>
+<!-- 2x2 Product Grid -->
+<section class="py-32 px-8 max-w-[1400px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-48">
+<!-- Product 1 -->
+<div class="relative group transform -rotate-1 md:translate-y-0">
+<div class="relative aspect-[3/4] bg-neutral-100 overflow-hidden shadow-2xl">
+<img alt="Avant-garde artifact" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDinj8cKu_Ra6fY6V5ZWHi7U7b8gCc9qg8m9efvetSZGyvVbzEFtfJmDbG62joH9B3CFxpiAZkFOuqegEBsK4iCQMBi-EtRrJuGPgrNzwtHCQr_mjr2cBPMIpgRmgjy1DjU1MOQ972w32BM20TCXvjvRRZ-u6c8MAqm9Uar7vKh6RFwOrL_aFQGEcPwKmesrAzzLgd6oElqLpLVapgHsS0kMULTbxFYLcg1IsiLVYdQ0aJZ-Z1TMpVEKWZUweldxqWNfrpUAjM3gts"/>
+<div class="absolute top-4 left-4 bg-white px-3 py-1 text-[10px] font-bold tracking-tighter border border-neutral-200 uppercase">Vault ID: VLK-AVNT-001</div>
+</div>
+<div class="mt-8 flex flex-col items-start relative">
+<div class="absolute -top-12 right-0 bg-neutral-900 text-white p-4 font-headline text-sm tracking-widest rotate-6 shadow-xl">
+                        EDITION 1 of 12 — NEVER REPRINTED
+                    </div>
+<h3 class="text-6xl font-headline uppercase leading-none mb-2">The Deconstructed Void</h3>
+<div class="text-3xl font-headline text-neutral-400 mb-6">$1,240.00</div>
+<button class="paint-stroke text-xl font-headline uppercase tracking-widest text-neutral-900">Join Waitlist</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="relative group transform rotate-2 md:translate-y-32">
+<div class="relative aspect-[3/4] bg-neutral-100 overflow-hidden shadow-2xl">
+<img alt="Avant-garde artifact" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKUgsPsv1UUPtocwRxW-_hpv8RkTHMZ9oNZ-Et0z8dbOlPvYMEhHfgC4m4e6VIU9NOeZCg9X2VwFnrqD27pjKZy7iH576t0vUFHsSsvm3F5aZqPpbae9cKGh2ftasAyi1FqLGMW89Sa3vx7lbimRLUZIKqo8mEoTkqicrUP0blxJwiwyZHhppyFTH3GUKYbvsfQ3HGxSP546GhnnorzcUy7-Raw85ddcxbehXNsX15dOn-WodUzhmuyALRzXEelmtVywO8dICqEks"/>
+<div class="absolute top-4 left-4 bg-white px-3 py-1 text-[10px] font-bold tracking-tighter border border-neutral-200 uppercase">Vault ID: VLK-AVNT-042</div>
+</div>
+<div class="mt-8 flex flex-col items-end text-right relative">
+<div class="absolute -top-12 left-0 bg-avant-red text-white p-4 font-headline text-sm tracking-widest -rotate-3 shadow-xl z-10">
+                        EDITION 1 of 8 — NEVER REPRINTED
+                    </div>
+<h3 class="text-6xl font-headline uppercase leading-none mb-2">Asymmetric Monolith</h3>
+<div class="text-3xl font-headline text-neutral-400 mb-6">$2,800.00</div>
+<button class="paint-stroke paint-stroke-cobalt text-xl font-headline uppercase tracking-widest text-neutral-900">Join Waitlist</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="relative group transform -rotate-2 md:-translate-y-16">
+<div class="relative aspect-[3/4] bg-neutral-100 overflow-hidden shadow-2xl">
+<img alt="Avant-garde artifact" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD9S1gBh5rlZC6km1dISxTxVF2gSGehIwvGFg1VhK55-ZA0DfWKM5ecvYArSWgjVplRvN4B8RLoYUBVRMbCSLkoN1R2LC-ZCM0G7PUHV-DX9Eraynrid1K8FVBBquz9U9ffe4l_0eKa-KHudVCJJs0TOuatd1OBWqgcq66g_k4i02Q__yYMn68aKlf-WP-CDL6ldFOmr5mpINnku9SQiPTGI6RYD1NEyhZ8iPD-JEb0gzE-VI3OFmITRfUMufcMqCcV3TaUAMGq0Q"/>
+<div class="absolute top-4 left-4 bg-white px-3 py-1 text-[10px] font-bold tracking-tighter border border-neutral-200 uppercase">Vault ID: VLK-AVNT-089</div>
+</div>
+<div class="mt-8 flex flex-col items-start relative">
+<div class="absolute top-1/2 -right-8 transform -rotate-90 bg-avant-ochre text-white px-6 py-2 font-headline text-sm tracking-[0.4em] shadow-xl z-10">
+                        EDITION 1 of 5
+                    </div>
+<h3 class="text-6xl font-headline uppercase leading-none mb-2">Steel &amp; Silk</h3>
+<div class="text-3xl font-headline text-neutral-400 mb-6">$3,500.00</div>
+<button class="paint-stroke paint-stroke-ochre text-xl font-headline uppercase tracking-widest text-neutral-900">Join Waitlist</button>
+<p class="mt-2 text-[8px] uppercase tracking-widest text-neutral-400">Archival Series — Permanent Exit Pending</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="relative group transform rotate-1 md:translate-y-16">
+<div class="relative aspect-[3/4] bg-neutral-100 overflow-hidden shadow-2xl">
+<img alt="Avant-garde artifact" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN21rvxPfGQSIXZaZcmOnLWi_lBRzuT_ahSQzv18LcztYjzTBy9nbb2KZeWBOz5oackHyWTUq-6LlPKqxXNcEVqicqIQgE89Tjx5t63nhsAFtDevO9HqvMeFFcSOYiUrBnvuSEPCnnzRDjjlT9C_4kQlykmJD0kz9gmG7vl5ieqgPdXbEviHa_PZQ1_elvmCCgileXTHnXG9-hVn0w3MPaCQQ-lg5OHZ7NMN6Gab28_bghvC7_Pcy8Wvs3exUjKKwOLWpayt2oW8A"/>
+<div class="absolute top-4 left-4 bg-white px-3 py-1 text-[10px] font-bold tracking-tighter border border-neutral-200 uppercase">Vault ID: VLK-AVNT-102</div>
+</div>
+<div class="mt-8 flex flex-col items-end text-right relative">
+<div class="bg-neutral-100 p-2 border border-neutral-200 mb-4 inline-block">
+<span class="text-[10px] font-bold font-label uppercase tracking-widest">NEVER REPRINTED — EDITION 1 of 3</span>
+</div>
+<h3 class="text-6xl font-headline uppercase leading-none mb-2">Chromatic Dysphoria</h3>
+<div class="text-3xl font-headline text-neutral-400 mb-6">$5,200.00</div>
+<button class="paint-stroke text-xl font-headline uppercase tracking-widest text-neutral-900">Join Waitlist</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Retired Section -->
+<section class="py-32 px-8 bg-neutral-50 relative mt-48">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<h2 class="text-7xl font-headline uppercase leading-none">Decommissioned<br/><span class="text-neutral-400">Gallery</span></h2>
+<div class="text-right max-w-sm">
+<p class="font-body text-sm text-neutral-500 uppercase tracking-widest">
+                        These artifacts have been permanently removed from circulation. We do not restock. We do not revisit.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Retired Card 1 -->
+<div class="relative group opacity-60">
+<div class="aspect-square bg-neutral-200 grayscale overflow-hidden">
+<img alt="Retired Item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv_ki7xZOE32XftDKMrgpQq9cmSt8-F7EEzSJyCagHQjihFzdwp2OFIB6vDPNvW5XxZovPmD6MIgGMJV1ck09rRFf1hUGH0RzsvajFZP85bYwLuXps_jFF7E736k1HdkZAow3jqbITHgOz-DwGfTSNOTBtCUhxfM3NT449w5BOxOw48HAY1aigBKGSHNAxufQd1pbSlgUDYSbLQocvfKPaLwedopnZmGtj8KTlbH9-ASe8gQ1G83o-Mpw1RyUBxW801vZR19NQiyI"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-full h-full p-4" viewbox="0 0 400 400">
+<path d="M 0 150 Q 200 250 400 150" fill="none" stroke="#c0392b" stroke-width="8"></path>
+<circle cx="10" cy="150" fill="#d4af37" r="12"></circle>
+<circle cx="390" cy="150" fill="#d4af37" r="12"></circle>
+</svg>
+</div>
+<div class="mt-6 bg-white p-6 shadow-lg transform translate-y-[-20px] mx-4 relative z-10">
+<div class="text-center font-headline">
+<div class="text-avant-red text-sm tracking-widest uppercase mb-2">Exhibit Closed — Permanently</div>
+<h4 class="text-2xl uppercase text-neutral-900">The Glass Shroud</h4>
+<div class="mt-2 text-xs font-label text-neutral-400">Vault Exit: 11/2023</div>
+</div>
+</div>
+</div>
+<!-- Retired Card 2 -->
+<div class="relative group opacity-60">
+<div class="aspect-square bg-neutral-200 grayscale overflow-hidden">
+<img alt="Retired Item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTYsjDqRZsRBC_4Mh2Y6CEjTMPCDlsw4ZGMNmIIGub-NnG5bWVdgTWjEruRq7mqwttSZpc2LDZyYVjgXnwDQaCKcPuWyuH3YYdCWHGD4XwulsE0JxoNTmQ6OEroza2I0qutwVr7F7YJNpQIOuOFRx-ZuM1c9_7WNyBkdfbNhVeiLG2NnRAS6YPrE3l_IwQbfMuxN7ThLY3c19PHoPEZNq4HwfCixttzu1OyHfrN-8XMfdPw9V96F2dWrDfTszPfOwk76nc4Oyfc8k"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-full h-full p-4" viewbox="0 0 400 400">
+<path d="M 0 150 Q 200 250 400 150" fill="none" stroke="#c0392b" stroke-width="8"></path>
+<circle cx="10" cy="150" fill="#d4af37" r="12"></circle>
+<circle cx="390" cy="150" fill="#d4af37" r="12"></circle>
+</svg>
+</div>
+<div class="mt-6 bg-white p-6 shadow-lg transform translate-y-[-20px] mx-4 relative z-10">
+<div class="text-center font-headline">
+<div class="text-avant-red text-sm tracking-widest uppercase mb-2">Exhibit Closed — Permanently</div>
+<h4 class="text-2xl uppercase text-neutral-900">Industrial Spine</h4>
+<div class="mt-2 text-xs font-label text-neutral-400">Vault Exit: 02/2024</div>
+</div>
+</div>
+</div>
+<!-- Retired Card 3 -->
+<div class="relative group opacity-60">
+<div class="aspect-square bg-neutral-200 grayscale overflow-hidden">
+<img alt="Retired Item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTZJMHM3qkY7_3txvnD_WCX6yaVrjiDtFiAzMEikzaWUPb6lXIEQONMWqYUl_-KgUWsGa7g59adAXBQLPSNG16BNJdoctlTqelTxQ7TAjx38z7lRp7Tlx2-e4pj4lD45_ZSlD6__6MlDPmHiAgbu1hy7BDGqeokOdFxlZPB5oWHw4D9EizQfBpqewR7zae0Jfo8zFw_rpVwj55jKYH2m5_6PMpt5EsddTSSkUlWS-1z4Mn1qy7s2hYha8uWKRW8UJLSA0sXBk0kHo"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-full h-full p-4" viewbox="0 0 400 400">
+<path d="M 0 150 Q 200 250 400 150" fill="none" stroke="#c0392b" stroke-width="8"></path>
+<circle cx="10" cy="150" fill="#d4af37" r="12"></circle>
+<circle cx="390" cy="150" fill="#d4af37" r="12"></circle>
+</svg>
+</div>
+<div class="mt-6 bg-white p-6 shadow-lg transform translate-y-[-20px] mx-4 relative z-10">
+<div class="text-center font-headline">
+<div class="text-avant-red text-sm tracking-widest uppercase mb-2">Exhibit Closed — Permanently</div>
+<h4 class="text-2xl uppercase text-neutral-900">Unseen Echo</h4>
+<div class="mt-2 text-xs font-label text-neutral-400">Vault Exit: 05/2024</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-950 text-white py-24 px-8 border-t-0">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div>
+<div class="text-lg font-black text-neutral-200 uppercase font-headline tracking-widest mb-8">VASLIC</div>
+<p class="font-body text-sm text-neutral-500 leading-relaxed uppercase tracking-tighter">
+                The Kinetic Curator. We do not cater to the mass market. We provide artifacts for the intentional few.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-headline text-cyan-600 uppercase tracking-widest text-sm">Navigation</span>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Privacy Policy</a>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Terms of Service</a>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Vault Registration</a>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Shipping</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-headline text-cyan-600 uppercase tracking-widest text-sm">Collections</span>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">The Vault</a>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Active Drops</a>
+<a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 font-body text-sm uppercase" href="#">Archive</a>
+</div>
+<div class="flex flex-col gap-8">
+<div class="p-6 bg-neutral-900 border border-neutral-800">
+<span class="font-headline text-white text-xl uppercase mb-4 block">Subscribe to Scarcity</span>
+<div class="flex items-end">
+<input class="bg-transparent border-0 border-b border-neutral-700 w-full font-label text-xs focus:ring-0 focus:border-cyan-400 py-2" placeholder="ENCRYPTED EMAIL" type="email"/>
+<button class="ml-4 text-cyan-400 hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-12 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
+<p class="font-body text-sm tracking-wide text-neutral-600 uppercase">© 2024 VASLIC. No reprints. No restocks. No exceptions.</p>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer" data-icon="info">info</span>
+</div>
+</div>
+</footer>
+<!-- Theme Switcher Floating Dock -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-3 bg-neutral-950/60 backdrop-blur-2xl border border-white/5 flex gap-8 items-center">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-neutral-500 group-hover:text-white" data-icon="dark_mode">dark_mode</span>
+<span class="text-[10px] font-headline uppercase text-neutral-500 group-hover:text-white">Gothic</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-neutral-500 group-hover:text-white" data-icon="local_florist">local_florist</span>
+<span class="text-[10px] font-headline uppercase text-neutral-500 group-hover:text-white">Boho</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-cyan-400" data-icon="architecture">architecture</span>
+<span class="text-[10px] font-headline uppercase text-cyan-400">Avant</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-neutral-500 group-hover:text-white" data-icon="theater_comedy">theater_comedy</span>
+<span class="text-[10px] font-headline uppercase text-neutral-500 group-hover:text-white">Street</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-neutral-500 group-hover:text-white" data-icon="celebration">celebration</span>
+<span class="text-[10px] font-headline uppercase text-neutral-500 group-hover:text-white">Funky</span>
+</button>
+</div>
+</body></html>

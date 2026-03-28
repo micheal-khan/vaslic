@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#353535",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "secondary": "#ffb4a8",
+              "background": "#ffffff",
+              "surface-variant": "#353535",
+              "surface-container-lowest": "#fcfcfc",
+              "on-surface-variant": "#4b5563",
+              "on-primary": "#003548",
+              "on-primary-container": "#002e3e",
+              "on-primary-fixed": "#001e2b",
+              "surface-container-high": "#f3f4f6",
+              "on-error": "#690005",
+              "tertiary-fixed": "#f5e642",
+              "secondary-fixed-dim": "#ffb4a8",
+              "primary-fixed-dim": "#72d2ff",
+              "on-secondary-container": "#ff9a8a",
+              "tertiary-container": "#bbae00",
+              "surface-tint": "#008DB9",
+              "on-secondary-fixed-variant": "#920703",
+              "outline-variant": "#e5e7eb",
+              "primary": "#008DB9",
+              "on-background": "#111827",
+              "surface-bright": "#ffffff",
+              "outline": "#9ca3af",
+              "primary-fixed": "#c1e8ff",
+              "on-tertiary-container": "#464100",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#d8ca23",
+              "surface": "#ffffff",
+              "inverse-primary": "#006687",
+              "surface-dim": "#f9fafb",
+              "error-container": "#93000a",
+              "secondary-container": "#920703",
+              "primary-container": "#289bc8",
+              "error": "#ffb4ab",
+              "tertiary-fixed-dim": "#d8ca23",
+              "on-secondary": "#690000",
+              "surface-container": "#f9fafb",
+              "inverse-on-surface": "#313030",
+              "on-surface": "#111827",
+              "on-primary-fixed-variant": "#004d66",
+              "surface-container-low": "#f3f4f6",
+              "on-secondary-fixed": "#410000",
+              "on-tertiary": "#363100",
+              "secondary-fixed": "#ffdad4",
+              "on-tertiary-fixed": "#1f1c00",
+              "inverse-surface": "#e5e2e1"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brush-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .brush-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: currentColor;
+            clip-path: polygon(0% 20%, 15% 0%, 30% 25%, 45% 5%, 60% 30%, 75% 10%, 90% 35%, 100% 15%, 100% 85%, 85% 100%, 70% 75%, 55% 95%, 40% 70%, 25% 90%, 10% 65%, 0% 80%);
+            opacity: 0.8;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .rotated-accent {
+            transform: rotate(-2deg);
+        }
+        .paint-splash-cobalt {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 150 Q 150 50 250 150 T 350 150' stroke='%230047AB' stroke-width='40' fill='none' stroke-linecap='round' opacity='0.15' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 10% 20%;
+            background-size: 600px;
+        }
+        .paint-splash-ochre {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 200 Q 100 350 380 200' stroke='%23CC7722' stroke-width='60' fill='none' stroke-linecap='round' opacity='0.15' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 85% 70%;
+            background-size: 800px;
+        }
+        .paint-splash-cadmium {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 20 L 300 380' stroke='%23E30022' stroke-width='30' fill='none' stroke-linecap='round' opacity='0.15' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 40% 90%;
+            background-size: 500px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body overflow-x-hidden selection:bg-primary selection:text-on-primary text-zinc-900">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-zinc-100">
+<div class="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto">
+<div class="text-3xl font-black tracking-tighter text-zinc-900 dark:text-white font-headline">VASLIC</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-headline font-bold tracking-tight uppercase" href="#">Collections</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-headline font-bold tracking-tight uppercase" href="#">Archives</a>
+<a class="text-cyan-600 dark:text-cyan-400 border-b-2 border-cyan-600 dark:border-cyan-400 pb-1 font-headline font-bold tracking-tight uppercase" href="#">Exhibitions</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-headline font-bold tracking-tight uppercase" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-zinc-100 dark:bg-zinc-900 px-4 py-2">
+<span class="material-symbols-outlined text-zinc-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-headline tracking-widest uppercase ml-2 text-zinc-500" placeholder="SEARCH ARCHIVE" type="text"/>
+</div>
+<button class="relative hover:translate-x-1 transition-transform duration-200 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] font-bold w-4 h-4 flex items-center justify-center">0</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 relative">
+<!-- Background Accents -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute inset-0 paint-splash-cobalt"></div>
+<div class="absolute inset-0 paint-splash-ochre"></div>
+<div class="absolute inset-0 paint-splash-cadmium"></div>
+<div class="absolute top-1/2 right-4 vertical-text opacity-[0.03] font-headline font-black text-9xl tracking-[0.2em] select-none text-black">
+                FOREVER.
+            </div>
+</div>
+<section class="max-w-[1800px] mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+<!-- Left: High-Resolution Gallery (Asymmetric Grid) -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<div class="md:col-span-2 aspect-[4/5] overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Avant-garde fashion editorial featuring a structural black garment with sharp deconstructed silhouettes against a stark white museum gallery wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn3anISZG6PAZ9PhqOJN2cN9l1Wyxwrh1P4xUxt3MCe9EmAtrStqJoMJO3nd0jIZSS4hd6GNI2y5oEJhSxGe6nh2DA1hRNfMCyHbLYv2ueVg0Pvm6DuPqQfwu58WEILDNOy8-TV_qdZyytstJfCuvq9zOr2Ry4GnNPC36tso-ICkd-ywECwz0OiogJHe51uTmUfGqYA7RrgED2ImKu6GU7PSRIjmgWnY9CdaHZLI5RzFsNp7yIqojg2foi6zvO93iI4p6lE_exu2M"/>
+</div>
+<div class="aspect-square overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Close up detail of high-end brutalist fabric texture with raw edges and metallic thread accents in soft museum lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIj1RF9CjaRFAAbowoLppPE39jlcvCz5tqie4inVsdY3tZlOuGXSmWSNSm1XlgUjpUzLlRpWD0qKyyNNr5tLibacCIKsFduhOgOB-LWfLeTIkoItwmIFWAJjTieOQoZVrQbZmo_vOWT_7GcRQmDwZ51S2J4XumUdofOY_4I3gveMJfMNHHGbrdh8GoorVUQhbZ2VZPKdQr9kmjZhAEEpU7cYjFY0wN8iPa-myGYdGENEt-oRwLVIQRFfHwOT4KZ0QPnmviFuGM3n0"/>
+</div>
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low group mt-12">
+<img class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Editorial fashion photography of a model in a sculptural monochromatic outfit posing in an minimalist architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK7BpRLVfclQzTdo6ShpTKgzHMfwJzuj22qrZ18KILXU-1ZVBzV0754BwOeNBWFwHy28mG5Z_zsWCILEHiJtEAmjDDjd8p52QjrLKQ7YwIdCzU5nc_LmpK5Y_qfl_JWIjklm9EEMqxm5MY7xFFg1rqHbEw-129lbRx_UZLSC5AOfHGEnOb5y0uxqiPldgWS70GZEHII_L9MPF8hmZfaNgXbKf0YlhNtKWVfY20_4VRs7pO2qrN8wRHrzmJeHanHrPGYUa1zgUjpXs"/>
+</div>
+</div>
+<!-- Right: Product Details & Purchase Logic -->
+<div class="lg:col-span-5 flex flex-col justify-start lg:sticky lg:top-40 h-fit">
+<!-- Identification -->
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-primary text-on-primary px-3 py-1 font-label text-[10px] tracking-[0.3em] font-black uppercase">VAULT ID: VLK-AVNT-001</span>
+<span class="text-outline text-[10px] tracking-widest uppercase font-label">Avant-Garde Collection</span>
+</div>
+<!-- Main Display Typography -->
+<h1 class="font-headline font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter mb-4 rotated-accent text-zinc-900">
+                    THE DECONSTRUCTED VOID
+                </h1>
+<div class="flex items-baseline gap-6 mb-12">
+<span class="font-headline font-light text-6xl tracking-tighter text-primary">$1,240</span>
+<span class="font-label text-xs text-outline tracking-widest uppercase">VAT INCL.</span>
+</div>
+<!-- Scarcity Note -->
+<div class="mb-16 border-l-2 border-primary pl-6 py-2">
+<p class="font-headline font-bold text-lg leading-tight uppercase tracking-tight">
+                        Edition 1 of 12 — Never Reprinted
+                    </p>
+<p class="font-body text-xs text-outline-variant mt-2 uppercase tracking-widest">
+                        Once it's gone, it's gone. Forever.
+                    </p>
+</div>
+<!-- Artist Statement -->
+<div class="mb-16 max-w-md">
+<h3 class="font-headline font-bold text-xs tracking-[0.4em] uppercase mb-4 text-primary">Artist Statement</h3>
+<p class="font-body text-sm leading-relaxed text-on-surface-variant font-light">
+                        "The Deconstructed Void" is a manifestation of <span class="text-on-surface font-bold">wearable brutalism</span>. It explores the tension between industrial rigidity and the fluidity of the human form. Every seam is a calculated fracture; every raw edge is a dialogue with entropy. This is not clothing—it is a temporary architecture for the body.
+                    </p>
+<div class="mt-6 font-label text-[9px] uppercase tracking-[0.2em] text-outline italic">
+                        — VASLIC KINETIC STUDIOS, 2024
+                    </div>
+</div>
+<!-- Interaction Zone -->
+<div class="space-y-12">
+<!-- Size Selection -->
+<div>
+<span class="font-label text-[10px] tracking-[0.3em] uppercase block mb-6 text-outline">Select Dimension</span>
+<div class="flex flex-wrap gap-4">
+<button class="w-14 h-14 flex items-center justify-center border border-outline-variant hover:border-primary font-headline text-lg transition-all hover:bg-primary-container hover:text-on-primary-container">XS</button>
+<button class="w-14 h-14 flex items-center justify-center border-2 border-primary font-headline text-lg bg-primary-container text-on-primary-container">S</button>
+<button class="w-14 h-14 flex items-center justify-center border border-outline-variant hover:border-primary font-headline text-lg transition-all hover:bg-primary-container hover:text-on-primary-container">M</button>
+<button class="w-14 h-14 flex items-center justify-center border border-outline-variant opacity-30 cursor-not-allowed font-headline text-lg">L</button>
+<button class="w-14 h-14 flex items-center justify-center border border-outline-variant hover:border-primary font-headline text-lg transition-all hover:bg-primary-container hover:text-on-primary-container">XL</button>
+</div>
+</div>
+<!-- CTA -->
+<div class="pt-8">
+<button class="brush-underline text-primary font-headline font-black text-4xl tracking-tighter uppercase hover:translate-x-4 transition-transform duration-500">
+                            Join Waitlist
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Detail Sections (Editorial Layout) -->
+<section class="mt-40 py-32 overflow-hidden bg-white">
+<div class="max-w-[1920px] mx-auto px-8 lg:px-16 grid grid-cols-1 md:grid-cols-3 gap-24">
+<div class="space-y-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="architecture">architecture</span>
+<h4 class="font-headline font-black text-2xl uppercase tracking-tighter text-zinc-900">Structural Integrity</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Constructed from 420gsm heavy-weight industrial canvas, treated with a proprietary cold-dye process that ensures no two pieces share the same texture map.
+                    </p>
+</div>
+<div class="space-y-6 relative">
+<div class="absolute -top-12 -left-8 text-9xl font-black text-surface opacity-10 select-none">02</div>
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="layers">layers</span>
+<h4 class="font-headline font-black text-2xl uppercase tracking-tighter text-zinc-900">Layered Narrative</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Internal webbing system allows for multi-axial drape adjustment, transforming the silhouette from a sharp rectangle to a soft, organic cocoon.
+                    </p>
+</div>
+<div class="space-y-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified">verified</span>
+<h4 class="font-headline font-black text-2xl uppercase tracking-tighter text-zinc-900">Provenance</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Includes a physical NFC-enabled tag linked to the VASLIC Archive, certifying ownership and piece history within the collection.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-12 py-20 max-w-[1920px] mx-auto">
+<div>
+<div class="text-xl font-bold text-zinc-900 dark:text-white font-headline mb-8">VASLIC KINETIC CURATIONS</div>
+<p class="text-zinc-400 dark:text-zinc-500 max-w-sm font-body text-sm leading-relaxed mb-8">
+                    An editorial ecosystem dedicated to the preservation of avant-garde textile architecture and brutalist aesthetics.
+                </p>
+<div class="font-['Manrope'] text-sm tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
+                    © 2024 VASLIC KINETIC CURATIONS. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="text-cyan-600 dark:text-cyan-400 font-headline font-bold uppercase tracking-[0.2em] text-xs mb-2">The Archive</h5>
+<a class="text-zinc-400 dark:text-zinc-500 hover:text-cyan-600 transition-colors font-['Manrope'] text-sm tracking-widest uppercase hover:underline decoration-cyan-600 underline-offset-4" href="#">Sustainability</a>
+<a class="text-zinc-400 dark:text-zinc-500 hover:text-cyan-600 transition-colors font-['Manrope'] text-sm tracking-widest uppercase hover:underline decoration-cyan-600 underline-offset-4" href="#">Press Inquiry</a>
+<a class="text-zinc-400 dark:text-zinc-500 hover:text-cyan-600 transition-colors font-['Manrope'] text-sm tracking-widest uppercase hover:underline decoration-cyan-600 underline-offset-4" href="#">Accessibility</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-cyan-600 dark:text-cyan-400 font-headline font-bold uppercase tracking-[0.2em] text-xs mb-2">Legal</h5>
+<a class="text-zinc-400 dark:text-zinc-500 hover:text-cyan-600 transition-colors font-['Manrope'] text-sm tracking-widest uppercase hover:underline decoration-cyan-600 underline-offset-4" href="#">Legal Notice</a>
+<a class="text-zinc-400 dark:text-zinc-500 hover:text-cyan-600 transition-colors font-['Manrope'] text-sm tracking-widest uppercase hover:underline decoration-cyan-600 underline-offset-4" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Theme Switcher (from Design System) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-surface-container-highest/60 backdrop-blur-[20px] px-4 py-2 rounded-full border border-outline-variant/15 z-[100]">
+<div class="w-8 h-8 bg-zinc-100 border border-zinc-200 cursor-pointer" title="Avant-Garde"></div>
+<div class="w-8 h-8 bg-[#0a0a0a] border border-zinc-800 cursor-pointer" title="Gothic"></div>
+<div class="w-8 h-8 bg-[#f5ebe0] border border-zinc-300 cursor-pointer" title="Bohemian"></div>
+<div class="w-8 h-8 bg-[#1a1a1a] border border-zinc-700 cursor-pointer" title="Street"></div>
+<div class="w-8 h-8 bg-[#0d0d2b] border border-zinc-800 cursor-pointer" title="Funky"></div>
+<div class="h-4 w-px bg-outline-variant/30 mx-2"></div>
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant pr-2">Change Aesthetic</span>
+</div>
+</body></html>

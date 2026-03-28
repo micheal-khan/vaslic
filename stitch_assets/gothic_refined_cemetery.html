@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VASLIC | GOTHIC ARCHIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=UnifrakturMaguntia&amp;family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#ffdad6",
+              "surface-variant": "#353535",
+              "primary": "#72d2ff",
+              "tertiary-fixed": "#f5e642",
+              "primary-container": "#289bc8",
+              "outline": "#889299",
+              "on-error": "#690005",
+              "tertiary": "#d8ca23",
+              "tertiary-container": "#bbae00",
+              "inverse-surface": "#e5e2e1",
+              "primary-fixed-dim": "#72d2ff",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "surface-container-highest": "#353535",
+              "on-secondary-fixed-variant": "#920703",
+              "error": "#ffb4ab",
+              "inverse-primary": "#006687",
+              "on-tertiary": "#363100",
+              "on-secondary-fixed": "#410000",
+              "primary-fixed": "#c1e8ff",
+              "on-primary-fixed-variant": "#004d66",
+              "secondary": "#8b0000",
+              "on-tertiary-container": "#464100",
+              "tertiary-fixed-dim": "#d8ca23",
+              "surface-container-lowest": "#0a0a0a",
+              "on-primary": "#003548",
+              "error-container": "#93000a",
+              "secondary-fixed": "#ffdad4",
+              "on-secondary": "#690000",
+              "surface-container-low": "#111111",
+              "on-tertiary-fixed": "#1f1c00",
+              "surface-dim": "#0a0a0a",
+              "on-surface": "#e5e2e1",
+              "on-primary-container": "#002e3e",
+              "surface-bright": "#1a1a1a",
+              "on-primary-fixed": "#001e2b",
+              "surface-container-high": "#1c1c1c",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#410000",
+              "on-background": "#e5e2e1",
+              "surface": "#0a0a0a",
+              "secondary-fixed-dim": "#ffb4a8",
+              "background": "#0a0a0a",
+              "surface-container": "#151515",
+              "on-surface-variant": "#bec8cf",
+              "surface-tint": "#72d2ff",
+              "on-secondary-container": "#ff9a8a",
+              "outline-variant": "#3e484e"
+            },
+            fontFamily: {
+              "headline": ["UnifrakturMaguntia", "serif"],
+              "body": ["Crimson Text", "serif"],
+              "label": ["Space Grotesk", "sans-serif"],
+              "nav": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+        .stone-texture {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAjm8y6xoys2_wPGmzmsN4VNdSUR83uSN3q0yny0zEtfsRZPXOdGA0m8wpRGplPpTUpFWaauTADNL3vKWhWLjATty2T0Jru61gtFe4JlzSNwFLw8Q4Iy4gsHjVnFFPtE7lXCKzBP_QjkgqiNzi26oKLrUziuoZaEwer7cpa7LWUUk5w7B--RNqxENlviBDSNOKSgDBFE1ixez2zpOjGgW5xboQ0rAVbYz1CqFkATQIxxGgECxT6WyU1hr8IZ3v0nuqhki_Blpob95c);
+            opacity: 0.08
+        }
+        .darkness-creep {
+            background: radial-gradient(circle, transparent 40%, #000 100%)
+        }
+        .flicker-hover:hover {
+            animation: flicker 0.15s infinite;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.4)
+        }
+        @keyframes flicker {
+            0% { opacity: 0.95; } 50% { opacity: 1; } 100% { opacity: 0.9; }
+        }
+        .lace-border {
+            border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><path d='M0 20 C 10 0, 30 0, 40 20 C 30 40, 10 40, 0 20' fill='none' stroke='%238b0000' stroke-width='1'/></svg>") 30 repeat;
+            border-bottom: 4px solid transparent
+        }
+        .gothic-arch {
+            clip-path: ellipse(50% 100% at 50% 100%)
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+<!-- Overlay effects -->
+<div class="fixed inset-0 pointer-events-none stone-texture z-[60]"></div>
+<div class="fixed inset-0 pointer-events-none darkness-creep z-[55]"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex justify-between items-center px-8 h-24 max-w-full mx-auto">
+<div class="text-3xl font-black text-white tracking-widest uppercase font-nav">VASLIC</div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="text-secondary border-b-2 border-secondary pb-1 font-nav font-bold tracking-tighter uppercase text-xs" href="#">Gothic</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-nav font-bold tracking-tighter uppercase text-xs" href="#">Bohemian</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-nav font-bold tracking-tighter uppercase text-xs" href="#">Avant-Garde</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-nav font-bold tracking-tighter uppercase text-xs" href="#">Street</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-nav font-bold tracking-tighter uppercase text-xs" href="#">Funky</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-white hover:text-secondary transition-colors">shopping_bag</button>
+<button class="material-symbols-outlined text-white hover:text-secondary transition-colors">person</button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<header class="relative mb-32 flex flex-col items-center text-center">
+<div class="absolute -top-12 opacity-20 transform rotate-180">
+<svg fill="none" height="100" viewbox="0 0 200 100" width="200" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 100C0 44.7715 44.7715 0 100 0C155.228 0 200 44.7715 200 100H0Z" fill="#8b0000"></path>
+</svg>
+</div>
+<h1 class="font-headline text-8xl md:text-[10rem] text-white leading-none mb-4 z-10">Gothic</h1>
+<p class="text-secondary font-nav uppercase tracking-[0.5em] text-sm mb-12">The Shadow Archive</p>
+<div class="max-w-2xl text-2xl italic text-neutral-400 leading-relaxed font-body">
+                "Every design dies once. This one is still alive."
+            </div>
+<div class="mt-12 group flex flex-col items-center gap-4">
+<div class="flex items-center gap-6 text-xs font-nav uppercase tracking-[0.4em] text-secondary font-bold">
+<span class="w-16 h-px bg-secondary"></span>
+                    Once it's gone, it's gone. Forever.
+                    <span class="w-16 h-px bg-secondary"></span>
+</div>
+</div>
+</header>
+<!-- Live Products Grid: Refined 2x2 -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-48">
+<!-- Product 1 -->
+<div class="group relative flicker-hover border border-neutral-900 bg-neutral-950/40 p-6 transition-all duration-500 hover:border-secondary/40">
+<div class="aspect-[4/5] overflow-hidden bg-neutral-900 relative">
+<img alt="The Mourning Shroud" class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXPobNJ8ZE8-1eQzq0wrcBI030bIaKdacsQkPu36uHtbFbkVErjL0VnjGz_cKuRgzm2A6oWzHxhXBDJN_yGnuqxZ45qmO7In5KWzpYCaceiajZS1qlZyCla4nzc30wjvmZFMF9O19JPFn_LfeeHQbx3_kR08S2iXpaDg_HKkSX67T_9xSk8Wl0vVmNe7dROv6qTlCHxsMtRe-6s6jgN4UQjjZCST5R9rxV9X1sDmxXIbPHFrWQKLGyt2Pf8u0bHjmVw7-V_K1UA_k"/>
+<div class="absolute top-0 right-0 bg-secondary px-4 py-2 text-[10px] font-nav uppercase font-bold tracking-widest text-white">Live</div>
+</div>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-nav text-secondary tracking-widest uppercase">Vault ID: VLK-GOTH-001</span>
+<h3 class="font-headline text-4xl text-white mt-1">The Mourning Shroud</h3>
+</div>
+<div class="text-right">
+<span class="text-secondary font-nav text-2xl font-black">3</span>
+<div class="text-[9px] text-neutral-500 uppercase font-nav tracking-tighter">Units Remaining</div>
+</div>
+</div>
+<p class="text-[10px] font-nav uppercase tracking-widest text-neutral-400 border-t border-neutral-900 pt-4">Edition 1 of 50 — Never Reprinted</p>
+<button class="w-full py-4 bg-transparent border border-secondary text-secondary font-nav uppercase text-xs tracking-[0.3em] hover:bg-secondary hover:text-white transition-all">Claim Vessel</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group relative flicker-hover border border-neutral-900 bg-neutral-950/40 p-6 transition-all duration-500 hover:border-secondary/40 md:mt-12">
+<div class="aspect-[4/5] overflow-hidden bg-neutral-900 relative">
+<img alt="Reliquary Boots" class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu2HBzXgf6Z64f3_6UXHPZ01Zcxycst_wAkG_sDovagw1BCcOywS8gQKKm5ZaySs9A9MV8m2K32qwR3A9eKjy6vzhCAkqo2ZgqtPDaexr9SIpNgYNZz5ezI9219pj12na_n3mKlAY0_tNdcdk8xrK1TdsWFRALNxfUgv8vE3P5mHNQ4rKCQhaP5qxi_1VQZIcubteB_2Ks8dhk5s7pPGYyKaQAc4c7MKxkkBgkLwOk557RNRxdUIs8nays7f64UAEAVqacWcHmjJc"/>
+<div class="absolute top-0 right-0 bg-secondary px-4 py-2 text-[10px] font-nav uppercase font-bold tracking-widest text-white">Live</div>
+</div>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-nav text-secondary tracking-widest uppercase">Vault ID: VLK-GOTH-014</span>
+<h3 class="font-headline text-4xl text-white mt-1">Reliquary Boots</h3>
+</div>
+<div class="text-right">
+<span class="text-secondary font-nav text-2xl font-black">7</span>
+<div class="text-[9px] text-neutral-500 uppercase font-nav tracking-tighter">Units Remaining</div>
+</div>
+</div>
+<p class="text-[10px] font-nav uppercase tracking-widest text-neutral-400 border-t border-neutral-900 pt-4">Edition 1 of 50 — Never Reprinted</p>
+<button class="w-full py-4 bg-transparent border border-secondary text-secondary font-nav uppercase text-xs tracking-[0.3em] hover:bg-secondary hover:text-white transition-all">Claim Vessel</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group relative flicker-hover border border-neutral-900 bg-neutral-950/40 p-6 transition-all duration-500 hover:border-secondary/40 md:-mt-12">
+<div class="aspect-[4/5] overflow-hidden bg-neutral-900 relative">
+<img alt="Sinner's Rosary" class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXJ5Rz2h9obVCh_a052Yi0nDEfHCnud6eoWYdtgae_wHjOCXV6s8I1plaTrvKAzIJGBZpiUPQJV2J2n3qXFQI3y8_CVruPIvITsyRg7ko6JKi_qTASP5gwkQfKgrbKbi49KaeEqr8ybS7UD6rMnZfOCiYmAvte-DlP0pq6z1Su3hkJ4cgXjO9KEqBUIHxkMt6vgs6iC-3EtSLbWjvoegJ4wUX_Fho_kfRgNLt_X25gDMYrFFcnx4U_lGWZ7I7DrZSVrGe_GZLeDOY"/>
+<div class="absolute top-0 right-0 bg-secondary px-4 py-2 text-[10px] font-nav uppercase font-bold tracking-widest text-white">Live</div>
+</div>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-nav text-secondary tracking-widest uppercase">Vault ID: VLK-GOTH-009</span>
+<h3 class="font-headline text-4xl text-white mt-1">Sinner's Rosary</h3>
+</div>
+<div class="text-right">
+<span class="text-secondary font-nav text-2xl font-black">1</span>
+<div class="text-[9px] text-neutral-500 uppercase font-nav tracking-tighter">Units Remaining</div>
+</div>
+</div>
+<p class="text-[10px] font-nav uppercase tracking-widest text-neutral-400 border-t border-neutral-900 pt-4">Edition 1 of 50 — Never Reprinted</p>
+<button class="w-full py-4 bg-secondary text-white font-nav uppercase text-xs tracking-[0.3em] hover:bg-white hover:text-black transition-all">Last Chance</button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group relative flicker-hover border border-neutral-900 bg-neutral-950/40 p-6 transition-all duration-500 hover:border-secondary/40">
+<div class="aspect-[4/5] overflow-hidden bg-neutral-900 relative">
+<img alt="Cathedral Cape" class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALMWwASYtnHO1m_xW6NjYRmEITtoyzra5z4bVrtG92XDB-T-N2c3n8Xlq-ZDP9Reb8uS4MIEpH-V7CmWXBV_ACM5xhN-5bjY-RuJhsJmZlwWoYi39lrsk9EN9dcPDhXs9S0EtTC1AahOzWxaCEazU-JePryKf7mzQOO_MKrMhgug1OlXymDm1nEc1oH32hyW62YPTtWt94YkrZ7sXzqwEUQIRDJa7uddDzMCnddkggsZPtU8fpnfpjhajAv5j27W1d4vFYsUi7uc8"/>
+<div class="absolute top-0 right-0 bg-secondary px-4 py-2 text-[10px] font-nav uppercase font-bold tracking-widest text-white">Live</div>
+</div>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-nav text-secondary tracking-widest uppercase">Vault ID: VLK-GOTH-022</span>
+<h3 class="font-headline text-4xl text-white mt-1">Cathedral Cape</h3>
+</div>
+<div class="text-right">
+<span class="text-secondary font-nav text-2xl font-black">12</span>
+<div class="text-[9px] text-neutral-500 uppercase font-nav tracking-tighter">Units Remaining</div>
+</div>
+</div>
+<p class="text-[10px] font-nav uppercase tracking-widest text-neutral-400 border-t border-neutral-900 pt-4">Edition 1 of 50 — Never Reprinted</p>
+<button class="w-full py-4 bg-transparent border border-secondary text-secondary font-nav uppercase text-xs tracking-[0.3em] hover:bg-secondary hover:text-white transition-all">Claim Vessel</button>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="flex flex-col items-center mb-40">
+<div class="w-full max-w-lg h-px bg-neutral-900 relative">
+<div class="absolute left-1/2 -translate-x-1/2 -top-4 text-secondary">
+<svg fill="currentColor" height="40" viewbox="0 0 40 40" width="40">
+<path d="M20 0L40 40H0L20 0Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Retired Section (The Cemetery) -->
+<section class="mb-40">
+<div class="mb-24 text-center">
+<h2 class="font-headline text-8xl text-neutral-600">The Cemetery</h2>
+<p class="font-nav text-xs uppercase tracking-[0.6em] text-neutral-700 mt-4">Resting Forever in the Vault</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+<!-- Retired 1 -->
+<div class="group relative">
+<div class="gothic-arch aspect-[3/5] overflow-hidden grayscale bg-neutral-950 border border-neutral-900 p-4 opacity-40 hover:opacity-100 transition-all duration-700 group-hover:border-secondary/20">
+<img alt="The Wraith Gown" class="w-full h-full object-cover filter brightness-[0.3] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXPobNJ8ZE8-1eQzq0wrcBI030bIaKdacsQkPu36uHtbFbkVErjL0VnjGz_cKuRgzm2A6oWzHxhXBDJN_yGnuqxZ45qmO7In5KWzpYCaceiajZS1qlZyCla4nzc30wjvmZFMF9O19JPFn_LfeeHQbx3_kR08S2iXpaDg_HKkSX67T_9xSk8Wl0vVmNe7dROv6qTlCHxsMtRe-6s6jgN4UQjjZCST5R9rxV9X1sDmxXIbPHFrWQKLGyt2Pf8u0bHjmVw7-V_K1UA_k"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black/60 opacity-100">
+<span class="material-symbols-outlined text-neutral-700 text-5xl mb-4">church</span>
+<h4 class="font-headline text-3xl text-neutral-400">The Wraith Gown</h4>
+<div class="mt-6 pt-6 border-t border-neutral-800 w-full">
+<p class="text-[10px] font-nav uppercase text-neutral-600 tracking-widest">Died: Oct 2023</p>
+<p class="text-[9px] font-nav uppercase text-secondary mt-2 font-bold">Only 5 Ever Made</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Retired 2 -->
+<div class="group relative md:mt-12">
+<div class="gothic-arch aspect-[3/5] overflow-hidden grayscale bg-neutral-950 border border-neutral-900 p-4 opacity-40 hover:opacity-100 transition-all duration-700 group-hover:border-secondary/20">
+<img alt="Altar Mask" class="w-full h-full object-cover filter brightness-[0.3] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu2HBzXgf6Z64f3_6UXHPZ01Zcxycst_wAkG_sDovagw1BCcOywS8gQKKm5ZaySs9A9MV8m2K32qwR3A9eKjy6vzhCAkqo2ZgqtPDaexr9SIpNgYNZz5ezI9219pj12na_n3mKlAY0_tNdcdk8xrK1TdsWFRALNxfUgv8vE3P5mHNQ4rKCQhaP5qxi_1VQZIcubteB_2Ks8dhk5s7pPGYyKaQAc4c7MKxkkBgkLwOk557RNRxdUIs8nays7f64UAEAVqacWcHmjJc"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black/60 opacity-100">
+<span class="material-symbols-outlined text-neutral-700 text-5xl mb-4">auto_stories</span>
+<h4 class="font-headline text-3xl text-neutral-400">Altar Mask</h4>
+<div class="mt-6 pt-6 border-t border-neutral-800 w-full">
+<p class="text-[10px] font-nav uppercase text-neutral-600 tracking-widest">Died: Dec 2023</p>
+<p class="text-[9px] font-nav uppercase text-secondary mt-2 font-bold">Only 1 Ever Made</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Retired 3 -->
+<div class="group relative">
+<div class="gothic-arch aspect-[3/5] overflow-hidden grayscale bg-neutral-950 border border-neutral-900 p-4 opacity-40 hover:opacity-100 transition-all duration-700 group-hover:border-secondary/20">
+<img alt="Plague Collar" class="w-full h-full object-cover filter brightness-[0.3] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXJ5Rz2h9obVCh_a052Yi0nDEfHCnud6eoWYdtgae_wHjOCXV6s8I1plaTrvKAzIJGBZpiUPQJV2J2n3qXFQI3y8_CVruPIvITsyRg7ko6JKi_qTASP5gwkQfKgrbKbi49KaeEqr8ybS7UD6rMnZfOCiYmAvte-DlP0pq6z1Su3hkJ4cgXjO9KEqBUIHxkMt6vgs6iC-3EtSLbWjvoegJ4wUX_Fho_kfRgNLt_X25gDMYrFFcnx4U_lGWZ7I7DrZSVrGe_GZLeDOY"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black/60 opacity-100">
+<span class="material-symbols-outlined text-neutral-700 text-5xl mb-4">skull</span>
+<h4 class="font-headline text-3xl text-neutral-400">Plague Collar</h4>
+<div class="mt-6 pt-6 border-t border-neutral-800 w-full">
+<p class="text-[10px] font-nav uppercase text-neutral-600 tracking-widest">Died: Jan 2024</p>
+<p class="text-[9px] font-nav uppercase text-secondary mt-2 font-bold">Only 12 Ever Made</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Retired 4 -->
+<div class="group relative md:mt-12">
+<div class="gothic-arch aspect-[3/5] overflow-hidden grayscale bg-neutral-950 border border-neutral-900 p-4 opacity-40 hover:opacity-100 transition-all duration-700 group-hover:border-secondary/20">
+<img alt="Lunar Veil" class="w-full h-full object-cover filter brightness-[0.3] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALMWwASYtnHO1m_xW6NjYRmEITtoyzra5z4bVrtG92XDB-T-N2c3n8Xlq-ZDP9Reb8uS4MIEpH-V7CmWXBV_ACM5xhN-5bjY-RuJhsJmZlwWoYi39lrsk9EN9dcPDhXs9S0EtTC1AahOzWxaCEazU-JePryKf7mzQOO_MKrMhgug1OlXymDm1nEc1oH32hyW62YPTtWt94YkrZ7sXzqwEUQIRDJa7uddDzMCnddkggsZPtU8fpnfpjhajAv5j27W1d4vFYsUi7uc8"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black/60 opacity-100">
+<span class="material-symbols-outlined text-neutral-700 text-5xl mb-4">nights_stay</span>
+<h4 class="font-headline text-3xl text-neutral-400">Lunar Veil</h4>
+<div class="mt-6 pt-6 border-t border-neutral-800 w-full">
+<p class="text-[10px] font-nav uppercase text-neutral-600 tracking-widest">Died: Feb 2024</p>
+<p class="text-[9px] font-nav uppercase text-secondary mt-2 font-bold">Only 3 Ever Made</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sidebar Trigger (Hidden on Mobile) -->
+<div class="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+<div class="bg-neutral-900 h-64 w-12 flex flex-col items-center justify-center gap-8 lace-border">
+<div class="rotate-90 font-nav text-[10px] uppercase tracking-widest text-neutral-500 whitespace-nowrap">The Vault Curator</div>
+</div>
+</div>
+<!-- Theme Switcher -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 bg-neutral-900/60 backdrop-blur-2xl px-4 py-2 border border-white/5">
+<button class="w-3 h-3 bg-secondary border border-white/20"></button>
+<button class="w-3 h-3 bg-neutral-200 opacity-20 hover:opacity-100 transition-opacity"></button>
+<button class="w-3 h-3 bg-primary opacity-20 hover:opacity-100 transition-opacity"></button>
+<button class="w-3 h-3 bg-neutral-400 opacity-20 hover:opacity-100 transition-opacity"></button>
+<button class="w-3 h-3 bg-tertiary opacity-20 hover:opacity-100 transition-opacity"></button>
+</div>
+<!-- Footer -->
+<footer class="bg-neutral-950 pt-24 pb-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-20">
+<div>
+<div class="text-lg font-black text-neutral-200 font-nav uppercase mb-6">VASLIC</div>
+<p class="text-neutral-600 font-body text-sm leading-relaxed">
+                    A kinetic sanctuary for high-fashion mortality. Curated, numbered, and never repeated.
+                </p>
+</div>
+<div>
+<h4 class="text-xs font-nav font-bold uppercase text-neutral-400 tracking-widest mb-6">Archive</h4>
+<ul class="space-y-3">
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Vault Registration</a></li>
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Authentication Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-nav font-bold uppercase text-neutral-400 tracking-widest mb-6">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-nav font-bold uppercase text-neutral-400 tracking-widest mb-6">Support</h4>
+<ul class="space-y-3">
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Shipping</a></li>
+<li><a class="text-neutral-600 hover:text-secondary transition-colors font-body text-sm" href="#">Contact Grave</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-neutral-900 text-center">
+<p class="font-nav text-[10px] tracking-widest text-neutral-700">
+                © 2024 VASLIC. No reprints. No restocks. No exceptions.
+            </p>
+</div>
+</footer>
+</body></html>

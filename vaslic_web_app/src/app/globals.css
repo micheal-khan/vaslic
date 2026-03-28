@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-vaslic-primary: var(--primary);
+  --color-vaslic-primary-container: var(--primary-container);
+  --color-vaslic-secondary: var(--secondary);
+  --color-vaslic-tertiary: var(--tertiary);
+  --color-vaslic-surface: var(--surface);
+  --color-vaslic-surface-highest: var(--surface-highest);
+  --color-vaslic-surface-high: var(--surface-high);
+  --color-vaslic-surface-container: var(--surface-container);
+  --color-vaslic-surface-low: var(--surface-low);
+  --color-vaslic-surface-lowest: var(--surface-lowest);
+  --color-vaslic-on-surface: var(--on-surface);
+  --color-vaslic-outline: var(--outline-variant);
+
+  --font-display: var(--font-display-current), sans-serif;
+  --font-headline: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+  --font-label: var(--font-space-grotesk), sans-serif;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
+
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+:root {
+  --primary: #72d2ff;
+  --primary-container: #289bc8;
+  --secondary: #ffb4a8;
+  --tertiary: #d8ca23;
+  --surface: #131313;
+  --surface-highest: #353535;
+  --surface-high: #2a2a2a;
+  --surface-container: #20201f;
+  --surface-low: #1c1b1b;
+  --surface-lowest: #0e0e0e;
+  --on-surface: #e5e2e1;
+  --outline-variant: #3e484e;
+
+  --font-display-current: var(--font-space-grotesk);
+}
+
+[data-theme='gothic'] {
+  --surface: #0a0a0a;
+  --secondary: #8b0000;
+  --primary: #8b0000;
+  --primary-container: #5c0000;
+  --surface-highest: #222222;
+  --surface-high: #1a1a1a;
+  --surface-container: #151515;
+  --surface-low: #111111;
+  --surface-lowest: #050505;
+  --on-surface: #e0e0e0;
+  --font-display-current: var(--font-unifraktur);
+}
+
+[data-theme='bohemian'] {
+  --surface: #f5ebe0;
+  --secondary: #c77b4a;
+  --primary: #c77b4a;
+  --primary-container: #a36239;
+  --surface-highest: #e0d5c8;
+  --surface-high: #e8dbd0;
+  --surface-container: #ede1d6;
+  --surface-low: #f0e6dc;
+  --surface-lowest: #faf4ed;
+  --on-surface: #3a322c;
+  --outline-variant: #b0a498;
+  --font-display-current: var(--font-playfair);
+}
+
+[data-theme='avant-garde'] {
+  --surface: #ffffff;
+  --primary: #008DB9;
+  --primary-container: #006b8c;
+  --surface-highest: #e6e6e6;
+  --surface-high: #ededed;
+  --surface-container: #f2f2f2;
+  --surface-low: #f8f8f8;
+  --surface-lowest: #fafafa;
+  --on-surface: #121212;
+  --outline-variant: #cccccc;
+  --font-display-current: var(--font-bebas);
+}
+
+[data-theme='street'] {
+  --surface: #1a1a1a;
+  --tertiary: #f5e642;
+  --primary: #f5e642;
+  --primary-container: #c4b82d;
+  --surface-highest: #333333;
+  --surface-high: #2b2b2b;
+  --surface-container: #242424;
+  --surface-low: #1e1e1e;
+  --surface-lowest: #141414;
+  --on-surface: #f2f2f2;
+  --font-display-current: var(--font-bebas);
+}
+
+[data-theme='funky'] {
+  --surface: #0d0d2b;
+  --secondary: #00f5d4;
+  --primary: #00f5d4;
+  --primary-container: #00c4aa;
+  --surface-highest: #2b2b52;
+  --surface-high: #242445;
+  --surface-container: #1d1d3a;
+  --surface-low: #131327;
+  --surface-lowest: #08081c;
+  --on-surface: #e6e6fa;
+  --outline-variant: #3a3a61;
+  --font-display-current: var(--font-righteous);
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.ghost-border {
+  border: 1px solid color-mix(in srgb, var(--on-surface), transparent 80%);
+}
+
+.ambient-shadow {
+  box-shadow: 0 20px 50px -10px color-mix(in srgb, var(--primary), transparent 70%);
+}
+
+.display-text {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Aesthetic font utilities — matching Stitch HTML class names */
+.font-gothic {
+  font-family: var(--font-unifraktur), serif;
+}
+
+.font-bohemian {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-avant {
+  font-family: var(--font-bebas), sans-serif;
+}
+
+.font-street {
+  font-family: var(--font-bebas), sans-serif;
+}
+
+.font-funky {
+  font-family: var(--font-righteous), cursive;
+}

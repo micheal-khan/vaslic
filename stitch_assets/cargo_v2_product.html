@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VASLIC | CARGO SYSTEM V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#3e484e",
+                        "on-tertiary-fixed": "#1f1c00",
+                        "primary-fixed-dim": "#72d2ff",
+                        "outline": "#889299",
+                        "primary-fixed": "#c1e8ff",
+                        "primary-container": "#289bc8",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-secondary-container": "#ff9a8a",
+                        "background": "#131313",
+                        "tertiary-fixed": "#f5e642",
+                        "on-primary-fixed": "#001e2b",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed-variant": "#4e4800",
+                        "on-secondary-fixed": "#410000",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#20201f",
+                        "primary": "#72d2ff",
+                        "on-secondary": "#690000",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#d8ca23",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary": "#003548",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#464100",
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#363100",
+                        "secondary-fixed": "#ffdad4",
+                        "tertiary-fixed-dim": "#d8ca23",
+                        "surface-tint": "#72d2ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "secondary-container": "#920703",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#bec8cf",
+                        "inverse-primary": "#006687",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "surface-container-highest": "#353535",
+                        "secondary": "#ffb4a8",
+                        "on-primary-container": "#002e3e",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#920703",
+                        "surface-bright": "#393939",
+                        "tertiary-container": "#bbae00"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .text-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary selection:text-black">
+<!-- TopNavBar Implementation -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-yellow-400 font-['Space_Grotesk'] tracking-tighter uppercase">VASLIC</span>
+<div class="hidden md:flex gap-6">
+<a class="text-yellow-400 border-b-2 border-yellow-400 font-['Space_Grotesk'] tracking-tighter uppercase" href="#">Shop</a>
+<a class="text-zinc-500 hover:translate-x-1 hover:text-yellow-300 transition-transform font-['Space_Grotesk'] tracking-tighter uppercase" href="#">Drops</a>
+<a class="text-zinc-500 hover:translate-x-1 hover:text-yellow-300 transition-transform font-['Space_Grotesk'] tracking-tighter uppercase" href="#">Vault</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-yellow-400 cursor-pointer">shopping_bag</span>
+<span class="material-symbols-outlined text-yellow-400 cursor-pointer">account_circle</span>
+</div>
+</nav>
+<main class="pt-24 pb-32 relative overflow-hidden">
+<div class="grain-texture absolute inset-0 z-0"></div>
+<!-- Background Decorative Element -->
+<div class="absolute -top-20 -left-20 w-96 h-96 bg-tertiary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+<!-- Left Column: Cinematic Gallery -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="relative group aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="dramatic high-angle fashion shot of oversized black technical cargo pants with multiple straps and pockets in a brutalist concrete setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLajw2ZwlK3QmTJ_xXzZDh3_f8RbO7dw-hThmXxlTjtoCQqHYkRWFN-hAVfaZzrvnh51IDdx1K4Kxbhd734MqXZN-qlxZNfiZyifrx5aMqUSj1qBPEAJnrM8FAuSbkQtS79dJFu2fz_hNMfz481LKJeLkp5kJbEDw5WeyUlEfvGRmbNTH2x6pqaXOI2CZBSqFRSBDfD4zru1spTQ4C2jnra5pHYa3x7mccCUyOUC5XuZN69URerYAPBqAXfDpWULbDYgiqL55m0d0"/>
+<div class="absolute top-8 left-8">
+<span class="font-headline text-[10px] tracking-widest text-tertiary bg-black/80 px-3 py-1 uppercase">Raw Kinetic Soul</span>
+</div>
+<div class="absolute bottom-8 right-8 text-right">
+<span class="font-headline text-4xl font-black text-white/10 uppercase select-none">STREET V2</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="aspect-square bg-surface-container-low relative group overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="macro close-up of heavy-duty nylon webbing and magnetic buckles on technical apparel with industrial texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV-_fitJ1dZg5lQkc7l80esFMayeOUdymKEOQFskqZ-TjQzLajF8S1RDRmpBE6kVJAE-tS63N3jUEWwIGSi5J9DuatD0E3E3iJsJr2xUqqExUnxHDcP5e0Ig925QFI7px9OqbPZ-I_D_9vUWRrGW3FHSektaEkOE1xsrJVtMvN_aIsmVPfJqECGzPuR7RBOuEDNkdMs7CSNRLZlfVOYjYs09y0hxtJNkPM8JwVIneKXjjvFaAteDBZKiY-3V_6-Zp-DB3s3M4bor8"/>
+</div>
+<div class="aspect-square bg-surface-container-low relative group overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="side view of person wearing techwear joggers walking past a weathered concrete wall in shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp0o5xTFHL4lOuzkJbjzT4dsGKW9nj3qTrbZRBQwC0ISK80g3muA4KhkkSQVp8UBlYZzO4wN80xJvI2jQ6cnH0Yf5mJlzxBTqDgJx4C1CWqV4wdhpf4zpRHx1_Fs9PqV3FWzWXOuxi4sbb6qmd50AKDA4T9zT3lkAvkryg2kNhhRiHYsO9rBy-igdg4bOZqxUSaDWxoI5bHTORzo4pxXEep60bzqcJXoTia0FT2KGcn1E4fz-1TObZJsEz1icQEDsvvyEnJu97wmk"/>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Info -->
+<div class="lg:col-span-5 flex flex-col gap-10">
+<!-- Header Info -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label text-tertiary text-xs tracking-widest uppercase">VAULT ID: VLK-STRT-002</span>
+<div class="bg-error/10 text-error px-3 py-1 text-[10px] font-bold border border-error/20 uppercase tracking-tighter">
+                            LIMITED: 12 LEFT
+                        </div>
+</div>
+<h1 class="font-headline text-7xl font-black leading-none tracking-tighter uppercase italic">
+                        CARGO SYSTEM <span class="text-tertiary">V2</span>
+</h1>
+<div class="flex items-end gap-4">
+<span class="font-headline text-4xl font-light">$240</span>
+<span class="font-label text-on-surface-variant text-sm mb-1 uppercase tracking-widest">Global Currency Units</span>
+</div>
+</div>
+<!-- Urgency & Size -->
+<div class="p-8 bg-surface-container-lowest border-l-4 border-tertiary">
+<div class="flex items-center gap-3 mb-6">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span>
+</span>
+<p class="font-headline text-sm font-bold uppercase tracking-widest text-error">UNITS REMAINING: 5</p>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-label text-xs uppercase tracking-widest">SELECT ARCHIVE SIZE</span>
+<a class="font-label text-[10px] uppercase text-tertiary underline underline-offset-4" href="#">Size Guide</a>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<button class="aspect-square border border-outline-variant hover:border-tertiary hover:bg-tertiary hover:text-black transition-all font-headline font-bold text-sm">XS</button>
+<button class="aspect-square border border-outline-variant hover:border-tertiary hover:bg-tertiary hover:text-black transition-all font-headline font-bold text-sm">S</button>
+<button class="aspect-square bg-tertiary text-black font-headline font-bold text-sm">M</button>
+<button class="aspect-square border border-outline-variant hover:border-tertiary hover:bg-tertiary hover:text-black transition-all font-headline font-bold text-sm">L</button>
+<button class="aspect-square border border-outline-variant hover:border-tertiary hover:bg-tertiary hover:text-black transition-all font-headline font-bold text-sm">XL</button>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-tertiary text-black font-headline font-black text-2xl py-6 hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_#000] active:scale-95 duration-100 uppercase italic">
+                    ADD TO VAULT
+                </button>
+<!-- Details Accordion Style -->
+<div class="space-y-8">
+<section>
+<h3 class="font-headline text-sm font-black border-b border-outline-variant pb-2 mb-4 tracking-widest uppercase italic">SPECIFICATIONS</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Material</p>
+<p class="text-xs font-medium uppercase font-label">Reinforced Poly-Armor Cordura</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Tech</p>
+<p class="text-xs font-medium uppercase font-label">FIDLOCK® V-BUCKLE System</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Fit</p>
+<p class="text-xs font-medium uppercase font-label">Modular Kinetic Taper</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Utility</p>
+<p class="text-xs font-medium uppercase font-label">8x Expandable Bays</p>
+</div>
+</div>
+</section>
+<section>
+<h3 class="font-headline text-sm font-black border-b border-outline-variant pb-2 mb-4 tracking-widest uppercase italic">STREET CRED</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">
+                            Forged in the shadows of Neo-Berlin, the <span class="text-on-surface">CARGO SYSTEM V2</span> is more than apparel; it is a deployable tactical asset. Engineered for those who operate in high-density urban zones where mobility is the only currency. Featuring water-repellent shells and asymmetrical storage arrays.
+                        </p>
+</section>
+</div>
+</div>
+</div>
+<!-- Geometric Motif Decoration -->
+<div class="hidden lg:block absolute bottom-1/4 -right-10 opacity-5 pointer-events-none">
+<svg class="text-tertiary" fill="currentColor" height="400" viewbox="0 0 100 100" width="400">
+<path d="M0 100 L100 100 L100 0 Z"></path>
+</svg>
+</div>
+</main>
+<!-- Bottom Infinite Ticker -->
+<div class="fixed bottom-16 lg:bottom-0 left-0 w-full bg-tertiary text-black py-3 z-40 border-t border-black/10 overflow-hidden ticker-wrap">
+<div class="ticker">
+<span class="font-headline font-black text-xs uppercase tracking-[0.3em] px-4">Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions. • </span>
+<span class="font-headline font-black text-xs uppercase tracking-[0.3em] px-4">Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions. • </span>
+<span class="font-headline font-black text-xs uppercase tracking-[0.3em] px-4">Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions. • </span>
+<span class="font-headline font-black text-xs uppercase tracking-[0.3em] px-4">Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions. • </span>
+</div>
+</div>
+<!-- BottomNavBar Implementation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-4 bg-zinc-950/90 backdrop-blur-2xl z-50 border-t border-zinc-800/50 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center bg-yellow-400 text-black p-2 scale-110 -translate-y-1 duration-200">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 p-2 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">flare</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold">Drops</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 p-2 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold">Cart</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 p-2 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold">Profile</span>
+</div>
+</nav>
+<!-- Theme Switcher Floating Dock -->
+<div class="fixed bottom-24 right-6 lg:bottom-12 lg:right-12 z-50 flex items-center bg-zinc-900/60 backdrop-blur-xl p-2 border border-outline-variant/20 shadow-2xl">
+<div class="flex flex-col lg:flex-row gap-2">
+<div class="w-8 h-8 bg-[#0a0a0a] border border-white/10 hover:border-tertiary cursor-pointer flex items-center justify-center" title="Gothic">
+<span class="w-2 h-2 rounded-full bg-red-900"></span>
+</div>
+<div class="w-8 h-8 bg-[#1a1a1a] border-2 border-tertiary cursor-pointer flex items-center justify-center" title="Street">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<div class="w-8 h-8 bg-white border border-black/10 hover:border-tertiary cursor-pointer flex items-center justify-center" title="Avant-Garde">
+<span class="w-2 h-2 rounded-full bg-[#008DB9]"></span>
+</div>
+<div class="w-8 h-8 bg-[#f5ebe0] border border-black/10 hover:border-tertiary cursor-pointer flex items-center justify-center" title="Bohemian">
+<span class="w-2 h-2 rounded-full bg-[#c77b4a]"></span>
+</div>
+</div>
+</div>
+</body></html>

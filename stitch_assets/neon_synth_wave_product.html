@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Righteous&amp;family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#464100",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#c1e8ff",
+                        "surface-variant": "#353535",
+                        "tertiary": "#d8ca23",
+                        "primary-fixed-dim": "#72d2ff",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#ff9a8a",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "secondary-fixed": "#ffdad4",
+                        "on-surface-variant": "#bec8cf",
+                        "on-secondary": "#690000",
+                        "secondary": "#ffb4a8",
+                        "on-surface": "#e5e2e1",
+                        "background": "#0d0d2b",
+                        "on-primary-container": "#002e3e",
+                        "on-tertiary": "#363100",
+                        "tertiary-fixed-dim": "#d8ca23",
+                        "surface-tint": "#72d2ff",
+                        "on-primary": "#003548",
+                        "primary-container": "#289bc8",
+                        "outline-variant": "#3e484e",
+                        "on-primary-fixed": "#001e2b",
+                        "tertiary-fixed": "#f5e642",
+                        "inverse-on-surface": "#313030",
+                        "primary": "#72d2ff",
+                        "on-secondary-fixed-variant": "#920703",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "surface": "#0d0d2b",
+                        "surface-container-highest": "#353535",
+                        "on-primary-fixed-variant": "#004d66",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#4e4800",
+                        "surface-container": "#20201f",
+                        "outline": "#889299",
+                        "inverse-primary": "#006687",
+                        "on-tertiary-fixed": "#1f1c00",
+                        "secondary-container": "#920703",
+                        "surface-bright": "#393939",
+                        "tertiary-container": "#bbae00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed": "#410000",
+                        "surface-dim": "#0d0d2b",
+                        "brand-cyan": "#00f5d4",
+                        "brand-pink": "#ff2d9b",
+                        "brand-lime": "#b6ff00"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"],
+                        "righteous": ["Righteous"],
+                        "nunito": ["Nunito"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-cassette {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300f5d4' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 30V20h2v10H6zm14 10V30h2v10h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .pixel-corners {
+            clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+        }
+        .glass-card {
+            background: rgba(13, 13, 43, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-brand-pink selection:text-white bg-cassette min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-gradient-to-b from-[#0d0d2b] to-transparent fixed top-0 z-50 flex justify-between items-center w-full px-8 py-6 max-w-[1920px] mx-auto shadow-[0_0_30px_rgba(0,245,212,0.15)]">
+<div class="font-['Righteous'] text-3xl text-pink-500 italic tracking-tighter">VASLIC</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-cyan-100/70 hover:text-cyan-400 transition-colors hover:translate-x-1 hover:text-pink-400 transition-transform duration-200" href="#">GOTHIC</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-cyan-100/70 hover:text-cyan-400 transition-colors hover:translate-x-1 hover:text-pink-400 transition-transform duration-200" href="#">BOHEMIAN</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-cyan-100/70 hover:text-cyan-400 transition-colors hover:translate-x-1 hover:text-pink-400 transition-transform duration-200" href="#">AVANT-GARDE</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-cyan-100/70 hover:text-cyan-400 transition-colors hover:translate-x-1 hover:text-pink-400 transition-transform duration-200" href="#">STREET</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-pink-500 border-b-2 border-pink-500 pb-1 hover:translate-x-1 hover:text-pink-400 transition-transform duration-200" href="#">FUNKY</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="p-2 text-cyan-400 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 text-cyan-400 active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-brand-pink"></span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+<!-- Gallery Section -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="relative group">
+<!-- Retro frame decoration -->
+<div class="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-brand-cyan"></div>
+<div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-brand-pink"></div>
+<div class="bg-surface-container-lowest border-0 overflow-hidden shadow-[0_0_50px_rgba(255,45,155,0.2)]">
+<img alt="NEON SYNTH WAVE Jacket" class="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="high-fashion futuristic bomber jacket with glowing cyan and pink fiber optic accents and holographic textures in a dark neon studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG5Si27FCyVzfL74Tmgk-Jl-VOBYzM1WQay6Gg_wjRL1M27AsRMiCl1opPBvsus1WHJP9MKSvoxVbD9K8bLATR3525kofn-kKy5zWrnuJ5qGrlpg9mdKKPsaIgH_36gbWHPsOacC47qMrUfUz6OEbZWS8n-uZ4wEH3CnfhwI63dw-AVQbAPYPM59pCnfbedtIT7pCYMqaS2JJm7XX46gHf_p4x-xA8M7cmgM1oFss_LKGIqH_eFWIUWdy1a98cPohCNDrKNJKnmgI"/>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<button class="border-b-4 border-brand-cyan opacity-100 overflow-hidden aspect-square">
+<img class="w-full h-full object-cover" data-alt="close up of glowing zippers and fiber optic fabric on neon synth wave jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzBY_tQzdDFafIxfEwX-zjnhQfNRirFIIqgHhup-nfApyDMxF5p3W4LkU_CZIQry1QNN3qmiu2pGTDRZHq-apylko_Wic81n55qApx_PvW0OI-Db2CPubUDJR64C-8es6JrYA5-XVyF0ku54_UR6vs3cH0rQ3pfmHKcMkJkbrjHz30gm93INg8kHI5VZz7ZBUX16LGWSUaqxrJjR4NBYj7P0MNnhtkSkfabVsVNE78gLM_9yg86RHEemzmKji3Pq-XWGVFrKBwHAc"/>
+</button>
+<button class="opacity-50 hover:opacity-100 transition-opacity overflow-hidden aspect-square">
+<img class="w-full h-full object-cover" data-alt="rear view of the synth wave jacket showing high-tech geometric reflective paneling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuJvwGcCKFJRwHFx0IoYVD-sb7jnrBX46JTYP_CGerNIixUcGoJ10iP-3bYGNcYB7z9_9O_N3bjo2f-q554tJUmAV9raT1hmv6ijQLdNJ5sp8hXMxlAADaUnvaXcYaEiACw28xiEakf73ce-6shMTLbHY8hTGjT3AxWAhmjPPLuhIgssByrFHlN7nTdSMBMQnxn6xeevM4AKFoIF6pJMcra9QmX8MSFMhA5EjPm1bFuQHati_use0RBt4LHCUY5tTY7OPgUui2yeQ"/>
+</button>
+<button class="opacity-50 hover:opacity-100 transition-opacity overflow-hidden aspect-square">
+<img class="w-full h-full object-cover" data-alt="interior lining detail showing pixel art mesh and retro synth wave branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMTLHeiz56B-MwNkrSd-V0dtwuxfxoIkbcorhcTFXUnL6qaJfCbHPcwa9Wt83RwFyJXu5T35bOsyagP7RVGhqa8c51KDUA2qjo3djHQ8JxaeJKa5YUKS8UrF2-5q_Hz7V_5mpJPwr7f9ffKhcCkKe-XRu0AQqcZfBMfZz4Ta-7jPnkSIPHgc11zORLXaqeXvoPhe8aMewxYFBq6K9oGIztExlgPwgSN28tj92-gCsmD35vV8BNf1PVFN_QqhoqaEwah41_UAJV5d8"/>
+</button>
+<button class="opacity-50 hover:opacity-100 transition-opacity overflow-hidden aspect-square">
+<img class="w-full h-full object-cover" data-alt="detail of the sleeve with glowing vlk-fnky-001 technical serial number badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKqndrDJOFLpoIk8cf25LND-75nld8IVoF960-js2Xiw5UPx3VKlCIfk8D7Gijc-_3d3K91eVbCGIJYaiOqwmcJ06k4u-4o1rBQnIjgZ4DR0bytp0uEG6H-H-iie92hVOqD-PTAFxLeqoqcdCXxSqLLBOeWLlEjIE95-KUOBpLVwQ_48TRizlYWQbc0LXsVpyrOw-sieJWJeKDfRjpPjHgQ42MUDIssDAIYsqOZFnwE_5Amv0u8UhXAiM4wyf_Fl_nDueiwcBE7gg"/>
+</button>
+</div>
+</div>
+<!-- Product Info Section -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div>
+<div class="flex items-center gap-4 mb-2">
+<span class="bg-brand-lime text-black font-righteous px-3 py-1 text-sm uppercase tracking-tighter shadow-[4px_4px_0px_#ff2d9b]">VAULT ID: VLK-FNKY-001</span>
+<span class="text-brand-cyan font-bold tracking-[0.2em] text-xs">AVAILABLE NOW</span>
+</div>
+<h1 class="font-righteous text-6xl md:text-7xl text-white leading-none tracking-tight mb-4">
+                        NEON <span class="text-brand-pink block">SYNTH WAVE</span>
+</h1>
+<div class="flex items-baseline gap-4">
+<span class="text-4xl font-righteous text-brand-lime">$420</span>
+<span class="text-brand-cyan/60 line-through font-righteous">$580</span>
+</div>
+</div>
+<div class="glass-card p-6 border-l-4 border-brand-pink relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-10">
+<span class="material-symbols-outlined scale-[5]" data-icon="bolt">bolt</span>
+</div>
+<p class="text-brand-lime font-righteous text-sm mb-1">EDITION 1 OF 50 — NEVER REPRINTED</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+<p class="text-white font-righteous text-lg">12 UNITS LEFT</p>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-nunito text-lg text-cyan-100/80 leading-relaxed">
+                        A high-voltage fusion of retro-futurism and street-ready style. This limited edition piece is a rhythmic explosion of color, crafted for those who dance to the beat of their own drum.
+                    </p>
+</div>
+<!-- Size Selector -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<label class="font-righteous text-brand-cyan tracking-widest text-sm uppercase">Select Frequency (Size)</label>
+<a class="text-xs text-brand-pink underline hover:text-white transition-colors" href="#">SIZE GUIDE</a>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<button class="h-12 flex items-center justify-center border-2 border-brand-cyan text-brand-cyan font-righteous hover:bg-brand-cyan hover:text-black transition-all">XS</button>
+<button class="h-12 flex items-center justify-center border-2 border-brand-cyan text-brand-cyan font-righteous hover:bg-brand-cyan hover:text-black transition-all">S</button>
+<button class="h-12 flex items-center justify-center bg-brand-cyan text-black font-righteous">M</button>
+<button class="h-12 flex items-center justify-center border-2 border-brand-cyan text-brand-cyan font-righteous hover:bg-brand-cyan hover:text-black transition-all">L</button>
+<button class="h-12 flex items-center justify-center border-2 border-white/20 text-white/20 font-righteous cursor-not-allowed relative overflow-hidden group">
+                            XL
+                            <div class="absolute inset-0 bg-red-500/20 flex items-center justify-center">
+<div class="w-full h-[2px] bg-red-500 rotate-45"></div>
+</div>
+</button>
+</div>
+</div>
+<!-- CTA -->
+<div class="space-y-6 pt-4">
+<button class="w-full py-6 bg-gradient-to-r from-brand-cyan to-brand-pink text-white font-righteous text-2xl tracking-[0.1em] shadow-[8px_8px_0px_#b6ff00] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_#b6ff00] active:scale-95 transition-all uppercase">
+                        CLAIM VESSEL
+                    </button>
+<div class="flex gap-3 items-start p-4 bg-brand-pink/10 border border-brand-pink/20">
+<span class="material-symbols-outlined text-brand-pink" data-icon="warning">warning</span>
+<p class="text-xs font-bold text-white uppercase leading-tight italic">
+                            Once it's gone, it's gone. Forever. No reprints. No restocks. No exceptions.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs / Setlist -->
+<section class="mt-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative p-8 bg-surface-container-low border-t-4 border-brand-lime">
+<div class="absolute -top-10 left-0">
+<h2 class="font-righteous text-4xl text-white uppercase">SETLIST <span class="text-brand-lime">(SPECS)</span></h2>
+</div>
+<ul class="space-y-6 pt-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-brand-cyan" data-icon="memory">memory</span>
+<div>
+<h4 class="font-righteous text-brand-cyan text-lg">Reactive Neon Fiber</h4>
+<p class="font-nunito text-sm text-cyan-100/60">Nanotechnology-infused fabric that pulses with your heart rate.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-brand-cyan" data-icon="grid_view">grid_view</span>
+<div>
+<h4 class="font-righteous text-brand-cyan text-lg">Reflective Pixel Mesh</h4>
+<p class="font-nunito text-sm text-cyan-100/60">3D-printed ventilation panels with 8-bit aesthetic patterns.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-brand-cyan" data-icon="wash">wash</span>
+<div>
+<h4 class="font-righteous text-brand-cyan text-lg">Care Instructions</h4>
+<p class="font-nunito text-sm text-cyan-100/60">Hand wash in cold static only. Do not tumble dry in the matrix.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="relative p-8 bg-surface-container-low border-t-4 border-brand-pink">
+<div class="absolute -top-10 left-0">
+<h2 class="font-righteous text-4xl text-white uppercase">BACKSTORY <span class="text-brand-pink">(ORIGIN)</span></h2>
+</div>
+<div class="pt-4 font-nunito text-cyan-100/80 leading-relaxed space-y-4">
+<p>
+                        Born in the flicker of a CRT monitor and the echo of a distorted Moog synthesizer, the <span class="text-brand-pink font-bold">NEON SYNTH WAVE</span> is our tribute to the digital frontier. 
+                    </p>
+<p>
+                        Inspired by the 1984 underground glitch scene, this vessel bridges the gap between physical reality and the high-speed dreamscape of the early internet. Every stitch is a line of code, every color a frequency.
+                    </p>
+<div class="pt-4">
+<img class="w-full h-32 object-cover grayscale brightness-50 contrast-125" data-alt="abstract synth wave background with neon grid and retro futuristic sunset aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuZO7i0GVlwK5sYTEMtAAdcJ6Oz4gaM_Xjf_11UsP36S2pwKNuwWk1Y2njcFh4e4-YHL7815aP1ftkdfkQ3YcwjzHnw1sJrBfJ6BR33QlHwt3uwZeFsBfDf2XVHFlFIz5BfXQ3jLGlpiWKQ1v4YHDfLMjPLkj0JmRzQ2leujdBwbQ-uXRwhsrJ86CRRrKta68yq87oj012yOorGzgx_rX9AhBcpgJDdC7a7Wf_Mjpaa5VgZIJ3s4igsHw758UGdHqNaSH52kRNWiE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendation Bento Grid -->
+<section class="mt-32">
+<h3 class="font-righteous text-3xl text-white mb-10 text-center uppercase tracking-widest">KEEP THE PARTY GOING</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="col-span-2 row-span-2 bg-surface-container overflow-hidden group relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-50" data-alt="a pair of oversized glowing neon high-top sneakers with transparent soles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYx5ROdij2AJB6rG0EpEXXSJGr5PMXRfK1KgSScxMB9XWZocoNNyKqYcU-0ImD75s-yuvOpBXqAyPVB8NT_JqkIHmJ2vLF-oRldEUijxNNt-o5XrcAuJPu9NkFGE2Ph5WNhB3qAsMmg5nOr3zvQZqHHW6JT5b3zHY4bECcRSLvOFrfSwlxWVwx4vvrx4FLu42DtZDlwwDlFO0uDzjAN3DSJg5LvgQdR6SsGK-ORdL9JP_rtd1DdAPijPBoBYllbOc0bbRXyixfzZA"/>
+<div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black to-transparent w-full">
+<p class="text-brand-lime font-righteous">KINETIC KICKS</p>
+<p class="text-white text-xs">$280</p>
+</div>
+</div>
+<div class="bg-surface-container aspect-square relative overflow-hidden group">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" data-alt="retro cyberpunk visor with pink digital display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4I5UmHDr69KEmcZlcjVYgRZ2l_E36gYi-YpOmF-P3TkKSEYNAmaA_GLVwILWJK4rQuU0VArlC3BtrBkp2MAST-J-l9THM9Uf77ROLubJzR4Pm8BzH5-8QgVyCK5mjlgrhVT1VeAJc5BDBPy_dazvDZer5SPpMNDWgR_vQGvOgMa_SN2997NmS-nViVmVjpH6KNHAP3v-OwDQoLtvRLoPwCrfmFFMQcj3SpJFly3wfIP7HVrswx2PWz48nVYhMi77tHPZ3FTpgx54"/>
+<div class="absolute inset-0 flex items-end p-4">
+<p class="text-white font-righteous text-sm">GLITCH VISOR</p>
+</div>
+</div>
+<div class="bg-surface-container aspect-square relative overflow-hidden group">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" data-alt="vibrant red and blue sneaker on a neon background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChKP3Aj9qUWXQWiSFHTdD7jQVHEgI3Hv0DuM6whczyDfqdneJMp4bCDzLj9Bg_dWPPmltnRMFevdbldFPJVatpEcF8WhW8gUwvj4zyvziC811uw2lAtP5x9-gM6oRkdckIRcEYSQS-0SqrPu9oQOoOVrIkT_nAyylcqYDuGY7eHKpz8tRN2whw-MFPx1_KUeIfmdgfljHVfj9SG0PUmF8qE_uAz8Q0axWojvlYfwJyIWLzP_IMlX8sEaiaDL2EH5kzhgLFo2jN4Ys"/>
+<div class="absolute inset-0 flex items-end p-4">
+<p class="text-white font-righteous text-sm">PULSE BOOTS</p>
+</div>
+</div>
+<div class="col-span-2 bg-brand-pink/20 h-40 flex items-center justify-center border-2 border-dashed border-brand-pink p-8 text-center">
+<p class="font-righteous text-brand-pink text-xl">NEW DROPS EVERY FULL MOON. STAY WIRED.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0d0d2b] w-full border-t-0 pt-20 pb-10 tonal-shift bg-slate-900/50">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div>
+<span class="font-['Righteous'] text-xl text-cyan-400 mb-4 block">VASLIC KINETIC</span>
+<p class="font-['Manrope'] text-sm tracking-tight leading-relaxed text-slate-400">Curating high-voltage aesthetics for the digital nomad since 20XX.</p>
+</div>
+<div>
+<h5 class="text-pink-500 font-bold text-xs uppercase mb-6 tracking-widest">NAVIGATE</h5>
+<ul class="space-y-4">
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">ARCHIVES</a></li>
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">THE VAULT</a></li>
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">ARTIST CO-LABS</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-pink-500 font-bold text-xs uppercase mb-6 tracking-widest">PROTOCOL</h5>
+<ul class="space-y-4">
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">PRIVACY POLICY</a></li>
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">TERMS OF SERVICE</a></li>
+<li><a class="font-['Manrope'] text-sm text-slate-400 hover:text-white transition-colors" href="#">SHIPPING INFO</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-pink-500 font-bold text-xs uppercase mb-6 tracking-widest">SIGNAL</h5>
+<div class="flex flex-col gap-4">
+<p class="font-['Manrope'] text-sm text-slate-400">JOIN THE NEWSLETTER FOR EXCLUSIVE DROPS.</p>
+<div class="flex">
+<input class="bg-slate-800 border-0 p-3 text-xs font-righteous text-white w-full focus:ring-1 focus:ring-brand-cyan" placeholder="ENCRYPTED EMAIL" type="email"/>
+<button class="bg-brand-cyan text-black px-4 font-righteous">JOIN</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-['Manrope'] text-xs tracking-tight text-slate-500">© 2024 VASLIC KINETIC CURATORS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-brand-pink cursor-pointer" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-brand-cyan cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-brand-lime cursor-pointer" data-icon="rss_feed">rss_feed</span>
+</div>
+</div>
+</footer>
+<!-- Theme Switcher Component -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 glass-card p-2 flex gap-1 border border-white/10 z-[100] shadow-2xl">
+<button class="p-2 hover:bg-brand-cyan/20 transition-colors group">
+<span class="material-symbols-outlined text-white group-hover:text-brand-cyan" data-icon="theater_comedy">theater_comedy</span>
+</button>
+<button class="p-2 hover:bg-brand-pink/20 transition-colors group">
+<span class="material-symbols-outlined text-white group-hover:text-brand-pink" data-icon="palette">palette</span>
+</button>
+<button class="px-4 py-2 bg-brand-cyan text-black font-righteous text-xs">FUNKY ACTIVE</button>
+<button class="p-2 hover:bg-brand-lime/20 transition-colors group">
+<span class="material-symbols-outlined text-white group-hover:text-brand-lime" data-icon="style">style</span>
+</button>
+</div>
+</body></html>

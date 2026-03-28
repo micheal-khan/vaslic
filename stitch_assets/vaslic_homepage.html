@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VASLIC | The Kinetic Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=UnifrakturMaguntia&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;family=Bebas+Neue&amp;family=Righteous&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#ffdad6",
+              "surface-variant": "#353535",
+              "primary": "#72d2ff",
+              "tertiary-fixed": "#f5e642",
+              "primary-container": "#289bc8",
+              "outline": "#889299",
+              "on-error": "#690005",
+              "tertiary": "#d8ca23",
+              "tertiary-container": "#bbae00",
+              "inverse-surface": "#e5e2e1",
+              "primary-fixed-dim": "#72d2ff",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "surface-container-highest": "#353535",
+              "on-secondary-fixed-variant": "#920703",
+              "error": "#ffb4ab",
+              "inverse-primary": "#006687",
+              "on-tertiary": "#363100",
+              "on-secondary-fixed": "#410000",
+              "primary-fixed": "#c1e8ff",
+              "on-primary-fixed-variant": "#004d66",
+              "secondary": "#ffb4a8",
+              "on-tertiary-container": "#464100",
+              "tertiary-fixed-dim": "#d8ca23",
+              "surface-container-lowest": "#0e0e0e",
+              "on-primary": "#003548",
+              "error-container": "#93000a",
+              "secondary-fixed": "#ffdad4",
+              "on-secondary": "#690000",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary-fixed": "#1f1c00",
+              "surface-dim": "#131313",
+              "on-surface": "#e5e2e1",
+              "on-primary-container": "#002e3e",
+              "surface-bright": "#393939",
+              "on-primary-fixed": "#001e2b",
+              "surface-container-high": "#2a2a2a",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#920703",
+              "on-background": "#e5e2e1",
+              "surface": "#131313",
+              "secondary-fixed-dim": "#ffb4a8",
+              "background": "#131313",
+              "surface-container": "#20201f",
+              "on-surface-variant": "#bec8cf",
+              "surface-tint": "#72d2ff",
+              "on-secondary-container": "#ff9a8a",
+              "outline-variant": "#3e484e"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"],
+              "gothic": ["UnifrakturMaguntia"],
+              "bohemian": ["Playfair Display"],
+              "avant": ["Bebas Neue"],
+              "street": ["Bebas Neue"],
+              "funky": ["Righteous"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .kinetic-marquee { animation: marquee 30s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .text-stroke { -webkit-text-stroke: 1px currentColor; color: transparent; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] bg-neutral-900">
+<div class="flex justify-between items-center px-8 h-24 max-w-full mx-auto">
+<div class="flex items-center space-x-8">
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-medium uppercase text-xs hover:translate-x-1 transition-transform duration-200" href="#">Gothic</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-medium uppercase text-xs hover:translate-x-1 transition-transform duration-200" href="#">Bohemian</a>
+</div>
+<div class="text-3xl font-black text-white tracking-widest uppercase font-['Space_Grotesk']">
+                VASLIC
+            </div>
+<div class="flex items-center space-x-8">
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-medium uppercase text-xs hover:translate-x-1 transition-transform duration-200" href="#">Street</a>
+<div class="flex items-center space-x-4 ml-4">
+<span class="material-symbols-outlined text-white cursor-pointer">shopping_bag</span>
+<span class="material-symbols-outlined text-white cursor-pointer">person</span>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section: Cinematic Split -->
+<section class="relative h-screen w-full flex overflow-hidden">
+<!-- Gothic Slice -->
+<div class="group relative flex-1 h-full transition-all duration-700 hover:flex-[2] bg-neutral-950 flex items-center justify-center overflow-hidden grayscale hover:grayscale-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Dark moody gothic interior with dramatic shadows and deep red accents, ornate architectural details, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUTDlsQeP6lPV-nR5LaRXmf2ANnGcalWmBaum5MwM6FXPz09zvU7q6S3TMZikwZQpcW9vcHXjexrPezbzg8NuUFoEkf30RmoJo8rrMbQH3Icmk1Zj-7b0vE-uBer9U_X7DOfuScQ535FEKGpP5MMsHdRafLSSfhc03BbeLE7JslgBhrvbXpbZhhJV-vxdVDfQe0YsIKpieZ1qWckd9tD7ZJ0DhSxapkXkjWqImkftfut3tgpmT-ZOIZNulYHtXafXTPXber_lkCQ0"/>
+<span class="relative z-10 font-gothic text-4xl text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Gothic</span>
+</div>
+<!-- Bohemian Slice -->
+<div class="group relative flex-1 h-full transition-all duration-700 hover:flex-[2] bg-[#f5ebe0] flex items-center justify-center overflow-hidden grayscale hover:grayscale-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Artisanal bohemian studio with dried flowers, textured terracotta ceramics, soft natural sunlight filtering through linen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbnP01Ukg8pgd17yyKws2akaGZoCK3HIXcksOtjeQq928Z2n6jF_7ArvGbsBwyLmmUJpX-kNj4vUTTXlscpHsstzCu0zi9hBaJuKms2lh4BoQt3f1Z9ixZWqAXUx7qS0wNG0y3XilEMv60vKTlEbb_BzP_-1ddvHztCtz8bEivEYPFJIG9VCYfHBxqxnHCPHKm1IUZGMKoLFIEj6JkSErSsIHwIP4wHkJSNTamRBCgOx2GGJGOHDbywBqpLP45OQIGles4kW_-zjA"/>
+<span class="relative z-10 font-bohemian text-4xl text-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 italic">Bohemian</span>
+</div>
+<!-- Avant-Garde Slice -->
+<div class="group relative flex-1 h-full transition-all duration-700 hover:flex-[2] bg-white flex items-center justify-center overflow-hidden grayscale hover:grayscale-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Minimalist avant-garde art gallery with stark white walls, bold abstract sculptures, and sharp geometric shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOpO5lF9xS3Z2l1uB5lZo4lcfLib6hdzt-bglgA638S3c3idsHkMngoWkTrCDRqQtgocppTsAxtZmvN_NlXe_Jzo-xePSn8rn4qpZB5Wam62_ol5MN6PnIxQTaZ2mbR_3XzqEy9rI8C2up2PbisSKg3Oj5u8ISzZ70zJ3mB-qt1OfH8AHgrsf_BGdwJCpabtH740T5lb_PXNQe5gmzji0x2Nmi95i0I6uLlCCBq3qwZlHL5XrEib7myefEjOhys8AMFqbHLCscaTg"/>
+<span class="relative z-10 font-avant text-4xl text-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 tracking-widest">Avant-Garde</span>
+</div>
+<!-- Street Slice -->
+<div class="group relative flex-1 h-full transition-all duration-700 hover:flex-[2] bg-neutral-800 flex items-center justify-center overflow-hidden grayscale hover:grayscale-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Urban street scene at night with concrete textures, neon yellow signs, wet pavement reflections, and brutalist architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFW2CLM5hkaF1DvZEM7D83E985ECLYkZOReOq1vTSzrn88bYVwRBxgn6GxDeyANAyBaagkvwkptXkhhib-RwJQqZJ9AT8U1408WskuElwq6wRnolzZumqpzdIpgYhtF3UCsuvt5XrmB04eYTuvF9NXkXwlIpvd-V4AhvwobgKTdkBRYFJhSTYhnerxHdtiofMglHNW5vXJGr8brdUWVodUU1L6kqZ6Zt17tVFVCg4H3d_nn23RIQYgz-oOdC3oACHQGFuZCgA6yjQ"/>
+<span class="relative z-10 font-street text-4xl text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Street</span>
+</div>
+<!-- Funky Slice -->
+<div class="group relative flex-1 h-full transition-all duration-700 hover:flex-[2] bg-[#0d0d2b] flex items-center justify-center overflow-hidden grayscale hover:grayscale-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110" data-alt="Vibrant retro-futuristic scene with glowing cyan and pink neon lights, psychedelic patterns, and 80s synthwave aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAWllXXPFmv4PP22dWuEtn6IP5oBS-nUQ95tNbgQAC-jr2ApQqBIJJ3ljXGH0OrtPYC5cvBJ9JaCQXRGGDQRyS56JJQHCJ5tRRbC6kW4b-6OaqdGxq4gDsZ7hs-tvipv-CU7qoRyJ66-mCpYtAe_aLvLntDlY9p_8fzBA9KkkNFA5OI946BbALAKr_7oeUsEFBbJr-4i4srG2j3gyVxlBU7nwPjgfLc86V4x8Xk3n3TRGWJ3vbn6NF-1KLUkUcOfRCejvlk1E7-eE"/>
+<span class="relative z-10 font-funky text-4xl text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Funky</span>
+</div>
+<!-- Hero Heading Overlay -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<h1 class="font-headline text-[8rem] md:text-[12rem] font-black tracking-tighter leading-none text-white mix-blend-difference text-center">
+                    Something <br/> For Everyone
+                </h1>
+</div>
+</section>
+<!-- Infinite Ticker Marquee -->
+<div class="bg-primary-container py-6 overflow-hidden border-y border-outline-variant/20">
+<div class="flex whitespace-nowrap kinetic-marquee">
+<span class="text-3xl font-headline font-black uppercase text-white px-8">Once it's gone, it's gone. Forever.</span>
+<span class="text-3xl font-headline font-black uppercase text-tertiary-fixed px-8">No reprints.</span>
+<span class="text-3xl font-headline font-black uppercase text-white px-8">No restocks.</span>
+<span class="text-3xl font-headline font-black uppercase text-secondary px-8">No exceptions.</span>
+<span class="text-3xl font-headline font-black uppercase text-white px-8">Once it's gone, it's gone. Forever.</span>
+<span class="text-3xl font-headline font-black uppercase text-tertiary-fixed px-8">No reprints.</span>
+<span class="text-3xl font-headline font-black uppercase text-white px-8">No restocks.</span>
+<span class="text-3xl font-headline font-black uppercase text-secondary px-8">No exceptions.</span>
+</div>
+</div>
+<!-- 5 Category Tiles Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 h-auto md:h-[819px]">
+<!-- Gothic Tile -->
+<div class="relative bg-black p-12 flex flex-col justify-between group overflow-hidden">
+<div class="relative z-10">
+<span class="font-gothic text-6xl text-on-secondary-fixed-variant leading-none">Gothic</span>
+<p class="font-body text-sm mt-4 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">The architecture of shadows. Wear the darkness.</p>
+</div>
+<button class="relative z-10 self-start border border-on-secondary-fixed-variant px-6 py-2 font-label text-xs tracking-widest text-on-secondary-fixed-variant hover:bg-on-secondary-fixed-variant hover:text-white transition-all duration-300">CURATE</button>
+<div class="absolute bottom-4 right-4 text-neutral-900 font-headline text-8xl font-black pointer-events-none opacity-20 group-hover:translate-y-4 transition-transform duration-700">G</div>
+</div>
+<!-- Bohemian Tile -->
+<div class="relative bg-[#c77b4a] p-12 flex flex-col justify-between group overflow-hidden text-black">
+<div class="relative z-10">
+<span class="font-bohemian text-5xl italic leading-none">Bohemian</span>
+<p class="font-body text-sm mt-4 text-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Organic flow, earth-bound spirit. Artisanal craft for the wandering soul.</p>
+</div>
+<button class="relative z-10 self-start border border-black px-6 py-2 font-label text-xs tracking-widest hover:bg-black hover:text-[#c77b4a] transition-all duration-300">EXPLORE</button>
+<div class="absolute bottom-4 right-4 text-black/5 font-bohemian text-9xl font-black pointer-events-none group-hover:rotate-12 transition-transform duration-700">B</div>
+</div>
+<!-- Avant-Garde Tile -->
+<div class="relative bg-white p-12 flex flex-col justify-between group overflow-hidden text-black">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10">
+<span class="font-avant text-7xl tracking-tighter leading-none">Avant-<br/>Garde</span>
+<p class="font-body text-sm mt-4 text-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Experimental forms. Defying the expected. Wearable sculpture.</p>
+</div>
+<button class="relative z-10 self-start bg-black text-white px-8 py-3 font-label text-xs tracking-widest hover:translate-x-2 transition-transform duration-300">ACCESS</button>
+<div class="absolute inset-0 pointer-events-none opacity-5 flex items-center justify-center">
+<span class="text-[20rem] font-avant">AV</span>
+</div>
+</div>
+<!-- Street Tile -->
+<div class="relative bg-neutral-900 p-12 flex flex-col justify-between group overflow-hidden">
+<div class="relative z-10">
+<span class="font-street text-6xl text-tertiary-fixed leading-none">STREET</span>
+<p class="font-body text-sm mt-4 text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Brutalist aesthetics. Concrete playground. Urban armor.</p>
+</div>
+<button class="relative z-10 self-start border-2 border-tertiary-fixed px-6 py-2 font-label text-xs font-bold tracking-widest text-tertiary-fixed hover:bg-tertiary-fixed hover:text-black transition-all duration-300">ACQUIRE</button>
+<div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rotate-90 text-neutral-800 font-street text-8xl tracking-[2rem] opacity-50">STREET</div>
+</div>
+<!-- Funky Tile -->
+<div class="relative bg-[#0d0d2b] p-12 flex flex-col justify-between group overflow-hidden">
+<div class="relative z-10">
+<span class="font-funky text-5xl text-secondary leading-none">FUNKY</span>
+<p class="font-body text-sm mt-4 text-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Retro-future pop. Electric energy. Stand out in the void.</p>
+</div>
+<button class="relative z-10 self-start bg-secondary text-[#0d0d2b] px-6 py-2 font-label text-xs font-black tracking-widest hover:scale-110 transition-transform duration-300">IGNITE</button>
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-primary opacity-20 blur-3xl rounded-full"></div>
+</div>
+</section>
+<!-- Coming Soon Grid: Blurred/Locked -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<div class="max-w-2xl">
+<span class="font-label text-primary tracking-[0.4rem] uppercase">The Pipeline</span>
+<h2 class="font-headline text-5xl md:text-7xl font-bold mt-4 leading-none">Approaching the <br/> Vault Doors.</h2>
+</div>
+<button class="mt-8 md:mt-0 px-10 py-4 bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest hover:translate-x-2 transition-transform duration-300">Join Waitlist</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Locked Card 1 -->
+<div class="group relative aspect-[4/5] bg-surface-container overflow-hidden grayscale">
+<img class="w-full h-full object-cover blur-md opacity-40 scale-110" data-alt="High-fashion silhouette wearing an avant-garde cloak in a futuristic hallway, backlit with sharp cyan light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-9nJCP47nqZEARzKEP1Nynuk_fZbe80EtJig_s3nz76_VNQLF8hpVBR820RE5J8Pzvx-F_xcwMTpvgabdLuxPRCIFe6p2Q3gKno2YPaqP3O5MDpdux2XBgQYcjkRGkYJgu4ih-QrOR_PXnWbrXJR0-5tHRugAYZUSqUwYdmss_JXvydxZRggGpJ9vQmbP_qdJJAkFL9PxOPqKKgmAORDiY8QA1eYYbgj10C7aVxfeq26VCpSQ9D3P4yyy8ooX59L0mPmQ6HinpjQ"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-8 border border-white/5">
+<span class="material-symbols-outlined text-6xl text-white/20 mb-4">lock</span>
+<h3 class="font-headline text-2xl font-bold text-white/40 uppercase tracking-widest">AETHER-09</h3>
+<div class="mt-4 flex items-center space-x-2 text-primary font-label text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>14 DAYS REMAINING</span>
+</div>
+</div>
+</div>
+<!-- Locked Card 2 -->
+<div class="group relative aspect-[4/5] bg-surface-container overflow-hidden grayscale">
+<img class="w-full h-full object-cover blur-md opacity-40 scale-110" data-alt="Close-up of intricate mechanical fabric textures, dark charcoal tones with glowing orange fiber optic details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX3veFcxWqQfSj1CTEd0PY1TzckSysXdL1QbseIR6-DWo4QwImXX4LQrFYXm7NxDz-RaX40M5RjNnUpLmuyr8PLe7rIgj7m6YfcCZJeGYX7mhJsU_SeOqRX9SjtsFbe5xEGfWiABO_cAHu7nM67X0dKdtNlhS9CY8pZ1IZJ7DA5lGN5T0-lJTQuZo0GViJgf7q4FXRPfpgaTexBR30peIHR-bgPGMRagocyXNzYwMNC2Rnck0NVDVgfbLAKew0CyJQHLTpG4Jo6bU"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-8 border border-white/5">
+<span class="material-symbols-outlined text-6xl text-white/20 mb-4">lock</span>
+<h3 class="font-headline text-2xl font-bold text-white/40 uppercase tracking-widest">BRUT-CORE</h3>
+<div class="mt-4 flex items-center space-x-2 text-primary font-label text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>21 DAYS REMAINING</span>
+</div>
+</div>
+</div>
+<!-- Locked Card 3 -->
+<div class="group relative aspect-[4/5] bg-surface-container overflow-hidden grayscale">
+<img class="w-full h-full object-cover blur-md opacity-40 scale-110" data-alt="Cyberpunk fashion piece with translucent neon materials and shifting geometric patterns in a rainy city background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0ivOExBGlhjFFRhZKaFZmTbaC6U3_O9ZCp5tmdmyiOANocAg8qsNAQ0KTocsjh9LqQc7dbBG-gy-A4fJvx6ymujaH55PPaYMnXtxFRIsYdXAamn3olKLIJ3GqetbhZot4k0Pt-LEdaWwHPIeZ-EDEL5DTZ_hos7t6pSlKd-tYEoqoavNFncZpNqz5zQh5aGciklEumWU3f2fZPOLYBWD2B7fgtHZrL7PZ1Uca0sgBsCpnsU5k4Sn0KffFHcU1LLn62vs6kJil0E"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-8 border border-white/5">
+<span class="material-symbols-outlined text-6xl text-white/20 mb-4">lock</span>
+<h3 class="font-headline text-2xl font-bold text-white/40 uppercase tracking-widest">NEO-PLASM</h3>
+<div class="mt-4 flex items-center space-x-2 text-primary font-label text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>DROPS FRIDAY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hall of Retired Designs -->
+<section class="py-24 bg-neutral-950 px-8">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-neutral-600 mb-2">Hall of Retired Designs</h2>
+<p class="font-body text-neutral-700 italic">These designs lived and left. Forever.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto">
+<div class="relative aspect-square bg-neutral-900 group grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-100" data-alt="B&amp;W portrait of a person in a heavily layered dark streetwear outfit, stone textures in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFRXQVhx_ad-IRj9c3dn9lNC381i8eulYpTDNKkYWJioxiadYrEBi9YeXG0laBu1B9s85m-hbLpB1YLrnvc5A9FUL94l5MWs3jDfNTELpeuoXgLuMuR-98Q5LOiwxFtOB5jcQmhUYYcNA1FLUzuYOngQhOlP7ZWCYqgvCuLjgDxBGjXh_ip2Z9A34VCczI_XfT-1FQVzm7doMeke0LPrSRKI8IuqMSH3qhAxAykRQc7Re4t6kaL-0hYtJGeRv6-WN5x3U-sJB_f5g"/>
+<div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+<span class="font-label text-[10px] text-neutral-500">2023 EDITION</span>
+<h4 class="text-neutral-400 font-bold text-sm tracking-widest">OBSIDIAN DRIFT</h4>
+</div>
+</div>
+<div class="relative aspect-square bg-neutral-900 group grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-100" data-alt="Faded photo of a bohemian dress hanging on a rough plaster wall, dusty sunlight through a cracked window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpSE_fH0mbUQ1LY0sIbMTCJUiLU43fiAupKZRkyiV-wyliG1eqUhKRGz0Y0TowHTBsxjy_qNWUJB5is-Ba_6dwZ9KHAP_oT7yEju0TyKRqGCrsnZF8MnTg6TFxD7ghR97qmsmfmAIyvkUOEW1-WDGvyLcqNEh1WaOdur3XQZ_Xpds3ZLNNdiJl3xH-NFpjyhcIeBY9ihfSJNFwV9JVtM5Ybci03POtfEyvi7akj2jglcgXx6wiHhTYLkUtRq6wMW4NODLwDrcD2rk"/>
+<div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+<span class="font-label text-[10px] text-neutral-500">2022 EDITION</span>
+<h4 class="text-neutral-400 font-bold text-sm tracking-widest">DUST ROSE VESTIGE</h4>
+</div>
+</div>
+<div class="relative aspect-square bg-neutral-900 group grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-100" data-alt="Stark white t-shirt with black abstract splash graphic on a white marble pedestal, dramatic top lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKXSvbwG_KveYjk-FENj3c3hMw0a5IfKx2jETxUhGSeGdX6iAcCx6rsd4t0UBkI9_G2qZzwJER1HImsHlKiVO5O-QFv_iKDEinmCazIf1x5lZBeoqGzkUcMnfZkayCC7-ZL_WntGcruFaMJb5nUm4eQnm3DFHKiM9RhlVPgMaf8LpBsfNZyLIyHhS0USDCd54gsUa9Mxp1lnE-RGPk7N9pR1xwnwqgAHIrgIpM81zhiZSoxB2o3EeaZCaCIbfpPWu_qBfmvmhQA7E"/>
+<div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+<span class="font-label text-[10px] text-neutral-500">2021 EDITION</span>
+<h4 class="text-neutral-400 font-bold text-sm tracking-widest">MONO BLUR</h4>
+</div>
+</div>
+<div class="relative aspect-square bg-neutral-900 group grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-100" data-alt="Close-up of a vibrant neon pink and blue silk scarf floating in a dark void with soft motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv1DHE3LJVbE9MG7YxXWZuPtftvhYAW9tipwLWWWJo7NU8B9Vd44I9MhuX70NcI18PgAD6C9CmJbXN-k7vgy4Lhd8IcjZSucXSVbovwc1Jl2fMxOjgEzZCzzPsOoicvCwlAdMVACW7QIb9EYCXOmE7LP5J3G3IzgOOVp2ppOU3apE5mTWG8XDN41AE3rxek-xepNYyBGZLTBE6kRHV8jsju0T1NaexTWuTk7pb1eewPtzLd5vzvQuxkVn_wwQ_Iv2vw0aHh1PMgzs"/>
+<div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+<span class="font-label text-[10px] text-neutral-500">2020 EDITION</span>
+<h4 class="text-neutral-400 font-bold text-sm tracking-widest">CYBER REVERIE</h4>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 py-8 border-y border-neutral-900 flex justify-center space-x-24 overflow-hidden">
+<span class="font-headline font-black text-6xl text-neutral-900 select-none whitespace-nowrap">EXTINCT</span>
+<span class="font-headline font-black text-6xl text-neutral-900 select-none whitespace-nowrap">REST IN THREADS</span>
+<span class="font-headline font-black text-6xl text-neutral-900 select-none whitespace-nowrap">VAULTED</span>
+</div>
+</section>
+<!-- Instagram Strip -->
+<section class="flex overflow-hidden">
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="High-end fashion photography, avant-garde model posing against a brutalist concrete wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg4pIHduleFtJrMy50T_ECK-iYUqj7alHd_CyrRgAya0_M2DwB0q8taLs-Q7CCfwE15SFWeTBdYDCkJPGnjX1ELQ66xn0iR0b8y75AUvntUQU9nYOYiGEVQKkm66LpDnNw4vMXXdtxc1u6y7HZcGwgcMvILlsefB3AwH7_BonSnuRn1Uvs3ANG8FEE6SihXpt-K7NcJt_U9mlpnu34HU2JUeRWZJ6rQQJiJXWKre1FOHC_1c0do3egUwsGjC2sjF6EevPurcKSfL8"/>
+</div>
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Cinematic shot of a person walking down a foggy alleyway at night in a long dark gothic coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzO_m6QgoBXdmmPloR5H6frAR39srJ78ygtMV7h_zNakVvqgKOuiOtyXwJ6TY0WbBx5SeQYXzRXj7_2Y0daO_vLdVd6mxsQ2o718hFeU7i6iCrf54WeVjFu_Ygcgc4rY4Iz35uCmcOTSAlpcrhzue3HiQAdLDUugoxZdaZiLn7KrXJbwjV2bpcYIyu9WL_KE8zDhscr_CNhPtEC-njAQTylTsb5br0DqrVKpR22DpZ3y8l6AmfHKjYgK2yUNz8fNvvAAYSK_UE6K0"/>
+</div>
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Flat lay of bohemian accessories including leather boots, vintage silver jewelry, and earthy linen scarves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1VAFd3Kp00Md3xEr9svIvv1juNZd0IJF51iHRUDWv_SyWjE1193nhhCIV7MZ14xHz4m2BDSAk8rgG15iI_AsTn5nd4pymxxLxii2zwAK0wKOweE3y1BbZprIUfy95tzFh0xAoMe8aYV5VY2WZ7DSM2NXhUDb9zZTMHmKpvBJvc3eKEQXntOgv23lsq4jX-L-nbmOS3dDmOKukJdkZHF-aYg21WN2mU2GjrCDqwnhVAN1i64sqKUQELpztZKwqiKe9UU4N6yalYXY"/>
+</div>
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Urban portrait of someone in a neon yellow street jacket leaning against a graffiti-covered wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7cfU3od2VnHPmlIE0Z4bNp7532rf8tCwWkhXwJMgn_ZXvUVQO-eczT6YlodxBxxuu3VuIdbv-gRcPpNS2jKfEs7lkxfqgxWzSqX7U_bYMaCQwGWuGYz2o94BMoMG5A7jjht1wNsmBs05wmcfs5aGoRaIRxjg9V1L0625oD9CFf_UO933AZu78AYe-AswlNj9RjrzFcAHrrIqZbWvKyz2Th4n9sVY9Qnj3xmAm3Rru_K8b9TuJGJ9VK3Q6UPIwtr5SEuQCJJ2nNJI"/>
+</div>
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="High fashion studio shot of a model in a vibrant multicolored outfit with psychedelic lighting effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF6q0NJcHs4PRUj6E0G3NlnoXlgdhWlXcRBr5gGTy4og9SUzyNxAP4RlZ2oXA3yN9Auzhz2pAwDQXH8Hlxptqr2VOT4xEJQkmTDMi9-FisoedqKp8FHKGL1b6fUMXsIRqWMoM15clxgdk1a2xkh_75u3uip-bz8bH0Ayta1HYSKrAuTCmC3feI1rlJkkVTRfT9rwIQ8rD6PY8KztId9_zbabmwaJ6aCE_a9CaawFUtWWIqjCTn0EhjMIk-MuJrvetkW7DrMWzFOGI"/>
+</div>
+<div class="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Macro detail shot of high-quality fabric texture with intricate embroidery and subtle metallic threads" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrEYUMdp-9Tm6R6NCsSuSW8gI4Ljcm3KjcAvyr89q1GP9YYPJB5wughCmATLVB-Rpj-XONjS2GiLCBrvZbnLLKf3dIGkjZz4s4KpGMpXMvC3V9OofMT8xYyfQ60SJdGnNsG0en-jd3_spudo-Gaf6yDrTX8R_yK5G9LdYH23lLD_3Lxf-dxZHYYyQoBvWCS8lAKjZsihKz7gldvQbiEEPfwvLOoj8613qmGOeMTZ8mSLw03GayIgk3hm4LjiZA5lChOTGIJ3pxwY"/>
+</div>
+</section>
+</main>
+<!-- Quiz Widget -->
+<div class="fixed bottom-8 right-8 z-[60]">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+<button class="relative bg-neutral-900 px-6 py-6 flex flex-col items-center justify-center space-y-2 border border-outline-variant/50 backdrop-blur-xl">
+<span class="material-symbols-outlined text-white text-3xl">psychology</span>
+<span class="font-label text-[10px] text-white tracking-widest uppercase text-center">Which Style<br/>Are You?</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-neutral-950 pt-24 pb-12 px-8 border-t border-neutral-900">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-['Manrope'] text-sm tracking-wide">
+<div class="space-y-6">
+<div class="text-2xl font-black text-neutral-200 uppercase font-headline">VASLIC</div>
+<p class="text-neutral-600 leading-relaxed max-w-xs">
+                    Curating the intersection of subculture and high fashion. Limited editions only. No restocks. No compromise.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold uppercase tracking-widest font-headline">The Vault</h4>
+<ul class="space-y-2">
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Vault Registration</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Curator Program</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Retired Hall</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Shipping &amp; Logistics</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold uppercase tracking-widest font-headline">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Privacy Policy</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Terms of Service</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors duration-300" href="#">Cookie Protocol</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold uppercase tracking-widest font-headline">Transmission</h4>
+<div class="relative">
+<input class="w-full bg-neutral-900 border-none px-4 py-3 text-xs tracking-widest font-label focus:ring-1 focus:ring-primary" placeholder="ENTER EMAIL" type="email"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary">arrow_right_alt</button>
+</div>
+<div class="flex space-x-4">
+<a class="text-neutral-600 hover:text-white" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-neutral-600 hover:text-white" href="#"><span class="material-symbols-outlined">chat_bubble</span></a>
+<a class="text-neutral-600 hover:text-white" href="#"><span class="material-symbols-outlined">motion_photos_on</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center text-[10px] text-neutral-700 uppercase tracking-[0.2em]">
+<span>© 2024 VASLIC. No reprints. No restocks. No exceptions.</span>
+<span class="mt-4 md:mt-0 font-bold">BUILT FOR THE ETERNAL CURATOR</span>
+</div>
+</footer>
+</body></html>

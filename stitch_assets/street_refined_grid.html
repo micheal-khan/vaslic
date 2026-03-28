@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#ffdad6",
+              "surface-variant": "#353535",
+              "primary": "#72d2ff",
+              "tertiary-fixed": "#f5e642",
+              "primary-container": "#289bc8",
+              "outline": "#889299",
+              "on-error": "#690005",
+              "tertiary": "#d8ca23",
+              "tertiary-container": "#bbae00",
+              "inverse-surface": "#e5e2e1",
+              "primary-fixed-dim": "#72d2ff",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "surface-container-highest": "#353535",
+              "on-secondary-fixed-variant": "#920703",
+              "error": "#ffb4ab",
+              "inverse-primary": "#006687",
+              "on-tertiary": "#363100",
+              "on-secondary-fixed": "#410000",
+              "primary-fixed": "#c1e8ff",
+              "on-primary-fixed-variant": "#004d66",
+              "secondary": "#ffb4a8",
+              "on-tertiary-container": "#464100",
+              "tertiary-fixed-dim": "#d8ca23",
+              "surface-container-lowest": "#0e0e0e",
+              "on-primary": "#003548",
+              "error-container": "#93000a",
+              "secondary-fixed": "#ffdad4",
+              "on-secondary": "#690000",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary-fixed": "#1f1c00",
+              "surface-dim": "#131313",
+              "on-surface": "#e5e2e1",
+              "on-primary-container": "#002e3e",
+              "surface-bright": "#393939",
+              "on-primary-fixed": "#001e2b",
+              "surface-container-high": "#2a2a2a",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#920703",
+              "on-background": "#e5e2e1",
+              "surface": "#131313",
+              "secondary-fixed-dim": "#ffb4a8",
+              "background": "#131313",
+              "surface-container": "#20201f",
+              "on-surface-variant": "#bec8cf",
+              "surface-tint": "#72d2ff",
+              "on-secondary-container": "#ff9a8a",
+              "outline-variant": "#3e484e"
+            },
+            fontFamily: {
+              "headline": ["Bebas Neue", "sans-serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Space Grotesk", "sans-serif"],
+              "display": ["Bebas Neue", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+        }
+        .text-glitch:hover {
+            text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+        }
+        .spray-paint-mask {
+            mask-image: radial-gradient(circle, black 50%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        }
+        .diagonal-stripes {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(245, 230, 66, 0.1) 10px, rgba(245, 230, 66, 0.1) 20px);
+        }
+    </style>
+</head>
+<body class="bg-[#1a1a1a] text-on-surface font-body selection:bg-tertiary-fixed selection:text-black">
+<div class="fixed inset-0 grain-texture pointer-events-none z-[60]"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex justify-between items-center px-8 h-24 max-w-full mx-auto">
+<div class="text-3xl font-black text-white tracking-widest uppercase font-['Space_Grotesk']">VASLIC</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-bold tracking-tighter uppercase" href="#">Gothic</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-bold tracking-tighter uppercase" href="#">Bohemian</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-bold tracking-tighter uppercase" href="#">Avant-Garde</a>
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter uppercase" href="#">Street</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300 font-['Space_Grotesk'] font-bold tracking-tighter uppercase" href="#">Funky</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="hidden lg:block relative">
+<input class="bg-neutral-900 border-none text-xs font-label px-4 py-2 w-48 focus:ring-1 focus:ring-tertiary-fixed" placeholder="SEARCH VAULT..." type="text"/>
+</div>
+<button class="text-white hover:scale-110 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-white hover:scale-110 duration-150 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="relative h-[819px] w-full overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 z-10 bg-black/40"></div>
+<div class="absolute inset-0 z-20 diagonal-stripes opacity-30"></div>
+<img alt="" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50" data-alt="Gritty urban alleyway at night with wet pavement reflecting neon yellow lights and chain link fence textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwmVCfrfkWTglSWqE59BLHf8nXLAt2LpRI07IA8rSvXlY0f-W1B9hb2LS6S227rk5aHmWyGgYvHAUTMt3K6L44B-kLNT5spU8H7YIwRXNY-1Gq_tYtJndyTlEsWJfrdcir1GQ7lqp1VPSoZskMazIO1AxO-2uCINPjMV7lR-FKIzwRymqX2iSnSZMKkFKBW_sYiTz-4-J3anOl7JGLYztwPIzn06iEK3K81LnxSGU8SgOv_diXN0aH3f_S1gRZvi8jqdLmFFpzeDI"/>
+<div class="relative z-30 h-full flex flex-col justify-center px-8 md:px-16">
+<div class="inline-block bg-tertiary-fixed text-black font-headline text-2xl px-4 py-1 mb-6 self-start transform -skew-x-12">
+                    STREET CATEGORY
+                </div>
+<h1 class="font-display text-[8rem] md:text-[15rem] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
+                    RAW<br/>KINETIC<br/><span class="text-tertiary-fixed">SOUL</span>
+</h1>
+<div class="mt-8 max-w-xl">
+<p class="font-body text-xl text-on-surface-variant font-medium leading-tight border-l-4 border-tertiary-fixed pl-6 italic">
+                        Once it's gone, it's gone. Forever. No reruns. No represses. You either got it or you didn't.
+                    </p>
+</div>
+</div>
+<!-- Chain Link Overlay Decorative -->
+<div class="absolute bottom-0 right-0 w-1/3 h-full opacity-20 pointer-events-none z-20">
+<div class="w-full h-full border-[20px] border-white/10 rotate-45 transform translate-x-1/2 translate-y-1/2"></div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-8 py-24 bg-[#1a1a1a]">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-display text-7xl uppercase text-white text-glitch cursor-default">NEW ARRIVALS</h2>
+<p class="font-label text-tertiary-fixed tracking-widest mt-2">VAULT ID: ST-2024-CURATED</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-high px-6 py-3 font-label text-xs uppercase hover:bg-tertiary-fixed hover:text-black transition-all">Filter</button>
+<button class="bg-surface-container-high px-6 py-3 font-label text-xs uppercase hover:bg-tertiary-fixed hover:text-black transition-all">Sort</button>
+</div>
+</div>
+<!-- Updated Grid: 2x2 layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col bg-surface-container overflow-hidden">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Close-up of a high-end black street style oversized hoodie with unique architectural stitching and heavy cotton texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ_2S6u6kYcmEwvL0bFWEusX2dJh0IbmtOF-RPilcLKyXvmxq4LG2VvbSSsU1nRNP4mTKQgZgd9_Y4dUX6LvXyyIIV4mAZCVq2tGKnL2NBYq7sqDrsdD6Q-LFYsl5yPSid6azrXYSMXG_9o2weucIDyAbp1hw44Fya-9zkWU1NFpSWDtzjtARzmRSXU-lw1wHXJdHmx4EnmLfQNJYZJe2dheb8aMoTVtg-S1-puqSjG9TMOLNQHOJYfd1WCvX8YyXlza3xeJx7Pg0"/>
+<div class="absolute top-4 left-4 bg-tertiary-fixed text-black font-headline px-3 py-1 text-xl -rotate-6 shadow-xl">
+                            LIMITED: 12 LEFT
+                        </div>
+<div class="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black/60 backdrop-blur-md">
+<button class="w-full bg-tertiary-fixed text-black font-headline text-2xl py-3 hover:translate-x-1 transition-transform">
+                                SNATCH NOW
+                            </button>
+</div>
+</div>
+<div class="p-8 bg-neutral-900 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-5xl text-white">THE ARCHIVE HOODIE</h3>
+<span class="font-label text-tertiary-fixed text-2xl">$185</span>
+</div>
+<p class="font-body text-base text-neutral-400 mb-8">Hand-distressed 500GSM french terry. Custom VASLIC hardware. Every piece is unique.</p>
+<div class="mt-auto pt-6 border-t border-white/10 flex justify-between items-center text-xs font-label text-neutral-500 uppercase tracking-widest">
+<span class="text-tertiary-fixed/60">VLK-STRT-001</span>
+<span class="font-bold">Edition 1 of 50 — Never Reprinted</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col bg-surface-container overflow-hidden">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Model wearing futuristic technical streetwear cargo pants with many straps and pockets in a brutalist concrete environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlu3O3_qx5OtnwMZJvRu7RDbgRqU7rZ2sniWqCtnhCyzwG_-bTV1LViu4NRlUq76wCpi1fnQ4sFV2q5fGxs-RtXwn5_E2auNhW1GBad8onWhZma5Ir_ZMSw3LLw2-wWFG3RxpatvO2yQV04dyLUcOpBaUzF0jOoSqwGMFmzgyVHAYIJ0lIHK-IBFSKXu3vE87b2cHPLGi3Ypfs6qygmP1CMzPo28R-MwUjA9WAKATahy91s3nTqLCVY4R1NoJHbQrgYHDmbT4CPEw"/>
+<div class="absolute top-4 right-4 bg-red-600 text-white font-headline px-3 py-1 text-xl rotate-3 shadow-xl">
+                            SOLD OUT: 85%
+                        </div>
+<div class="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black/60 backdrop-blur-md">
+<button class="w-full bg-tertiary-fixed text-black font-headline text-2xl py-3 hover:translate-x-1 transition-transform">
+                                SECURE ASSET
+                            </button>
+</div>
+</div>
+<div class="p-8 bg-neutral-900 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-5xl text-white">CARGO SYSTEM v2</h3>
+<span class="font-label text-tertiary-fixed text-2xl">$240</span>
+</div>
+<p class="font-body text-base text-neutral-400 mb-8">Modular attachment system. Waterproof ripstop nylon. Articulated knee construction.</p>
+<div class="mt-auto pt-6 border-t border-white/10 flex justify-between items-center text-xs font-label text-neutral-500 uppercase tracking-widest">
+<span class="text-tertiary-fixed/60">VLK-STRT-002</span>
+<span class="font-bold">Edition 1 of 30 — Never Reprinted</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col bg-surface-container overflow-hidden">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Close up of a premium heavy cotton graphic t-shirt with bold typography and spray paint effect graphic on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK_dT0FiymzLD1zREeAbfTRB5n_KNDsnHqsxM1HgL40Wljt0vj9oG7IKBZaAvgj6-EVUTgSMR_fyA4xrwAGOF4LgdaffBKSRNf4kJYPpeigOnpUToan2TQumCfp8BLclqJ0Rtbf5yyl09YAxXxs5wiEMahy8Lu0YpqyLisqTTQ_cERdUD4eRZDef2nbMLa87b0yoTd0RqnotrjiBSf_PwAeyP9PjT-Amld62qpu8hbeht4WpM-SuZXqUf4ysI1YqAxhAVz9Le46PE"/>
+<div class="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black/60 backdrop-blur-md">
+<button class="w-full bg-tertiary-fixed text-black font-headline text-2xl py-3 hover:translate-x-1 transition-transform">
+                                ADD TO STASH
+                            </button>
+</div>
+</div>
+<div class="p-8 bg-neutral-900 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-5xl text-white">KINETIC GRAPHIC TEE</h3>
+<span class="font-label text-tertiary-fixed text-2xl">$75</span>
+</div>
+<p class="font-body text-base text-neutral-400 mb-8">Oversized fit. Screen-printed in 8-layer high-density ink. Pre-shrunk finish.</p>
+<div class="mt-auto pt-6 border-t border-white/10 flex justify-between items-center text-xs font-label text-neutral-500 uppercase tracking-widest">
+<span class="text-tertiary-fixed/60">VLK-STRT-003</span>
+<span class="font-bold">Edition 1 of 100 — Never Reprinted</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col bg-surface-container overflow-hidden">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Technical streetwear utility vest with multiple tactical pockets and industrial orange accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqxPgrl1CgQ4dPdTsbeSHDGZqSAshrouTNLyWMco0A55Kfl89lFaUKobdJ5U4mXn4ibDt9wsuW8LzRUrqApkp3gulM6e4vyD8o9AWsoraR8FfCcVJ_qPqPEopWUnu0g1DSH166RT-dik7JYDacx5vO_eQ12WYK2nBWfZV4AqJKtyrcigwSlpiiveZ_NDuyQoItmYVuY8lc0z-IreSsORlmvxTRB4Bor6ca4FSvCWbkZZNDYUmMQUT2Gr5N0UfBSgpdxU_Heq75Zpg"/>
+<div class="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black/60 backdrop-blur-md">
+<button class="w-full bg-tertiary-fixed text-black font-headline text-2xl py-3 hover:translate-x-1 transition-transform">
+                                SECURE GEAR
+                            </button>
+</div>
+</div>
+<div class="p-8 bg-neutral-900 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-5xl text-white">TACTICAL RIG v1</h3>
+<span class="font-label text-tertiary-fixed text-2xl">$160</span>
+</div>
+<p class="font-body text-base text-neutral-400 mb-8">Multi-pocket configuration. High-tensile webbing. Weatherproof technical shell.</p>
+<div class="mt-auto pt-6 border-t border-white/10 flex justify-between items-center text-xs font-label text-neutral-500 uppercase tracking-widest">
+<span class="text-tertiary-fixed/60">VLK-STRT-004</span>
+<span class="font-bold">Edition 1 of 25 — Never Reprinted</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Buffet Wall / Retired Section -->
+<section class="relative bg-neutral-900 py-32 overflow-hidden">
+<!-- Brick Pattern Backdrop -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<h2 class="font-display text-9xl text-neutral-800 uppercase tracking-tighter leading-none relative">
+                        THE BUFFED WALL
+                        <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/5 font-display text-[15rem] pointer-events-none">GONE</span>
+</h2>
+<div class="bg-red-900/40 text-red-500 border border-red-500 inline-block px-8 py-2 font-headline text-3xl mt-4 rotate-2">
+                        BUFFED — GONE FOREVER
+                    </div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<!-- Faded items -->
+<div class="aspect-square bg-neutral-950 p-1 filter grayscale opacity-30 contrast-125 border border-white/5 relative overflow-hidden group">
+<img alt="" class="w-full h-full object-cover" data-alt="Faded monochrome image of retired sneakers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYgxo1DqVV2jjdSJ4MVJHfKAo2OEbzEcUpZayITjgB6yEx_ZhpDYOAWq6U9XbFzIF-6h9szT_59zksHsHUboK508jl4dx3uR2a92ZdYIpeV-WKWRKWQ8rvcqR8uuo__0Av46avr8A7oQ_UKlSDqxANL1jsoSJ0Xa7_DXsG338a49mKPQcssewPhXEgt8E8H6bfKuvZbhFVQc3X2eCwuqCMujWnN_LmqWrXzJbw2g2_2LSzE8-RTrAt4NrxLD9HtXVz9WaACmeTOVU"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white font-headline text-xs transform -rotate-45 bg-black/80 px-2 py-1">VLK-STRT-X01</div>
+</div>
+</div>
+<div class="aspect-square bg-neutral-950 p-1 filter grayscale opacity-20 border border-white/5 relative overflow-hidden group">
+<img alt="" class="w-full h-full object-cover" data-alt="Faded monochrome image of a retired denim jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfN_nLTB76gTFPezapqf0joZ9FsocajIaK2gbyyq7CLeLQtrKiNVP1PZ4Lscjqf-gSqqZMCgx3UOHikXXWciTz2vs13ryBUaLvENytaPMJxFWzaPdf7vLW2NGBIc3n9Bm3CV7UcevLHLNoSvhZR4AZ-H6FbFPGaP0KscXC8i8DSjrxavO8qP3VBTu7Qoe-ZP7cOTHTnHp1dXzUpkdGfBBnwVk1IpxZeLmfoPdkoixed5b2q_5Bat_TV3Tiqgu6tvw3Hi9Iv2Q0cFA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white font-headline text-xs transform -rotate-45 bg-black/80 px-2 py-1">VLK-STRT-X02</div>
+</div>
+</div>
+<div class="aspect-square bg-neutral-950 p-1 filter grayscale opacity-10 border border-white/5 relative overflow-hidden group">
+<img alt="" class="w-full h-full object-cover" data-alt="Faded monochrome image of a retired graphic t-shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhGE8x3DFgbzTiBifNDwGDy36xAeG5T_P49xjbvYmNj1J8UVqgiRAUdIYQvY-5H-P-XwhN-pPvAq88sU4SsrmocEQcJVGXhQtJpkmOAuerUmNALbbHpPCMuq3wuG1Y9klTDTDEvynkn2j7NrLJKskAIdxcRu5lHTS3y-VM39IGhE7bYHm4qe3Sint7F7BA1sMtv6jdF04aQx87PWcxKNgUk1v8sfYc06dAsyITY0v9XFjiUPFtKdJwPSyC2SxTwQICLnxyuAOQraA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white font-headline text-xs transform -rotate-45 bg-black/80 px-2 py-1">VLK-STRT-X03</div>
+</div>
+</div>
+<div class="aspect-square bg-neutral-950 p-1 filter grayscale opacity-25 border border-white/5 relative overflow-hidden group">
+<img alt="" class="w-full h-full object-cover" data-alt="Faded monochrome image of retired technical pants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqxPgrl1CgQ4dPdTsbeSHDGZqSAshrouTNLyWMco0A55Kfl89lFaUKobdJ5U4mXn4ibDt9wsuW8LzRUrqApkp3gulM6e4vyD8o9AWsoraR8FfCcVJ_qPqPEopWUnu0g1DSH166RT-dik7JYDacx5vO_eQ12WYK2nBWfZV4AqJKtyrcigwSlpiiveZ_NDuyQoItmYVuY8lc0z-IreSsORlmvxTRB4Bor6ca4FSvCWbkZZNDYUmMQUT2Gr5N0UfBSgpdxU_Heq75Zpg"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white font-headline text-xs transform -rotate-45 bg-black/80 px-2 py-1">VLK-STRT-X04</div>
+</div>
+</div>
+<div class="aspect-square bg-neutral-950 p-1 filter grayscale opacity-5 border border-white/5 relative overflow-hidden group">
+<div class="w-full h-full bg-neutral-800 flex items-center justify-center text-neutral-600 font-headline text-4xl">?</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white font-headline text-xs transform -rotate-45 bg-black/80 px-2 py-1">VLK-STRT-X05</div>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center">
+<p class="font-headline text-5xl text-white/40 tracking-widest max-w-4xl mx-auto">
+                        RULES OF THE PAVEMENT: IF THE LINK IS DEAD, THE DREAM IS DEAD. NO RESTOCKS. NO EXCEPTIONS.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-950 w-full py-12 px-8 border-t-0 font-['Manrope'] text-sm tracking-wide">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-lg font-black text-neutral-200">VASLIC</div>
+<p class="text-neutral-600">The Kinetic Curator. Exclusive editions for the avant-garde spirit. Digital physicalities curated for the new era.</p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-neutral-600 cursor-pointer hover:text-cyan-400">alternate_email</span>
+<span class="material-symbols-outlined text-neutral-600 cursor-pointer hover:text-cyan-400">share</span>
+<span class="material-symbols-outlined text-neutral-600 cursor-pointer hover:text-cyan-400">public</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="font-bold text-white uppercase font-['Space_Grotesk'] text-xs">Navigation</div>
+<ul class="space-y-2">
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Vault Registration</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Shipping</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<div class="font-bold text-white uppercase font-['Space_Grotesk'] text-xs">Categories</div>
+<ul class="space-y-2">
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Gothic</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Bohemian</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Avant-Garde</a></li>
+<li><a class="text-white transition-colors" href="#">Street</a></li>
+<li><a class="text-neutral-600 hover:text-cyan-400 transition-colors" href="#">Funky</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<div class="font-bold text-white uppercase font-['Space_Grotesk'] text-xs">The Vault</div>
+<p class="text-neutral-600 text-xs">Enter your coordinates to receive drop alerts.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-neutral-900 border-none text-[10px] px-4 py-2 w-full focus:ring-1 focus:ring-cyan-500" placeholder="E-MAIL ADDRESS" type="email"/>
+<button class="bg-cyan-600 text-white font-['Space_Grotesk'] font-bold text-[10px] uppercase py-2 hover:bg-cyan-500 transition-colors">Register</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 text-center md:text-left">
+<p class="text-neutral-600 text-[10px] uppercase tracking-[0.2em]">© 2024 VASLIC. No reprints. No restocks. No exceptions.</p>
+</div>
+</footer>
+<!-- Theme Switcher -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-surface-container-highest/60 backdrop-blur-[20px] px-6 py-3 rounded-full flex items-center space-x-6 shadow-2xl border border-white/5">
+<button class="w-8 h-8 rounded-full bg-black border border-white/20 hover:scale-125 transition-transform" title="Gothic"></button>
+<button class="w-8 h-8 rounded-full bg-[#f5ebe0] border border-black/10 hover:scale-125 transition-transform" title="Bohemian"></button>
+<button class="w-8 h-8 rounded-full bg-white border border-black/10 hover:scale-125 transition-transform" title="Avant-Garde"></button>
+<button class="w-8 h-8 rounded-full bg-tertiary-fixed border border-black hover:scale-125 transition-transform ring-2 ring-tertiary-fixed ring-offset-4 ring-offset-[#1a1a1a]" title="Street"></button>
+<button class="w-8 h-8 rounded-full bg-[#0d0d2b] border border-[#00f5d4]/40 hover:scale-125 transition-transform" title="Funky"></button>
+</div>
+</body></html>

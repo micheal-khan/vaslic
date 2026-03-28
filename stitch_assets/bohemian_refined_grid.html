@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bohemian - Refined Grid Edition | VASLIC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@200;300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Bebas+Neue&amp;family=Righteous&amp;family=UnifrakturMaguntia&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#131313",
+                        "secondary-container": "#920703",
+                        "inverse-primary": "#006687",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#001e2b",
+                        "on-secondary-fixed-variant": "#920703",
+                        "on-primary-fixed-variant": "#004d66",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#d8ca23",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#4e4800",
+                        "inverse-on-surface": "#313030",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#3e484e",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#889299",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353535",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed": "#f5e642",
+                        "secondary-fixed": "#ffdad4",
+                        "on-surface-variant": "#bec8cf",
+                        "surface-tint": "#72d2ff",
+                        "primary-fixed-dim": "#72d2ff",
+                        "on-tertiary-container": "#464100",
+                        "secondary": "#ffb4a8",
+                        "on-tertiary-fixed": "#1f1c00",
+                        "on-secondary": "#690000",
+                        "surface-bright": "#393939",
+                        "on-primary": "#003548",
+                        "surface": "#131313",
+                        "on-secondary-fixed": "#410000",
+                        "primary-container": "#289bc8",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#d8ca23",
+                        "primary": "#72d2ff",
+                        "on-secondary-container": "#ff9a8a",
+                        "primary-fixed": "#c1e8ff",
+                        "on-tertiary": "#363100",
+                        "on-background": "#e5e2e1",
+                        "tertiary-container": "#bbae00",
+                        "on-primary-container": "#002e3e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"],
+                        "serif": ["Playfair Display"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bohemian-bg {
+            background-color: #f5ebe0;
+        }
+        .text-bohemian-terracotta {
+            color: #c77b4a;
+        }
+        .bg-bohemian-terracotta {
+            background-color: #c77b4a;
+        }
+        .border-bohemian-terracotta {
+            border-color: #c77b4a;
+        }
+        /* Kinetic Curator Shadow */
+        .ambient-shadow {
+            box-shadow: 0 20px 50px rgba(199, 123, 74, 0.08);
+        }
+    </style>
+</head>
+<body class="bohemian-bg text-stone-800 font-body selection:bg-orange-200">
+<!-- TopNavBar -->
+<nav class="bg-[#f5ebe0] dark:bg-stone-900 font-['Playfair_Display'] font-serif tracking-tight docked full-width top-0 z-50 bg-stone-100 dark:bg-stone-800 flat no shadows flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto sticky">
+<div class="text-3xl font-black text-[#c77b4a] dark:text-orange-200 uppercase tracking-widest">VASLIC</div>
+<div class="hidden md:flex space-x-12">
+<a class="text-[#c77b4a] font-bold border-b-2 border-[#c77b4a] pb-1 hover:text-[#c77b4a] transition-transform duration-300 hover:translate-x-1" href="#">Collections</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#c77b4a] transition-transform duration-300 hover:translate-x-1" href="#">Artisans</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#c77b4a] transition-transform duration-300 hover:translate-x-1" href="#">Sustainability</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-[#c77b4a] transition-transform duration-300 hover:translate-x-1" href="#">Stories</a>
+</div>
+<div class="flex items-center space-x-6 text-[#c77b4a] dark:text-orange-300">
+<button class="material-symbols-outlined text-2xl active:scale-95 transition-all duration-200" data-icon="shopping_bag">shopping_bag</button>
+<button class="material-symbols-outlined text-2xl active:scale-95 transition-all duration-200" data-icon="person">person</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative px-8 pt-20 pb-12 overflow-hidden max-w-screen-2xl mx-auto">
+<div class="grid lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-7">
+<span class="font-label text-xs uppercase tracking-[0.3em] text-bohemian-terracotta mb-4 block">Seasonal Series</span>
+<h1 class="text-6xl md:text-8xl font-serif text-stone-900 leading-[0.9] mb-8">Bohemian - <br/><span class="italic font-normal">Refined Grid Edition</span></h1>
+<p class="max-w-md text-stone-600 text-lg leading-relaxed mb-8">
+                    An intimate collection of hand-pressed textures and organic silhouettes. Curated for the modern minimalist who finds beauty in the ephemeral.
+                </p>
+<div class="inline-flex items-center space-x-3 bg-stone-800 text-white px-6 py-4 font-label text-xs tracking-widest uppercase">
+<span>Once it's gone, it's gone. Forever.</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] bg-stone-200 relative overflow-hidden">
+<img alt="Bohemian Art" class="w-full h-full object-cover grayscale opacity-80" data-alt="Soft focused close-up of dried pampas grass and linen fabrics with warm golden sunlight filtering through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWy_KKmDv-1V_Kcn0nlK-iCH7m8JOLWSqfBGSMHAmL9cmESGeepngWg4Uzwt9Zruk3jocpKQb12YGXlUEno0772e0IX7BtAAlmzZWDeozSdF-hYDhuReuu-aKjC71YeSSYDxXxG9aQwyN30ZPBs7k59Xx7rwZOdF-D7qRqPD3dA4w1hyg6S0nBkYTKUl-6FrJlnycdn4d4re6qVadrcs6s7vQfkA77CIrD1uJtJqB60ZYF9skGjbreTUIF-YSTxDTkVz0bxKQLpGs"/>
+<div class="absolute inset-0 bg-bohemian-terracotta/10 mix-blend-multiply"></div>
+</div>
+<!-- Triangle Motif -->
+<div class="absolute -bottom-4 -left-4 w-24 h-24 bg-bohemian-terracotta/20" style="clip-path: polygon(0 0, 0% 100%, 100% 100%);"></div>
+</div>
+</div>
+</header>
+<!-- Product Grid (2x2) -->
+<main class="px-8 py-24 max-w-screen-2xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<h2 class="font-serif text-4xl text-stone-900">Live Collection</h2>
+<div class="text-bohemian-terracotta font-label text-xs uppercase tracking-widest border-b border-bohemian-terracotta pb-2">
+                Limited Release
+            </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+<!-- Product Card 1 -->
+<div class="group">
+<div class="relative mb-6">
+<div class="aspect-square bg-white ambient-shadow overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="minimalist ceramic vase on a raw wooden table with a single dried branch and soft afternoon shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAahV5DJV6u3SM2jgPqD6Md3tpuFV1coYsdn_9899oJcqh8lniLoCmpaEnk9djY6fXQM6r90xudPDVWfREQyp-GpFS0eLKAFgNbntAHHGfoOUeHVIbO9zx97jFUECiYYbTK0pWgSO1YGaJ0aDQgNIbYlf8fE4uP1m0dX51F06lYHh4LjH6lL9lnVusnhm0pNb2WQQGm3cEqb7sLV2yD2JwolSuZzlrAj3mo12x-2xs7nn6Dod0ioHfX8RWkUmbLB3p7PMlmqUa4pGw"/>
+</div>
+<div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 font-label text-[10px] tracking-widest uppercase text-stone-900">
+                        Vault ID: VLK-BOHO-001
+                    </div>
+<div class="absolute bottom-0 right-0 p-4 bg-bohemian-terracotta text-white flex flex-col items-center justify-center w-20 h-20">
+<span class="text-xl font-bold leading-none">03</span>
+<span class="text-[8px] uppercase tracking-tighter">Left</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-serif text-2xl text-stone-800 mb-1">Earthen Vessel No. 01</h3>
+<p class="text-stone-500 italic text-sm mb-4">Edition 1 of 12 — Never Reprinted</p>
+<button class="bg-stone-900 text-white px-8 py-4 font-label text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95">
+                            Buy Now — $420
+                        </button>
+</div>
+<!-- Triangle Watermark -->
+<div class="w-12 h-12 bg-stone-200/50" style="clip-path: polygon(100% 0, 0% 100%, 100% 100%);"></div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group md:mt-32">
+<div class="relative mb-6">
+<div class="aspect-square bg-white ambient-shadow overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up detail of textured hand-made paper with pressed wild flowers and elegant gold leaf accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHPyMpznI0OjovV5hU3aGoS5AzCZgzfna7Xz4UJUhJe3aMlfjzRquZaTRmEiGGnDdGV_oXCa_5iHVfP7G-9PvHUODYF6boK88ZmZPX8jH_2tyXEseFjhVn2abb-dJICJUKYcJutG-L7VfxdobUOBy6PSncAwnORjkLJIU_rGPEcp-R1R6F52GIzPlZ-E0QTUbh_5FPby1hfux0mWkTspgJ_nokX7wZ-Hqd06iLoV20UbnolJIBsSk3XFnSe9HplOaP9lxYIvF6gak"/>
+</div>
+<div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 font-label text-[10px] tracking-widest uppercase text-stone-900">
+                        Vault ID: VLK-BOHO-002
+                    </div>
+<div class="absolute bottom-0 right-0 p-4 bg-bohemian-terracotta text-white flex flex-col items-center justify-center w-20 h-20">
+<span class="text-xl font-bold leading-none">01</span>
+<span class="text-[8px] uppercase tracking-tighter">Left</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-serif text-2xl text-stone-800 mb-1">Pressed Flora Archive</h3>
+<p class="text-stone-500 italic text-sm mb-4">Edition 1 of 12 — Never Reprinted</p>
+<button class="bg-stone-900 text-white px-8 py-4 font-label text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95">
+                            Buy Now — $285
+                        </button>
+</div>
+<div class="w-12 h-12 bg-stone-200/50" style="clip-path: polygon(100% 0, 0% 100%, 100% 100%);"></div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group">
+<div class="relative mb-6">
+<div class="aspect-square bg-white ambient-shadow overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Artistic architectural shot of a modern clay building with organic rounded windows under a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5g3S15JtPnCd8pJo9b6k9EgAniZEv-ZKjOd4jMFxleYusXuWFgr-txmQBdxJD7KlhNMWUkMNeTewrTYbkqDi5aG2ICy1RU2bppLCneB4V-RYPwSxH5zkIEBWSu1RX3bOyr-uvfQgUzP5BNQ0ozQC3tDl9LsLIDxDobpBg9bVpr4QxOYw7Ng5bdwHRyW6ukMoP6i3astfNDiUiT4xkCUkffUQYmbOn8TLtjDiDdgFQz2Q_mQ1vsSSeb4-9xprpMXYxY6sVmgFUzzg"/>
+</div>
+<div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 font-label text-[10px] tracking-widest uppercase text-stone-900">
+                        Vault ID: VLK-BOHO-003
+                    </div>
+<div class="absolute bottom-0 right-0 p-4 bg-bohemian-terracotta text-white flex flex-col items-center justify-center w-20 h-20">
+<span class="text-xl font-bold leading-none">05</span>
+<span class="text-[8px] uppercase tracking-tighter">Left</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-serif text-2xl text-stone-800 mb-1">Terra Study III</h3>
+<p class="text-stone-500 italic text-sm mb-4">Edition 1 of 12 — Never Reprinted</p>
+<button class="bg-stone-900 text-white px-8 py-4 font-label text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95">
+                            Buy Now — $550
+                        </button>
+</div>
+<div class="w-12 h-12 bg-stone-200/50" style="clip-path: polygon(100% 0, 0% 100%, 100% 100%);"></div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group md:mt-32">
+<div class="relative mb-6">
+<div class="aspect-square bg-white ambient-shadow overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Top down view of a rough stoneware plate with organic edges resting on a crinkled linen napkin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEekkIdvysQpPxAX2q-rSmmjOHxS0bbu7X1G3XTXfHO8P-1rT2ajbwHHGD2LQj_iDV3tZS5J3HZ_eSlCYGXRwWPhkwYCrnbcRjOMPoyFcA-dQhmiFrrD-TS6qIcFlla927-FHqtfp-5K4uuwYPP3tp2IvBXkf_-CO4ZqdoIwKT20VqPQwI8puLE82rA4giP_Ai7qad5c91EFSM9wsx2AjozN34z2fa5iwUPGM2RKctgPAr9_rOGmG02fg-9YtSgra6WbYmJq41-NM"/>
+</div>
+<div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 font-label text-[10px] tracking-widest uppercase text-stone-900">
+                        Vault ID: VLK-BOHO-004
+                    </div>
+<div class="absolute bottom-0 right-0 p-4 bg-bohemian-terracotta text-white flex flex-col items-center justify-center w-20 h-20">
+<span class="text-xl font-bold leading-none">02</span>
+<span class="text-[8px] uppercase tracking-tighter">Left</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-serif text-2xl text-stone-800 mb-1">Woven Silence</h3>
+<p class="text-stone-500 italic text-sm mb-4">Edition 1 of 12 — Never Reprinted</p>
+<button class="bg-stone-900 text-white px-8 py-4 font-label text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95">
+                            Buy Now — $310
+                        </button>
+</div>
+<div class="w-12 h-12 bg-stone-200/50" style="clip-path: polygon(100% 0, 0% 100%, 100% 100%);"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Pressed Archive Section -->
+<section class="bg-stone-100/50 py-32 mt-12 border-t border-stone-200/30">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="font-serif text-4xl text-stone-900 mb-2">Pressed Archive</h2>
+<p class="text-stone-500 font-label text-xs uppercase tracking-widest">Retired Designs — Forever Sealed</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+<!-- Archive Item 1 -->
+<div class="opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="aspect-[3/4] bg-stone-200 mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small stack of antique books tied with twine on a weathered stone ledge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ozdbvi7SgAyWTa6nIc0T4UUvzPlrrGI248M78KHbiqrSts7qOw28nMrI62ZLCR1BNbZgnr-a0emZ6gmJlUXUohP2SfIhfpkbx3_CcOwO1k2wPSYl4No5Zve9U5IIAq6F5hhBmdWPSb_pMEGo90htsHPkBLXPs-I5-h00e3M2welaqN15bQixPsUKplxA6PxTClYt1kJtpYCKPAK6vWOiefYuPc_TUvSHQIWu8lVODwdiOeXAGV5FqsUx0-0zzcu2FIX8xYtBgtI"/>
+</div>
+<div class="font-label text-[10px] tracking-tighter text-stone-400">ARC-088</div>
+<div class="font-serif text-lg text-stone-700">Linen Morning</div>
+</div>
+<!-- Archive Item 2 -->
+<div class="opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="aspect-[3/4] bg-stone-200 mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of sun-bleached driftwood on a white sand beach with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpJ2kUkLDwT7UBeN6egitWHLYXmDrKS7CfVzSL2ABRQoHcm_OGLTO4QfCPolE_1jzwxMDEa47OOCsdk9etShSr-8g3sEYJW5IeQYPA3TD1-CUfd83Zqb-MW5SPLoMgvCSlDR6DysSZJkbK2rwtc89Fn0zOmLKB6mCJjjNegTXEcMktVhG8Nqf6b6ITFNdYEtknfH6XcavI6fNAKTMhDkk1JpIFO2XN6ZqQeNVqql2xGYbyJI399leN4SHVJssmu7dsuJlGodqQhR0"/>
+</div>
+<div class="font-label text-[10px] tracking-tighter text-stone-400">ARC-074</div>
+<div class="font-serif text-lg text-stone-700">Driftwood Soul</div>
+</div>
+<!-- Archive Item 3 -->
+<div class="opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="aspect-[3/4] bg-stone-200 mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A collection of handmade ceramic bowls in neutral earth tones stacked on a rustic shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRtOXlPJroi3FilV8G0gkKFIIQc8sblyA30JsFlxX6UIxSgrZT87dfN081wNqLB_e3t7FlgzPgVJPYNEguUzMC8TtLiG9L5iuB84Bbo-fLmWjMsoY__6sICCc-xRFtV1EYFQg2pJnkyemJPKfA84oM1PN_JXDxUOUXmEpebxzuHYOyvXgo-Q3Q4IYeAoVP--ghIgya09vKMn8qEHOmjnnXFkUntJWFbN0tZ0ZjVrledqA_sd73BeTYarkt76BzaO1AJ-r6j-YUG1g"/>
+</div>
+<div class="font-label text-[10px] tracking-tighter text-stone-400">ARC-092</div>
+<div class="font-serif text-lg text-stone-700">Silent Clay</div>
+</div>
+<!-- Archive Item 4 -->
+<div class="opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="aspect-[3/4] bg-stone-200 mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photography of a single dried flower head with intricate detail against a beige backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwqdmNaeg_CWyYQy1Vtm4GonYcAc0zHKw998y1v_4_L4D8lJwKl7D5UwB7LSXA6vitQJlS8fW8wA-gLo5UzgPw78kG6FTysSjxumpiXB25w7jnSw2eiS7KrFTtxYpgbxmPTiJjvlS5rHTDqY9FgKqqHbcO7_3Mo-FENFnUGjAmR5fNui4Gm0Kr__sLc6D5CERy2LnC9GTOOrP92TRtXS2guWCFbG8s_UvE2pliqKmD6oRFsz238LvJgWvQTnqGubBfM5XhudV6_-s"/>
+</div>
+<div class="font-label text-[10px] tracking-tighter text-stone-400">ARC-061</div>
+<div class="font-serif text-lg text-stone-700">Petal Echo</div>
+</div>
+<!-- Archive Item 5 -->
+<div class="hidden lg:block opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="aspect-[3/4] bg-stone-200 mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract view of soft shadows from a window lattice falling across a textured plaster wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6G8rMetaN4U7NpB_lgy7pZp3UN_lf-NXRNkvcZL1bfrUBoIIogK0clYm30wHegcK4nuz5KVHTXOfQhhp_y1LezYpeZvcYSA55n8Z4t5YEf6-ZPUIoRq0cZgAHl0DG7q6lXzi64vHDPzIOp8ncVv5BQFYQ3PIfs5bakZKreXoy-YkLn4ahHZPhdhZ7pOQTgJ6zUlimkNMGw_yRWtN2HegiZDPV44Bo70eNd0La_vg3_Vm-KVQX6YYJLbtVb54tX4E7nYdKNDVFRGc"/>
+</div>
+<div class="font-label text-[10px] tracking-tighter text-stone-400">ARC-055</div>
+<div class="font-serif text-lg text-stone-700">Shadow Lattice</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Statement / Rule -->
+<aside class="py-24 text-center px-8">
+<div class="max-w-2xl mx-auto border-t border-b border-stone-200 py-16">
+<span class="font-label text-xs uppercase tracking-[0.4em] text-bohemian-terracotta mb-6 block">The Vaslic Mandate</span>
+<blockquote class="font-serif text-3xl italic text-stone-900 mb-8">
+                "Once it's gone, it's gone. Forever."
+            </blockquote>
+<p class="text-stone-500 text-sm leading-relaxed font-body uppercase tracking-widest max-w-sm mx-auto">
+                Each piece is a singular moment in time. We never reprint. We never restock.
+            </p>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="bg-[#f5ebe0] dark:bg-stone-950 text-stone-500 dark:text-stone-500 font-['Manrope'] text-sm leading-relaxed w-full mt-auto py-12 px-8 bg-stone-200/50 dark:bg-stone-800/50 flat no shadows border-t border-stone-200/20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="text-xl font-bold text-stone-800 dark:text-stone-200">VASLIC</div>
+<p>© 2024 VASLIC. All rights reserved. Crafted with care for the Earth.</p>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="text-stone-800 dark:text-stone-200 font-bold mb-2">Shop</span>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Ethical Sourcing</a>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Support</a>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Returns</a>
+<a class="text-[#c77b4a] underline" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="text-stone-800 dark:text-stone-200 font-bold mb-2">Connect</span>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Instagram</a>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Pinterest</a>
+<a class="hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#">Journal</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="text-stone-800 dark:text-stone-200 font-bold mb-2">Join the Inner Circle</span>
+<div class="flex">
+<input class="bg-white/50 border-none px-4 py-2 w-full font-label text-[10px] tracking-widest focus:ring-1 focus:ring-bohemian-terracotta" placeholder="Email Address" type="email"/>
+<button class="bg-stone-900 text-white px-4 material-symbols-outlined" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</div>
+</footer>
+<!-- Theme Switcher -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex bg-white/60 backdrop-blur-xl p-1 ambient-shadow z-[100] border border-white/40">
+<button class="w-10 h-10 bg-stone-900 text-white flex items-center justify-center material-symbols-outlined" data-icon="history_edu" title="Gothic">history_edu</button>
+<button class="w-10 h-10 bohemian-bg text-bohemian-terracotta flex items-center justify-center material-symbols-outlined" data-icon="eco" style="font-variation-settings: 'FILL' 1;" title="Bohemian">eco</button>
+<button class="w-10 h-10 bg-white text-[#008DB9] flex items-center justify-center material-symbols-outlined" data-icon="architecture" title="Avant-Garde">architecture</button>
+<button class="w-10 h-10 bg-[#1a1a1a] text-[#f5e642] flex items-center justify-center material-symbols-outlined" data-icon="layers" title="Street">layers</button>
+<button class="w-10 h-10 bg-[#0d0d2b] text-[#00f5d4] flex items-center justify-center material-symbols-outlined" data-icon="rocket_launch" title="Funky">rocket_launch</button>
+</div>
+</body></html>

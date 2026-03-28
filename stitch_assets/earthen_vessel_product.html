@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#464100",
+              "on-primary": "#003548",
+              "error-container": "#93000a",
+              "inverse-primary": "#006687",
+              "secondary-fixed": "#ffdad4",
+              "primary-fixed-dim": "#72d2ff",
+              "outline-variant": "#3e484e",
+              "on-secondary-container": "#ff9a8a",
+              "secondary-fixed-dim": "#ffb4a8",
+              "surface-container": "#20201f",
+              "surface-container-high": "#2a2a2a",
+              "on-surface-variant": "#bec8cf",
+              "surface": "#131313",
+              "background": "#131313",
+              "tertiary-container": "#bbae00",
+              "on-primary-fixed-variant": "#004d66",
+              "on-primary-fixed": "#001e2b",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-container": "#002e3e",
+              "primary-fixed": "#c1e8ff",
+              "error": "#ffb4ab",
+              "surface-bright": "#393939",
+              "on-secondary-fixed-variant": "#920703",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed": "#410000",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary": "#363100",
+              "on-background": "#e5e2e1",
+              "tertiary-fixed-dim": "#d8ca23",
+              "surface-tint": "#72d2ff",
+              "surface-dim": "#131313",
+              "on-tertiary-fixed": "#1f1c00",
+              "secondary": "#ffb4a8",
+              "tertiary": "#d8ca23",
+              "tertiary-fixed": "#f5e642",
+              "surface-variant": "#353535",
+              "on-error": "#690005",
+              "primary": "#72d2ff",
+              "surface-container-highest": "#353535",
+              "outline": "#889299",
+              "on-surface": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "surface-container-lowest": "#0e0e0e",
+              "secondary-container": "#920703",
+              "on-tertiary-fixed-variant": "#4e4800",
+              "on-secondary": "#690000",
+              "primary-container": "#289bc8"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"],
+              "serif": ["Playfair Display"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .kinetic-hover:hover {
+            transform: translateX(4px);
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: flex;
+            width: fit-content;
+            animation: ticker 30s linear infinite;
+        }
+        .glass-morphism {
+            backdrop-filter: blur(20px);
+            background: rgba(42, 42, 42, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-[#f5ebe0] text-stone-900 font-body selection:bg-[#c77b4a] selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#f5ebe0] dark:bg-stone-900 fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center max-w-none">
+<div class="text-2xl font-['Space_Grotesk'] font-black text-[#c77b4a] dark:text-[#d98c5b]">VASLIC Bohemian</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#c77b4a] dark:text-[#d98c5b] border-b-2 border-[#c77b4a] pb-1 font-['Space_Grotesk'] font-bold tracking-tight uppercase" href="#">Collections</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#c77b4a] font-['Space_Grotesk'] font-bold tracking-tight uppercase hover:translate-x-1 transition-transform duration-200" href="#">Provenance</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#c77b4a] font-['Space_Grotesk'] font-bold tracking-tight uppercase hover:translate-x-1 transition-transform duration-200" href="#">The Vault</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#c77b4a] font-['Space_Grotesk'] font-bold tracking-tight uppercase hover:translate-x-1 transition-transform duration-200" href="#">Care</a>
+</div>
+<div class="flex gap-6 items-center">
+<button class="material-symbols-outlined text-[#c77b4a] text-2xl active:scale-95 transition-all">shopping_bag</button>
+<button class="material-symbols-outlined text-[#c77b4a] text-2xl active:scale-95 transition-all">person</button>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section: Split Screen -->
+<section class="flex flex-col lg:flex-row min-h-[921px]">
+<!-- Left Side: Immersive Gallery -->
+<div class="w-full lg:w-3/5 p-4 lg:p-8 flex flex-col gap-4">
+<div class="relative w-full aspect-[4/5] bg-stone-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a high-end minimalist ceramic vessel with organic hand-pressed textures in soft warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCPHyCfFJYT_djJQ_ri6FJiD4IgWoZtrZFED2ne0sg_tz9Dpr5uPBx_IXqSNltKUYJ1G3FFM5yfWkycAlFloqSKG9En6Y3aAFw-7BIJAkdKCQz7LkKvDa4pxfRnZCUN54eNY_Kj8Zn4Ubkla_ui3OkbO_vD-chX0SS8AyReDmjPV4GfRiBBVdLyMOxCQi9pXQT2x0ou-4R9Ha6Eb-VV5rTgGClXANLkqgD_WCV-XAES8NFw0j7m47kTmdPwaqLnsctYd5yCldP37c"/>
+<div class="absolute top-8 left-8">
+<span class="bg-[#f5ebe0]/80 backdrop-blur-md px-4 py-2 text-xs font-label uppercase tracking-widest text-stone-800 border border-stone-800/10">
+                            Vault ID: VLK-BOHO-001
+                        </span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 h-32 md:h-48">
+<div class="bg-stone-200 overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Detail shot of raw linen fabric texture and hand-stitched organic seams on a high-end designer garment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkxDHiqzXSqA2B04fMAHA94rvuIhjESK99eUsvzH3q7BRD8bCi_SkMwXzNP65Rvv2A9OhHef_OWFeu0j5T4sKV6LqUuMvno_f0Nfv0NNmEw4x7CB9kgNg93ifbw4aW2O_zfwruiaYKWTO9WjBAhICC8A0RLNXHaQkZ97Uw-bzJ2ddtsolrxORxcXdrXsXUyPKoePspy79ESDmyieI7hVKYhSKY27BIjxQwC4SAUy8h76eJ1AeB6r9MkEGA5GoIVkz1D5CN65YwSt4"/>
+</div>
+<div class="bg-stone-200 overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Artisan hands working with textured clay and natural fibers in a sun-drenched minimalist bohemian studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVHnX1wBrJs_eDdNCQ8XHBaAXTJwx704Kvz0-RZozKkdC5E2Vko1tWUC3wNk0giGIJknXXyD07kBaAgj-B4JRzdQGZ5IXdfcmJYPxT0-hcAny2kfEEa43fSY4RxAXfz0SDqSIBW8sGTUGstvbiUGV1e-Yeif7X_GvM0GpBmgolVIPTwT_4Q6CsgnxOYNBvtDzZDabTIGJDetyvcPZXZTu_ES_cBhUKlVlQ4oJOaEauax2ePoMIjVknKez0d_3GW2IH45eNO8rtyoQ"/>
+</div>
+<div class="bg-stone-200 overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Interior architectural detail showing soft shadows and organic plaster textures in a luxury bohemian home" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa7STNR6Po7eE5ZOc133W8NV4pWErwi1Fqie7k-fsFjXN7aFhk1m37GgirIB_OPokyLWV8pdYqd3MV16D448k0Fw07bN9rwITBCXh5WwIrk3SKBq_6LlU0FAinwn-DrUQ5Z-iwkrC3XCg8r8yPZeJtNi4ORcr0Qq_ihGVtyF4ygq_hDsCejb33mIdodRvAXvjeHgJQwrgRPrX-8sbtViRcb4ECS1p-UmUgmqrmktxv9Ra6nFklbUM0wxLTIknznUETK8Z1i1seyYk"/>
+</div>
+</div>
+</div>
+<!-- Right Side: Product Info -->
+<div class="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-center bg-[#ede1d4]/30">
+<div class="max-w-md">
+<p class="font-label text-stone-500 uppercase tracking-[0.3em] mb-4 text-xs">Curated Edition</p>
+<h1 class="font-serif text-5xl md:text-7xl mb-6 text-stone-800 leading-tight">Earthen Vessel No. 01</h1>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-3xl font-headline font-bold text-[#c77b4a]">$420</span>
+<span class="text-stone-400 line-through text-sm">Original $580</span>
+</div>
+<p class="text-stone-600 leading-relaxed mb-10 text-lg">
+                        An intimate collection of hand-pressed textures and organic silhouettes. Curated for the modern minimalist who finds beauty in the ephemeral.
+                    </p>
+<!-- Size Selector -->
+<div class="mb-10">
+<p class="font-label text-xs uppercase tracking-widest text-stone-800 mb-4">Select Silhouette Size</p>
+<div class="flex flex-wrap gap-2">
+<button class="w-12 h-12 border border-stone-300 flex items-center justify-center font-label text-sm hover:border-[#c77b4a] hover:text-[#c77b4a] transition-colors">XS</button>
+<button class="w-12 h-12 border border-stone-300 flex items-center justify-center font-label text-sm hover:border-[#c77b4a] hover:text-[#c77b4a] transition-colors">S</button>
+<button class="w-12 h-12 border-2 border-[#c77b4a] bg-[#c77b4a] text-white flex items-center justify-center font-label text-sm">M</button>
+<button class="w-12 h-12 border border-stone-300 flex items-center justify-center font-label text-sm hover:border-[#c77b4a] hover:text-[#c77b4a] transition-colors">L</button>
+<button class="w-12 h-12 border border-stone-300 flex items-center justify-center font-label text-sm hover:border-[#c77b4a] hover:text-[#c77b4a] transition-colors">XL</button>
+</div>
+</div>
+<!-- Scarcity Indicator -->
+<div class="mb-10 p-6 bg-[#c77b4a]/5 border-l-4 border-[#c77b4a]">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label text-[10px] uppercase tracking-widest text-[#c77b4a] font-bold">Units Remaining</span>
+<span class="font-headline font-bold text-[#c77b4a]">3 / 12</span>
+</div>
+<div class="w-full h-1 bg-stone-200">
+<div class="bg-[#c77b4a] h-full" style="width: 25%"></div>
+</div>
+<p class="mt-3 text-xs text-stone-500 italic">Edition 1 of 12 — Never Reprinted. Once it's gone, it's gone. Forever.</p>
+</div>
+<button class="w-full py-5 bg-[#c77b4a] text-white font-headline font-bold uppercase tracking-widest hover:bg-stone-800 transition-all kinetic-hover group flex items-center justify-center gap-4">
+                        Secure Piece
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Infinite Ticker -->
+<div class="w-full bg-stone-900 overflow-hidden py-4 border-y border-stone-800">
+<div class="animate-ticker whitespace-nowrap">
+<span class="text-stone-400 font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">Once it's gone, it's gone. Forever.</span>
+<span class="text-[#c77b4a] font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">No reprints. No restocks. No exceptions.</span>
+<span class="text-stone-400 font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">Once it's gone, it's gone. Forever.</span>
+<span class="text-[#c77b4a] font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">No reprints. No restocks. No exceptions.</span>
+<span class="text-stone-400 font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">Once it's gone, it's gone. Forever.</span>
+<span class="text-[#c77b4a] font-headline font-medium uppercase tracking-[0.5em] text-xs px-12">No reprints. No restocks. No exceptions.</span>
+</div>
+</div>
+<!-- Content Sections -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200">
+<!-- Provenance -->
+<div class="bg-[#f5ebe0] p-12 lg:p-24 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-serif text-3xl mb-8 text-stone-800">Provenance</h3>
+<p class="text-stone-600 leading-relaxed mb-6 font-body">
+                        The Earthen Vessel collection represents a year-long exploration into tactile memory. Each piece begins as a raw, untreated canvas of organic hemp and artisanal silk, which is then subjected to a unique hand-pressing process using volcanic stone weights.
+                    </p>
+<p class="text-stone-600 leading-relaxed font-body">
+                        This method ensures that no two silhouettes share the exact same grain or tension. It is a dialogue between the artisan's intent and the material's natural resistance.
+                    </p>
+</div>
+<!-- Abstract Geometric Motif -->
+<div class="absolute -bottom-10 -right-10 opacity-5">
+<svg height="300" viewbox="0 0 100 100" width="300">
+<polygon fill="#c77b4a" points="0,100 50,0 100,100"></polygon>
+</svg>
+</div>
+</div>
+<!-- Care Guide -->
+<div class="bg-[#ede1d4] p-12 lg:p-24 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-serif text-3xl mb-8 text-stone-800">Care Guide</h3>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-[#c77b4a]">ac_unit</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase mb-1">Cold Bathing Only</h4>
+<p class="text-stone-500 text-sm">Gentle hand wash in cold water using pH-neutral organic soaps to preserve fiber integrity.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-[#c77b4a]">sunny</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase mb-1">Shadow Drying</h4>
+<p class="text-stone-500 text-sm">Avoid direct sunlight. Lay flat on a light-colored towel in a shaded, ventilated area.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-[#c77b4a]">iron</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase mb-1">Minimal Steam</h4>
+<p class="text-stone-500 text-sm">Use low-temperature steam only. Do not apply iron surface directly to the pressed textures.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Abstract Geometric Motif -->
+<div class="absolute -top-10 -left-10 opacity-5 rotate-180">
+<svg height="300" viewbox="0 0 100 100" width="300">
+<polygon fill="#c77b4a" points="0,100 50,0 100,100"></polygon>
+</svg>
+</div>
+</div>
+</section>
+<!-- Theme Switcher Dock -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 glass-morphism px-6 py-3 border border-white/10 flex gap-6 items-center">
+<button class="w-3 h-3 bg-stone-900 ring-2 ring-offset-2 ring-stone-400"></button>
+<button class="w-3 h-3 bg-[#f5ebe0]"></button>
+<button class="w-3 h-3 bg-[#008DB9]"></button>
+<button class="w-3 h-3 bg-[#f5e642]"></button>
+<button class="w-3 h-3 bg-[#00f5d4]"></button>
+<div class="h-4 w-px bg-white/20 ml-2"></div>
+<span class="text-[10px] font-label uppercase tracking-widest text-white/60">Switch Mood</span>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ede1d4] dark:bg-stone-950 w-full py-12 px-8 flex flex-col md:flex-row justify-between items-start gap-8 border-t border-stone-300/20">
+<div>
+<div class="text-lg font-['Space_Grotesk'] font-bold text-stone-800 dark:text-stone-200 mb-4">VASLIC Kinetic Curator</div>
+<p class="font-['Manrope'] text-sm tracking-wide text-stone-500 dark:text-stone-500">© 2024 VASLIC Kinetic Curator. All Rights Reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4">
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#c77b4a] transition-colors duration-300 font-['Manrope'] text-sm tracking-wide" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#c77b4a] transition-colors duration-300 font-['Manrope'] text-sm tracking-wide" href="#">Terms of Service</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#c77b4a] transition-colors duration-300 font-['Manrope'] text-sm tracking-wide" href="#">Shipping &amp; Returns</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#c77b4a] transition-colors duration-300 font-['Manrope'] text-sm tracking-wide" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>
