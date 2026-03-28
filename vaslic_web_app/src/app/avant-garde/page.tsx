@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight } from "lucide-react";
+import AvantGardeNavbar from "@/components/navbars/AvantGardeNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ────────────────────────────────────────────────────────────
 const RED = "#c0392b";
@@ -137,64 +139,8 @@ export default function AvantGardePage() {
     return (
         <div className="bg-white text-neutral-900 overflow-x-hidden min-h-screen" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
 
-            {/* ── Frosted White Navbar ── */}
-            <nav
-                className="fixed top-0 w-full z-50 border-b border-zinc-100"
-                style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(20px)" }}
-            >
-                <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto">
-                    <Link href="/avant-garde">
-                        <div
-                            className="text-3xl font-black tracking-tighter text-zinc-900 cursor-pointer"
-                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            VASLIC
-                        </div>
-                    </Link>
-                    <div className="hidden md:flex items-center gap-12">
-                        {[
-                            { label: "Collections", active: false },
-                            { label: "Archives", active: false },
-                            { label: "Exhibitions", active: true },
-                            { label: "About", active: false },
-                        ].map((l) => (
-                            <a
-                                key={l.label}
-                                href="#"
-                                className="font-bold tracking-tight uppercase text-sm transition-colors"
-                                style={{
-                                    fontFamily: "'Space Grotesk', sans-serif",
-                                    color: l.active ? COBALT : "#71717a",
-                                    borderBottom: l.active ? `2px solid ${COBALT}` : undefined,
-                                    paddingBottom: l.active ? "4px" : undefined,
-                                }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-6">
-                        <div className="hidden lg:flex items-center bg-zinc-100 px-4 py-2 gap-2">
-                            <span className="material-symbols-outlined text-zinc-400" style={{ fontSize: "18px" }}>search</span>
-                            <input
-                                className="bg-transparent border-none focus:outline-none text-xs font-bold tracking-widest uppercase text-zinc-500"
-                                placeholder="SEARCH ARCHIVE"
-                                type="text"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                            />
-                        </div>
-                        <button className="relative hover:translate-x-1 transition-transform active:scale-95">
-                            <ShoppingBag size={24} className="text-zinc-900" />
-                            <span
-                                className="absolute -top-1 -right-1 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center"
-                                style={{ background: COBALT, fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                0
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </nav>
+            {/* ── Frosted White Navbar Component ── */}
+            <AvantGardeNavbar />
 
             <main className="pt-24 min-h-screen relative">
                 {/* ── Painterly SVG background overlays ── */}
@@ -471,29 +417,7 @@ export default function AvantGardePage() {
             </footer>
 
             {/* ── Theme Switcher Dock ── */}
-            <div
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-3 flex gap-8 items-center border border-white/5"
-                style={{ background: "rgba(10,10,10,0.6)", backdropFilter: "blur(24px)" }}
-            >
-                {themeDock.map((t) => (
-                    <Link key={t.href} href={t.href}>
-                        <button className="flex flex-col items-center gap-1 group hover:opacity-100 transition-opacity" style={{ opacity: t.active ? 1 : 0.5 }}>
-                            <span
-                                className="material-symbols-outlined"
-                                style={{ color: t.active ? "#22d3ee" : "#737373", transition: "color 0.2s" }}
-                            >
-                                {t.icon}
-                            </span>
-                            <span
-                                className="text-[10px] uppercase"
-                                style={{ fontFamily: "'Bebas Neue', sans-serif", color: t.active ? "#22d3ee" : "#737373" }}
-                            >
-                                {t.label}
-                            </span>
-                        </button>
-                    </Link>
-                ))}
-            </div>
+            <ThemeDock />
 
             {/* ── Assets & Animations ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

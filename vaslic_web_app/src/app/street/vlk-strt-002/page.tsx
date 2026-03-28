@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import StreetNavbar from "@/components/navbars/StreetNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const YELLOW = "#f5e642";
@@ -44,49 +46,7 @@ export default function CargoSystemV2Page() {
       `}</style>
 
             {/* ── Floating Navbar ── */}
-            <nav
-                className="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4"
-                style={{ background: "rgba(9,9,11,0.8)", backdropFilter: "blur(20px)" }}
-            >
-                <div className="flex items-center gap-8">
-                    <Link href="/street">
-                        <span
-                            className="text-2xl font-black italic tracking-tighter uppercase cursor-pointer"
-                            style={{ color: YELLOW, fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            VASLIC
-                        </span>
-                    </Link>
-                    <div className="hidden md:flex gap-6">
-                        {[
-                            { label: "Shop", active: true },
-                            { label: "Drops", active: false },
-                            { label: "Vault", active: false },
-                        ].map((l) => (
-                            <a
-                                key={l.label}
-                                href="#"
-                                className="font-bold tracking-tighter uppercase"
-                                style={{
-                                    fontFamily: "'Space Grotesk', sans-serif",
-                                    color: l.active ? YELLOW : "#71717a",
-                                    borderBottom: l.active ? `2px solid ${YELLOW}` : undefined,
-                                    paddingBottom: l.active ? "4px" : undefined,
-                                    transition: "transform 0.2s",
-                                }}
-                                onMouseEnter={(e) => { if (!l.active) (e.currentTarget as HTMLAnchorElement).style.color = "#fde047"; }}
-                                onMouseLeave={(e) => { if (!l.active) (e.currentTarget as HTMLAnchorElement).style.color = "#71717a"; }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-                <div className="flex items-center gap-6" style={{ color: YELLOW }}>
-                    <span className="material-symbols-outlined cursor-pointer">shopping_bag</span>
-                    <span className="material-symbols-outlined cursor-pointer">account_circle</span>
-                </div>
-            </nav>
+            <StreetNavbar />
 
             <main className="pt-24 pb-20 relative overflow-hidden">
                 {/* ── Grain texture overlay ── */}
@@ -366,31 +326,8 @@ export default function CargoSystemV2Page() {
                 </div>
             </div>
 
-            {/* ── Floating Theme Dock (bottom-right) ── */}
-            <div
-                className="fixed bottom-24 right-6 lg:bottom-12 lg:right-12 z-50 flex items-center p-2 border"
-                style={{ background: "rgba(24,24,27,0.6)", backdropFilter: "blur(20px)", borderColor: "rgba(62,72,78,0.2)", boxShadow: "0 25px 50px rgba(0,0,0,0.5)" }}
-            >
-                <div className="flex flex-col lg:flex-row gap-2">
-                    {themeDock.map((t) => (
-                        <Link key={t.href} href={t.href}>
-                            <div
-                                className="w-8 h-8 flex items-center justify-center cursor-pointer transition-all"
-                                title={t.title}
-                                style={{
-                                    background: t.bg,
-                                    border: `${t.active ? "2" : "1"}px solid ${t.border}`,
-                                }}
-                            >
-                                <span
-                                    className="w-2 h-2 rounded-full"
-                                    style={{ background: t.dot, display: "block" }}
-                                />
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
+            {/* ── Theme Dock ── */}
+            <ThemeDock />
 
             {/* ── Material Icons + Fonts ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

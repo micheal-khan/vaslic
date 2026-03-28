@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight } from "lucide-react";
+import BohemianNavbar from "@/components/navbars/BohemianNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const TERRA = "#c77b4a";
@@ -50,40 +52,7 @@ export default function EarthenVesselPage() {
         >
 
             {/* ── Navigation ── */}
-            <nav
-                className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center"
-                style={{ background: LINEN }}
-            >
-                <Link href="/bohemian">
-                    <div
-                        className="text-2xl font-black cursor-pointer"
-                        style={{ color: TERRA, fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                        VASLIC Bohemian
-                    </div>
-                </Link>
-                <div className="hidden md:flex gap-8 items-center">
-                    {navLinks.map((l) => (
-                        <a
-                            key={l.label}
-                            href="#"
-                            className="font-bold tracking-tight uppercase transition-transform hover:translate-x-1 duration-200"
-                            style={{
-                                fontFamily: "'Space Grotesk', sans-serif",
-                                color: l.active ? TERRA : "#78716c",
-                                borderBottom: l.active ? `2px solid ${TERRA}` : undefined,
-                                paddingBottom: l.active ? "4px" : undefined,
-                            }}
-                        >
-                            {l.label}
-                        </a>
-                    ))}
-                </div>
-                <div className="flex gap-6 items-center" style={{ color: TERRA }}>
-                    <button aria-label="Bag"><ShoppingBag size={22} /></button>
-                    <button aria-label="Account"><User size={22} /></button>
-                </div>
-            </nav>
+            <BohemianNavbar />
 
             <main className="pt-24 min-h-screen">
 
@@ -337,34 +306,8 @@ export default function EarthenVesselPage() {
                 </section>
             </main>
 
-            {/* ── Theme Switcher Dock (glass morphism) ── */}
-            <div
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-6 items-center px-6 py-3 border border-white/10"
-                style={{ backdropFilter: "blur(20px)", background: "rgba(42,42,42,0.6)" }}
-            >
-                {themeDock.map((t) => (
-                    <Link key={t.href} href={t.href}>
-                        <button
-                            className="transition-all"
-                            style={{
-                                width: "12px",
-                                height: "12px",
-                                background: t.color,
-                                border: "none",
-                                outline: t.active ? `2px solid #a8a29e` : undefined,
-                                outlineOffset: t.active ? "2px" : undefined,
-                            }}
-                        />
-                    </Link>
-                ))}
-                <div className="ml-2" style={{ width: "1px", height: "16px", background: "rgba(255,255,255,0.2)" }} />
-                <span
-                    className="text-[10px] uppercase tracking-widest"
-                    style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                    Switch Mood
-                </span>
-            </div>
+            {/* ── Theme Switcher Dock ── */}
+            <ThemeDock />
 
             {/* ── Footer ── */}
             <footer

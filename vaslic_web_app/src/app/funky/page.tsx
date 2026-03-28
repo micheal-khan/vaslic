@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
+import FunkyNavbar from "@/components/navbars/FunkyNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens (exact from Stitch Refined Grid HTML) ─────────────────────
 const CYAN = "#00f5d4";
@@ -165,49 +167,8 @@ export default function FunkyPage() {
                 aria-hidden="true"
             />
 
-            {/* ── Navbar (fixed, full category nav like other pages) ── */}
-            <nav
-                className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6"
-                style={{
-                    background: NAV_BG,
-                    borderBottom: `1px solid ${CYAN}33`,
-                    boxShadow: `0 0 20px rgba(0,245,212,0.15)`,
-                }}
-            >
-                <Link
-                    href="/"
-                    className="text-3xl font-black italic tracking-tighter"
-                    style={{ fontFamily: "'Righteous', sans-serif", color: CYAN }}
-                >
-                    VASLIC
-                </Link>
-
-                <div className="hidden md:flex gap-8 items-center">
-                    {navLinks.map((l) => (
-                        <Link
-                            key={l.href}
-                            href={l.href}
-                            className="uppercase tracking-widest text-sm transition-colors pb-1"
-                            style={{
-                                fontFamily: "'Space Grotesk', sans-serif",
-                                color: l.active ? CYAN : "rgba(255,255,255,0.7)",
-                                borderBottom: l.active ? `2px solid ${CYAN}` : "none",
-                            }}
-                        >
-                            {l.label}
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="flex items-center gap-6" style={{ color: CYAN }}>
-                    <button className="hover:translate-x-1 transition-all duration-200" aria-label="Bag">
-                        <ShoppingBag size={20} />
-                    </button>
-                    <button className="hover:translate-x-1 transition-all duration-200" aria-label="Account">
-                        <User size={20} />
-                    </button>
-                </div>
-            </nav>
+            {/* ── Navbar Component ── */}
+            <FunkyNavbar />
 
             <main className="relative pt-32 pb-20 overflow-hidden" style={{ zIndex: 1 }}>
                 {/* ── Hero Section ── */}
@@ -363,25 +324,8 @@ export default function FunkyPage() {
                 </section>
             </main>
 
-            {/* ── Theme Switcher (colour dot swatches) ── */}
-            <div
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 p-2 flex gap-4 border border-white/10 backdrop-blur-xl"
-                style={{ background: "rgba(53,53,53,0.6)" }}
-            >
-                {themeDots.map((dot) => (
-                    <Link key={dot.href} href={dot.href}>
-                        <button
-                            className="w-10 h-10 transition-all"
-                            style={{
-                                background: dot.bg,
-                                border: dot.active ? `2px solid ${dot.border}` : `1px solid rgba(255,255,255,0.1)`,
-                                boxShadow: dot.active ? `0 0 10px ${dot.border}` : undefined,
-                            }}
-                            aria-label={dot.href}
-                        />
-                    </Link>
-                ))}
-            </div>
+            {/* ── Theme Switcher ── */}
+            <ThemeDock />
 
             {/* ── Footer ── */}
             <footer

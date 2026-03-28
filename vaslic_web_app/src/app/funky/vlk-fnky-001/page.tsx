@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import FunkyNavbar from "@/components/navbars/FunkyNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const CYAN = "#00f5d4";
@@ -65,54 +67,7 @@ export default function NeonSynthWavePage() {
             <div className="fixed inset-0 pointer-events-none z-0 bg-cassette" />
 
             {/* ── Frosted Navbar ── */}
-            <nav
-                className="fixed top-0 z-50 flex justify-between items-center w-full px-8 py-6"
-                style={{
-                    background: `linear-gradient(to bottom, ${BG}, transparent)`,
-                    boxShadow: `0 0 30px rgba(0,245,212,0.15)`,
-                }}
-            >
-                <Link href="/funky">
-                    <span
-                        className="text-3xl italic tracking-tighter cursor-pointer"
-                        style={{ color: PINK, fontFamily: "'Righteous', sans-serif" }}
-                    >
-                        VASLIC
-                    </span>
-                </Link>
-                <div className="hidden md:flex gap-8 items-center">
-                    {[
-                        { label: "GOTHIC", href: "/gothic", active: false },
-                        { label: "BOHEMIAN", href: "/bohemian", active: false },
-                        { label: "AVANT-GARDE", href: "/avant-garde", active: false },
-                        { label: "STREET", href: "/street", active: false },
-                        { label: "FUNKY", href: "/funky", active: true },
-                    ].map((l) => (
-                        <Link key={l.href} href={l.href}>
-                            <span
-                                className="font-bold text-xs uppercase tracking-widest cursor-pointer transition-colors"
-                                style={{
-                                    fontFamily: "'Space Grotesk', sans-serif",
-                                    color: l.active ? PINK : "rgba(207,227,255,0.7)",
-                                    borderBottom: l.active ? `2px solid ${PINK}` : undefined,
-                                    paddingBottom: l.active ? "4px" : undefined,
-                                }}
-                            >
-                                {l.label}
-                            </span>
-                        </Link>
-                    ))}
-                </div>
-                <div className="flex gap-4 items-center">
-                    <button className="p-2 transition-transform active:scale-95" style={{ color: CYAN }}>
-                        <span className="material-symbols-outlined">search</span>
-                    </button>
-                    <button className="p-2 transition-transform active:scale-95 relative" style={{ color: CYAN }}>
-                        <span className="material-symbols-outlined">shopping_bag</span>
-                        <span className="absolute top-1 right-1 w-2 h-2" style={{ background: PINK }} />
-                    </button>
-                </div>
-            </nav>
+            <FunkyNavbar />
 
             <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">

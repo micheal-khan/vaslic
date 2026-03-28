@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight } from "lucide-react";
+import BohemianNavbar from "@/components/navbars/BohemianNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ────────────────────────────────────────────────────────────
 const TERRA = "#c77b4a";
@@ -96,45 +98,7 @@ export default function BohemianPage() {
     return (
         <div className="min-h-screen" style={{ background: BG, color: "#292524" }}>
             {/* ── Navbar ── */}
-            <nav
-                className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center"
-                style={{ background: BG }}
-            >
-                <Link href="/bohemian">
-                    <div
-                        className="text-2xl font-black cursor-pointer"
-                        style={{ color: TERRA, fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                        VASLIC Bohemian
-                    </div>
-                </Link>
-                <div className="hidden md:flex gap-8 items-center">
-                    {[
-                        { label: "Collections", active: true },
-                        { label: "Provenance", active: false },
-                        { label: "The Vault", active: false },
-                        { label: "Care", active: false },
-                    ].map((l) => (
-                        <a
-                            key={l.label}
-                            href="#"
-                            className="font-bold tracking-tight uppercase transition-transform hover:translate-x-1 duration-200"
-                            style={{
-                                fontFamily: "'Space Grotesk', sans-serif",
-                                color: l.active ? TERRA : "#78716c",
-                                borderBottom: l.active ? `2px solid ${TERRA}` : undefined,
-                                paddingBottom: l.active ? "4px" : undefined,
-                            }}
-                        >
-                            {l.label}
-                        </a>
-                    ))}
-                </div>
-                <div className="flex gap-6 items-center" style={{ color: TERRA }}>
-                    <button aria-label="Bag"><ShoppingBag size={22} /></button>
-                    <button aria-label="Account"><User size={22} /></button>
-                </div>
-            </nav>
+            <BohemianNavbar />
 
             {/* ── Hero Section (12-col: 7+5) ── */}
             <header className="relative px-8 pt-20 pb-12 overflow-hidden max-w-screen-2xl mx-auto">
@@ -418,29 +382,8 @@ export default function BohemianPage() {
                 </div>
             </footer>
 
-            {/* ── Theme Switcher (icon style, Bohemian active) ── */}
-            <div
-                className="fixed bottom-6 left-1/2 -translate-x-1/2 flex z-[100] border border-white/40 p-1"
-                style={{ background: "rgba(255,255,255,0.6)", backdropFilter: "blur(20px)", boxShadow: "0 20px 50px rgba(199,123,74,0.08)" }}
-            >
-                {themeSwitcher.map((t) => (
-                    <Link key={t.href} href={t.href}>
-                        <button
-                            className="w-10 h-10 flex items-center justify-center text-sm transition-all hover:scale-110"
-                            style={{ background: t.bg, color: t.color }}
-                            title={t.label}
-                            aria-label={t.label}
-                        >
-                            <span
-                                className="material-symbols-outlined text-[20px]"
-                                style={t.fill ? { fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" } : undefined}
-                            >
-                                {t.icon}
-                            </span>
-                        </button>
-                    </Link>
-                ))}
-            </div>
+            {/* ── Theme Switcher ── */}
+            <ThemeDock />
 
             {/* ── Google Material Symbols ── */}
             <link

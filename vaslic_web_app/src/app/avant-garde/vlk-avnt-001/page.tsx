@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
+import AvantGardeNavbar from "@/components/navbars/AvantGardeNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const CYAN = "#008DB9"; // primary (Avant-Garde)
@@ -86,63 +88,7 @@ export default function DeconstructedVoidPage() {
             </div>
 
             {/* ── Frosted White Navbar ── */}
-            <nav
-                className="fixed top-0 w-full z-50 border-b border-zinc-100"
-                style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(20px)" }}
-            >
-                <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto">
-                    <Link href="/avant-garde">
-                        <div
-                            className="text-3xl font-black tracking-tighter text-zinc-900 cursor-pointer"
-                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            VASLIC
-                        </div>
-                    </Link>
-                    <div className="hidden md:flex items-center gap-12">
-                        {[
-                            { label: "Collections", active: false },
-                            { label: "Archives", active: false },
-                            { label: "Exhibitions", active: true },
-                            { label: "About", active: false },
-                        ].map((l) => (
-                            <a
-                                key={l.label}
-                                href="#"
-                                className="font-bold tracking-tight uppercase text-sm transition-colors"
-                                style={{
-                                    fontFamily: "'Space Grotesk', sans-serif",
-                                    color: l.active ? CYAN : "#71717a",
-                                    borderBottom: l.active ? `2px solid ${CYAN}` : undefined,
-                                    paddingBottom: l.active ? "4px" : undefined,
-                                }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-6">
-                        <div className="hidden lg:flex items-center bg-zinc-100 px-4 py-2 gap-2">
-                            <span className="material-symbols-outlined text-zinc-400" style={{ fontSize: "18px" }}>search</span>
-                            <input
-                                className="bg-transparent border-none focus:outline-none text-xs font-bold tracking-widest uppercase text-zinc-500"
-                                placeholder="SEARCH ARCHIVE"
-                                type="text"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                            />
-                        </div>
-                        <button className="relative hover:translate-x-1 transition-transform active:scale-95">
-                            <ShoppingBag size={24} className="text-zinc-900" />
-                            <span
-                                className="absolute -top-1 -right-1 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center"
-                                style={{ background: CYAN, fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                0
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </nav>
+            <AvantGardeNavbar />
 
             <main className="pt-32 pb-20 relative">
 
@@ -402,33 +348,8 @@ export default function DeconstructedVoidPage() {
                 </div>
             </footer>
 
-            {/* ── Round-pill Theme Dock (centre bottom) ── */}
-            <div
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-[100] px-4 py-2 rounded-full border border-white/15"
-                style={{ background: "rgba(53,53,53,0.6)", backdropFilter: "blur(20px)" }}
-            >
-                {THEME_DOCK.map((t) => (
-                    <Link key={t.href} href={t.href}>
-                        <div
-                            className="w-8 h-8 cursor-pointer transition-transform hover:scale-110"
-                            title={t.title}
-                            style={{
-                                background: t.bg,
-                                border: `1px solid ${t.border}`,
-                                outline: t.active ? `2px solid ${CYAN}` : undefined,
-                                outlineOffset: t.active ? "3px" : undefined,
-                            }}
-                        />
-                    </Link>
-                ))}
-                <div className="h-4 w-px mx-2" style={{ background: "rgba(255,255,255,0.2)" }} />
-                <span
-                    className="text-[9px] uppercase tracking-widest pr-2"
-                    style={{ color: "#9ca3af", fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                    Change Aesthetic
-                </span>
-            </div>
+            {/* ── Theme Dock ── */}
+            <ThemeDock />
 
             {/* ── Fonts + Material Icons ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" />

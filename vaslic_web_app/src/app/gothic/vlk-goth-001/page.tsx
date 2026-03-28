@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingCart, Maximize2 } from "lucide-react";
+import GothicNavbar from "@/components/navbars/GothicNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ────────────────────────────────────────────────────────────
 const BLOOD = "#8b0000";
@@ -49,48 +51,7 @@ export default function MourningShroudPage() {
       `}</style>
 
             {/* ── Fixed Navbar ── */}
-            <nav
-                className="fixed top-0 w-full z-50"
-                style={{ background: "rgba(10,10,10,0.8)", backdropFilter: "blur(20px)" }}
-            >
-                <div className="flex justify-between items-center px-8 py-6 w-full max-w-[1920px] mx-auto">
-                    <div className="flex items-center space-x-12">
-                        <Link href="/">
-                            <span
-                                className="text-2xl font-black tracking-widest text-white uppercase cursor-pointer"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                VASLIC
-                            </span>
-                        </Link>
-                        <div className="hidden md:flex space-x-8 tracking-tighter uppercase text-sm" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                            {[
-                                { label: "Gothic", href: "/gothic", active: true },
-                                { label: "Bohemian", href: "/bohemian", active: false },
-                                { label: "Avant-Garde", href: "/avant-garde", active: false },
-                                { label: "Street", href: "/street", active: false },
-                                { label: "Funky", href: "/funky", active: false },
-                            ].map((l) => (
-                                <Link
-                                    key={l.href}
-                                    href={l.href}
-                                    className="transition-colors"
-                                    style={{
-                                        color: l.active ? "#38bdf8" : "#a3a3a3",
-                                        borderBottom: l.active ? "2px solid #38bdf8" : undefined,
-                                        paddingBottom: l.active ? "4px" : undefined,
-                                    }}
-                                >
-                                    {l.label}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <button className="text-white hover:translate-x-1 transition-transform" aria-label="Cart">
-                        <ShoppingCart size={20} />
-                    </button>
-                </div>
-            </nav>
+            <GothicNavbar />
 
             <main className="pt-24 min-h-screen relative z-10">
 
@@ -393,31 +354,8 @@ export default function MourningShroudPage() {
                 </div>
             </footer>
 
-            {/* ── Theme Switcher Dock (diamond style) ── */}
-            <div
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-8 px-6 py-3 border border-white/5"
-                style={{ background: "rgba(53,53,53,0.6)", backdropFilter: "blur(20px)" }}
-            >
-                {themeDock.map((t) => (
-                    <Link key={t.href} href={t.href}>
-                        <button
-                            className="flex flex-col items-center space-y-1 group transition-opacity"
-                            style={{ opacity: t.active ? 1 : 0.4 }}
-                        >
-                            <span
-                                className="w-3 h-3 rotate-45 group-hover:scale-125 transition-transform"
-                                style={{ background: t.color, display: "block" }}
-                            />
-                            <span
-                                className="text-[8px] uppercase tracking-tighter"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif", color: t.active ? t.color : "white" }}
-                            >
-                                {t.label}
-                            </span>
-                        </button>
-                    </Link>
-                ))}
-            </div>
+            {/* ── Theme Switcher Dock ── */}
+            <ThemeDock />
 
             {/* Material Icons */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

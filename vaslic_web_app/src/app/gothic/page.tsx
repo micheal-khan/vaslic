@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
+import GothicNavbar from "@/components/navbars/GothicNavbar";
+import ThemeDock from "@/components/ThemeDock";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const BLOOD = "#8b0000";  // secondary
@@ -95,56 +97,8 @@ export default function GothicPage() {
                 style={{ background: "radial-gradient(circle, transparent 40%, #000 100%)" }}
             />
 
-            {/* ── Fixed Navbar ── */}
-            <nav
-                className="fixed top-0 w-full z-50"
-                style={{
-                    background: "rgba(10,10,10,0.8)",
-                    backdropFilter: "blur(20px)",
-                }}
-            >
-                <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto">
-                    <div className="flex items-center gap-12">
-                        <Link href="/">
-                            <span
-                                className="text-2xl font-black text-white tracking-widest uppercase cursor-pointer"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                VASLIC
-                            </span>
-                        </Link>
-                        <div className="hidden md:flex gap-8">
-                            {[
-                                { label: "Gothic", href: "/gothic", active: true },
-                                { label: "Bohemian", href: "/bohemian", active: false },
-                                { label: "Avant-Garde", href: "/avant-garde", active: false },
-                                { label: "Street", href: "/street", active: false },
-                                { label: "Funky", href: "/funky", active: false },
-                            ].map((l) => (
-                                <Link
-                                    key={l.href}
-                                    href={l.href}
-                                    className="font-bold tracking-tighter uppercase text-xs transition-colors duration-300"
-                                    style={{
-                                        fontFamily: "'Space Grotesk', sans-serif",
-                                        color: l.active ? BLOOD : "#a3a3a3",
-                                        borderBottom: l.active ? `2px solid ${BLOOD}` : undefined,
-                                        paddingBottom: l.active ? "4px" : undefined,
-                                    }}
-                                >
-                                    {l.label}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <button
-                        className="hover:text-[#8b0000] transition-colors text-white"
-                        aria-label="Cart"
-                    >
-                        <ShoppingBag size={20} />
-                    </button>
-                </div>
-            </nav>
+            {/* ── Fixed Navbar Component ── */}
+            <GothicNavbar />
 
             {/* ── Left sidebar "Vault Curator" ── */}
             <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden md:block">
@@ -419,25 +373,8 @@ export default function GothicPage() {
                 </section>
             </main>
 
-            {/* ── Theme Switcher (dot style) ── */}
-            <div
-                className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-4 py-2 border border-white/5"
-                style={{ background: "rgba(23,23,23,0.6)", backdropFilter: "blur(24px)" }}
-            >
-                {themeDots.map((t, i) => (
-                    <Link key={t.href} href={t.href}>
-                        <button
-                            className="w-3 h-3 transition-opacity border border-white/20"
-                            style={{
-                                background: t.color,
-                                opacity: t.active ? 1 : 0.2,
-                            }}
-                            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.opacity = "1"; }}
-                            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.opacity = t.active ? "1" : "0.2"; }}
-                        />
-                    </Link>
-                ))}
-            </div>
+            {/* ── Theme Switcher ── */}
+            <ThemeDock />
 
             {/* ── Footer ── */}
             <footer className="pt-24 pb-12 px-8 relative z-10" style={{ background: "#0a0a0a" }}>
