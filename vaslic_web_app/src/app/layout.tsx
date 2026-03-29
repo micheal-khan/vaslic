@@ -68,6 +68,9 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${manrope.variable} ${unifraktur.variable} ${playfair.variable} ${bebas.variable} ${righteous.variable}`}
       data-theme="avant-garde"
     >
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+      </head>
       <body className="antialiased min-h-screen bg-vaslic-surface text-vaslic-on-surface">
         <SmoothScroll>
           <CartProvider>

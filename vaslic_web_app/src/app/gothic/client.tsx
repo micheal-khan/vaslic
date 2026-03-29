@@ -16,57 +16,6 @@ const STONE_URL =
     "https://lh3.googleusercontent.com/aida-public/AB6AXuAjm8y6xoys2_wPGmzmsN4VNdSUR83uSN3q0yny0zEtfsRZPXOdGA0m8wpRGplPpTUpFWaauTADNL3vKWhWLjATty2T0Jru61gtFe4JlzSNwFLw8Q4Iy4gsHjVnFFPtE7lXCKzBP_QjkgqiNzi26oKLrUziuoZaEwer7cpa7LWUUk5w7B--RNqxENlviBDSNOKSgDBFE1ixez2zpOjGgW5xboQ0rAVbYz1CqFkATQIxxGgECxT6WyU1hr8IZ3v0nuqhki_Blpob95c";
 
 // ─── Product data ─────────────────────────────────────────────────────────────
-const products = [
-    {
-        id: "VLK-GOTH-001",
-        slug: "/gothic/vlk-goth-001",
-        name: "The Mourning Shroud",
-        units: 3,
-        edition: "Edition 1 of 50 — Never Reprinted",
-        cta: "Claim Vessel",
-        ctaVariant: "outline",
-        stagger: 0,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXPobNJ8ZE8-1eQzq0wrcBI030bIaKdacsQkPu36uHtbFbkVErjL0VnjGz_cKuRgzm2A6oWzHxhXBDJN_yGnuqxZ45qmO7In5KWzpYCaceiajZS1qlZyCla4nzc30wjvmZFMF9O19JPFn_LfeeHQbx3_kR08S2iXpaDg_HKkSX67T_9xSk8Wl0vVmNe7dROv6qTlCHxsMtRe-6s6jgN4UQjjZCST5R9rxV9X1sDmxXIbPHFrWQKLGyt2Pf8u0bHjmVw7-V_K1UA_k",
-    },
-    {
-        id: "VLK-GOTH-014",
-        name: "Reliquary Boots",
-        units: 7,
-        edition: "Edition 1 of 50 — Never Reprinted",
-        cta: "Claim Vessel",
-        ctaVariant: "outline",
-        stagger: 48, // md:mt-12
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAu2HBzXgf6Z64f3_6UXHPZ01Zcxycst_wAkG_sDovagw1BCcOywS8gQKKm5ZaySs9A9MV8m2K32qwR3A9eKjy6vzhCAkqo2ZgqtPDaexr9SIpNgYNZz5ezI9219pj12na_n3mKlAY0_tNdcdk8xrK1TdsWFRALNxfUgv8vE3P5mHNQ4rKCQhaP5qxi_1VQZIcubteB_2Ks8dhk5s7pPGYyKaQAc4c7MKxkkBgkLwOk557RNRxdUIs8nays7f64UAEAVqacWcHmjJc",
-    },
-    {
-        id: "VLK-GOTH-009",
-        name: "Sinner's Rosary",
-        units: 1,
-        edition: "Edition 1 of 50 — Never Reprinted",
-        cta: "Last Chance",
-        ctaVariant: "filled",
-        stagger: -48, // md:-mt-12
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXJ5Rz2h9obVCh_a052Yi0nDEfHCnud6eoWYdtgae_wHjOCXV6s8I1plaTrvKAzIJGBZpiUPQJV2J2n3qXFQI3y8_CVruPIvITsyRg7ko6JKi_qTASP5gwkQfKgrbKbi49KaeEqr8ybS7UD6rMnZfOCiYmAvte-DlP0pq6z1Su3hkJ4cgXjO9KEqBUIHxkMt6vgs6iC-3EtSLbWjvoegJ4wUX_Fho_kfRgNLt_X25gDMYrFFcnx4U_lGWZ7I7DrZSVrGe_GZLeDOY",
-    },
-    {
-        id: "VLK-GOTH-022",
-        name: "Cathedral Cape",
-        units: 12,
-        edition: "Edition 1 of 50 — Never Reprinted",
-        cta: "Claim Vessel",
-        ctaVariant: "outline",
-        stagger: 0,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuALMWwASYtnHO1m_xW6NjYRmEITtoyzra5z4bVrtG92XDB-T-N2c3n8Xlq-ZDP9Reb8uS4MIEpH-V7CmWXBV_ACM5xhN-5bjY-RuJhsJmZlwWoYi39lrsk9EN9dcPDhXs9S0EtTC1AahOzWxaCEazU-JePryKf7mzQOO_MKrMhgug1OlXymDm1nEc1oH32hyW62YPTtWt94YkrZ7sXzqwEUQIRDJa7uddDzMCnddkggsZPtU8fpnfpjhajAv5j27W1d4vFYsUi7uc8",
-    },
-];
-
-const cemeteryItems = [
-    { name: "The Wraith Gown", died: "Oct 2023", made: "5", icon: "church", image: products[0].image, stagger: 0 },
-    { name: "Altar Mask", died: "Dec 2023", made: "1", icon: "auto_stories", image: products[1].image, stagger: 48 },
-    { name: "Plague Collar", died: "Jan 2024", made: "12", icon: "skull", image: products[2].image, stagger: 0 },
-    { name: "Lunar Veil", died: "Feb 2024", made: "3", icon: "nights_stay", image: products[3].image, stagger: 48 },
-];
-
 const themeDots = [
     { color: BLOOD, active: true, href: "/gothic" },
     { color: "#e2d5c5", active: false, href: "/bohemian" },

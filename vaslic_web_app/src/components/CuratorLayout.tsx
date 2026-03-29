@@ -1,0 +1,170 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ShoppingBag, Heart, User } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { CartModal } from "./CartModal";
+
+interface CuratorLayoutProps {
+    children: React.ReactNode;
+}
+
+const sidebarLinks = [
+    { label: "My Wishlist", href: "/wishlist", icon: "auto_awesome", filled: true },
+    { label: "Order History", href: "/profile", icon: "history", filled: false },
+    { label: "Scarcity Alerts", href: "/", icon: "priority_high", filled: false },
+    { label: "Style Profile", href: "/", icon: "architecture", filled: false },
+    { label: "The Vault", href: "/vault", icon: "inventory_2", filled: false },
+    { label: "Settings", href: "/", icon: "settings", filled: false },
+];
+
+export default function CuratorLayout({ children }: CuratorLayoutProps) {
+    const pathname = usePathname();
+    const { totalItems } = useCart();
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    return (
+        <div className="min-h-screen bg-[#131313] text-[#e5e2e1] selection:bg-[#72d2ff] selection:text-black">
+            {/* ─── Top Navbar (Matches HomeNavbar) ─── */}
+            <nav
+                className="fixed top-0 w-full z-50 transition-all duration-300 pointer-events-auto"
+                style={{
+                    background: "rgba(0,0,0,0.4)",
+                    backdropFilter: "blur(12px)",
+                    borderBottom: "1px solid rgba(255,255,255,0.05)"
+                }}
+            >
+                <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto w-full">
+                    <Link href="/">
+                        <span
+                            className="text-2xl font-black text-white tracking-[0.4em] uppercase cursor-pointer"
+                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        >
+                            VASLIC
+                        </span>
+                    </Link>
+                    <div className="hidden md:flex items-center gap-8">
+                        {[
+                            { label: "Gothic", href: "/gothic" },
+                            { label: "Bohemian", href: "/bohemian" },
+                            { label: "Avant-Garde", href: "/avant-garde" },
+                            { label: "Street", href: "/street" },
+                            { label: "Funky", href: "/funky" },
+                        ].map((l) => (
+                            <Link
+                                key={l.href}
+                                href={l.href}
+                                className="text-neutral-400 hover:text-white transition-colors duration-300 uppercase text-[10px] tracking-[0.2em] font-medium"
+                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                            >
+                                {l.label}
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="flex items-center gap-6 text-white">
+                        <Link href="/wishlist" className="cursor-pointer transition-transform hover:scale-110">
+                            <Heart size={20} fill={pathname === "/wishlist" ? "white" : "none"} />
+                        </Link>
+                        <button
+                            onClick={() => setIsCartOpen(true)}
+                            className="relative cursor-pointer transition-transform hover:scale-110 border-none bg-transparent"
+                        >
+                            <ShoppingBag size={20} />
+                            {totalItems > 0 && (
+                                <span
+                                    className="absolute -top-1.5 -right-1.5 bg-white text-black text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                >
+                                    {totalItems}
+                                </span>
+                            )}
+                        </button>
+                        <Link href="/profile" className="cursor-pointer hover:scale-110 transition-transform">
+                            <User size={20} />
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+
+            {/* ─── Sidebar ─── */}
+            <aside className="hidden lg:flex h-screen w-64 fixed left-0 top-0 bg-zinc-900 flex-col py-8 z-40 border-r border-zinc-800">
+                <div className="px-8 mb-12 mt-16">
+                    <div className="w-12 h-12 bg-zinc-800 mb-4 border border-cyan-500/20 overflow-hidden">
+                        <img
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxrteaWXs_M5Kv79UHR1W5AFQ623j-mq2VFFYq4k8Ym7eZIKP_xF-fRzp-4awVroKPaciowpS0TztOW0pOf7cGyTifPJH6TdzndJomdib8_Ww6jkuP321WKbAJWFyYWSX690uvaSBlzM_DU_dwYTuQeIivnZLfB1w73Dkp7tJCEBN-NGu3YN-4yR3tTCvcdGSz0leDTZ-kn6WU4XkDmMdCjCne0swINECnrthAfY2FAkzICHPwANfygDaQ2vOMQMNJJmHVd7JCt_g"
+                            alt="Curator"
+                            className="w-full h-full object-cover grayscale"
+                        />
+                    </div>
+                    <h3 className="text-white font-headline font-bold text-lg uppercase tracking-tight">The Curator</h3>
+                    <p className="text-[10px] text-cyan-500 font-headline font-medium tracking-[0.2em]">NEVER REPRINT STATUS</p>
+                </div>
+                <nav className="flex-1 flex flex-col gap-1">
+                    {sidebarLinks.map((link) => {
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.label}
+                                href={link.href}
+                                className={`flex items-center gap-4 px-8 py-4 font-label text-xs font-medium uppercase transition-all duration-300 ${isActive
+                                    ? "bg-zinc-800 text-cyan-400 border-l-4 border-cyan-400"
+                                    : "text-zinc-500 hover:bg-zinc-800/50 hover:pl-10"
+                                    }`}
+                            >
+                                <span
+                                    className="material-symbols-outlined text-lg"
+                                    style={link.filled || isActive ? { fontVariationSettings: "'FILL' 1" } : undefined}
+                                >
+                                    {link.icon}
+                                </span>
+                                {link.label}
+                            </Link>
+                        );
+                    })}
+                </nav>
+                <div className="px-8 mt-auto">
+                    <Link
+                        href="/"
+                        className="block w-full py-4 bg-cyan-500 text-black font-headline font-black text-[10px] uppercase tracking-widest text-center hover:translate-x-1 transition-transform"
+                    >
+                        View Rare Drops
+                    </Link>
+                </div>
+            </aside>
+
+            {/* ─── Main Content ─── */}
+            <main className="lg:pl-64 pt-16 min-h-screen" style={{ background: "#131313" }}>
+                {children}
+            </main>
+
+            {/* ─── Footer ─── */}
+            <footer className="lg:pl-64 bg-black border-t border-zinc-800/30 w-full">
+                <div className="flex flex-col items-center gap-4 py-12 px-8 max-w-7xl mx-auto">
+                    <div className="flex gap-8 mb-4">
+                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Sustainability</a>
+                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Shipping</a>
+                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Returns</a>
+                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Terms of Scarcity</a>
+                    </div>
+                    <p className="text-center font-body text-[10px] tracking-widest uppercase text-zinc-600 max-w-lg leading-relaxed">
+                        © 2024 VASLIC - KINETIC CURATION. ALL PIECES ARE SUBJECT TO THE NEVER REPRINT RULE. ASYMMETRICAL DISTRIBUTION GUARANTEED.
+                    </p>
+                </div>
+            </footer>
+
+            <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+
+            <style jsx global>{`
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    display: inline-block;
+                    animation: marquee 30s linear infinite;
+                }
+            `}</style>
+        </div>
+    );
+}

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
@@ -8,36 +9,71 @@ import { joinGeneralWaitlist } from "@/app/actions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const aesthetics = [
-    { name: "Gothic", slug: "gothic", accent: "#8b0000" },
-    { name: "Bohemian", slug: "bohemian", accent: "#c77b4a" },
-    { name: "Avant-Garde", slug: "avant-garde", accent: "#008DB9" },
-    { name: "Street", slug: "street", accent: "#f5e642" },
-    { name: "Funky", slug: "funky", accent: "#00f5d4" },
-];
-
-const socialProof = [
-    { number: "12,842", label: "Kinetic Curators Joined" },
-    { number: "24h", label: "Early Access Window" },
-    { number: "100%", label: "Drops Sell Out" },
+const categories = [
+    {
+        name: "Gothic",
+        slug: "gothic",
+        id: "VLK-GOTH-001",
+        accent: "#8b0000",
+        fontClass: "font-gothic",
+        tagline: "Edition 1 of 50 — Never Reprinted",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3S6EWsdyPqGesDT2s2s2A8IoUQLg3DUS2sMZlJ2uOE_4P1iTQ2F4bBTo1YyItB3C1GLtm9BEwchFIfi35m-P_A2Wq6i_ZspRHszXBYh3ptpEFnAX8BZTzCRMiDc3Ku1HAqg_gRXN1Dm5xGLMs82MAzhIQwdtsRpDuR1V8MdVvqffZkmMho1idqB-QWarKa4SS1kXFzKytjxtz3SWLsMoRz2-8yk4-uwFC0iNdRFwYaeJ7IUpsabXqcIRNBiC9NPlXIXvXhZBJ9-Q",
+        cardBg: "#0a0a0a",
+        hoverShadow: "rgba(139,0,0,0.15)"
+    },
+    {
+        name: "Bohemian",
+        slug: "bohemian",
+        id: "VLK-BOHO-082",
+        accent: "#c77b4a",
+        fontClass: "font-bohemian",
+        tagline: "Edition 1 of 12 — Never Reprinted",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0yhe2z_nGaU6maMjzR3cHLex3i0K-xNZ6slJYDzGLQtvjdjnAaxyndSfWUEZA1g21SpQMk6Zn5VOnP_FK02gf6vY4jtmiHGH2O8OHNORGOsZLT6dK3onen4_W0AokARsucMRDfvgfEW_2uUDBIX2Zlr-Cuqwp7DbRPCrd3TSQ78Lp6IuKZ9J4V_tjjyvn0L7DX12LOQ0p0Jl9pPnvajF91OmyTb5ZIT4zTRkqb4AH8z2smquNfMH1baGPRSQqFDLrUvUyXVYkQNk",
+        cardBg: "#f5ebe0"
+    },
+    {
+        name: "Street",
+        slug: "street",
+        id: "VLK-STRT-449",
+        accent: "#f5e642",
+        fontClass: "font-avant", // Street uses Bebas Neue (Avant in the project)
+        tagline: "Edition 1 of 100 — Never Reprinted",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuASvyAFAl-ywfG865Yu5W7ZUZtmm1iRGx4Pu4DQNG-efYRbsWFHqj9WoCth_idjRa9NRXhGG4LEMJYvZDxxooN0PbvKRGXVaZwyRcerHEpe3-S3JMMR8Y0aN7LF1_pRIIauO_SX1i4-MC7ZUziZka9RkAhDVG9DTvd04WKcI1bcQw8i0CtZxHjC-JVW-fq5bc9ESSVcR0jpG3998ySELviQAtBD1tPH9Vtcipl6f4JlG6wE8kME4jCFLD4fZ0kFCmvmrQOmEt10ETE",
+        cardBg: "#1a1a1a"
+    },
+    {
+        name: "Avant-Garde",
+        slug: "avant-garde",
+        id: "VLK-AVNT-000",
+        accent: "#008DB9",
+        fontClass: "font-avant",
+        tagline: "Edition 1 of 25 — Never Reprinted",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCevY7KJDfcmMjjU8K5si6e0ZH3FUTc6Ms0JwzyzeZZg6Njh7HWgmqxKyBTrQRzjj7JVMPjZobWjww7qg3gOzvjzwYEcD1bgiXNjG5BSZknTaiFutTzMO6lytmoQCZDW33yPQKmGgYV2DiM1mKyMhZvDgQ05nF5QpVXTZ6YO3n2R1KHH0lkQ2az88D822JRKVc2GL7LcFadjp2hLRP1lPph9B5VSvth_8uV1Pt-BqU1BhcrR5nbdxWQXw7ryursYEF1rMuQXZLlsvQ",
+        cardBg: "#ffffff"
+    },
+    {
+        name: "Funky",
+        slug: "funky",
+        id: "VLK-FUNK-777",
+        accent: "#00f5d4",
+        fontClass: "font-funky",
+        tagline: "Edition 1 of 30 — Never Reprinted",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCAWllXXPFmv4PP22dWuEtn6IP5oBS-nUQ95tNbgQAC-jr2ApQqBIJJ3ljXGH0OrtPYC5cvBJ9JaCQXRGGDQRyS56JJQHCJ5tRRbC6kW4b-6OaqdGxq4gDsZ7hs-tvipv-CU7qoRyJ66-mCpYtAe_aLvLntDlY9p_8fzBA9KkkNFA5OI946BbALAKr_7oeUsEFBbJr-4i4srG2j3gyVxlBU7nwPjgfLc86V4x8Xk3n3TRGWJ3vbn6NF-1KLUkUcOfRCejvlk1E7-eE",
+        cardBg: "#0d0d2b"
+    }
 ];
 
 export default function WaitlistPage() {
     const [selected, setSelected] = useState<string[]>([]);
     const [email, setEmail] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
 
-    const heroRef = useRef<HTMLDivElement>(null);
-    const heroInView = useInView(heroRef, { once: true });
-    const formRef = useRef<HTMLDivElement>(null);
-    const formInView = useInView(formRef, { once: true, margin: "-60px" });
-
-    function toggleAesthetic(slug: string) {
+    function toggleCategory(slug: string) {
         setSelected((prev) =>
             prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]
         );
     }
-    const [submitting, setSubmitting] = useState(false);
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -52,202 +88,217 @@ export default function WaitlistPage() {
     }
 
     return (
-        <>
+        <div className="bg-vaslic-surface text-vaslic-on-surface min-h-screen selection:bg-vaslic-primary selection:text-vaslic-surface">
             <Navbar />
-            <main id="main-content">
-                {/* HERO */}
-                <section className="relative min-h-screen flex items-center pt-[72px] px-8 md:px-16 overflow-hidden">
-                    <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                            background:
-                                "radial-gradient(ellipse at 30% 50%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 60%)",
-                        }}
-                        aria-hidden="true"
-                    />
-                    <span
-                        className="absolute right-0 top-1/2 -translate-y-1/2 font-display text-[25vw] leading-none opacity-[0.03] select-none pointer-events-none"
-                        aria-hidden="true"
-                    >
-                        WAIT
-                    </span>
 
-                    <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
-                        {/* Left */}
-                        <motion.div
-                            ref={heroRef}
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.8, ease }}
-                            className="space-y-8"
-                        >
-                            <p className="font-label text-xs tracking-[0.35em] uppercase text-vaslic-primary">
-                                VASLIC / Waitlist
-                            </p>
-                            <h1 className="font-display text-[3rem] sm:text-[4.5rem] lg:text-[5.5rem] leading-[0.88] tracking-tight uppercase">
-                                Be First.<br />
-                                <span className="text-vaslic-primary">Or Miss It</span><br />
-                                Forever.
-                            </h1>
-                            <p className="font-body text-lg text-vaslic-on-surface/70 max-w-md leading-relaxed transition-colors duration-500">
-                                Waitlist members get{" "}
-                                <strong className="text-vaslic-on-surface font-body">24-hour exclusive access</strong>{" "}
-                                before public release. Once it&rsquo;s gone, it never comes back.
-                            </p>
-
-                            {/* Social proof stats */}
-                            <div className="flex gap-10 pt-4 border-t border-vaslic-outline/20">
-                                {socialProof.map((stat) => (
-                                    <div key={stat.label}>
-                                        <p className="font-display text-2xl text-vaslic-primary">{stat.number}</p>
-                                        <p className="font-label text-xs uppercase tracking-widest text-vaslic-on-surface/50 mt-1 transition-colors duration-500">
-                                            {stat.label}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Forever callout */}
-                            <div className="inline-block bg-vaslic-surface-container px-6 py-4 transition-colors duration-500">
-                                <p className="font-label text-xs tracking-[0.3em] uppercase text-vaslic-on-surface/40">
-                                    Remember
-                                </p>
-                                <p className="font-headline text-xl uppercase mt-1 text-vaslic-primary">
-                                    FOREVER
-                                </p>
-                                <p className="font-body text-sm text-vaslic-on-surface/60 mt-1 transition-colors duration-500">
-                                    Once it&rsquo;s gone, it&rsquo;s gone. Forever.
-                                </p>
-                            </div>
-                        </motion.div>
-
-                        {/* Right: Form */}
-                        <motion.div
-                            ref={formRef}
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={formInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.8, delay: 0.2, ease }}
-                        >
-                            {submitted ? (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="bg-vaslic-surface-container p-12 text-center space-y-6 transition-colors duration-500"
-                                >
-                                    <div
-                                        className="w-16 h-16 mx-auto flex items-center justify-center"
-                                        style={{ background: "var(--primary)" }}
-                                    >
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <polyline points="20 6 9 17 4 12" stroke="var(--surface)" strokeWidth="2.5" strokeLinecap="square" />
-                                        </svg>
-                                    </div>
-                                    <h2 className="font-headline text-3xl uppercase">You&rsquo;re In</h2>
-                                    <p className="font-body text-sm text-vaslic-on-surface/60 leading-relaxed transition-colors duration-500">
-                                        You&rsquo;ve been added to the vault queue. Check your email for confirmation.
-                                        The vault is currently sealed — access is granted by seniority and alignment.
-                                    </p>
-                                    <p className="font-label text-xs tracking-widest uppercase text-vaslic-primary">
-                                        Transmission Complete ···
-                                    </p>
-                                </motion.div>
-                            ) : (
-                                <div className="bg-vaslic-surface-container p-10 space-y-8 transition-colors duration-500">
-                                    <div>
-                                        <h2 className="font-headline text-2xl uppercase">Choose Your Curations</h2>
-                                        <p className="font-body text-sm text-vaslic-on-surface/50 mt-2 transition-colors duration-500">
-                                            Select which aesthetics you want early access to
-                                        </p>
-                                    </div>
-
-                                    {/* Aesthetic checkboxes */}
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="group" aria-label="Choose aesthetics">
-                                        {aesthetics.map((a) => {
-                                            const active = selected.includes(a.slug);
-                                            return (
-                                                <motion.button
-                                                    key={a.slug}
-                                                    onClick={() => toggleAesthetic(a.slug)}
-                                                    whileHover={{ x: 2 }}
-                                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                                    className="px-4 py-3 font-label text-xs uppercase tracking-widest text-left transition-all duration-300"
-                                                    style={{
-                                                        background: active
-                                                            ? `color-mix(in srgb, ${a.accent} 15%, var(--surface-highest))`
-                                                            : "var(--surface-high)",
-                                                        color: active ? a.accent : "var(--on-surface)",
-                                                        borderLeft: active ? `2px solid ${a.accent}` : "2px solid transparent",
-                                                    }}
-                                                    aria-pressed={active}
-                                                >
-                                                    {a.name}
-                                                </motion.button>
-                                            );
-                                        })}
-                                    </div>
-
-                                    {/* Email form */}
-                                    <form onSubmit={handleSubmit} className="space-y-4">
-                                        <div>
-                                            <label htmlFor="waitlist-email" className="font-label text-xs uppercase tracking-widest text-vaslic-on-surface/50 block mb-2">
-                                                Email Address
-                                            </label>
-                                            <input
-                                                id="waitlist-email"
-                                                type="email"
-                                                required
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                placeholder="your@email.com"
-                                                className="w-full bg-vaslic-surface-highest border-b-2 border-vaslic-outline/30 focus:border-vaslic-primary px-4 py-4 font-body text-sm text-vaslic-on-surface placeholder:text-vaslic-on-surface/30 outline-none transition-colors duration-300"
-                                                aria-required="true"
-                                            />
-                                        </div>
-                                        <motion.button
-                                            type="submit"
-                                            disabled={submitting}
-                                            whileHover={{ x: 4 }}
-                                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                            className="w-full py-4 font-label text-sm uppercase tracking-widest bg-gradient-to-br from-vaslic-primary to-vaslic-primary-container text-vaslic-surface transition-colors duration-500 disabled:opacity-50"
-                                        >
-                                            {submitting ? "Establishing Link..." : "Join the Waitlist"}
-                                        </motion.button>
-                                        <p className="font-label text-xs uppercase tracking-widest text-vaslic-on-surface/30 text-center">
-                                            The vault is currently sealed. Access granted by seniority.
-                                        </p>
-                                    </form>
-                                </div>
-                            )}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* Instagram CTA */}
-                <section className="py-16 px-8 md:px-16 bg-vaslic-surface-lowest transition-colors duration-500">
-                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div>
-                            <p className="font-label text-xs tracking-[0.3em] uppercase text-vaslic-primary mb-2">
-                                Stay Connected
-                            </p>
-                            <p className="font-headline text-2xl uppercase">Instagram / @thevaslic</p>
+            {/* Sidebar (Responsive Layout) */}
+            <div className="flex flex-col lg:flex-row">
+                <aside className="hidden lg:flex lg:w-64 fixed left-0 top-0 h-screen bg-vaslic-surface-container flex-col py-8 z-40 border-r border-vaslic-outline/10">
+                    <div className="px-8 mb-12 mt-16">
+                        <div className="w-12 h-12 bg-vaslic-surface-highest mb-4 border border-vaslic-primary/20 overflow-hidden">
+                            <img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxrteaWXs_M5Kv79UHR1W5AFQ623j-mq2VFFYq4k8Ym7eZIKP_xF-fRzp-4awVroKPaciowpS0TztOW0pOf7cGyTifPJH6TdzndJomdib8_Ww6jkuP321WKbAJWFyYWSX690uvaSBlzM_DU_dwYTuQeIivnZLfB1w73Dkp7tJCEBN-NGu3YN-4yR3tTCvcdGSz0leDTZ-kn6WU4XkDmMdCjCne0swINECnrthAfY2FAkzICHPwANfygDaQ2vOMQMNJJmHVd7JCt_g"
+                                alt="Curator"
+                                className="w-full h-full object-cover grayscale opacity-50"
+                            />
                         </div>
-                        <motion.a
-                            href="https://instagram.com/thevaslic"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ x: 4 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            className="font-label text-xs uppercase tracking-widest px-8 py-4 bg-vaslic-surface-container text-vaslic-on-surface hover:text-vaslic-primary transition-colors duration-300"
-                            aria-label="Follow VASLIC on Instagram"
-                        >
-                            Follow @thevaslic →
-                        </motion.a>
+                        <h3 className="text-vaslic-on-surface font-headline font-bold text-lg uppercase tracking-tight">The Curator</h3>
+                        <p className="text-[10px] text-vaslic-primary font-headline font-medium tracking-[0.2em]">NEVER REPRINT STATUS</p>
                     </div>
-                </section>
-            </main>
-            <SiteFooter />
+                    <nav className="flex-1 flex flex-col gap-1">
+                        <Link href="/waitlist" className="flex items-center gap-4 px-8 py-4 bg-vaslic-surface-high text-vaslic-primary border-l-4 border-vaslic-primary font-label text-xs font-medium uppercase transition-all duration-300">
+                            <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+                            Vault Access
+                        </Link>
+                        <Link href="/" className="flex items-center gap-4 px-8 py-4 text-vaslic-on-surface/50 hover:bg-vaslic-surface-high hover:pl-10 font-label text-xs font-medium uppercase transition-all duration-300">
+                            <span className="material-symbols-outlined text-lg">public</span>
+                            Public Drop
+                        </Link>
+                        <Link href="/vault" className="flex items-center gap-4 px-8 py-4 text-vaslic-on-surface/50 hover:bg-vaslic-surface-high hover:pl-10 font-label text-xs font-medium uppercase transition-all duration-300">
+                            <span className="material-symbols-outlined text-lg">history</span>
+                            Archived Vault
+                        </Link>
+                    </nav>
+                    <div className="px-8 mt-auto">
+                        <div className="p-4 bg-vaslic-surface-high border border-vaslic-outline/10">
+                            <p className="text-[9px] text-vaslic-on-surface/40 uppercase tracking-widest leading-relaxed">
+                                Curators get 24h early access. Scarcity is our only rule.
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+
+                {/* Main Content */}
+                <main className="flex-1 lg:pl-64 pt-[72px] min-h-screen">
+                    {/* Ticker */}
+                    <div className="bg-vaslic-surface-highest py-3 overflow-hidden whitespace-nowrap border-y border-vaslic-outline/5">
+                        <div className="inline-block animate-marquee uppercase font-headline font-bold text-[10px] tracking-[0.4em] text-vaslic-primary">
+                            ONCE IT&apos;S GONE, IT&apos;S GONE. FOREVER. — NEVER REPRINT RULE IN EFFECT — ARCHIVING PIECES DAILY — ONCE IT&apos;S GONE, IT&apos;S GONE. FOREVER. — NEVER REPRINT RULE IN EFFECT — ARCHIVING PIECES DAILY —
+                        </div>
+                    </div>
+
+                    <div className="px-8 py-12 max-w-7xl mx-auto">
+                        {/* Header Section with Form */}
+                        <header className="mb-16 flex flex-col md:flex-row md:items-start justify-between gap-12">
+                            <div className="max-w-xl">
+                                <span className="text-vaslic-primary font-headline font-bold text-xs tracking-widest uppercase mb-4 block">Curation Access</span>
+                                <h1 className="text-6xl md:text-8xl font-black font-headline italic tracking-tighter leading-[0.85] mb-8 uppercase">
+                                    Join The<br />Vault Queue
+                                </h1>
+
+                                <form onSubmit={handleSubmit} className="relative max-w-md group">
+                                    <input
+                                        type="email"
+                                        required
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="ENCRYPTED EMAIL ADDRESS"
+                                        className="w-full bg-vaslic-surface-high border-2 border-transparent focus:border-vaslic-primary/30 px-6 py-5 font-body text-sm tracking-wider outline-none transition-all duration-500"
+                                        disabled={submitted || submitting}
+                                    />
+                                    <button
+                                        type="submit"
+                                        disabled={submitted || submitting || !email}
+                                        className="absolute right-2 top-2 bottom-2 px-8 bg-vaslic-primary text-vaslic-surface font-headline font-black text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-0 disabled:translate-x-4"
+                                    >
+                                        {submitting ? "SECURE..." : "REQUEST ACCESS"}
+                                    </button>
+
+                                    <AnimatePresence>
+                                        {submitted && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className="mt-6 p-6 bg-vaslic-primary/10 border border-vaslic-primary/20 text-vaslic-primary"
+                                            >
+                                                <p className="font-headline font-black text-xs uppercase tracking-widest flex items-center gap-2">
+                                                    <span className="material-symbols-outlined text-sm">check_circle</span>
+                                                    Transmission Received
+                                                </p>
+                                                <p className="font-body text-xs mt-2 text-vaslic-primary/80">
+                                                    You have been added to the queue based on your curation alignment.
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </form>
+                            </div>
+
+                            <div className="bg-vaslic-surface-container p-8 border-l-4 border-vaslic-primary min-w-[300px] transition-all hover:bg-vaslic-surface-high">
+                                <p className="text-[10px] text-vaslic-on-surface/40 font-headline uppercase tracking-widest mb-1">Queue Seniority Status</p>
+                                <p className="text-4xl font-black text-vaslic-on-surface font-headline">12,842</p>
+                                <div className="h-1 bg-vaslic-surface-highest mt-6 relative overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: "85%" }}
+                                        transition={{ duration: 2, ease }}
+                                        className="absolute inset-0 bg-vaslic-primary"
+                                    />
+                                </div>
+                                <p className="text-[9px] text-vaslic-primary font-medium mt-4 tracking-widest uppercase">Vault capacity at 85% for next drop.</p>
+                            </div>
+                        </header>
+
+                        {/* Bento Grid Styling from Wishlist Design */}
+                        <div className="mb-12">
+                            <h2 className="font-headline font-black text-xl uppercase tracking-widest mb-8 flex items-center gap-4">
+                                Choose Your Curation Alignment
+                                <span className="h-[1px] flex-1 bg-vaslic-outline/10"></span>
+                            </h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {categories.map((cat, i) => {
+                                    const isActive = selected.includes(cat.slug);
+                                    return (
+                                        <div
+                                            key={cat.slug}
+                                            onClick={() => toggleCategory(cat.slug)}
+                                            className="group relative cursor-pointer overflow-hidden transition-all duration-500"
+                                            style={{
+                                                background: cat.cardBg,
+                                                boxShadow: isActive ? `0 0 40px ${cat.accent}22` : 'none',
+                                                border: isActive ? `1px solid ${cat.accent}44` : '1px solid transparent'
+                                            }}
+                                        >
+                                            <div className="flex flex-col h-full">
+                                                <div className="aspect-[4/3] relative overflow-hidden">
+                                                    <img
+                                                        src={cat.image}
+                                                        alt={cat.name}
+                                                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${!isActive ? 'grayscale' : ''}`}
+                                                    />
+                                                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur px-3 py-1 border border-white/10">
+                                                        <span className={`${cat.fontClass} text-lg`} style={{ color: cat.accent }}>{cat.name}</span>
+                                                    </div>
+
+                                                    {/* Selection Overlay */}
+                                                    <AnimatePresence>
+                                                        {isActive && (
+                                                            <motion.div
+                                                                initial={{ opacity: 0 }}
+                                                                animate={{ opacity: 1 }}
+                                                                exit={{ opacity: 0 }}
+                                                                className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[2px]"
+                                                            >
+                                                                <span className="material-symbols-outlined text-5xl" style={{ color: cat.accent }}>check_circle</span>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+
+                                                <div className="p-8 flex-1 flex flex-col justify-between">
+                                                    <div>
+                                                        <div className="flex justify-between items-start mb-4">
+                                                            <div>
+                                                                <h3 className={`${cat.fontClass} text-3xl mb-1`} style={{ color: cat.cardBg === '#ffffff' ? '#000' : '#fff' }}>
+                                                                    {cat.name} Aesthetic
+                                                                </h3>
+                                                                <p className="text-[10px] font-headline text-vaslic-on-surface/40 tracking-[0.2em]">{cat.id}</p>
+                                                            </div>
+                                                        </div>
+                                                        <p className="text-[11px] text-vaslic-on-surface/50 uppercase font-headline tracking-tighter mb-6">
+                                                            {cat.tagline}
+                                                        </p>
+                                                    </div>
+
+                                                    <button
+                                                        className={`w-full py-4 font-headline font-black text-[10px] uppercase tracking-widest transition-all duration-300 ${isActive ? 'bg-white text-black' : 'border border-vaslic-outline/20 text-vaslic-on-surface/40'
+                                                            }`}
+                                                        style={isActive ? { backgroundColor: cat.accent, color: '#fff' } : {}}
+                                                    >
+                                                        {isActive ? 'ALIGNED FOR DROP' : 'SELECT CATEGORY'}
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            {/* Decorative diagonal tab from design */}
+                                            <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none transition-transform group-hover:translate-x-1 group-hover:translate-y-1">
+                                                <svg height="80" width="80" viewBox="0 0 100 100">
+                                                    <polygon points="100,0 100,100 0,100" fill={cat.accent} />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+
+                    <SiteFooter />
+                </main>
+            </div>
             <ThemeSwitcher />
-        </>
+
+            <style jsx global>{`
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    display: inline-block;
+                    animation: marquee 30s linear infinite;
+                }
+            `}</style>
+        </div>
     );
 }
