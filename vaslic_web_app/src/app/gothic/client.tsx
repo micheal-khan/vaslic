@@ -162,7 +162,7 @@ export default function GothicClientPage({ products, category }: { products: any
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-48">
                     {liveProducts.map((p, i) => {
                         const CardWrapper = p.vault_id
-                            ? ({ children }: { children: React.ReactNode }) => <Link href={`/products/${p.vault_id}`}>{children}</Link>
+                            ? ({ children }: { children: React.ReactNode }) => <Link href={`/gothic/${p.vault_id.toLowerCase()}`}>{children}</Link>
                             : ({ children }: { children: React.ReactNode }) => <>{children}</>;
                         return (
                             <CardWrapper key={p.id}>

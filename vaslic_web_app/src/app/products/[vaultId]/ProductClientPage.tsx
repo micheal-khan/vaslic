@@ -18,7 +18,15 @@ export default function ProductClientPage({ product }: { product: any }) {
     const [wishlisting, setWishlisting] = useState(false);
     const [wishlistAdded, setWishlistAdded] = useState(false);
 
-    const themeColor = product.category?.theme_color || "#ff007f";
+    const categoryColors: Record<string, string> = {
+        gothic: "#920703",
+        bohemian: "#c77b4a",
+        "avant-garde": "#72d2ff",
+        street: "#d8ca23",
+        funky: "#ffb4a8"
+    };
+    const themeColor = categoryColors[product.category?.slug as string] || "#ff007f";
+
     const isWaitlist = product.status === "coming_soon" || product.status === "retired";
     const availableSizes = product.sizes?.filter((s: any) => s.units_remaining > 0) || [];
 
@@ -173,7 +181,8 @@ export default function ProductClientPage({ product }: { product: any }) {
                                 <div className="flex justify-between items-center text-xs uppercase font-bold tracking-widest text-neutral-400">
                                     <span>Select Specifications</span>
                                     <span>
-                                        <UnitsCounter productId={product.id} initial={totalRemaining} total={100} />
+                                        <UnitsCounter productId={product.id} initial={totalRemaining} total={product.total_units} />
+
                                     </span>
                                 </div>
                                 <div className="grid grid-cols-3 gap-4">

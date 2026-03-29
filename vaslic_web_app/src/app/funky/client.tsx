@@ -10,76 +10,8 @@ const CYAN = "#00f5d4";
 const PINK = "#ff007f";
 const NAV_BG = "#0d0d2b";
 
-// ─── Product data (4 items, 2-col staggered) ────────────────────────────────
-const products = [
-    {
-        id: "VLK-FNKY-001",
-        slug: "/funky/vlk-fnky-001",
-        name: "NEON SYNTH WAVE",
-        edition: "Edition 1 of 50 — Never Reprinted",
-        units: "12 UNITS LEFT",
-        price: "$420",
-        col: "left",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDOVzWyPODpwpC4fcJHPE2avjxoBgJs-lZl3dHt-vD6qsqd7f6tFB_j_KQA-d0QvTqtPn1FbCXneQIgA74xuacE9MkTmhLr3eF0--dws17P1fbdOp_Vx6OSKXQ_Wa3XEqBnUqNdlaOE66ZqOOQLI1ooqa5kEOhAnYQLPyAysm1ooPNX6RYWI20iN0fyMuv65vl3lS7nwE8w9Ji6lErPxpg5EmXxTg65TphPTmWOgiPPI-4G-5HX-HTWrdV82Gytu0SBsPQ8D-Z50Uk",
-    },
-    {
-        id: "VLK-FNKY-002",
-        name: "ELECTRIC DRIFT",
-        edition: "Edition 1 of 50 — Never Reprinted",
-        units: "4 UNITS LEFT",
-        price: "$385",
-        col: "right",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAZSzkRDY3EBq4IpMcrDQr1KUG76n4c5gEl4Bg_0KAhqI3uu3jlNSN-KBHwpeISKRqk3D3pjlBFQmkvxLM4V6D-kdhm9HPkuzrMdqhZa7EZzuNlI7QcyaHdpNt5GVZXbWWpUmJ-TPAxG2qYc42-IueUmkQVsdrhIVh_tP3rtls5XadIeFRmGVdi76aGjb7ScfblCfYGl7U1tW935LuHIS53epxKYDcDQvoVAPP9wcLHLFYEBRr7Xg_429Ml9VQh-6IAcTP-Dkmiqvc",
-    },
-    {
-        id: "VLK-FNKY-003",
-        name: "PIXEL GLITCHED",
-        edition: "Edition 1 of 50 — Never Reprinted",
-        units: "22 UNITS LEFT",
-        price: "$550",
-        col: "left",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDDj9_VP95D7aTcR2Rp1RC7Wiyfv1CwoafsapCv2IrRCe6i_xl_1iravefirRIego1xMJcmSDIS0jGj2dkRjynr12U_Z8--G6_jVapc5eiD7DJ7Sja_Ve6aHl5QjGdNC0oh02Pe7NRNs3kMK_GLjHvRTBqEYmTcY6KClCoE-j-9VS-P2VGyYXuzhQTcdbSk6Q-X6uA3IBDYlKTN-tqO9swwWbrrcHv0aAwdcmWzXwLuKVcjv5xJFwp1X4886emitNZNytpKopDY3BM",
-    },
-    {
-        id: "VLK-FNKY-004",
-        name: "REMIX REBEL",
-        edition: "Edition 1 of 50 — Never Reprinted",
-        units: "7 UNITS LEFT",
-        price: "$295",
-        col: "right",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAMWoTExEYx7EEd9483HQSxGuYWUhYm7SC0QSjcEOT9SxwzeTDULtIhbyZMI0K8sdv-J1Y9-PHHrOwfZ_N1Ao8ukBg0Qa2m0msFxRcvuomVJLeq5eLzvCx5UzJ9uqhuZfCu6w0xsaBYLUYm8sBiLiLB8UltD2hzcMxEoS-jXhK_utCfS-FXQmEgkIfUPK9thCbilJ_EuHrvPZJJ4-6jr0W1k0IR-dzULNIgow0BPR0MkTnUYyC8NqdEt2dEb8P6t2AxDE9SYi2WFaY",
-    },
-];
-
-const retiredSessions = [
-    { set: "SET 01", name: "CHROME DISCO PHANTOM", date: "RELEASED AUG 23" },
-    { set: "SET 02", name: "VIRTUAL REALITY VANDAL", date: "RELEASED SEP 23" },
-    { set: "SET 03", name: "CYBERPUNK SAMURAI SOUL", date: "RELEASED OCT 23" },
-    { set: "SET 04", name: "LASER GRID NOMAD", date: "RELEASED DEC 23" },
-];
-
-const navLinks = [
-    { href: "/gothic", label: "Gothic" },
-    { href: "/bohemian", label: "Bohemian" },
-    { href: "/avant-garde", label: "Avant-Garde" },
-    { href: "/street", label: "Street" },
-    { href: "/funky", label: "Funky", active: true },
-];
-
-const themeDots = [
-    { bg: "#0a0a0a", border: "#8b0000", active: false, href: "/gothic" },
-    { bg: "#f5ebe0", border: "#c77b4a", active: false, href: "/bohemian" },
-    { bg: "#ffffff", border: "#008DB9", active: false, href: "/avant-garde" },
-    { bg: "#1a1a1a", border: "#f5e642", active: false, href: "/street" },
-    { bg: "#0d0d2b", border: CYAN, active: true, href: "/funky" },
-];
-
 // ─── Product card ─────────────────────────────────────────────────────────────
-function ProductCard({ p, staggered }: { p: any; staggered: boolean }) {
+function ProductCard({ p, staggered, category }: { p: any; staggered: boolean; category: any }) {
     return (
         <div
             className={`group relative bg-[#131313] p-1 border border-[#00f5d4]/10 hover:border-[#ff007f]/50 transition-all duration-500${staggered ? " mt-12 md:mt-24" : ""
@@ -218,10 +150,10 @@ export default function FunkyClientPage({ products, category }: { products: any[
                     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                         {liveProducts.map((p, i) => {
                             const isStaggered = i % 2 !== 0;
-                            const TargetLink = p.vault_id ? `/products/${p.vault_id}` : '/';
+                            const TargetLink = p.vault_id ? `/funky/${p.vault_id.toLowerCase()}` : '/';
                             return p.vault_id
-                                ? <Link key={p.id} href={TargetLink}><ProductCard p={p} staggered={isStaggered} /></Link>
-                                : <ProductCard key={p.id} p={p} staggered={isStaggered} />;
+                                ? <Link key={p.id} href={TargetLink}><ProductCard p={p} staggered={isStaggered} category={category} /></Link>
+                                : <ProductCard key={p.id} p={p} staggered={isStaggered} category={category} />;
                         })}
                     </div>
                 </section>

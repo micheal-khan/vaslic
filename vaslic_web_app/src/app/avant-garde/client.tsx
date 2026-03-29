@@ -16,92 +16,6 @@ const NAVY = "#0a0a0a";
 const BRUSH_PATH =
     "2% 16%, 10% 32%, 20% 18%, 28% 44%, 39% 12%, 48% 38%, 59% 22%, 69% 48%, 82% 15%, 91% 33%, 100% 14%, 98% 85%, 85% 72%, 72% 95%, 58% 78%, 45% 92%, 31% 75%, 19% 88%, 8% 70%, 1% 82%";
 
-// ─── Product data ─────────────────────────────────────────────────────────────
-const products = [
-    {
-        id: "VLK-AVNT-001",
-        slug: "/avant-garde/vlk-avnt-001" as string | undefined,
-        name: "THE DECONSTRUCTED VOID",
-        price: "$1,240.00",
-        editionLabel: "EDITION 1 of 12 — NEVER REPRINTED",
-        editionBg: NAVY,
-        editionColor: "white",
-        editionRotate: "rotate(6deg)",
-        editionAlign: "right",
-        btnColor: RED,
-        cardRotate: "-1deg",
-        translateY: 0,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDinj8cKu_Ra6fY6V5ZWHi7U7b8gCc9qg8m9efvetSZGyvVbzEFtfJmDbG62joH9B3CFxpiAZkFOuqegEBsK4iCQMBi-EtRrJuGPgrNzwtHCQr_mjr2cBPMIpgRmgjy1DjU1MOQ972w32BM20TCXvjvRRZ-u6c8MAqm9Uar7vKh6RFwOrL_aFQGEcPwKmesrAzzLgd6oElqLpLVapgHsS0kMULTbxFYLcg1IsiLVYdQ0aJZ-Z1TMpVEKWZUweldxqWNfrpUAjM3gts",
-        infoAlign: "start",
-        note: null,
-    },
-    {
-        id: "VLK-AVNT-042",
-        slug: undefined as string | undefined,
-        name: "ASYMMETRIC MONOLITH",
-        price: "$2,800.00",
-        editionLabel: "EDITION 1 of 8 — NEVER REPRINTED",
-        editionBg: RED,
-        editionColor: "white",
-        editionRotate: "rotate(-3deg)",
-        editionAlign: "left",
-        btnColor: COBALT,
-        cardRotate: "2deg",
-        translateY: 128,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKUgsPsv1UUPtocwRxW-_hpv8RkTHMZ9oNZ-Et0z8dbOlPvYMEhHfgC4m4e6VIU9NOeZCg9X2VwFnrqD27pjKZy7iH576t0vUFHsSsvm3F5aZqPpbae9cKGh2ftasAyi1FqLGMW89Sa3vx7lbimRLUZIKqo8mEoTkqicrUP0blxJwiwyZHhppyFTH3GUKYbvsfQ3HGxSP546GhnnorzcUy7-Raw85ddcxbehXNsX15dOn-WodUzhmuyALRzXEelmtVywO8dICqEks",
-        infoAlign: "end",
-        note: null,
-    },
-    {
-        id: "VLK-AVNT-089",
-        slug: undefined as string | undefined,
-        name: "STEEL & SILK",
-        price: "$3,500.00",
-        editionLabel: "EDITION 1 of 5",
-        editionBg: OCHRE,
-        editionColor: "white",
-        editionRotate: "rotate(-90deg)",
-        editionAlign: "rotating-side",
-        btnColor: OCHRE,
-        cardRotate: "-2deg",
-        translateY: -64,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAD9S1gBh5rlZC6km1dISxTxVF2gSGehIwvGFg1VhK55-ZA0DfWKM5ecvYArSWgjVplRvN4B8RLoYUBVRMbCSLkoN1R2LC-ZCM0G7PUHV-DX9Eraynrid1K8FVBBquz9U9ffe4l_0eKa-KHudVCJJs0TOuatd1OBWqgcq66g_k4i02Q__yYMn68aKlf-WP-CDL6ldFOmr5mpINnku9SQiPTGI6RYD1NEyhZ8iPD-JEb0gzE-VI3OFmITRfUMufcMqCcV3TaUAMGq0Q",
-        infoAlign: "start",
-        note: "Archival Series — Permanent Exit Pending",
-    },
-    {
-        id: "VLK-AVNT-102",
-        slug: undefined as string | undefined,
-        name: "CHROMATIC DYSPHORIA",
-        price: "$5,200.00",
-        editionLabel: "NEVER REPRINTED — EDITION 1 of 3",
-        editionBg: "#f5f5f5",
-        editionColor: "black",
-        editionRotate: "none",
-        editionAlign: "block",
-        btnColor: RED,
-        cardRotate: "1deg",
-        translateY: 64,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCN21rvxPfGQSIXZaZcmOnLWi_lBRzuT_ahSQzv18LcztYjzTBy9nbb2KZeWBOz5oackHyWTUq-6LlPKqxXNcEVqicqIQgE89Tjx5t63nhsAFtDevO9HqvMeFFcSOYiUrBnvuSEPCnnzRDjjlT9C_4kQlykmJD0kz9gmG7vl5ieqgPdXbEviHa_PZQ1_elvmCCgileXTHnXG9-hVn0w3MPaCQQ-lg5OHZ7NMN6Gab28_bghvC7_Pcy8Wvs3exUjKKwOLWpayt2oW8A",
-        infoAlign: "end",
-        note: null,
-    },
-];
-
-const retiredItems = [
-    { name: "THE GLASS SHROUD", exit: "11/2023", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAv_ki7xZOE32XftDKMrgpQq9cmSt8-F7EEzSJyCagHQjihFzdwp2OFIB6vDPNvW5XxZovPmD6MIgGMJV1ck09rRFf1hUGH0RzsvajFZP85bYwLuXps_jFF7E736k1HdkZAow3jqbITHgOz-DwGfTSNOTBtCUhxfM3NT449w5BOxOw48HAY1aigBKGSHNAxufQd1pbSlgUDYSbLQocvfKPaLwedopnZmGtj8KTlbH9-ASe8gQ1G83o-Mpw1RyUBxW801vZR19NQiyI" },
-    { name: "INDUSTRIAL SPINE", exit: "02/2024", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDTYsjDqRZsRBC_4Mh2Y6CEjTMPCDlsw4ZGMNmIIGub-NnG5bWVdgTWjEruRq7mqwttSZpc2LDZyYVjgXnwDQaCKcPuWyuH3YYdCWHGD4XwulsE0JxoNTmQ6OEroza2I0qutwVr7F7YJNpQIOuOFRx-ZuM1c9_7WNyBkdfbNhVeiLG2NnRAS6YPrE3l_IwQbfMuxN7ThLY3c19PHoPEZNq4HwfCixttzu1OyHfrN-8XMfdPw9V96F2dWrDfTszPfOwk76nc4Oyfc8k" },
-    { name: "UNSEEN ECHO", exit: "05/2024", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTZJMHM3qkY7_3txvnD_WCX6yaVrjiDtFiAzMEikzaWUPb6lXIEQONMWqYUl_-KgUWsGa7g59adAXBQLPSNG16BNJdoctlTqelTxQ7TAjx38z7lRp7Tlx2-e4pj4lD45_ZSlD6__6MlDPmHiAgbu1hy7BDGqeokOdFxlZPB5oWHw4D9EizQfBpqewR7zae0Jfo8zFw_rpVwj55jKYH2m5_6PMpt5EsddTSSkUlWS-1z4Mn1qy7s2hYha8uWKRW8UJLSA0sXBk0kHo" },
-];
-
-const themeDock = [
-    { icon: "dark_mode", label: "Gothic", active: false, color: "#737373", href: "/gothic" },
-    { icon: "local_florist", label: "Boho", active: false, color: "#737373", href: "/bohemian" },
-    { icon: "architecture", label: "Avant", active: true, color: "#22d3ee", href: "/avant-garde" },
-    { icon: "theater_comedy", label: "Street", active: false, color: "#737373", href: "/street" },
-    { icon: "celebration", label: "Funky", active: false, color: "#737373", href: "/funky" },
-];
-
 // ─── Paint-stroke button ───────────────────────────────────────────────────────
 function PaintButton({ color, children }: { color: string; children: React.ReactNode }) {
     return (
@@ -322,7 +236,7 @@ export default function AvantGardeClientPage({ products, category }: { products:
                                     </div>
                                 </div>
                             );
-                            const TargetLink = p.vault_id ? `/products/${p.vault_id}` : '/';
+                            const TargetLink = p.vault_id ? `/avant-garde/${p.vault_id.toLowerCase()}` : '/';
                             return p.vault_id ? <Link key={p.id} href={TargetLink}>{cardInner}</Link> : cardInner;
                         })}
                     </div>

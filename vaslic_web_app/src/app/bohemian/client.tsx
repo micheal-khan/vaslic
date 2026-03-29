@@ -10,88 +10,16 @@ import { UnitsCounter } from "@/components/UnitsCounter";
 const TERRA = "#c77b4a";
 const BG = "#f5ebe0";
 
-// ─── Product data ────────────────────────────────────────────────────────────
-const products = [
-    {
-        id: "VLK-BOHO-001",
-        slug: "/bohemian/vlk-boho-001",
-        name: "Earthen Vessel No. 01",
-        edition: "Edition 1 of 12 — Never Reprinted",
-        price: "$420",
-        unitsLeft: "03",
-        stagger: false,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAahV5DJV6u3SM2jgPqD6Md3tpuFV1coYsdn_9899oJcqh8lniLoCmpaEnk9djY6fXQM6r90xudPDVWfREQyp-GpFS0eLKAFgNbntAHHGfoOUeHVIbO9zx97jFUECiYYbTK0pWgSO1YGaJ0aDQgNIbYlf8fE4uP1m0dX51F06lYHh4LjH6lL9lnVusnhm0pNb2WQQGm3cEqb7sLV2yD2JwolSuZzlrAj3mo12x-2xs7nn6Dod0ioHfX8RWkUmbLB3p7PMlmqUa4pGw",
-    },
-    {
-        id: "VLK-BOHO-002",
-        name: "Pressed Flora Archive",
-        edition: "Edition 1 of 12 — Never Reprinted",
-        price: "$285",
-        unitsLeft: "01",
-        stagger: true,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAHPyMpznI0OjovV5hU3aGoS5AzCZgzfna7Xz4UJUhJe3aMlfjzRquZaTRmEiGGnDdGV_oXCa_5iHVfP7G-9PvHUODYF6boK88ZmZPX8jH_2tyXEseFjhVn2abb-dJICJUKYcJutG-L7VfxdobUOBy6PSncAwnORjkLJIU_rGPEcp-R1R6F52GIzPlZ-E0QTUbh_5FPby1hfux0mWkTspgJ_nokX7wZ-Hqd06iLoV20UbnolJIBsSk3XFnSe9HplOaP9lxYIvF6gak",
-    },
-    {
-        id: "VLK-BOHO-003",
-        name: "Terra Study III",
-        edition: "Edition 1 of 12 — Never Reprinted",
-        price: "$550",
-        unitsLeft: "05",
-        stagger: false,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5g3S15JtPnCd8pJo9b6k9EgAniZEv-ZKjOd4jMFxleYusXuWFgr-txmQBdxJD7KlhNMWUkMNeTewrTYbkqDi5aG2ICy1RU2bppLCneB4V-RYPwSxH5zkIEBWSu1RX3bOyr-uvfQgUzP5BNQ0ozQC3tDl9LsLIDxDobpBg9bVpr4QxOYw7Ng5bdwHRyW6ukMoP6i3astfNDiUiT4xkCUkffUQYmbOn8TLtjDiDdgFQz2Q_mQ1vsSSeb4-9xprpMXYxY6sVmgFUzzg",
-    },
-    {
-        id: "VLK-BOHO-004",
-        name: "Woven Silence",
-        edition: "Edition 1 of 12 — Never Reprinted",
-        price: "$310",
-        unitsLeft: "02",
-        stagger: true,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDEekkIdvysQpPxAX2q-rSmmjOHxS0bbu7X1G3XTXfHO8P-1rT2ajbwHHGD2LQj_iDV3tZS5J3HZ_eSlCYGXRwWPhkwYCrnbcRjOMPoyFcA-dQhmiFrrD-TS6qIcFlla927-FHqtfp-5K4uuwYPP3tp2IvBXkf_-CO4ZqdoIwKT20VqPQwI8puLE82rA4giP_Ai7qad5c91EFSM9wsx2AjozN34z2fa5iwUPGM2RKctgPAr9_rOGmG02fg-9YtSgra6WbYmJq41-NM",
-    },
-];
 
-// ─── Pressed Archive items (5-col, grayscale, opacity-50) ────────────────────
-const archive = [
-    {
-        code: "ARC-088",
-        name: "Linen Morning",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD-ozdbvi7SgAyWTa6nIc0T4UUvzPlrrGI248M78KHbiqrSts7qOw28nMrI62ZLCR1BNbZgnr-a0emZ6gmJlUXUohP2SfIhfpkbx3_CcOwO1k2wPSYl4No5Zve9U5IIAq6F5hhBmdWPSb_pMEGo90htsHPkBLXPs-I5-h00e3M2welaqN15bQixPsUKplxA6PxTClYt1kJtpYCKPAK6vWOiefYuPc_TUvSHQIWu8lVODwdiOeXAGV5FqsUx0-0zzcu2FIX8xYtBgtI",
-    },
-    {
-        code: "ARC-074",
-        name: "Driftwood Soul",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCpJ2kUkLDwT7UBeN6egitWHLYXmDrKS7CfVzSL2ABRQoHcm_OGLTO4QfCPolE_1jzwxMDEa47OOCsdk9etShSr-8g3sEYJW5IeQYPA3TD1-CUfd83Zqb-MW5SPLoMgvCSlDR6DysSZJkbK2rwtc89Fn0zOmLKB6mCJjjNegTXEcMktVhG8Nqf6b6ITFNdYEtknfH6XcavI6fNAKTMhDkk1JpIFO2XN6ZqQeNVqql2xGYbyJI399leN4SHVJssmu7dsuJlGodqQhR0",
-    },
-    {
-        code: "ARC-092",
-        name: "Silent Clay",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRtOXlPJroi3FilV8G0gkKFIIQc8sblyA30JsFlxX6UIxSgrZT87dfN081wNqLB_e3t7FlgzPgVJPYNEguUzMC8TtLiG9L5iuB84Bbo-fLmWjMsoY__6sICCc-xRFtV1EYFQg2pJnkyemJPKfA84oM1PN_JXDxUOUXmEpebxzuHYOyvXgo-Q3Q4IYeAoVP--ghIgya09vKMn8qEHOmjnnXFkUntJWFbN0tZ0ZjVrledqA_sd73BeTYarkt76BzaO1AJ-r6j-YUG1g",
-    },
-    {
-        code: "ARC-061",
-        name: "Petal Echo",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCwqdmNaeg_CWyYQy1Vtm4GonYcAc0zHKw998y1v_4_L4D8lJwKl7D5UwB7LSXA6vitQJlS8fW8wA-gLo5UzgPw78kG6FTysSjxumpiXB25w7jnSw2eiS7KrFTtxYpgbxmPTiJjvlS5rHTDqY9FgKqqHbcO7_3Mo-FENFnUGjAmR5fNui4Gm0Kr__sLc6D5CERy2LnC9GTOOrP92TRtXS2guWCFbG8s_UvE2pliqKmD6oRFsz238LvJgWvQTnqGubBfM5XhudV6_-s",
-    },
-    {
-        code: "ARC-055",
-        name: "Shadow Lattice",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6G8rMetaN4U7NpB_lgy7pZp3UN_lf-NXRNkvcZL1bfrUBoIIogK0clYm30wHegcK4nuz5KVHTXOfQhhp_y1LezYpeZvcYSA55n8Z4t5YEf6-ZPUIoRq0cZgAHl0DG7q6lXzi64vHDPzIOp8ncVv5BQFYQ3PIfs5bakZKreXoy-YkLn4ahHZPhdhZ7pOQTgJ6zUlimkNMGw_yRWtN2HegiZDPV44Bo70eNd0La_vg3_Vm-KVQX6YYJLbtVb54tX4E7nYdKNDVFRGc",
-        lgOnly: true,
-    },
-];
-
-const themeSwitcher = [
-    { icon: "history_edu", label: "Gothic", bg: "#0a0a0a", color: "white", href: "/gothic" },
-    { icon: "eco", label: "Bohemian", bg: BG, color: TERRA, href: "/bohemian", active: true, fill: true },
-    { icon: "architecture", label: "Avant-Garde", bg: "#ffffff", color: "#008DB9", href: "/avant-garde" },
-    { icon: "layers", label: "Street", bg: "#1a1a1a", color: "#f5e642", href: "/street" },
-    { icon: "rocket_launch", label: "Funky", bg: "#0d0d2b", color: "#00f5d4", href: "/funky" },
-];
+function VelvetRope() {
+    return (
+        <svg className="w-full h-full p-4 absolute inset-0 pointer-events-none" viewBox="0 0 400 400">
+            <path d="M 0 150 Q 200 250 400 150" fill="none" stroke="#c0392b" strokeWidth="8" />
+            <circle cx="10" cy="150" r="12" fill="#d4af37" />
+            <circle cx="390" cy="150" r="12" fill="#d4af37" />
+        </svg>
+    );
+}
 
 export default function BohemianClientPage({ products, category }: { products: any[], category: any }) {
     const [email, setEmail] = useState("");
@@ -254,7 +182,7 @@ export default function BohemianClientPage({ products, category }: { products: a
                                 </div>
                             </div>
                         );
-                        const TargetLink = p.vault_id ? `/products/${p.vault_id}` : '/';
+                        const TargetLink = p.vault_id ? `/bohemian/${p.vault_id.toLowerCase()}` : '/';
                         return p.vault_id ? <Link key={p.id} href={TargetLink}>{inner}</Link> : inner;
                     })}
                 </div>

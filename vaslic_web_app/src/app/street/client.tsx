@@ -13,66 +13,6 @@ const SURFACE = "#1a1a1a";
 // ─── Image assets ──────────────────────────────────────────────────────────────
 const HERO_BG = "https://lh3.googleusercontent.com/aida-public/AB6AXuBwmVCfrfkWTglSWqE59BLHf8nXLAt2LpRI07IA8rSvXlY0f-W1B9hb2LS6S227rk5aHmWyGgYvHAUTMt3K6L44B-kLNT5spU8H7YIwRXNY-1Gq_tYtJndyTlEsWJfrdcir1GQ7lqp1VPSoZskMazIO1AxO-2uCINPjMV7lR-FKIzwRymqX2iSnSZMKkFKBW_sYiTz-4-J3anOl7JGLYztwPIzn06iEK3K81LnxSGU8SgOv_diXN0aH3f_S1gRZvi8jqdLmFFpzeDI";
 
-const products = [
-    {
-        id: "VLK-STRT-001",
-        name: "THE ARCHIVE HOODIE",
-        price: "$185",
-        desc: "Hand-distressed 500GSM french terry. Custom VASLIC hardware. Every piece is unique.",
-        edition: "Edition 1 of 50 — Never Reprinted",
-        badge: { text: "LIMITED: 12 LEFT", color: YELLOW, textColor: "black", rotate: "-rotate-6", pos: "top-4 left-4" },
-        cta: "SNATCH NOW",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZ_2S6u6kYcmEwvL0bFWEusX2dJh0IbmtOF-RPilcLKyXvmxq4LG2VvbSSsU1nRNP4mTKQgZgd9_Y4dUX6LvXyyIIV4mAZCVq2tGKnL2NBYq7sqDrsdD6Q-LFYsl5yPSid6azrXYSMXG_9o2weucIDyAbp1hw44Fya-9zkWU1NFpSWDtzjtARzmRSXU-lw1wHXJdHmx4EnmLfQNJYZJe2dheb8aMoTVtg-S1-puqSjG9TMOLNQHOJYfd1WCvX8YyXlza3xeJx7Pg0",
-    },
-    {
-        id: "VLK-STRT-002",
-        slug: "/street/vlk-strt-002",
-        name: "CARGO SYSTEM v2",
-        price: "$240",
-        desc: "Modular attachment system. Waterproof ripstop nylon. Articulated knee construction.",
-        edition: "Edition 1 of 30 — Never Reprinted",
-        badge: { text: "SOLD OUT: 85%", color: "#dc2626", textColor: "white", rotate: "rotate-3", pos: "top-4 right-4" },
-        cta: "SECURE ASSET",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBlu3O3_qx5OtnwMZJvRu7RDbgRqU7rZ2sniWqCtnhCyzwG_-bTV1LViu4NRlUq76wCpi1fnQ4sFV2q5fGxs-RtXwn5_E2auNhW1GBad8onWhZma5Ir_ZMSw3LLw2-wWFG3RxpatvO2yQV04dyLUcOpBaUzF0jOoSqwGMFmzgyVHAYIJ0lIHK-IBFSKXu3vE87b2cHPLGi3Ypfs6qygmP1CMzPo28R-MwUjA9WAKATahy91s3nTqLCVY4R1NoJHbQrgYHDmbT4CPEw",
-    },
-    {
-        id: "VLK-STRT-003",
-        name: "KINETIC GRAPHIC TEE",
-        price: "$75",
-        desc: "Oversized fit. Screen-printed in 8-layer high-density ink. Pre-shrunk finish.",
-        edition: "Edition 1 of 100 — Never Reprinted",
-        badge: null,
-        cta: "ADD TO STASH",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAK_dT0FiymzLD1zREeAbfTRB5n_KNDsnHqsxM1HgL40Wljt0vj9oG7IKBZaAvgj6-EVUTgSMR_fyA4xrwAGOF4LgdaffBKSRNf4kJYPpeigOnpUToan2TQumCfp8BLclqJ0Rtbf5yyl09YAxXxs5wiEMahy8Lu0YpqyLisqTTQ_cERdUD4eRZDef2nbMLa87b0yoTd0RqnotrjiBSf_PwAeyP9PjT-Amld62qpu8hbeht4WpM-SuZXqUf4ysI1YqAxhAVz9Le46PE",
-    },
-    {
-        id: "VLK-STRT-004",
-        name: "TACTICAL RIG v1",
-        price: "$160",
-        desc: "Multi-pocket configuration. High-tensile webbing. Weatherproof technical shell.",
-        edition: "Edition 1 of 25 — Never Reprinted",
-        badge: null,
-        cta: "SECURE GEAR",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqxPgrl1CgQ4dPdTsbeSHDGZqSAshrouTNLyWMco0A55Kfl89lFaUKobdJ5U4mXn4ibDt9wsuW8LzRUrqApkp3gulM6e4vyD8o9AWsoraR8FfCcVJ_qPqPEopWUnu0g1DSH166RT-dik7JYDacx5vO_eQ12WYK2nBWfZV4AqJKtyrcigwSlpiiveZ_NDuyQoItmYVuY8lc0z-IreSsORlmvxTRB4Bor6ca4FSvCWbkZZNDYUmMQUT2Gr5N0UfBSgpdxU_Heq75Zpg",
-    },
-];
-
-const retiredItems = [
-    { id: "VLK-STRT-X01", opacity: 0.30, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBYgxo1DqVV2jjdSJ4MVJHfKAo2OEbzEcUpZayITjgB6yEx_ZhpDYOAWq6U9XbFzIF-6h9szT_59zksHsHUboK508jl4dx3uR2a92ZdYIpeV-WKWRKWQ8rvcqR8uuo__0Av46avr8A7oQ_UKlSDqxANL1jsoSJ0Xa7_DXsG338a49mKPQcssewPhXEgt8E8H6bfKuvZbhFVQc3X2eCwuqCMujWnN_LmqWrXzJbw2g2_2LSzE8-RTrAt4NrxLD9HtXVz9WaACmeTOVU" },
-    { id: "VLK-STRT-X02", opacity: 0.20, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfN_nLTB76gTFPezapqf0joZ9FsocajIaK2gbyyq7CLeLQtrKiNVP1PZ4Lscjqf-gSqqZMCgx3UOHikXXWciTz2vs13ryBUaLvENytaPMJxFWzaPdf7vLW2NGBIc3n9Bm3CV7UcevLHLNoSvhZR4AZ-H6FbFPGaP0KscXC8i8DSjrxavO8qP3VBTu7Qoe-ZP7cOTHTnHp1dXzUpkdGfBBnwVk1IpxZeLmfoPdkoixed5b2q_5Bat_TV3Tiqgu6tvw3Hi9Iv2Q0cFA" },
-    { id: "VLK-STRT-X03", opacity: 0.10, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhGE8x3DFgbzTiBifNDwGDy36xAeG5T_P49xjbvYmNj1J8UVqgiRAUdIYQvY-5H-P-XwhN-pPvAq88sU4SsrmocEQcJVGXhQtJpkmOAuerUmNALbbHpPCMuq3wuG1Y9klTDTDEvynkn2j7NrLJKskAIdxcRu5lHTS3y-VM39IGhE7bYHm4qe3Sint7F7BA1sMtv6jdF04aQx87PWcxKNgUk1v8sfYc06dAsyITY0v9XFjiUPFtKdJwPSyC2SxTwQICLnxyuAOQraA" },
-    { id: "VLK-STRT-X04", opacity: 0.25, image: products[3].image },
-    { id: "VLK-STRT-X05", opacity: 0.05, image: null },
-];
-
-const themeSwitcher = [
-    { title: "Gothic", bg: "#000000", href: "/gothic", border: "rgba(255,255,255,0.2)", active: false },
-    { title: "Bohemian", bg: "#f5ebe0", href: "/bohemian", border: "rgba(0,0,0,0.1)", active: false },
-    { title: "Avant-Garde", bg: "#ffffff", href: "/avant-garde", border: "rgba(0,0,0,0.1)", active: false },
-    { title: "Street", bg: YELLOW, href: "/street", border: "#000000", active: true },
-    { title: "Funky", bg: "#0d0d2b", href: "/funky", border: "rgba(0,245,212,0.4)", active: false },
-];
-
 export default function StreetClientPage({ products, category }: { products: any[], category: any }) {
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     const liveProducts = products?.filter(p => p.status !== 'retired') || [];
@@ -243,7 +183,7 @@ export default function StreetClientPage({ products, category }: { products: any
                                     </div>
                                 </div>
                             );
-                            const TargetLink = p.vault_id ? `/products/${p.vault_id}` : '/';
+                            const TargetLink = p.vault_id ? `/street/${p.vault_id.toLowerCase()}` : '/';
                             return p.vault_id ? <Link key={p.id} href={TargetLink}>{cardEl}</Link> : cardEl;
                         })}
                     </div>
