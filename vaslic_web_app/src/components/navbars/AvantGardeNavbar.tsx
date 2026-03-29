@@ -4,11 +4,23 @@ import Link from "next/link";
 import { ShoppingBag, User, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function AvantGardeNavbar() {
     const COBALT = "#008DB9";
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -67,7 +79,7 @@ export default function AvantGardeNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href="/login" className="hover:translate-x-1 transition-transform active:scale-95" aria-label="Account">
+                        <Link href={user ? "/profile" : "/login"} className="hover:translate-x-1 transition-transform active:scale-95" aria-label="Account">
                             <User size={24} className="text-zinc-900" />
                         </Link>
                     </div>

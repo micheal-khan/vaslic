@@ -4,10 +4,22 @@ import Link from "next/link";
 import { ShoppingBag, User, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function HomeNavbar() {
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -64,7 +76,7 @@ export default function HomeNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href="/login" className="cursor-pointer hover:scale-110 transition-transform">
+                        <Link href={user ? "/profile" : "/login"} className="cursor-pointer hover:scale-110 transition-transform">
                             <User size={20} />
                         </Link>
                     </div>

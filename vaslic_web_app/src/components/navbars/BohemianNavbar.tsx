@@ -4,12 +4,24 @@ import Link from "next/link";
 import { ShoppingBag, User, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function BohemianNavbar() {
     const TERRA = "#c77b4a";
     const BG = "#f5ebe0";
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -69,7 +81,7 @@ export default function BohemianNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href="/login" aria-label="Account" className="hover:scale-105 transition-transform">
+                        <Link href={user ? "/profile" : "/login"} aria-label="Account" className="hover:scale-105 transition-transform">
                             <User size={22} />
                         </Link>
                     </div>

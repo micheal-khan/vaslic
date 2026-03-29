@@ -4,11 +4,23 @@ import Link from "next/link";
 import { ShoppingBag, Heart, User } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function StreetNavbar() {
     const YELLOW = "#f5e642";
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -68,7 +80,7 @@ export default function StreetNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href="/login" className="cursor-pointer hover:scale-105 transition-transform" aria-label="Account">
+                        <Link href={user ? "/profile" : "/login"} className="cursor-pointer hover:scale-105 transition-transform" aria-label="Account">
                             <User size={20} />
                         </Link>
                     </div>

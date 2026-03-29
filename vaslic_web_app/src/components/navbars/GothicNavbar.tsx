@@ -4,11 +4,23 @@ import Link from "next/link";
 import { ShoppingBag, User, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function GothicNavbar() {
     const BLOOD = "#8b0000";
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -70,7 +82,7 @@ export default function GothicNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href="/login" className="hover:text-[#8b0000] transition-colors text-white" aria-label="Account">
+                        <Link href={user ? "/profile" : "/login"} className="hover:text-[#8b0000] transition-colors text-white" aria-label="Account">
                             <User size={20} />
                         </Link>
                     </div>

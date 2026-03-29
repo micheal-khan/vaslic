@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ShoppingBag, Heart, User } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "./CartModal";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 interface CuratorLayoutProps {
     children: React.ReactNode;
@@ -19,10 +21,27 @@ const sidebarLinks = [
 ];
 
 export default function CuratorLayout({ children }: CuratorLayoutProps) {
+    const router = useRouter();
     const pathname = usePathname();
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const supabase = createClient();
+            const { data } = await supabase.auth.getUser();
+            setUser(data.user);
+        };
+        fetchUser();
+    }, []);
+
+    const handleLogout = async () => {
+        const supabase = createClient();
+        await supabase.auth.signOut();
+        router.push("/login");
+    };
 
     return (
         <div className="min-h-screen bg-[#131313] text-[#e5e2e1] selection:bg-[#72d2ff] selection:text-black">
@@ -80,7 +99,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                                 </span>
                             )}
                         </button>
-                        <Link href="/profile" className="hidden md:block cursor-pointer hover:scale-110 transition-transform">
+                        <Link href={user ? "/profile" : "/login"} className="hidden md:block cursor-pointer hover:scale-110 transition-transform">
                             <User size={20} />
                         </Link>
                         {/* Mobile Menu Toggle */}
@@ -124,12 +143,12 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                     })}
                 </nav>
                 <div className="px-8 mt-auto">
-                    <Link
-                        href="/"
+                    <button
+                        onClick={handleLogout}
                         className="block w-full py-4 bg-cyan-500 text-black font-headline font-black text-[10px] uppercase tracking-widest text-center hover:translate-x-1 transition-transform"
                     >
-                        View Rare Drops
-                    </Link>
+                        Logout
+                    </button>
                 </div>
             </aside>
 
@@ -162,13 +181,12 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                                 </Link>
                             );
                         })}
-                        <Link
-                            href="/"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="mt-8 px-8 py-4 bg-white text-black font-headline font-black text-xs uppercase tracking-[0.2em] hover:bg-cyan-400 transition-colors"
+                        <button
+                            onClick={handleLogout}
+                            className="mt-8 px-8 py-4 bg-white text-black font-headline font-black text-xs uppercase tracking-[0.2em] hover:bg-cyan-400 transition-colors w-full text-left"
                         >
-                            View Rare Drops
-                        </Link>
+                            Logout
+                        </button>
                     </nav>
                 </div>
             </div>
