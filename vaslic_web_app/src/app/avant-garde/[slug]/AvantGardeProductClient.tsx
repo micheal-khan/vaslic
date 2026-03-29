@@ -251,7 +251,7 @@ export default function AvantGardeProductClient({ product }: { product: any }) {
                                 {product.description || `&ldquo;The Deconstructed Void&rdquo; is a manifestation of wearable brutalism. It explores the tension between industrial rigidity and the fluidity of the human form. Every seam is a calculated fracture; every raw edge is a dialogue with entropy.`}
                             </p>
                             <div className="mt-6 text-[9px] uppercase tracking-[0.2em] italic" style={{ color: "#9ca3af", fontFamily: "'Space Grotesk', sans-serif" }}>
-                                — VASLIC KINETIC STUDIOS, 2024
+                                — VASLIC KINETIC STUDIOS, 2026
                             </div>
                         </div>
 
@@ -398,7 +398,7 @@ export default function AvantGardeProductClient({ product }: { product: any }) {
                             An editorial ecosystem dedicated to the preservation of avant-garde textile architecture and brutalist aesthetics.
                         </p>
                         <div className="text-sm tracking-widest uppercase text-zinc-400">
-                            © 2024 VASLIC KINETIC CURATIONS. ALL RIGHTS RESERVED.
+                            © 2026 VASLIC KINETIC CURATIONS. ALL RIGHTS RESERVED.
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8">

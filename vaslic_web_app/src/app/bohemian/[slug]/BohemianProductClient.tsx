@@ -412,10 +412,10 @@ export default function BohemianProductClient({ product }: { product: any }) {
                         className="text-lg font-bold mb-4"
                         style={{ color: "#292524", fontFamily: "'Space Grotesk', sans-serif" }}
                     >
-                        VASLIC Kinetic Curator
+                        VASLIC - Something for everyone
                     </div>
                     <p className="text-sm tracking-wide" style={{ color: "#78716c", fontFamily: "'Manrope', sans-serif" }}>
-                        © 2024 VASLIC Kinetic Curator. All Rights Reserved.
+                        © 2026 VASLIC - Something for everyone. All Rights Reserved.
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-x-12 gap-y-4">

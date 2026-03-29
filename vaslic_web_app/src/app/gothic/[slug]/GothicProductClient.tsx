@@ -442,7 +442,7 @@ export default function GothicProductClient({ product }: { product: any }) {
                             className="text-[10px] tracking-[0.2em] uppercase mt-2"
                             style={{ fontFamily: "'Manrope', sans-serif", color: "#525252" }}
                         >
-                            © VASLIC. THE KINETIC CURATOR. NEVER REPRINT.
+                            © VASLIC. SOMETHING FOR EVERYONE. NEVER REPRINT.
                         </p>
                     </div>
                     <div

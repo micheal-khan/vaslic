@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { X, Minus, Plus, Trash2, ArrowRight, ShoppingBag } from "lucide-react";
 import { useCart, CartItem } from "@/contexts/CartContext";
 
@@ -289,17 +290,24 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
 
                             {/* CTA */}
                             <div className="md:col-span-4">
-                                <button
-                                    onClick={onClose}
-                                    className="w-full py-5 font-headline font-black uppercase tracking-[0.2em] text-xs md:text-sm flex items-center justify-center gap-3 group transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
-                                    style={{
-                                        background: items.length > 0 ? "#008DB9" : "#222",
-                                        color: items.length > 0 ? "#fff" : "#666",
-                                    }}
-                                >
-                                    {items.length > 0 ? "COMPLETE CONNECTION" : "BROWSE COLLECTIONS"}
-                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                {items.length > 0 ? (
+                                    <Link
+                                        href="/checkout"
+                                        onClick={onClose}
+                                        className="w-full py-5 font-headline font-black uppercase tracking-[0.2em] text-xs md:text-sm flex items-center justify-center gap-3 group transition-all duration-300 hover:brightness-110 active:scale-[0.98] bg-[#008DB9] text-white"
+                                    >
+                                        COMPLETE CONNECTION
+                                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                ) : (
+                                    <button
+                                        onClick={onClose}
+                                        className="w-full py-5 font-headline font-black uppercase tracking-[0.2em] text-xs md:text-sm flex items-center justify-center gap-3 group transition-all duration-300 hover:brightness-110 active:scale-[0.98] bg-[#222} text-[#666]"
+                                    >
+                                        BROWSE COLLECTIONS
+                                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                )}
                             </div>
                         </div>
 

@@ -27,6 +27,27 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
 
     const ease = [0.22, 1, 0.36, 1] as const;
 
+    // Calculate metrics
+    const totalSpent = orders.reduce((sum: number, order: any) => sum + parseFloat(order.total || 0), 0);
+    const totalPieces = orders.reduce((sum: number, order: any) => sum + order.order_items.length, 0);
+
+    const archetypeCounts: Record<string, number> = {};
+    orders.forEach((order: any) => {
+        order.order_items.forEach((item: any) => {
+            const catName = item.products?.categories?.name || "Uncategorized";
+            archetypeCounts[catName] = (archetypeCounts[catName] || 0) + 1;
+        });
+    });
+
+    const archetypes = Object.entries(archetypeCounts).map(([label, count]) => {
+        const pct = Math.round((count / totalPieces) * 100);
+        return { label, pct: `${pct}%`, width: `${pct}%` };
+    }).sort((a, b) => parseInt(b.pct) - parseInt(a.pct));
+
+    const displayArchetypes = archetypes.length > 0 ? archetypes : [
+        { label: "New Curator", pct: "0%", width: "0%" },
+    ];
+
     return (
         <CuratorLayout>
             <div className="px-8 lg:px-12 py-12 max-w-7xl mx-auto">
@@ -57,7 +78,7 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
                         <div className="text-right">
                             <p className="font-headline text-zinc-500 text-sm italic mb-2">The Curator&apos;s Mandate:</p>
                             <p className="font-headline text-xl md:text-2xl font-bold text-white uppercase tracking-tight">
-                                &quot;Once it&apos;s gone, it&apos;s gone. Forever.&quot;
+                                &quot;Something for everyone.&quot;
                             </p>
                         </div>
                     </div>
@@ -76,7 +97,7 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
                         <div className="bg-[#1c1b1b] p-8 relative overflow-hidden group">
                             <span className="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-white/5 rotate-12 transition-transform duration-700 group-hover:rotate-0">inventory_2</span>
                             <h4 className="font-label text-[10px] text-zinc-400 uppercase tracking-widest mb-8 font-bold">Pieces Owned</h4>
-                            <p className="font-headline text-5xl md:text-6xl font-black text-[#72d2ff] leading-none">{orders.length}</p>
+                            <p className="font-headline text-5xl md:text-6xl font-black text-[#72d2ff] leading-none">{totalPieces}</p>
                             <div className="mt-4 flex items-center gap-2 text-[10px] text-green-400 font-label font-bold uppercase tracking-wider">
                                 <span className="material-symbols-outlined text-[14px]">trending_up</span>
                                 Active Collection
@@ -87,7 +108,7 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
                         <div className="bg-[#1c1b1b] p-8 relative overflow-hidden group">
                             <span className="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-white/5 -rotate-12 transition-transform duration-700 group-hover:rotate-0">payments</span>
                             <h4 className="font-label text-[10px] text-zinc-400 uppercase tracking-widest mb-8 font-bold">Vault Value</h4>
-                            <p className="font-headline text-4xl font-black text-white leading-none tracking-tighter uppercase">$---</p>
+                            <p className="font-headline text-4xl font-black text-white leading-none tracking-tighter uppercase">${totalSpent.toLocaleString()}</p>
                             <div className="mt-4 flex items-center gap-2 text-[10px] text-[#72d2ff] font-label uppercase tracking-wider font-bold">
                                 Market Adjusted
                             </div>
@@ -97,7 +118,7 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
                         <div className="bg-[#2a2a2a] p-8 relative overflow-hidden group border-l-2 border-[#72d2ff]">
                             <span className="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-[#72d2ff]/5 transition-transform duration-700 group-hover:scale-110">emergency_home</span>
                             <h4 className="font-label text-[10px] text-zinc-400 uppercase tracking-widest mb-8 font-bold">Sold Out Status</h4>
-                            <p className="font-headline text-5xl md:text-6xl font-black text-white leading-none">88<span className="text-2xl text-[#72d2ff]">%</span></p>
+                            <p className="font-headline text-5xl md:text-6xl font-black text-white leading-none">100<span className="text-2xl text-[#72d2ff]">%</span></p>
                             <p className="mt-4 text-[9px] text-zinc-500 font-label uppercase leading-tight font-bold tracking-widest">Items no longer in production</p>
                         </div>
 
@@ -112,17 +133,12 @@ export default function ProfileClientPage({ user, profile, orders }: any) {
                             <div className="flex justify-between items-center mb-12">
                                 <h3 className="font-headline text-3xl font-bold uppercase tracking-tighter text-white">Style Archetype</h3>
                                 <div className="flex gap-2">
-                                    <span className="px-3 py-1 bg-[#353535] text-[10px] font-label text-[#72d2ff] tracking-widest font-bold uppercase">Calculated: 24h ago</span>
+                                    <span className="px-3 py-1 bg-[#353535] text-[10px] font-label text-[#72d2ff] tracking-widest font-bold uppercase">Dynamic Breakdown</span>
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-8">
-                                {[
-                                    { label: "Gothic", pct: "45%", width: "45%" },
-                                    { label: "Avant-Garde", pct: "30%", width: "30%" },
-                                    { label: "Street", pct: "15%", width: "15%" },
-                                    { label: "Bohemian", pct: "10%", width: "10%" },
-                                ].map(arch => (
+                                {displayArchetypes.map(arch => (
                                     <div key={arch.label} className="space-y-3">
                                         <div className="flex justify-between font-label text-[10px] font-bold uppercase tracking-widest">
                                             <span className="text-white">{arch.label}</span>

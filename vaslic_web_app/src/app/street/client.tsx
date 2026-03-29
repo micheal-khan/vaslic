@@ -290,7 +290,7 @@ export default function StreetClientPage({ products, category }: { products: any
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     <div className="space-y-6">
                         <div className="text-lg font-black text-neutral-200">VASLIC</div>
-                        <p className="text-neutral-600">The Kinetic Curator. Exclusive editions for the avant-garde spirit. Digital physicalities curated for the new era.</p>
+                        <p className="text-neutral-600">Something for everyone. Exclusive editions for the avant-garde spirit. Digital physicalities curated for the new era.</p>
                         <div className="flex space-x-4">
                             {["alternate_email", "share", "public"].map((icon) => (
                                 <span key={icon} className="material-symbols-outlined cursor-pointer text-neutral-600 hover:text-cyan-400 transition-colors">{icon}</span>

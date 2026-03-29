@@ -315,7 +315,7 @@ export default function AvantGardeClientPage({ products, category }: { products:
                     <div>
                         <div className="text-lg font-black text-neutral-200 uppercase tracking-widest mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>VASLIC</div>
                         <p className="text-sm text-neutral-500 leading-relaxed uppercase tracking-tighter" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                            The Kinetic Curator. We do not cater to the mass market. We provide artifacts for the intentional few.
+                            Something for everyone. We do not cater to the mass market. We provide artifacts for the intentional few.
                         </p>
                     </div>
                     <div className="flex flex-col gap-4">

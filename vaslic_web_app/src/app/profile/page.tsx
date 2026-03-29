@@ -25,7 +25,7 @@ export default async function ProfilePage() {
             *,
             order_items (
                 *,
-                products ( name, images )
+                products ( name, images, categories ( name, slug ) )
             )
         `)
         .eq("user_id", user.id)

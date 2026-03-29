@@ -46,12 +46,12 @@ const righteous = Righteous({
 });
 
 export const metadata: Metadata = {
-  title: "VASLIC — The Kinetic Curator",
+  title: "VASLIC — Something for everyone",
   description:
     "Every drop is a permanent archive. VASLIC curates limited-edition fashion across five distinct aesthetics — Gothic, Bohemian, Avant-Garde, Street, and Funky. No restocks. No compromise.",
-  keywords: ["VASLIC", "limited edition fashion", "editorial design", "kinetic curator"],
+  keywords: ["VASLIC", "limited edition fashion", "editorial design", "Something for everyone"],
   openGraph: {
-    title: "VASLIC — The Kinetic Curator",
+    title: "VASLIC — Something for everyone",
     description: "Limited drops, retired forever. Curating the intersection of subculture and high fashion.",
     type: "website",
   },
