@@ -13,10 +13,9 @@ interface CuratorLayoutProps {
 const sidebarLinks = [
     { label: "My Wishlist", href: "/wishlist", icon: "auto_awesome", filled: true },
     { label: "Order History", href: "/orders", icon: "history", filled: false },
-    { label: "Scarcity Alerts", href: "/", icon: "priority_high", filled: false },
+    { label: "Scarcity Alerts", href: "/alerts", icon: "priority_high", filled: false },
     { label: "Style Profile", href: "/profile", icon: "architecture", filled: false },
     { label: "The Vault", href: "/vault", icon: "inventory_2", filled: false },
-    { label: "Settings", href: "/", icon: "settings", filled: false },
 ];
 
 export default function CuratorLayout({ children }: CuratorLayoutProps) {
@@ -98,13 +97,6 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
             {/* ─── Sidebar ─── */}
             <aside className="hidden lg:flex h-screen w-64 fixed left-0 top-0 bg-zinc-900 flex-col py-8 z-40 border-r border-zinc-800">
                 <div className="px-8 mt-16 mb-12">
-                    <div className="w-12 h-12 bg-zinc-800 mb-4 border border-cyan-500/20 overflow-hidden">
-                        <img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxrteaWXs_M5Kv79UHR1W5AFQ623j-mq2VFFYq4k8Ym7eZIKP_xF-fRzp-4awVroKPaciowpS0TztOW0pOf7cGyTifPJH6TdzndJomdib8_Ww6jkuP321WKbAJWFyYWSX690uvaSBlzM_DU_dwYTuQeIivnZLfB1w73Dkp7tJCEBN-NGu3YN-4yR3tTCvcdGSz0leDTZ-kn6WU4XkDmMdCjCne0swINECnrthAfY2FAkzICHPwANfygDaQ2vOMQMNJJmHVd7JCt_g"
-                            alt="Curator"
-                            className="w-full h-full object-cover grayscale"
-                        />
-                    </div>
                     <h3 className="text-white font-headline font-bold text-lg uppercase tracking-tight">The Curator</h3>
                     <p className="text-[10px] text-cyan-500 font-headline font-medium tracking-[0.2em]">NEVER REPRINT STATUS</p>
                 </div>
