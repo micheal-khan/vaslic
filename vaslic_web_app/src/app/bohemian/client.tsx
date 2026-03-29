@@ -140,6 +140,13 @@ export default function BohemianClientPage({ products, category }: { products: a
                                     >
                                         Vault ID: {p.vault_id}
                                     </div>
+                                    {/* Status Badge */}
+                                    <div
+                                        className="absolute top-6 right-6 px-4 py-2 text-[10px] tracking-widest uppercase text-white"
+                                        style={{ background: p.status === 'live' ? TERRA : '#737373', fontFamily: "'Space Grotesk', sans-serif" }}
+                                    >
+                                        {p.status === 'live' ? 'Live' : 'Soon'}
+                                    </div>
                                     {/* Units left — terracotta square, bottom-right */}
                                     <div
                                         className="absolute bottom-0 right-0 flex flex-col items-center justify-center text-white p-2"
@@ -165,10 +172,15 @@ export default function BohemianClientPage({ products, category }: { products: a
                                             Edition 1 of 50 — Never Reprinted
                                         </p>
                                         <button
-                                            className="bg-stone-900 text-white px-8 py-4 text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95"
-                                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                            className="px-8 py-4 text-[10px] uppercase tracking-[0.2em] transition-all hover:translate-x-2 active:scale-95"
+                                            style={{
+                                                fontFamily: "'Space Grotesk', sans-serif",
+                                                background: p.status === 'live' ? '#1c1917' : 'transparent',
+                                                border: p.status === 'live' ? 'none' : '1px solid #d6d3d1',
+                                                color: p.status === 'live' ? 'white' : '#737373'
+                                            }}
                                         >
-                                            Buy Now
+                                            {p.status === 'live' ? 'Buy Now' : 'Mirror Asset'}
                                         </button>
                                     </div>
                                     {/* Triangle watermark */}

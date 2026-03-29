@@ -195,12 +195,12 @@ export default function GothicClientPage({ products, category }: { products: any
                                                 filter: hoveredCard === i ? "none" : "grayscale(100%)",
                                             }}
                                         />
-                                        {/* "Live" badge */}
+                                        {/* "Live" or "Soon" badge */}
                                         <div
                                             className="absolute top-0 right-0 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white"
-                                            style={{ background: BLOOD, fontFamily: "'Space Grotesk', sans-serif" }}
+                                            style={{ background: p.status === 'live' ? BLOOD : '#404040', fontFamily: "'Space Grotesk', sans-serif" }}
                                         >
-                                            Live
+                                            {p.status === 'live' ? 'Live' : 'Soon'}
                                         </div>
                                     </div>
 
@@ -238,22 +238,24 @@ export default function GothicClientPage({ products, category }: { products: any
                                             className="w-full py-4 uppercase text-xs tracking-[0.3em] transition-all"
                                             style={{
                                                 fontFamily: "'Space Grotesk', sans-serif",
-                                                border: `1px solid ${BLOOD}`,
-                                                color: i % 2 === 0 ? "white" : BLOOD,
-                                                background: i % 2 === 0 ? BLOOD : "transparent",
+                                                border: `1px solid ${p.status === 'live' ? BLOOD : '#404040'}`,
+                                                color: p.status === 'live' ? (i % 2 === 0 ? "white" : BLOOD) : "#737373",
+                                                background: p.status === 'live' ? (i % 2 === 0 ? BLOOD : "transparent") : "transparent",
                                             }}
                                             onMouseEnter={(e) => {
+                                                if (p.status !== 'live') return;
                                                 const el = e.currentTarget;
                                                 el.style.background = BLOOD;
                                                 el.style.color = "white";
                                             }}
                                             onMouseLeave={(e) => {
+                                                if (p.status !== 'live') return;
                                                 const el = e.currentTarget;
                                                 el.style.background = i % 2 === 0 ? BLOOD : "transparent";
                                                 el.style.color = i % 2 === 0 ? "white" : BLOOD;
                                             }}
                                         >
-                                            Claim Vessel
+                                            {p.status === 'live' ? 'Claim Vessel' : 'Monitor Asset'}
                                         </button>
                                     </div>
                                 </div>

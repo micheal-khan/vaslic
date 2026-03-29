@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ShoppingBag, CheckCircle2 } from "lucide-react";
+import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import FunkyNavbar from "@/components/navbars/FunkyNavbar";
 import ThemeDock from "@/components/ThemeDock";
+import { addWishlistItem } from "@/app/wishlist/actions";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const CYAN = "#00f5d4";
@@ -34,7 +35,21 @@ export default function FunkyProductClient({ product }: { product: any }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isJoined, setIsJoined] = useState(false);
 
+    // Wishlist logic
+    const [wishlisting, setWishlisting] = useState(false);
+    const [wishlistAdded, setWishlistAdded] = useState(false);
+
     const isLive = product.status === "live";
+
+    const handleWishlist = async () => {
+        setWishlisting(true);
+        const { success } = await addWishlistItem(product.id);
+        if (success) {
+            setWishlistAdded(true);
+            setTimeout(() => setWishlistAdded(false), 3000);
+        }
+        setWishlisting(false);
+    };
 
     // Images from DB
     const images = product.images || [];
@@ -271,6 +286,17 @@ export default function FunkyProductClient({ product }: { product: any }) {
                                         )}
                                     </div>
                                 )}
+
+                                {/* Wishlist / Monitor Button */}
+                                <button
+                                    onClick={handleWishlist}
+                                    disabled={wishlisting || wishlistAdded}
+                                    className="w-full py-4 uppercase font-bold tracking-[0.2em] text-[10px] flex justify-center items-center gap-3 transition-all border border-neutral-800 hover:border-[#ff2d9b] text-neutral-400 hover:text-[#ff2d9b] mt-8 disabled:opacity-50"
+                                    style={{ fontFamily: "'Righteous', sans-serif" }}
+                                >
+                                    <Bookmark size={14} className={wishlistAdded ? "fill-[#ff2d9b] text-[#ff2d9b]" : ""} />
+                                    {wishlisting ? "Establishing Link..." : wishlistAdded ? "Transmitted to Targets" : "Monitor this Asset"}
+                                </button>
                             </div>
                         </div>
 

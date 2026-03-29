@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ShoppingCart, Maximize2, CheckCircle2 } from "lucide-react";
+import { ShoppingCart, Maximize2, CheckCircle2, Bookmark } from "lucide-react";
 import GothicNavbar from "@/components/navbars/GothicNavbar";
 import ThemeDock from "@/components/ThemeDock";
+import { addWishlistItem } from "@/app/wishlist/actions";
 
 // ─── Brand tokens ────────────────────────────────────────────────────────────
 const BLOOD = "#8b0000";
@@ -19,7 +20,21 @@ export default function GothicProductClient({ product }: { product: any }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isJoined, setIsJoined] = useState(false);
 
+    // Wishlist logic
+    const [wishlisting, setWishlisting] = useState(false);
+    const [wishlistAdded, setWishlistAdded] = useState(false);
+
     const isLive = product.status === "live";
+
+    const handleWishlist = async () => {
+        setWishlisting(true);
+        const { success } = await addWishlistItem(product.id);
+        if (success) {
+            setWishlistAdded(true);
+            setTimeout(() => setWishlistAdded(false), 3000);
+        }
+        setWishlisting(false);
+    };
 
     // Use images from DB or fallbacks
     const images = product.images || [];
@@ -297,6 +312,17 @@ export default function GothicProductClient({ product }: { product: any }) {
                                         )}
                                     </div>
                                 )}
+
+                                {/* Wishlist / Monitor Button */}
+                                <button
+                                    onClick={handleWishlist}
+                                    disabled={wishlisting || wishlistAdded}
+                                    className="w-full py-4 uppercase font-bold tracking-[0.2em] text-[10px] flex justify-center items-center gap-3 transition-all border border-neutral-800 hover:border-neutral-500 text-neutral-500 hover:text-white mt-8 mb-8 disabled:opacity-50"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                >
+                                    <Bookmark size={14} className={wishlistAdded ? "fill-white text-white" : ""} />
+                                    {wishlisting ? "Establishing Link..." : wishlistAdded ? "Added to Targets" : "Monitor this Asset"}
+                                </button>
 
                                 <p
                                     className="text-[10px] text-center text-neutral-600 uppercase tracking-[0.2em] font-medium leading-loose"

@@ -17,7 +17,7 @@ function ProductCard({ p, staggered, category }: { p: any; staggered: boolean; c
             className={`group relative bg-[#131313] p-1 border border-[#00f5d4]/10 hover:border-[#ff007f]/50 transition-all duration-500${staggered ? " mt-12 md:mt-24" : ""
                 }`}
         >
-            {/* Image */}
+            {/* Image Container */}
             <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
                 <img
                     src={p.images?.[0] || ""}
@@ -30,6 +30,13 @@ function ProductCard({ p, staggered, category }: { p: any; staggered: boolean; c
                     style={{ fontFamily: "'Space Grotesk', sans-serif", color: CYAN }}
                 >
                     {p.vault_id}
+                </div>
+                {/* Status Badge */}
+                <div
+                    className="absolute top-4 right-4 text-white px-3 py-1 text-[10px] font-bold tracking-tighter"
+                    style={{ background: p.status === 'live' ? CYAN : '#404040', color: p.status === 'live' ? NAV_BG : 'white', fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                    {p.status === 'live' ? 'LIVE' : 'SOON'}
                 </div>
                 {/* Units badge */}
                 <div
@@ -70,11 +77,11 @@ function ProductCard({ p, staggered, category }: { p: any; staggered: boolean; c
                     className="w-full py-4 text-xl tracking-tight hover:brightness-110 transition-all active:scale-[0.98]"
                     style={{
                         fontFamily: "'Righteous', sans-serif",
-                        background: `linear-gradient(to right, ${CYAN}, ${PINK})`,
-                        color: NAV_BG,
+                        background: p.status === 'live' ? `linear-gradient(to right, ${CYAN}, ${PINK})` : '#404040',
+                        color: p.status === 'live' ? NAV_BG : 'white',
                     }}
                 >
-                    JOIN WAITLIST
+                    {p.status === 'live' ? 'ACQUIRE ASSET' : 'MONITOR SESSION'}
                 </button>
             </div>
         </div>

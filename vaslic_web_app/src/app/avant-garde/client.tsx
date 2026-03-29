@@ -144,6 +144,17 @@ export default function AvantGardeClientPage({ products, category }: { products:
                                             <span className="mr-2">Vault ID: {p.vault_id}</span>
                                             <UnitsCounter productId={p.id} initial={p.sizes?.reduce((a: number, s: any) => a + s.units_remaining, 0) || 0} total={100} />
                                         </div>
+                                        {/* Status Badge */}
+                                        <div
+                                            className="absolute top-4 right-4 px-3 py-1 text-[10px] font-bold tracking-tighter border border-neutral-200 uppercase flex items-center shadow-lg"
+                                            style={{
+                                                fontFamily: "'Space Grotesk', sans-serif",
+                                                background: p.status === 'live' ? '#0a0a0a' : '#f5f5f5',
+                                                color: p.status === 'live' ? 'white' : '#737373'
+                                            }}
+                                        >
+                                            {p.status === 'live' ? 'Live' : 'Soon'}
+                                        </div>
                                     </div>
 
                                     {/* Info panel */}
@@ -225,7 +236,9 @@ export default function AvantGardeClientPage({ products, category }: { products:
                                         </div>
 
                                         {/* CTA */}
-                                        <PaintButton color={btnColor}>Join Waitlist</PaintButton>
+                                        <PaintButton color={p.status === 'live' ? btnColor : '#d6d3d1'}>
+                                            {p.status === 'live' ? 'Acquire Asset' : 'Join Waitlist'}
+                                        </PaintButton>
 
                                         {/* Note */}
                                         {p.note && (

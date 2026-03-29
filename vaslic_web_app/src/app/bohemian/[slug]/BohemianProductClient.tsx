@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ShoppingBag, User, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ShoppingBag, User, ArrowRight, CheckCircle2, Bookmark } from "lucide-react";
 import BohemianNavbar from "@/components/navbars/BohemianNavbar";
 import ThemeDock from "@/components/ThemeDock";
+import { addWishlistItem } from "@/app/wishlist/actions";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const TERRA = "#c77b4a";
@@ -27,7 +28,21 @@ export default function BohemianProductClient({ product }: { product: any }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isJoined, setIsJoined] = useState(false);
 
+    // Wishlist logic
+    const [wishlisting, setWishlisting] = useState(false);
+    const [wishlistAdded, setWishlistAdded] = useState(false);
+
     const isLive = product.status === "live";
+
+    const handleWishlist = async () => {
+        setWishlisting(true);
+        const { success } = await addWishlistItem(product.id);
+        if (success) {
+            setWishlistAdded(true);
+            setTimeout(() => setWishlistAdded(false), 3000);
+        }
+        setWishlisting(false);
+    };
 
     // Use images from DB or fallbacks
     const images = product.images || [];
@@ -254,6 +269,17 @@ export default function BohemianProductClient({ product }: { product: any }) {
                                         )}
                                     </div>
                                 )}
+
+                                {/* Wishlist / Monitor Button */}
+                                <button
+                                    onClick={handleWishlist}
+                                    disabled={wishlisting || wishlistAdded}
+                                    className="w-full py-4 uppercase font-bold tracking-[0.2em] text-[10px] flex justify-center items-center gap-3 transition-all border border-stone-200 hover:border-stone-400 text-stone-400 hover:text-stone-800 mt-4 disabled:opacity-50"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                >
+                                    <Bookmark size={14} className={wishlistAdded ? "fill-stone-800 text-stone-800" : ""} />
+                                    {wishlisting ? "Establishing Link..." : wishlistAdded ? "Transmitted to Targets" : "Monitor this Asset"}
+                                </button>
                             </div>
                         </div>
                     </div>

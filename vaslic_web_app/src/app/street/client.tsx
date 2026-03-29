@@ -145,6 +145,17 @@ export default function StreetClientPage({ products, category }: { products: any
                                                 {badge.text}
                                             </div>
                                         )}
+                                        {/* Status Badge */}
+                                        <div
+                                            className="absolute top-4 right-4 px-3 py-1 text-xl shadow-xl rotate-3"
+                                            style={{
+                                                background: p.status === 'live' ? YELLOW : '#404040',
+                                                color: p.status === 'live' ? 'black' : 'white',
+                                                fontFamily: "'Bebas Neue', sans-serif"
+                                            }}
+                                        >
+                                            {p.status === 'live' ? 'LIVE' : 'SOON'}
+                                        </div>
                                         {/* Slide-up CTA panel */}
                                         <div
                                             className="absolute bottom-0 left-0 w-full p-6 transition-transform duration-500"
@@ -156,9 +167,13 @@ export default function StreetClientPage({ products, category }: { products: any
                                         >
                                             <button
                                                 className="w-full text-black py-3 text-2xl hover:translate-x-1 transition-transform"
-                                                style={{ background: YELLOW, fontFamily: "'Bebas Neue', sans-serif" }}
+                                                style={{
+                                                    background: p.status === 'live' ? YELLOW : '#737373',
+                                                    fontFamily: "'Bebas Neue', sans-serif",
+                                                    color: p.status === 'live' ? 'black' : 'white'
+                                                }}
                                             >
-                                                {p.cta || "SNATCH NOW"}
+                                                {p.status === 'live' ? (p.cta || "SNATCH NOW") : "MONITOR"}
                                             </button>
                                         </div>
                                     </div>
