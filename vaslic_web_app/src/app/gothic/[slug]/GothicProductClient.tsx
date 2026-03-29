@@ -5,6 +5,7 @@ import { ShoppingCart, Maximize2, CheckCircle2, Bookmark } from "lucide-react";
 import GothicNavbar from "@/components/navbars/GothicNavbar";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
+import { useCart } from "@/contexts/CartContext";
 
 // ─── Brand tokens ────────────────────────────────────────────────────────────
 const BLOOD = "#8b0000";
@@ -14,6 +15,7 @@ const SIZES = ["XS", "S", "M", "L", "XL"];
 export default function GothicProductClient({ product }: { product: any }) {
     const [selectedSize, setSelectedSize] = useState("S");
     const [hoveredBtn, setHoveredBtn] = useState(false);
+    const { addToCart } = useCart();
 
     // For waiting list
     const [email, setEmail] = useState("");
@@ -51,6 +53,20 @@ export default function GothicProductClient({ product }: { product: any }) {
             setIsJoined(true);
             setEmail("");
         }, 1500);
+    };
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: `${product.id}-${selectedSize}`,
+            product_id: product.id,
+            name: product.name,
+            price: product.price,
+            image: HERO_IMG,
+            size: selectedSize,
+            vault_id: product.vault_id,
+            quantity: 1,
+            category_slug: product.category?.slug || "gothic",
+        });
     };
 
     return (
@@ -248,6 +264,7 @@ export default function GothicProductClient({ product }: { product: any }) {
 
                                         <div className="relative overflow-hidden">
                                             <button
+                                                onClick={handleAddToCart}
                                                 className="w-full py-6 text-white text-xl uppercase tracking-[0.2em] font-black relative overflow-hidden transition-transform hover:translate-x-1"
                                                 style={{
                                                     fontFamily: "'Space Grotesk', sans-serif",

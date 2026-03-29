@@ -224,7 +224,7 @@ export default function BohemianClientPage({ products, category }: { products: a
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                         {cemeteryItems.map((item, i) => (
                             <Link
-                                href="/vault"
+                                href={`/bohemian/${item.vault_id.toLowerCase()}`}
                                 key={item.id}
                                 className={`opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500${i > 3 ? " hidden lg:block" : ""
                                     }`}
@@ -289,7 +289,7 @@ export default function BohemianClientPage({ products, category }: { products: a
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
                     <div className="space-y-4">
                         <div className="text-xl font-bold text-stone-800">VASLIC</div>
-                        <p>© 2024 VASLIC. All rights reserved. Crafted with care for the Earth.</p>
+                        <p>© 2026 VASLIC. All rights reserved. Crafted with care for the Earth.</p>
                     </div>
                     <div className="flex flex-col space-y-3">
                         <span className="font-bold text-stone-800 mb-2">Shop</span>

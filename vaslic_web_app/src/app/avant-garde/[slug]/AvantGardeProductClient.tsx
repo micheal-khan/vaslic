@@ -5,6 +5,7 @@ import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import AvantGardeNavbar from "@/components/navbars/AvantGardeNavbar";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
+import { useCart } from "@/contexts/CartContext";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const CYAN = "#008DB9"; // primary (Avant-Garde)
@@ -26,6 +27,7 @@ const DETAILS = [
 export default function AvantGardeProductClient({ product }: { product: any }) {
     const [selectedSize, setSelectedSize] = useState("S");
     const [ctaHovered, setCtaHovered] = useState(false);
+    const { addToCart } = useCart();
 
     // For waiting list
     const [email, setEmail] = useState("");
@@ -62,6 +64,20 @@ export default function AvantGardeProductClient({ product }: { product: any }) {
             setIsJoined(true);
             setEmail("");
         }, 1500);
+    };
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: `${product.id}-${selectedSize}`,
+            product_id: product.id,
+            name: product.name,
+            price: product.price,
+            image: HERO_IMG,
+            size: selectedSize,
+            vault_id: product.vault_id,
+            quantity: 1,
+            category_slug: product.category?.slug || "avant-garde",
+        });
     };
 
     return (
@@ -275,6 +291,7 @@ export default function AvantGardeProductClient({ product }: { product: any }) {
                             <div className="pt-8">
                                 {isLive ? (
                                     <button
+                                        onClick={handleAddToCart}
                                         className="brush-underline font-black text-4xl tracking-tighter uppercase transition-transform duration-500"
                                         style={{
                                             color: CYAN,

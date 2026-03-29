@@ -5,6 +5,7 @@ import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import FunkyNavbar from "@/components/navbars/FunkyNavbar";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
+import { useCart } from "@/contexts/CartContext";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const CYAN = "#00f5d4";
@@ -29,6 +30,7 @@ const SETLIST = [
 export default function FunkyProductClient({ product }: { product: any }) {
     const [selectedSize, setSelectedSize] = useState("M");
     const [ctaHovered, setCtaHovered] = useState(false);
+    const { addToCart } = useCart();
 
     // For waiting list
     const [email, setEmail] = useState("");
@@ -69,6 +71,20 @@ export default function FunkyProductClient({ product }: { product: any }) {
             setIsJoined(true);
             setEmail("");
         }, 1500);
+    };
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: `${product.id}-${selectedSize}`,
+            product_id: product.id,
+            name: product.name,
+            price: product.price,
+            image: HERO_IMG,
+            size: selectedSize,
+            vault_id: product.vault_id,
+            quantity: 1,
+            category_slug: product.category?.slug || "funky",
+        });
     };
 
     return (
@@ -235,6 +251,7 @@ export default function FunkyProductClient({ product }: { product: any }) {
                             <div className="pt-4">
                                 {isLive ? (
                                     <button
+                                        onClick={handleAddToCart}
                                         className="w-full py-6 text-white uppercase text-2xl tracking-[0.1em] transition-all active:scale-95"
                                         style={{
                                             fontFamily: "'Righteous', sans-serif",

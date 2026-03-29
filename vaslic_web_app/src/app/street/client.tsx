@@ -96,7 +96,7 @@ export default function StreetClientPage({ products, category }: { products: any
                                 NEW ARRIVALS
                             </h2>
                             <p className="tracking-widest mt-2 text-sm" style={{ color: YELLOW, fontFamily: "'Space Grotesk', sans-serif" }}>
-                                VAULT ID: ST-2024-CURATED
+                                VAULT ID: ST-2026-CURATED
                             </p>
                         </div>
                         <div className="flex gap-4">
@@ -243,9 +243,10 @@ export default function StreetClientPage({ products, category }: { products: any
                         {/* 5-col fading retired grid */}
                         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                             {retiredItems.map((item, i) => (
-                                <div
+                                <Link
+                                    href={`/street/${item.vault_id.toLowerCase()}`}
                                     key={item.id}
-                                    className="relative overflow-hidden border border-white/5"
+                                    className="relative overflow-hidden border border-white/5 cursor-pointer hover:border-white/20 transition-all"
                                     style={{
                                         aspectRatio: "1/1",
                                         background: "#0e0e0e",
@@ -267,7 +268,7 @@ export default function StreetClientPage({ products, category }: { products: any
                                             {item.vault_id}
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 
@@ -342,7 +343,7 @@ export default function StreetClientPage({ products, category }: { products: any
                     </div>
                 </div>
                 <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 text-center md:text-left">
-                    <p className="text-neutral-600 text-[10px] uppercase tracking-[0.2em]">© 2024 VASLIC. No reprints. No restocks. No exceptions.</p>
+                    <p className="text-neutral-600 text-[10px] uppercase tracking-[0.2em]">© 2026 VASLIC. No reprints. No restocks. No exceptions.</p>
                 </div>
             </footer>
 

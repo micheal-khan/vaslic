@@ -55,6 +55,18 @@ export const metadata: Metadata = {
     description: "Limited drops, retired forever. Curating the intersection of subculture and high fashion.",
     type: "website",
   },
+  icons: [
+    {
+      rel: "icon",
+      url: "/images/favicon-light.png",
+      media: "(prefers-color-scheme: light)",
+    },
+    {
+      rel: "icon",
+      url: "/images/favicon-dark.png",
+      media: "(prefers-color-scheme: dark)",
+    },
+  ],
 };
 
 export default function RootLayout({

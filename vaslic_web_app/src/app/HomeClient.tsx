@@ -443,7 +443,7 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </div>
 
             {/* ── Footer ── */}
-            <footer className="bg-black pt-24 md:pt-48 pb-12 px-6 md:px-12 border-t border-white/5 relative z-10 w-full overflow-hidden">
+            <footer className="bg-black pt-16 md:pt-48 pb-12 px-6 md:px-12 border-t border-white/5 relative z-10 w-full overflow-hidden">
                 <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24">
                     <div className="col-span-1 md:col-span-2 space-y-8 md:space-y-12">
                         <div className="font-black text-white uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 8vw, 3.75rem)", letterSpacing: "-0.02em" }}>VASLIC</div>
@@ -484,9 +484,9 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
                         <p className="uppercase tracking-widest text-neutral-700" style={{ fontSize: "0.625rem", fontFamily: "'Space Grotesk', sans-serif" }}>JOIN THE WAITLIST FOR THE NEXT DROP CYCLE.</p>
                     </div>
                 </div>
-                <div className="max-w-[1400px] mx-auto mt-48 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-neutral-700 uppercase"
+                <div className="max-w-[1400px] mx-auto mt-24 md:mt-48 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-neutral-700 uppercase"
                     style={{ fontSize: "0.625rem", letterSpacing: "0.4em", fontFamily: "'Space Grotesk', sans-serif" }}>
-                    <span>© 2024 VASLIC | ALL RIGHTS RESERVED.</span>
+                    <span>© 2026 VASLIC | ALL RIGHTS RESERVED.</span>
                     <span className="mt-8 md:mt-0 font-black">NO REPRINTS. NO RESTOCKS. NO EXCEPTIONS.</span>
                 </div>
             </footer>

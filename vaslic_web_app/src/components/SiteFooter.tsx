@@ -105,7 +105,7 @@ export function SiteFooter() {
 
             {/* Copyright */}
             <div className="max-w-7xl mx-auto mt-0 pt-8 pb-8 px-6 md:px-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center text-[10px] text-neutral-700 uppercase tracking-[0.2em] text-center md:text-left">
-                <span>© 2024 VASLIC. No reprints. No restocks. No exceptions.</span>
+                <span>© 2026 VASLIC. No reprints. No restocks. No exceptions.</span>
                 <span className="mt-4 md:mt-0 font-bold">BUILT FOR THE ETERNAL CURATOR</span>
             </div>
         </footer>

@@ -246,7 +246,7 @@ export default function GothicClientPage({ products, category }: { products: any
 
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
                         {cemeteryProducts.map((item, i) => (
-                            <Link href={`/vault`} key={item.id} className="group relative">
+                            <Link href={`/gothic/${item.vault_id.toLowerCase()}`} key={item.id} className="group relative">
                                 <div
                                     className="relative overflow-hidden bg-neutral-950 border p-4 transition-all duration-700 block"
                                     style={{
@@ -364,7 +364,7 @@ export default function GothicClientPage({ products, category }: { products: any
                         className="text-[10px] tracking-widest text-neutral-700"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
-                        © 2024 VASLIC. No reprints. No restocks. No exceptions.
+                        © 2026 VASLIC. No reprints. No restocks. No exceptions.
                     </p>
                 </div>
             </footer>

@@ -145,7 +145,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                 <div className="px-8 mt-auto">
                     <button
                         onClick={handleLogout}
-                        className="block w-full py-4 bg-cyan-500 text-black font-headline font-black text-[10px] uppercase tracking-widest text-center hover:translate-x-1 transition-transform"
+                        className="block w-full py-4 border-2 border-[#ff3d3d] text-[#ff3d3d] font-headline font-black text-[10px] uppercase tracking-widest text-center transition-all duration-300 hover:bg-[#ff3d3d] hover:text-white hover:shadow-[0_0_20px_rgba(255,61,61,0.4)] active:scale-95"
                     >
                         Logout
                     </button>
@@ -183,7 +183,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                         })}
                         <button
                             onClick={handleLogout}
-                            className="mt-8 px-8 py-4 bg-white text-black font-headline font-black text-xs uppercase tracking-[0.2em] hover:bg-cyan-400 transition-colors w-full text-left"
+                            className="mt-8 px-8 py-4 border-2 border-[#ff3d3d] text-[#ff3d3d] font-headline font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[#ff3d3d] hover:text-white w-full text-left"
                         >
                             Logout
                         </button>
@@ -206,7 +206,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                         <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Terms of Scarcity</a>
                     </div>
                     <p className="text-center font-body text-[10px] tracking-widest uppercase text-zinc-600 max-w-lg leading-relaxed">
-                        © 2024 VASLIC - KINETIC CURATION. ALL PIECES ARE SUBJECT TO THE NEVER REPRINT RULE. ASYMMETRICAL DISTRIBUTION GUARANTEED.
+                        © 2026 VASLIC - KINETIC CURATION. ALL PIECES ARE SUBJECT TO THE NEVER REPRINT RULE. ASYMMETRICAL DISTRIBUTION GUARANTEED.
                     </p>
                 </div>
             </footer>

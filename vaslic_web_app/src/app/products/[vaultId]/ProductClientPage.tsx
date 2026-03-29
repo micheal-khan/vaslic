@@ -119,7 +119,7 @@ export default function ProductClientPage({ product }: { product: any }) {
                                 {product.status.replace("_", " ")}
                             </span>
                             <span className="text-sm font-bold tracking-widest uppercase text-neutral-500">
-                                {product.category.name} Archive // 2024
+                                {product.category.name} Archive // 2026
                             </span>
                         </div>
                         <h1

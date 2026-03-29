@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ShoppingBag, Heart, User } from "lucide-react";
+import { ShoppingBag, Heart, User, Menu, X } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "../CartModal";
 import { createClient } from "@/lib/supabase/client";
@@ -11,6 +11,7 @@ export default function StreetNavbar() {
     const YELLOW = "#f5e642";
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [user, setUser] = useState<any>(null);
 
     useEffect(() => {
@@ -60,8 +61,8 @@ export default function StreetNavbar() {
                             </Link>
                         ))}
                     </div>
-                    <div className="flex items-center gap-6" style={{ color: YELLOW }}>
-                        <Link href="/wishlist" className="cursor-pointer transition-transform hover:scale-105" aria-label="Wishlist">
+                    <div className="flex items-center gap-4 md:gap-6" style={{ color: YELLOW }}>
+                        <Link href="/wishlist" className="hidden sm:block cursor-pointer transition-transform hover:scale-105" aria-label="Wishlist">
                             <Heart size={20} />
                         </Link>
                         <button
@@ -80,11 +81,51 @@ export default function StreetNavbar() {
                                 </span>
                             )}
                         </button>
-                        <Link href={user ? "/profile" : "/login"} className="cursor-pointer hover:scale-105 transition-transform" aria-label="Account">
+                        <Link href={user ? "/profile" : "/login"} className="hidden sm:block cursor-pointer hover:scale-105 transition-transform" aria-label="Account">
                             <User size={20} />
                         </Link>
+                        <button
+                            className="md:hidden text-white"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            style={{ color: YELLOW }}
+                        >
+                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
                 </div>
+
+                {/* Mobile Menu */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden bg-[#09090b] backdrop-blur-xl border-t border-white/5 p-6 animate-in slide-in-from-top duration-300">
+                        <div className="flex flex-col gap-6">
+                            {[
+                                { label: "Gothic", href: "/gothic" },
+                                { label: "Bohemian", href: "/bohemian" },
+                                { label: "Avant-Garde", href: "/avant-garde" },
+                                { label: "Street", href: "/street" },
+                                { label: "Funky", href: "/funky" },
+                            ].map((l) => (
+                                <Link
+                                    key={l.href}
+                                    href={l.href}
+                                    className="hover:opacity-80 transition-colors uppercase text-sm font-bold tracking-tighter"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif", color: l.href === "/street" ? YELLOW : "#71717a" }}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {l.label}
+                                </Link>
+                            ))}
+                            <div className="flex gap-6 pt-6 border-t border-white/5">
+                                <Link href="/wishlist" className="flex items-center gap-2 text-xs uppercase font-bold tracking-tighter" style={{ color: YELLOW }} onClick={() => setIsMobileMenuOpen(false)}>
+                                    <Heart size={16} /> Wishlist
+                                </Link>
+                                <Link href={user ? "/profile" : "/login"} className="flex items-center gap-2 text-xs uppercase font-bold tracking-tighter" style={{ color: YELLOW }} onClick={() => setIsMobileMenuOpen(false)}>
+                                    <User size={16} /> {user ? "Profile" : "Login"}
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </nav>
             <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         </>

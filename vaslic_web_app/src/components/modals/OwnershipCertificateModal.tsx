@@ -74,7 +74,7 @@ export default function OwnershipCertificateModal({
                         className="relative w-full max-w-4xl z-10 my-auto"
                     >
                         {/* Certificate Card */}
-                        <div className="relative bg-[#0e0e0e] border border-white/10 p-8 md:p-16 overflow-hidden shadow-2xl">
+                        <div className="relative bg-[#0e0e0e] border border-white/10 p-8 md:p-16 overflow-y-auto max-h-[90vh] shadow-2xl custom-scrollbar">
 
                             {/* Abstract Decorative Lines */}
                             <div className="absolute top-0 right-0 w-1/4 h-[2px] opacity-40 bg-gradient-to-l from-transparent to-[#72d2ff]/80" />

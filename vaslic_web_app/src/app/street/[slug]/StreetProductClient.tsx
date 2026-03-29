@@ -5,6 +5,8 @@ import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import StreetNavbar from "@/components/navbars/StreetNavbar";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
+import { SiteFooter } from "@/components/SiteFooter";
+import { useCart } from "@/contexts/CartContext";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const YELLOW = "#f5e642";
@@ -22,6 +24,7 @@ const SPECS = [
 export default function StreetProductClient({ product }: { product: any }) {
     const [selectedSize, setSelectedSize] = useState("M");
     const [ctaHovered, setCtaHovered] = useState(false);
+    const { addToCart } = useCart();
 
     // For waiting list
     const [email, setEmail] = useState("");
@@ -58,6 +61,20 @@ export default function StreetProductClient({ product }: { product: any }) {
             setIsJoined(true);
             setEmail("");
         }, 1500);
+    };
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: `${product.id}-${selectedSize}`,
+            product_id: product.id,
+            name: product.name,
+            price: product.price,
+            image: HERO_IMG,
+            size: selectedSize,
+            vault_id: product.vault_id,
+            quantity: 1,
+            category_slug: product.category?.slug || "street",
+        });
     };
 
     return (
@@ -264,6 +281,7 @@ export default function StreetProductClient({ product }: { product: any }) {
                         <div className="space-y-6 mt-4">
                             {isLive ? (
                                 <button
+                                    onClick={handleAddToCart}
                                     className="w-full font-black text-2xl py-6 uppercase italic"
                                     style={{
                                         fontFamily: "'Space Grotesk', sans-serif",
@@ -380,6 +398,10 @@ export default function StreetProductClient({ product }: { product: any }) {
                     </div>
                 </div>
             </main>
+
+            <div className="pb-12">
+                <SiteFooter />
+            </div>
 
             {/* ── Fixed Bottom Yellow Ticker ── */}
             <div

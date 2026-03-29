@@ -275,7 +275,7 @@ export default function AvantGardeClientPage({ products, category }: { products:
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                             {cemeteryItems.map((item) => (
-                                <Link href="/vault" key={item.id} className="relative group opacity-60 hover:opacity-100 transition-opacity">
+                                <Link href={`/avant-garde/${item.vault_id.toLowerCase()}`} key={item.id} className="relative group opacity-60 hover:opacity-100 transition-opacity">
                                     {/* Square grayscale image */}
                                     <div className="aspect-square bg-neutral-200 grayscale overflow-hidden hover:grayscale-0 transition-all">
                                         <img src={item.images?.[0] || ""} alt={item.name} className="w-full h-full object-cover" />
@@ -351,7 +351,7 @@ export default function AvantGardeClientPage({ products, category }: { products:
                 </div>
                 <div className="mt-24 pt-12 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
                     <p className="text-sm tracking-wide text-neutral-600 uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                        © 2024 VASLIC. No reprints. No restocks. No exceptions.
+                        © 2026 VASLIC. No reprints. No restocks. No exceptions.
                     </p>
                     <div className="flex gap-8">
                         <span className="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-white transition-colors">share</span>

@@ -5,6 +5,7 @@ import { ShoppingBag, User, ArrowRight, CheckCircle2, Bookmark } from "lucide-re
 import BohemianNavbar from "@/components/navbars/BohemianNavbar";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
+import { useCart } from "@/contexts/CartContext";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
 const TERRA = "#c77b4a";
@@ -22,6 +23,7 @@ const careItems = [
 export default function BohemianProductClient({ product }: { product: any }) {
     const [selectedSize, setSelectedSize] = useState("M");
     const [ctaHovered, setCtaHovered] = useState(false);
+    const { addToCart } = useCart();
 
     // For waiting list
     const [email, setEmail] = useState("");
@@ -61,6 +63,20 @@ export default function BohemianProductClient({ product }: { product: any }) {
             setIsJoined(true);
             setEmail("");
         }, 1500);
+    };
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: `${product.id}-${selectedSize}`,
+            product_id: product.id,
+            name: product.name,
+            price: product.price,
+            image: HERO_IMG,
+            size: selectedSize,
+            vault_id: product.vault_id,
+            quantity: 1,
+            category_slug: product.category?.slug || "bohemian",
+        });
     };
 
     return (
@@ -207,6 +223,7 @@ export default function BohemianProductClient({ product }: { product: any }) {
                                         </div>
 
                                         <button
+                                            onClick={handleAddToCart}
                                             className="w-full py-5 font-bold uppercase tracking-widest flex items-center justify-center gap-4 transition-all"
                                             style={{
                                                 fontFamily: "'Space Grotesk', sans-serif",

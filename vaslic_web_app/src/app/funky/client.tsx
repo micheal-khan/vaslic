@@ -226,9 +226,10 @@ export default function FunkyClientPage({ products, category }: { products: any[
                         {/* Setlist rows */}
                         <div className="space-y-8">
                             {retiredItems.map((item, i) => (
-                                <div
+                                <Link
+                                    href={`/funky/${item.vault_id.toLowerCase()}`}
                                     key={item.id}
-                                    className="flex items-baseline justify-between group cursor-not-allowed grayscale opacity-40"
+                                    className="flex items-baseline justify-between group cursor-pointer grayscale hover:grayscale-0 hover:opacity-100 opacity-40 transition-all duration-500"
                                 >
                                     <div className="flex items-baseline gap-4">
                                         <span
@@ -244,7 +245,6 @@ export default function FunkyClientPage({ products, category }: { products: any[
                                             {item.name}
                                         </span>
                                     </div>
-                                    {/* Dotted leader line */}
                                     <div className="flex-grow border-b border-dotted border-white/30 mx-4" />
                                     <span
                                         className="text-white/40 text-xl uppercase"
@@ -252,7 +252,7 @@ export default function FunkyClientPage({ products, category }: { products: any[
                                     >
                                         RELEASED {new Date(item.created_at).toLocaleString('default', { month: 'short', year: '2-digit' })}
                                     </span>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 
@@ -299,7 +299,7 @@ export default function FunkyClientPage({ products, category }: { products: any[
                         className="text-xs uppercase tracking-[0.2em] text-white/50"
                         style={{ fontFamily: "'Manrope', sans-serif" }}
                     >
-                        © 2024 VASLIC KINETIC CURATORS. ALL RIGHTS RESERVED.
+                        © 2026 VASLIC KINETIC CURATORS. ALL RIGHTS RESERVED.
                     </div>
                 </div>
             </footer>
