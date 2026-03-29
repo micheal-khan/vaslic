@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/contexts/CartContext";
 
 const leftLinks = [
     { label: "Gothic", href: "/gothic" },
@@ -15,6 +16,7 @@ const rightLinks = [
 ];
 
 export function Navbar() {
+    const { totalItems } = useCart();
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -74,19 +76,18 @@ export function Navbar() {
                             </li>
                         ))}
                     </ul>
-                    <div className="flex items-center gap-4">
-                        <button
-                            className="text-white/60 hover:text-white transition-colors"
-                            aria-label="Shopping bag"
-                        >
-                            <ShoppingBag className="w-5 h-5" />
-                        </button>
-                        <button
-                            className="text-white/60 hover:text-white transition-colors"
-                            aria-label="Account"
-                        >
+                    <div className="flex items-center gap-6 text-vaslic-on-surface">
+                        <Link href="/cart" className="relative hover:opacity-80 transition-opacity">
+                            <ShoppingBag className="w-5 h-5 pointer-events-none" />
+                            {totalItems > 0 && (
+                                <span className="absolute -top-1.5 -right-2 bg-vaslic-primary text-black text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center font-label">
+                                    {totalItems}
+                                </span>
+                            )}
+                        </Link>
+                        <Link href="/login" className="hover:opacity-80 transition-opacity">
                             <User className="w-5 h-5" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </nav>

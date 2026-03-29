@@ -9,6 +9,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { CartProvider } from "@/contexts/CartContext";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -69,7 +70,9 @@ export default function RootLayout({
     >
       <body className="antialiased min-h-screen bg-vaslic-surface text-vaslic-on-surface">
         <SmoothScroll>
-          {children}
+          <CartProvider>
+            {children}
+          </CartProvider>
         </SmoothScroll>
       </body>
     </html>

@@ -1,0 +1,58 @@
+﻿
+> vaslic_web_app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.1 (Turbopack)
+- Environments: .env.local
+
+node.exe : ΓÜá The "middleware" file convention is deprecated. Please use 
+"proxy" instead. Learn more: 
+https://nextjs.org/docs/messages/middleware-to-proxy
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá The "middle...leware-to- 
+   proxy:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 9.8s
+  Running TypeScript ...
+  Finished TypeScript in 7.0s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/21) ...
+  Generating static pages using 11 workers (5/21) 
+  Generating static pages using 11 workers (10/21) 
+  Generating static pages using 11 workers (15/21) 
+Γ£ô Generating static pages using 11 workers (21/21) in 711ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /avant-garde
+Γö£ Γùï /avant-garde/vlk-avnt-001
+Γö£ Γùï /bohemian
+Γö£ Γùï /bohemian/vlk-boho-001
+Γö£ Γùï /funky
+Γö£ Γùï /funky/vlk-fnky-001
+Γö£ Γùï /gothic
+Γö£ Γùï /gothic/vlk-goth-001
+Γö£ Γùï /login
+Γö£ Γùï /logout
+Γö£ ╞Æ /products/[vaultId]
+Γö£ ╞Æ /profile
+Γö£ Γùï /signup
+Γö£ Γùï /street
+Γö£ Γùï /street/vlk-strt-002
+Γö£ Γùï /vault
+Γö£ Γùï /waitlist
+Γöö ╞Æ /wishlist
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

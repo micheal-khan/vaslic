@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { joinGeneralWaitlist } from "@/app/actions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -36,10 +37,18 @@ export default function WaitlistPage() {
             prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]
         );
     }
+    const [submitting, setSubmitting] = useState(false);
 
-    function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        if (email) setSubmitted(true);
+        if (!email) return;
+        setSubmitting(true);
+        const { error } = await joinGeneralWaitlist(email, selected);
+        if (!error) {
+            setSubmitted(true);
+            setEmail("");
+        }
+        setSubmitting(false);
     }
 
     return (
@@ -197,11 +206,12 @@ export default function WaitlistPage() {
                                         </div>
                                         <motion.button
                                             type="submit"
+                                            disabled={submitting}
                                             whileHover={{ x: 4 }}
                                             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                            className="w-full py-4 font-label text-sm uppercase tracking-widest bg-gradient-to-br from-vaslic-primary to-vaslic-primary-container text-vaslic-surface transition-colors duration-500"
+                                            className="w-full py-4 font-label text-sm uppercase tracking-widest bg-gradient-to-br from-vaslic-primary to-vaslic-primary-container text-vaslic-surface transition-colors duration-500 disabled:opacity-50"
                                         >
-                                            Join the Waitlist
+                                            {submitting ? "Establishing Link..." : "Join the Waitlist"}
                                         </motion.button>
                                         <p className="font-label text-xs uppercase tracking-widest text-vaslic-on-surface/30 text-center">
                                             The vault is currently sealed. Access granted by seniority.
