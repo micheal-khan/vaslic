@@ -19,7 +19,7 @@ export default function HomeNavbar() {
                     borderBottom: "1px solid rgba(255,255,255,0.05)"
                 }}
             >
-                <div className="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto w-full">
+                <div className="flex justify-between items-center px-4 md:px-8 py-4 md:py-6 max-w-[1920px] mx-auto w-full">
                     <Link href="/">
                         <span
                             className="text-2xl font-black text-white tracking-[0.4em] uppercase cursor-pointer"

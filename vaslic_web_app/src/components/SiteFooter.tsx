@@ -18,9 +18,9 @@ export function SiteFooter() {
     return (
         <footer style={{ background: "#0a0a0a", borderTop: "1px solid #171717" }}>
             {/* Instagram Strip */}
-            <section className="flex overflow-hidden">
+            <section className="flex flex-wrap md:flex-nowrap overflow-hidden">
                 {footerImages.map((src, i) => (
-                    <div key={i} className="w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
+                    <div key={i} className="w-1/3 md:w-1/6 aspect-square grayscale hover:grayscale-0 transition-all duration-500">
                         <img
                             src={src}
                             alt=""
@@ -32,7 +32,7 @@ export function SiteFooter() {
             </section>
 
             {/* 4-col footer */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-body text-sm tracking-wide px-8 pt-24 pb-12">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-body text-sm tracking-wide px-6 md:px-8 pt-16 md:pt-24 pb-12">
                 {/* Brand */}
                 <div className="space-y-6">
                     <div className="text-2xl font-black text-neutral-200 uppercase font-headline">VASLIC</div>
@@ -104,7 +104,7 @@ export function SiteFooter() {
             </div>
 
             {/* Copyright */}
-            <div className="max-w-7xl mx-auto mt-0 pt-8 pb-8 px-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center text-[10px] text-neutral-700 uppercase tracking-[0.2em]">
+            <div className="max-w-7xl mx-auto mt-0 pt-8 pb-8 px-6 md:px-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center text-[10px] text-neutral-700 uppercase tracking-[0.2em] text-center md:text-left">
                 <span>© 2024 VASLIC. No reprints. No restocks. No exceptions.</span>
                 <span className="mt-4 md:mt-0 font-bold">BUILT FOR THE ETERNAL CURATOR</span>
             </div>

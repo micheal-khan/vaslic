@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-charcoal-texture {
+            background-color: #0e0e0e;
+            background-image: radial-gradient(#1c1b1b 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glitch-effect {
+            text-shadow: 2px 0 #008DB9, -2px 0 #ffb4a8;
+        }
+        .triangle-motif {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#d8ca23",
+                        "surface": "#131313",
+                        "primary-fixed": "#c1e8ff",
+                        "on-tertiary-container": "#464100",
+                        "surface-bright": "#393939",
+                        "outline": "#889299",
+                        "on-background": "#e5e2e1",
+                        "primary": "#72d2ff",
+                        "tertiary-container": "#bbae00",
+                        "surface-tint": "#72d2ff",
+                        "on-secondary-fixed-variant": "#920703",
+                        "outline-variant": "#3e484e",
+                        "tertiary-fixed": "#f5e642",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "primary-fixed-dim": "#72d2ff",
+                        "on-secondary-container": "#ff9a8a",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#001e2b",
+                        "surface-variant": "#353535",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#bec8cf",
+                        "on-primary": "#003548",
+                        "on-primary-container": "#002e3e",
+                        "secondary": "#ffb4a8",
+                        "background": "#131313",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed-variant": "#4e4800",
+                        "on-tertiary-fixed": "#1f1c00",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#ffdad4",
+                        "on-tertiary": "#363100",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed": "#410000",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#20201f",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed-dim": "#d8ca23",
+                        "on-secondary": "#690000",
+                        "error": "#ffb4ab",
+                        "primary-container": "#289bc8",
+                        "surface-dim": "#131313",
+                        "error-container": "#93000a",
+                        "secondary-container": "#920703",
+                        "inverse-primary": "#006687"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl">
+<nav class="flex justify-between items-center px-8 py-6 max-w-full">
+<div class="text-2xl font-black tracking-tighter text-white font-['Space_Grotesk'] uppercase">VASLIC</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-neutral-400 font-medium hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight uppercase" href="#">Shop</a>
+<a class="text-neutral-400 font-medium hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight uppercase" href="#">Collections</a>
+<a class="text-neutral-400 font-medium hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight uppercase" href="#">About</a>
+<a class="text-neutral-400 font-medium hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight uppercase" href="#">Support</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-white hover:translate-x-1 duration-200 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-white hover:translate-x-1 duration-200 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-12 overflow-hidden bg-charcoal-texture">
+<!-- Subtle Triangle Motif (VASLIC Identity) -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-5">
+<div class="triangle-motif absolute top-[10%] left-[5%] w-96 h-96 bg-[#008DB9]"></div>
+<div class="triangle-motif absolute bottom-[5%] right-[5%] w-[32rem] h-[32rem] bg-[#008DB9] rotate-180"></div>
+</div>
+<section class="relative z-10 max-w-5xl w-full flex flex-col items-center text-center">
+<!-- 404 Large Display -->
+<div class="relative mb-8">
+<h1 class="text-[clamp(8rem,25vw,22rem)] font-black font-headline leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-800 glitch-effect select-none">
+                    404
+                </h1>
+<div class="absolute -top-4 -right-4 md:-top-8 md:-right-8 px-4 py-1 bg-[#008DB9] text-on-primary font-black uppercase tracking-widest text-xs md:text-sm">
+                    Status: Decommissioned
+                </div>
+</div>
+<!-- Headline and Subtext -->
+<div class="space-y-6 max-w-2xl">
+<h2 class="text-3xl md:text-5xl lg:text-6xl font-black font-headline uppercase tracking-tight text-white">
+                    THIS DESIGN HAS BEEN <span class="text-[#008DB9]">RETIRED</span>
+</h2>
+<p class="text-lg md:text-xl font-light leading-relaxed text-on-surface-variant font-body px-4">
+                    The piece of history you're looking for has either never existed or was moved into the Vault long ago. Once it's gone, it's gone. <span class="italic font-bold">Forever.</span>
+</p>
+</div>
+<!-- Kinetic CTAs -->
+<div class="mt-12 flex flex-col md:flex-row gap-6 w-full md:w-auto">
+<a class="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#008DB9] to-[#004d66] text-white font-black font-headline uppercase tracking-wider transition-all hover:translate-x-1" href="/">
+                    Return to Curations
+                    <span class="material-symbols-outlined ml-3 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="group inline-flex items-center justify-center px-10 py-5 border border-outline-variant/30 text-white font-black font-headline uppercase tracking-wider hover:bg-white hover:text-black transition-all hover:translate-x-1" href="/vault">
+                    Explore the Vault
+                    <span class="material-symbols-outlined ml-3" data-icon="archive">archive</span>
+</a>
+</div>
+</section>
+<!-- Asymmetric Detail: Security Stamp -->
+<div class="absolute bottom-12 right-12 hidden lg:block border border-[#008DB9]/30 p-4 font-headline text-[10px] uppercase tracking-[0.3em] text-[#008DB9]/50">
+<div>Auth_Ref: 0x404_NULL</div>
+<div>Timestamp: ERROR_UNKNOWN</div>
+<div>Location: VAULT_SECTOR_7</div>
+</div>
+</main>
+<!-- Content Section: The "Vault" Preview (Bento Style) -->
+<section class="bg-surface-container-low px-8 py-24 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h3 class="text-4xl font-black font-headline uppercase leading-none text-white mb-4">Lost in the Archive?</h3>
+<p class="text-on-surface-variant text-lg">While this page has been purged, our most iconic legacies remain accessible within the curated vaults.</p>
+</div>
+<div class="flex items-center gap-2 text-[#008DB9] font-black uppercase font-headline tracking-widest text-sm">
+                    Vault Index 01-09 <span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Bento Item 1 -->
+<div class="md:col-span-8 group relative overflow-hidden bg-neutral-900">
+<img alt="Retro hardware and cables" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Close-up of vintage aesthetic electronics and tangled wires in a dark industrial setting with high contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCgLjlm2HW4f8pjP1vkMcRlXB2PrnjBEAjF2usLTtnd0ryQIffM39xHBPPayXkOlWATBDXykOSIxFXnW1N1bE07ZJ6WkfFmDxD_Qh94gX1Ky-Zi24jrTX8wmoYEWlPa0Qb7QO640xWNTbHk4oxeDjDDEFPd8RGQP-vU_waRSvR_I1aeHPEFTubX55R65u70Pa9tC6djtxNyVmzTPthvW_BieZfd9bJClRywMNzYNChFtn0CMV-nBZPrpInjEqEhMwuT99KN3SM_uE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="text-[#008DB9] text-xs font-black font-headline uppercase tracking-widest block mb-2">Legacy Hardware</span>
+<h4 class="text-2xl font-bold text-white uppercase font-headline">The Analog Collection</h4>
+</div>
+</div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-4 group relative overflow-hidden bg-neutral-900">
+<img alt="Abstract geometric art" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Minimalist abstract digital art with sharp geometric shards and a dark moody color palette with cyan accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq1uMLiDOwMUdcHblnetJN3TS9AOTYEqtJf2i9ZpWwYNF0bqFf6iBSZeVwMH9fLwUdES1RHpWl52WoWkytusjGJJ_4-3HIT--B3swBQ-hwup-6xuEp8Pofsb2A7U5F8Qy3xc7z1J8Vser6WmqCF5rKPsQGTqXuv1mdL6N3DF8Rdx20vPBrrNoUCpJBay19KEi6TfGMcHfH-AqEmQIMImy0ogH6Qft28PYDFa-GgsxGTLTI015Q2_-IDsK8AGq6EeUoOkqjiHWemSU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="text-[#008DB9] text-xs font-black font-headline uppercase tracking-widest block mb-2">Artistic Purge</span>
+<h4 class="text-2xl font-bold text-white uppercase font-headline">Brutalist Forms</h4>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 group relative overflow-hidden bg-neutral-900">
+<img alt="Futuristic hallway" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Long dark futuristic corridor with harsh linear overhead lighting and industrial metallic surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoLJu2FxYd0GbQQ-T44tw_APZureKp3LtCMtqRej5VSKV8sOOImsE99CLnJ9w1X83jV6G5LPD38Q8LxvqUiMMZDP1mLjXb4y1Ir2SZONJzLASCasoD6dvpEunpTLRk_UXnVbUT5dRy4Lml0HwyGAE5GFDGeHNCzSLjOJsDAoLCpfrnR26-P4D4c9bHOvf_O22dK4Py1FxE9yhe8InJ2kxi1utQtmhfIJqSljbpSwYq0EitqT6kLsJTzbnhUCznBZiMAlT-uYCHsxM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="text-[#008DB9] text-xs font-black font-headline uppercase tracking-widest block mb-2">Architecture</span>
+<h4 class="text-2xl font-bold text-white uppercase font-headline">Void Structures</h4>
+</div>
+</div>
+<!-- Bento Item 4 -->
+<div class="md:col-span-8 group relative overflow-hidden bg-neutral-900">
+<img alt="Motherboard close up" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Extreme close up of a circuit board with gold and blue light reflections showing intricate technological pathways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt1CoEIQ-gPzfDSWQpCOhh4PcvoehElHy1llWDET6Jp0Kz-lMlaHqLcxdsRzz9O6yvvh6awPek3SMGVgGYgAbWUcoQpH19Se95GVgq-plQVUHtC75G1H2VPCO_0_pdrdSpNB0zQuH24cMn2V2nIjpcwzHjTHNCjJZyo2YOohrzh668XQLL_6shZ_kz5TK3uX2UkJevoj5iq9RLrE22VCzvGAWiDrIuHGA-fSENqejw7oNA7iJhu-0rRqjK46yJrG4SP0u995FmoyI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="text-[#008DB9] text-xs font-black font-headline uppercase tracking-widest block mb-2">Systems</span>
+<h4 class="text-2xl font-bold text-white uppercase font-headline">Decommissioned AI</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-neutral-950 w-full py-12 px-8 mt-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-xl font-black text-white uppercase font-['Space_Grotesk']">VASLIC</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-neutral-500 hover:text-[#008DB9] font-['Manrope'] text-sm tracking-wide transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-neutral-500 hover:text-[#008DB9] font-['Manrope'] text-sm tracking-wide transition-all duration-300" href="#">Terms of Service</a>
+<a class="text-neutral-500 hover:text-[#008DB9] font-['Manrope'] text-sm tracking-wide transition-all duration-300" href="#">Contact</a>
+<a class="text-neutral-500 hover:text-[#008DB9] font-['Manrope'] text-sm tracking-wide transition-all duration-300" href="#">Instagram</a>
+</div>
+<div class="text-neutral-500 font-['Manrope'] text-sm tracking-wide">
+            © 2024 VASLIC. Something for Everyone.
+        </div>
+</footer>
+<!-- Theme Switcher (Aesthetic Anchor) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-full bg-neutral-900/60 backdrop-blur-2xl border border-white/5 flex items-center gap-4">
+<div class="w-3 h-3 bg-[#008DB9] rounded-full"></div>
+<span class="text-[10px] font-black font-headline uppercase tracking-[0.2em] text-white/70">Current Aesthetic: Decommissioned</span>
+</div>
+</body></html>

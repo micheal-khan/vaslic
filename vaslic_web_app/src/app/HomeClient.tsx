@@ -165,7 +165,7 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             <HomeNavbar />
 
             {/* ── Hero: 5-panel cinematic morphing ── */}
-            <section className="relative h-screen w-full flex overflow-hidden bg-black">
+            <section className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-black">
                 {heroSlices.map((s) => (
                     <Link
                         key={s.label}
@@ -221,17 +221,17 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </div>
 
             {/* ── GOTHIC SECTION ── */}
-            <section id="gothic" className="min-h-screen bg-black py-32 px-12 flex flex-col justify-center" style={{ backgroundImage: `url(https://lh3.googleusercontent.com/aida-public/AB6AXuAz0xm-W0iEQ7vWqXrHGwo3DfB5ugIKExvhSg-VdP7pzCulo8MGmzl0H6xUhQLSyfyPY9SIYKr0E-3c9kL714vo6lL9GaEEq6mJznqFNO8CYmjBotQSfyEiYDNkvBHr9__4H7uD5lOV8zzPovI4Iofe8hoCeErk7MY7peTJZFQ-cVo-i1HLEkXbvKdILAn6ReHVy_9hErkJSJm-V5YmmFvkuWISUGKXvHHDONkLQ2RBcgZpmVfUAZB_Uv1cDQ4_-31Ty55G6fwB3TM)`, backgroundBlendMode: "overlay", backgroundSize: "cover" }}>
+            <section id="gothic" className="min-h-screen bg-black py-24 md:py-32 px-6 md:px-12 flex flex-col justify-center" style={{ backgroundImage: `url(https://lh3.googleusercontent.com/aida-public/AB6AXuAz0xm-W0iEQ7vWqXrHGwo3DfB5ugIKExvhSg-VdP7pzCulo8MGmzl0H6xUhQLSyfyPY9SIYKr0E-3c9kL714vo6lL9GaEEq6mJznqFNO8CYmjBotQSfyEiYDNkvBHr9__4H7uD5lOV8zzPovI4Iofe8hoCeErk7MY7peTJZFQ-cVo-i1HLEkXbvKdILAn6ReHVy_9hErkJSJm-V5YmmFvkuWISUGKXvHHDONkLQ2RBcgZpmVfUAZB_Uv1cDQ4_-31Ty55G6fwB3TM)`, backgroundBlendMode: "overlay", backgroundSize: "cover" }}>
                 <div className="max-w-[1400px] mx-auto w-full">
                     <RevealSection>
-                        <div className="flex justify-between items-end mb-24">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
                             <div>
                                 <Link href="/gothic">
-                                    <h2 className="leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'UnifrakturMaguntia', cursive", fontSize: "10rem", color: "#920703" }}>Gothic</h2>
+                                    <h2 className="leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'UnifrakturMaguntia', cursive", fontSize: "clamp(4rem, 15vw, 10rem)", color: "#920703" }}>Gothic</h2>
                                 </Link>
                                 <p className="text-neutral-500 mt-4 tracking-widest uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif" }}>The Architecture of Shadows</p>
                             </div>
-                            <span className="font-black leading-none text-neutral-900" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "8rem" }}>01</span>
+                            <span className="font-black leading-none text-neutral-900 mt-4 md:mt-0" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(3rem, 12vw, 8rem)" }}>01</span>
                         </div>
                     </RevealSection>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -253,17 +253,17 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </section>
 
             {/* ── BOHEMIAN SECTION ── */}
-            <section id="bohemian" className="min-h-screen py-32 px-12 flex flex-col justify-center text-black" style={{ background: "#f5ebe0" }}>
+            <section id="bohemian" className="min-h-screen py-24 md:py-32 px-6 md:px-12 flex flex-col justify-center text-black" style={{ background: "#f5ebe0" }}>
                 <div className="max-w-[1400px] mx-auto w-full">
                     <RevealSection>
-                        <div className="flex justify-between items-end mb-24">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
                             <div>
                                 <Link href="/bohemian">
-                                    <h2 className="italic leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Playfair Display', serif", fontSize: "9rem", color: "#c77b4a", fontWeight: 700 }}>Bohemian</h2>
+                                    <h2 className="italic leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.5rem, 15vw, 9rem)", color: "#c77b4a", fontWeight: 700 }}>Bohemian</h2>
                                 </Link>
                                 <p className="mt-4 tracking-widest uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif", color: "#8b5e3c" }}>The Wandering Soul</p>
                             </div>
-                            <span className="font-black leading-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "8rem", color: "#e8dcc4" }}>02</span>
+                            <span className="font-black leading-none mt-4 md:mt-0" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(3rem, 12vw, 8rem)", color: "#e8dcc4" }}>02</span>
                         </div>
                     </RevealSection>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -294,21 +294,21 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </div>
 
             {/* ── AVANT-GARDE SECTION ── */}
-            <section id="avant" className="min-h-screen bg-white py-32 px-12 flex flex-col justify-center text-black relative overflow-hidden">
+            <section id="avant" className="min-h-screen bg-white py-24 md:py-32 px-6 md:px-12 flex flex-col justify-center text-black relative overflow-hidden">
                 {/* Watermark */}
                 <div className="absolute inset-0 pointer-events-none flex items-center justify-center" style={{ opacity: 0.03 }}>
                     <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "40rem" }}>AV</span>
                 </div>
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     <RevealSection>
-                        <div className="flex justify-between items-end mb-24">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
                             <div>
                                 <Link href="/avant-garde">
-                                    <h2 className="leading-[0.7] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "12rem", letterSpacing: "-0.02em" }}>Avant-Garde</h2>
+                                    <h2 className="leading-[0.7] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(4rem, 15vw, 12rem)", letterSpacing: "-0.02em" }}>Avant-Garde</h2>
                                 </Link>
-                                <p className="text-neutral-400 mt-4 uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif", letterSpacing: "0.5em" }}>Experimental Brutalism</p>
+                                <p className="text-neutral-400 mt-4 uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif", letterSpacing: "0.5em", wordBreak: "break-word" }}>Experimental Brutalism</p>
                             </div>
-                            <span className="font-black leading-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "8rem", color: "#f5f5f5" }}>03</span>
+                            <span className="font-black leading-none mt-4 md:mt-0" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(3rem, 12vw, 8rem)", color: "#f5f5f5" }}>03</span>
                         </div>
                     </RevealSection>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -330,17 +330,17 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </section>
 
             {/* ── STREET SECTION ── */}
-            <section id="street" className="min-h-screen py-32 px-12 flex flex-col justify-center text-white" style={{ background: "#111", backgroundImage: `url(https://lh3.googleusercontent.com/aida-public/AB6AXuAz0xm-W0iEQ7vWqXrHGwo3DfB5ugIKExvhSg-VdP7pzCulo8MGmzl0H6xUhQLSyfyPY9SIYKr0E-3c9kL714vo6lL9GaEEq6mJznqFNO8CYmjBotQSfyEiYDNkvBHr9__4H7uD5lOV8zzPovI4Iofe8hoCeErk7MY7peTJZFQ-cVo-i1HLEkXbvKdILAn6ReHVy_9hErkJSJm-V5YmmFvkuWISUGKXvHHDONkLQ2RBcgZpmVfUAZB_Uv1cDQ4_-31Ty55G6fwB3TM)`, backgroundSize: "cover", backgroundBlendMode: "overlay" }}>
+            <section id="street" className="min-h-screen py-24 md:py-32 px-6 md:px-12 flex flex-col justify-center text-white" style={{ background: "#111", backgroundImage: `url(https://lh3.googleusercontent.com/aida-public/AB6AXuAz0xm-W0iEQ7vWqXrHGwo3DfB5ugIKExvhSg-VdP7pzCulo8MGmzl0H6xUhQLSyfyPY9SIYKr0E-3c9kL714vo6lL9GaEEq6mJznqFNO8CYmjBotQSfyEiYDNkvBHr9__4H7uD5lOV8zzPovI4Iofe8hoCeErk7MY7peTJZFQ-cVo-i1HLEkXbvKdILAn6ReHVy_9hErkJSJm-V5YmmFvkuWISUGKXvHHDONkLQ2RBcgZpmVfUAZB_Uv1cDQ4_-31Ty55G6fwB3TM)`, backgroundSize: "cover", backgroundBlendMode: "overlay" }}>
                 <div className="max-w-[1400px] mx-auto w-full">
                     <RevealSection>
-                        <div className="flex justify-between items-end mb-24">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
                             <div>
                                 <Link href="/street">
-                                    <h2 className="uppercase leading-[0.7] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "12rem", color: "#d8ca23", letterSpacing: "0.05em" }}>STREET</h2>
+                                    <h2 className="uppercase leading-[0.7] hover:opacity-80 transition-opacity break-all md:break-normal" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(4.5rem, 15vw, 12rem)", color: "#d8ca23", letterSpacing: "0.05em" }}>STREET</h2>
                                 </Link>
                                 <p className="text-neutral-500 mt-4 tracking-widest uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif" }}>Concrete Playground Armor</p>
                             </div>
-                            <span className="font-black leading-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "8rem", color: "#262626" }}>04</span>
+                            <span className="font-black leading-none mt-4 md:mt-0" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(3rem, 12vw, 8rem)", color: "#262626" }}>04</span>
                         </div>
                     </RevealSection>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -362,20 +362,20 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </section>
 
             {/* ── FUNKY SECTION ── */}
-            <section id="funky" className="min-h-screen py-32 px-12 flex flex-col justify-center text-white relative overflow-hidden" style={{ background: "#0d0d2b" }}>
+            <section id="funky" className="min-h-screen py-24 md:py-32 px-6 md:px-12 flex flex-col justify-center text-white relative overflow-hidden" style={{ background: "#0d0d2b" }}>
                 {/* Glow blobs */}
                 <div className="absolute -top-24 -right-24 rounded-full pointer-events-none" style={{ width: "50rem", height: "50rem", background: "rgba(114,210,255,0.2)", filter: "blur(120px)" }} />
                 <div className="absolute -bottom-24 -left-24 rounded-full pointer-events-none" style={{ width: "40rem", height: "40rem", background: "rgba(255,180,168,0.2)", filter: "blur(120px)" }} />
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     <RevealSection>
-                        <div className="flex justify-between items-end mb-24">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
                             <div>
                                 <Link href="/funky">
-                                    <h2 className="leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Righteous', sans-serif", fontSize: "9rem", color: "#ffb4a8" }}>FUNKY</h2>
+                                    <h2 className="leading-[0.8] hover:opacity-80 transition-opacity" style={{ fontFamily: "'Righteous', sans-serif", fontSize: "clamp(4rem, 15vw, 9rem)", color: "#ffb4a8" }}>FUNKY</h2>
                                 </Link>
                                 <p className="mt-4 tracking-widest uppercase text-xs" style={{ fontFamily: "'Manrope', sans-serif", color: "rgba(255,180,168,0.6)" }}>Retro-Future Pop</p>
                             </div>
-                            <span className="font-black leading-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "8rem", color: "rgba(255,255,255,0.05)" }}>05</span>
+                            <span className="font-black leading-none mt-4 md:mt-0" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(3rem, 12vw, 8rem)", color: "rgba(255,255,255,0.05)" }}>05</span>
                         </div>
                     </RevealSection>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -397,12 +397,12 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </section>
 
             {/* ── Hall of Retired Designs ── */}
-            <section className="py-48 bg-black px-12 border-t border-white/5">
+            <section className="py-24 md:py-48 bg-black px-6 md:px-12 border-t border-white/5 mx-auto w-full overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <RevealSection>
-                        <div className="text-center mb-32">
+                        <div className="text-center mb-16 md:mb-32">
                             <span className="tracking-[0.5em] uppercase text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#72d2ff" }}>The Archives</span>
-                            <h2 className="font-bold text-white mt-4" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "4.5rem" }}>Hall of Retired Designs</h2>
+                            <h2 className="font-bold text-white mt-4" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>Hall of Retired Designs</h2>
                             <p className="text-neutral-500 italic mt-4" style={{ fontFamily: "'Manrope', sans-serif" }}>These designs lived and left. Gone forever.</p>
                         </div>
                     </RevealSection>
@@ -443,14 +443,14 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </div>
 
             {/* ── Footer ── */}
-            <footer className="bg-black pt-48 pb-12 px-12 border-t border-white/5 relative z-10">
-                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-24">
-                    <div className="col-span-2 space-y-12">
-                        <div className="font-black text-white uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "3.75rem", letterSpacing: "-0.02em" }}>VASLIC</div>
-                        <p className="text-neutral-500 text-lg leading-relaxed max-w-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
+            <footer className="bg-black pt-24 md:pt-48 pb-12 px-6 md:px-12 border-t border-white/5 relative z-10 w-full overflow-hidden">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24">
+                    <div className="col-span-1 md:col-span-2 space-y-8 md:space-y-12">
+                        <div className="font-black text-white uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 8vw, 3.75rem)", letterSpacing: "-0.02em" }}>VASLIC</div>
+                        <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
                             We exist at the volatile intersection of subculture and high-end fashion. We do not restock. We do not compromise. We curate only for those who understand that permanence is a choice.
                         </p>
-                        <div className="flex space-x-8">
+                        <div className="flex space-x-6 md:space-x-8">
                             {["share", "chat_bubble", "motion_photos_on"].map((icon) => (
                                 <a key={icon} href="#" className="text-neutral-600 hover:text-white transition-colors">
                                     <span className="material-symbols-outlined" style={{ fontSize: "1.875rem" }}>{icon}</span>

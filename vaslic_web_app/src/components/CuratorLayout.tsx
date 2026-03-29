@@ -12,9 +12,9 @@ interface CuratorLayoutProps {
 
 const sidebarLinks = [
     { label: "My Wishlist", href: "/wishlist", icon: "auto_awesome", filled: true },
-    { label: "Order History", href: "/profile", icon: "history", filled: false },
+    { label: "Order History", href: "/orders", icon: "history", filled: false },
     { label: "Scarcity Alerts", href: "/", icon: "priority_high", filled: false },
-    { label: "Style Profile", href: "/", icon: "architecture", filled: false },
+    { label: "Style Profile", href: "/profile", icon: "architecture", filled: false },
     { label: "The Vault", href: "/vault", icon: "inventory_2", filled: false },
     { label: "Settings", href: "/", icon: "settings", filled: false },
 ];
@@ -23,6 +23,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
     const pathname = usePathname();
     const { totalItems } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <div className="min-h-screen bg-[#131313] text-[#e5e2e1] selection:bg-[#72d2ff] selection:text-black">
@@ -80,16 +81,23 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                                 </span>
                             )}
                         </button>
-                        <Link href="/profile" className="cursor-pointer hover:scale-110 transition-transform">
+                        <Link href="/profile" className="hidden md:block cursor-pointer hover:scale-110 transition-transform">
                             <User size={20} />
                         </Link>
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            onClick={() => setIsMobileMenuOpen(true)}
+                            className="lg:hidden cursor-pointer transition-transform hover:scale-110 border-none bg-transparent"
+                        >
+                            <span className="material-symbols-outlined text-2xl">menu</span>
+                        </button>
                     </div>
                 </div>
             </nav>
 
             {/* ─── Sidebar ─── */}
             <aside className="hidden lg:flex h-screen w-64 fixed left-0 top-0 bg-zinc-900 flex-col py-8 z-40 border-r border-zinc-800">
-                <div className="px-8 mb-12 mt-16">
+                <div className="px-8 mt-16 mb-12">
                     <div className="w-12 h-12 bg-zinc-800 mb-4 border border-cyan-500/20 overflow-hidden">
                         <img
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxrteaWXs_M5Kv79UHR1W5AFQ623j-mq2VFFYq4k8Ym7eZIKP_xF-fRzp-4awVroKPaciowpS0TztOW0pOf7cGyTifPJH6TdzndJomdib8_Ww6jkuP321WKbAJWFyYWSX690uvaSBlzM_DU_dwYTuQeIivnZLfB1w73Dkp7tJCEBN-NGu3YN-4yR3tTCvcdGSz0leDTZ-kn6WU4XkDmMdCjCne0swINECnrthAfY2FAkzICHPwANfygDaQ2vOMQMNJJmHVd7JCt_g"
@@ -133,6 +141,46 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                 </div>
             </aside>
 
+            {/* Mobile Navigation Drawer */}
+            <div className={`lg:hidden fixed inset-0 z-[60] bg-black/90 backdrop-blur-md transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+                <div className="flex flex-col h-full p-8 pt-24 text-white">
+                    <button
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="absolute top-8 right-8 text-white z-50 p-2"
+                    >
+                        <span className="material-symbols-outlined text-3xl">close</span>
+                    </button>
+                    <nav className="flex-1 flex flex-col gap-6 items-start mt-8">
+                        {sidebarLinks.map((link) => {
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center gap-6 font-headline text-2xl font-black uppercase tracking-tight transition-colors duration-300 ${isActive ? "text-cyan-400" : "text-neutral-500 hover:text-white"}`}
+                                >
+                                    <span
+                                        className="material-symbols-outlined text-3xl"
+                                        style={link.filled || isActive ? { fontVariationSettings: "'FILL' 1" } : undefined}
+                                    >
+                                        {link.icon}
+                                    </span>
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
+                        <Link
+                            href="/"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="mt-8 px-8 py-4 bg-white text-black font-headline font-black text-xs uppercase tracking-[0.2em] hover:bg-cyan-400 transition-colors"
+                        >
+                            View Rare Drops
+                        </Link>
+                    </nav>
+                </div>
+            </div>
+
             {/* ─── Main Content ─── */}
             <main className="lg:pl-64 pt-16 min-h-screen" style={{ background: "#131313" }}>
                 {children}
@@ -141,7 +189,7 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
             {/* ─── Footer ─── */}
             <footer className="lg:pl-64 bg-black border-t border-zinc-800/30 w-full">
                 <div className="flex flex-col items-center gap-4 py-12 px-8 max-w-7xl mx-auto">
-                    <div className="flex gap-8 mb-4">
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-4">
                         <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Sustainability</a>
                         <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Shipping</a>
                         <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Returns</a>
