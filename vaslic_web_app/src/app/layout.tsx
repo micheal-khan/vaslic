@@ -10,6 +10,7 @@ import {
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { CartProvider } from "@/contexts/CartContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -84,6 +85,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
       </head>
       <body className="antialiased min-h-screen bg-vaslic-surface text-vaslic-on-surface">
+        <Analytics />
         <SmoothScroll>
           <CartProvider>
             {children}
