@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight } from "lucide-react";
 import AvantGardeNavbar from "@/components/navbars/AvantGardeNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { UnitsCounter } from "@/components/UnitsCounter";
 
@@ -309,59 +310,11 @@ export default function AvantGardeClientPage({ products, category }: { products:
                 </section>
             </main>
 
-            {/* ── Footer ── */}
-            <footer className="py-24 px-8 border-t-0 text-white" style={{ background: NAVY }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
-                    <div>
-                        <div className="text-lg font-black text-neutral-200 uppercase tracking-widest mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>VASLIC</div>
-                        <p className="text-sm text-neutral-500 leading-relaxed uppercase tracking-tighter" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                            Something for everyone. We do not cater to the mass market. We provide artifacts for the intentional few.
-                        </p>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <span className="text-sm uppercase tracking-widest" style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#0891b2" }}>Navigation</span>
-                        {["Privacy Policy", "Terms of Service", "Vault Registration", "Shipping"].map((l) => (
-                            <a key={l} href="#" className="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 text-sm uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{l}</a>
-                        ))}
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <span className="text-sm uppercase tracking-widest" style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#0891b2" }}>Collections</span>
-                        {["The Vault", "Active Drops", "Archive"].map((l) => (
-                            <a key={l} href="#" className="text-neutral-600 hover:text-cyan-400 transition-colors duration-300 text-sm uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{l}</a>
-                        ))}
-                    </div>
-                    <div className="flex flex-col gap-8">
-                        <div className="p-6 bg-neutral-900 border border-neutral-800">
-                            <span className="text-xl uppercase mb-4 block text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Subscribe to Scarcity</span>
-                            <div className="flex items-end">
-                                <input
-                                    className="bg-transparent border-0 border-b w-full text-xs py-2 focus:outline-none focus:border-cyan-400"
-                                    style={{ borderColor: "#404040", fontFamily: "'Space Grotesk', sans-serif", color: "white" }}
-                                    placeholder="ENCRYPTED EMAIL"
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                                <button className="ml-4 hover:translate-x-1 transition-transform" style={{ color: "#22d3ee" }} aria-label="Submit">
-                                    <ArrowRight size={20} />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-24 pt-12 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
-                    <p className="text-sm tracking-wide text-neutral-600 uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                        © 2026 VASLIC. No reprints. No restocks. No exceptions.
-                    </p>
-                    <div className="flex gap-8">
-                        <span className="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-white transition-colors">share</span>
-                        <span className="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-white transition-colors">info</span>
-                    </div>
-                </div>
-            </footer>
-
-            {/* ── Theme Switcher Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="avant-garde" />
 
             {/* ── Assets & Animations ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

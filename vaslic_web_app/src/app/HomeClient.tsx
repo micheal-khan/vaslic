@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import HomeNavbar from "@/components/navbars/HomeNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
+import ThemeDock from "@/components/ThemeDock";
 
 
 // ─── Hero slices ─────────────────────────────────────────────────────────────
@@ -14,7 +16,7 @@ const heroSlices = [
         tracking: "",
         uppercase: false,
         image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCUTDlsQeP6lPV-nR5LaRXmf2ANnGcalWmBaum5MwM6FXPz09zvU7q6S3TMZikwZQpcW9vcHXjexrPezbzg8NuUFoEkf30RmoJo8rrMbQH3Icmk1Zj-7b0vE-uBer9U_X7DOfuScQ535FEKGpP5MMsHdRafLSSfhc03BbeLE7JslgBhrvbXpbZhhJV-vxdVDfQe0YsIKpieZ1qWckd9tD7ZJ0DhSxapkXkjWqImkftfut3tgpmT-ZOIZNulYHtXafXTPXber_lkCQ0",
+            "/images/gothic.jpg",
         href: "/gothic",
     },
     {
@@ -24,7 +26,7 @@ const heroSlices = [
         tracking: "",
         uppercase: false,
         image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAbnP01Ukg8pgd17yyKws2akaGZoCK3HIXcksOtjeQq928Z2n6jF_7ArvGbsBwyLmmUJpX-kNj4vUTTXlscpHsstzCu0zi9hBaJuKms2lh4BoQt3f1Z9ixZWqAXUx7qS0wNG0y3XilEMv60vKTlEbb_BzP_-1ddvHztCtz8bEivEYPFJIG9VCYfHBxqxnHCPHKm1IUZGMKoLFIEj6JkSErSsIHwIP4wHkJSNTamRBCgOx2GGJGOHDbywBqpLP45OQIGles4kW_-zjA",
+            "/images/bohemian.jpg",
         href: "/bohemian",
     },
     {
@@ -34,7 +36,7 @@ const heroSlices = [
         tracking: "tracking-widest",
         uppercase: false,
         image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBOpO5lF9xS3Z2l1uB5lZo4lcfLib6hdzt-bglgA638S3c3idsHkMngoWkTrCDRqQtgocppTsAxtZmvN_NlXe_Jzo-xePSn8rn4qpZB5Wam62_ol5MN6PnIxQTaZ2mbR_3XzqEy9rI8C2up2PbisSKg3Oj5u8ISzZ70zJ3mB-qt1OfH8AHgrsf_BGdwJCpabtH740T5lb_PXNQe5gmzji0x2Nmi95i0I6uLlCCBq3qwZlHL5XrEib7myefEjOhys8AMFqbHLCscaTg",
+            "/images/avantagrande.jpg",
         href: "/avant-garde",
     },
     {
@@ -44,7 +46,7 @@ const heroSlices = [
         tracking: "",
         uppercase: true,
         image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCFW2CLM5hkaF1DvZEM7D83E985ECLYkZOReOq1vTSzrn88bYVwRBxgn6GxDeyANAyBaagkvwkptXkhhib-RwJQqZJ9AT8U1408WskuElwq6wRnolzZumqpzdIpgYhtF3UCsuvt5XrmB04eYTuvF9NXkXwlIpvd-V4AhvwobgKTdkBRYFJhSTYhnerxHdtiofMglHNW5vXJGr8brdUWVodUU1L6kqZ6Zt17tVFVCg4H3d_nn23RIQYgz-oOdC3oACHQGFuZCgA6yjQ",
+            "/images/street.jpg",
         href: "/street",
     },
     {
@@ -53,8 +55,7 @@ const heroSlices = [
         italic: false,
         tracking: "",
         uppercase: false,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCAWllXXPFmv4PP22dWuEtn6IP5oBS-nUQ95tNbgQAC-jr2ApQqBIJJ3ljXGH0OrtPYC5cvBJ9JaCQXRGGDQRyS56JJQHCJ5tRRbC6kW4b-6OaqdGxq4gDsZ7hs-tvipv-CU7qoRyJ66-mCpYtAe_aLvLntDlY9p_8fzBA9KkkNFA5OI946BbALAKr_7oeUsEFBbJr-4i4srG2j3gyVxlBU7nwPjgfLc86V4x8Xk3n3TRGWJ3vbn6NF-1KLUkUcOfRCejvlk1E7-eE",
+        image: "/images/funky.png",
         href: "/funky",
     },
 ];
@@ -432,7 +433,7 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </section>
 
             {/* ── Quiz Widget (fixed) ── */}
-            <div className="fixed bottom-12 right-12 z-[100]">
+            <div className="fixed bottom-12 right-12 z-[40]">
                 <div className="relative group">
                     <div className="absolute -inset-2 blur opacity-40 group-hover:opacity-100 transition-all duration-1000" style={{ background: "linear-gradient(to right, #72d2ff, #ffb4a8, #d8ca23)", animation: "pulse 2s infinite" }} />
                     <button className="relative bg-black px-8 py-8 flex flex-col items-center justify-center border border-white/20 backdrop-blur-xl hover:scale-105 transition-transform">
@@ -443,53 +444,9 @@ export default function HomeClient({ productsByCategory, retiredProducts }: { pr
             </div>
 
             {/* ── Footer ── */}
-            <footer className="bg-black pt-16 md:pt-48 pb-12 px-6 md:px-12 border-t border-white/5 relative z-10 w-full overflow-hidden">
-                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24">
-                    <div className="col-span-1 md:col-span-2 space-y-8 md:space-y-12">
-                        <div className="font-black text-white uppercase" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 8vw, 3.75rem)", letterSpacing: "-0.02em" }}>VASLIC</div>
-                        <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                            We exist at the volatile intersection of subculture and high-end fashion. We do not restock. We do not compromise. We curate only for those who understand that permanence is a choice.
-                        </p>
-                        <div className="flex space-x-6 md:space-x-8">
-                            {["share", "chat_bubble", "motion_photos_on"].map((icon) => (
-                                <a key={icon} href="#" className="text-neutral-600 hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined" style={{ fontSize: "1.875rem" }}>{icon}</span>
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="space-y-8">
-                        <h4 className="text-white font-bold uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>The Vault</h4>
-                        <ul className="space-y-4 text-neutral-500" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                            {["Vault Registration", "Curator Program", "Retired Archives", "Logistics & Global Shipping"].map((l) => (
-                                <li key={l}><a href="#" className="hover:text-[#72d2ff] transition-colors">{l}</a></li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="space-y-8">
-                        <h4 className="text-white font-bold uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Transmission</h4>
-                        <div className="relative">
-                            <input
-                                className="w-full px-6 py-5 text-sm tracking-widest border-none focus:outline-none focus:ring-1"
-                                style={{ background: "rgba(23,23,23,0.5)", color: "white", fontFamily: "'Space Grotesk', sans-serif", borderBottom: "1px solid rgba(255,255,255,0.1)", "--tw-ring-color": "#72d2ff" } as React.CSSProperties}
-                                placeholder="ENTER EMAIL ADDRESS"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <button className="absolute right-4 top-1/2 -translate-y-1/2" style={{ color: "#72d2ff" }}>
-                                <span className="material-symbols-outlined" style={{ fontSize: "1.5rem" }}>arrow_right_alt</span>
-                            </button>
-                        </div>
-                        <p className="uppercase tracking-widest text-neutral-700" style={{ fontSize: "0.625rem", fontFamily: "'Space Grotesk', sans-serif" }}>JOIN THE WAITLIST FOR THE NEXT DROP CYCLE.</p>
-                    </div>
-                </div>
-                <div className="max-w-[1400px] mx-auto mt-24 md:mt-48 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-neutral-700 uppercase"
-                    style={{ fontSize: "0.625rem", letterSpacing: "0.4em", fontFamily: "'Space Grotesk', sans-serif" }}>
-                    <span>© 2026 VASLIC | ALL RIGHTS RESERVED.</span>
-                    <span className="mt-8 md:mt-0 font-black">NO REPRINTS. NO RESTOCKS. NO EXCEPTIONS.</span>
-                </div>
-            </footer>
+            <SiteFooter theme="default" />
+
+            <ThemeDock />
 
             {/* ── Google Material Symbols + animations ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

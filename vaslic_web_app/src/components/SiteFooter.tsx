@@ -12,11 +12,26 @@ const footerImages = [
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCXrEYUMdp-9Tm6R6NCsSuSW8gI4Ljcm3KjcAvyr89q1GP9YYPJB5wughCmATLVB-Rpj-XONjS2GiLCBrvZbnLLKf3dIGkjZz4s4KpGMpXMvC3V9OofMT8xYyfQ60SJdGnNsG0en-jd3_spudo-Gaf6yDrTX8R_yK5G9LdYH23lLD_3Lxf-dxZHYYyQoBvWCS8lAKjZsihKz7gldvQbiEEPfwvLOoj8613qmGOeMTZ8mSLw03GayIgk3hm4LjiZA5lChOTGIJ3pxwY",
 ];
 
-export function SiteFooter() {
+export type FooterTheme = "gothic" | "bohemian" | "avant-garde" | "street" | "funky" | "default";
+
+interface SiteFooterProps {
+    theme?: FooterTheme;
+}
+
+const themeColors: Record<Exclude<FooterTheme, "default">, string> = {
+    gothic: "#8b0000",
+    bohemian: "#c77b4a",
+    "avant-garde": "#008DB9",
+    street: "#f5e642",
+    funky: "#00f5d4",
+};
+
+export function SiteFooter({ theme = "default" }: SiteFooterProps) {
     const [email, setEmail] = useState("");
+    const primaryColor = theme !== "default" ? themeColors[theme] : "#72d2ff";
 
     return (
-        <footer style={{ background: "#0a0a0a", borderTop: "1px solid #171717" }}>
+        <footer className="relative z-[60] w-full" style={{ background: "#0a0a0a", borderTop: "1px solid #171717" }}>
             {/* Instagram Strip */}
             <section className="flex flex-wrap md:flex-nowrap overflow-hidden">
                 {footerImages.map((src, i) => (
@@ -47,7 +62,7 @@ export function SiteFooter() {
                     <ul className="space-y-2">
                         {["Vault Registration", "Curator Program", "Retired Hall", "Shipping & Logistics"].map((item) => (
                             <li key={item}>
-                                <Link href="/vault" className="text-neutral-600 hover:text-cyan-400 transition-colors duration-300">
+                                <Link href="/vault" className="text-neutral-600 transition-colors duration-300" style={{ "--hover-color": primaryColor } as any} onMouseEnter={(e) => e.currentTarget.style.color = primaryColor} onMouseLeave={(e) => e.currentTarget.style.color = ""}>
                                     {item}
                                 </Link>
                             </li>
@@ -61,7 +76,7 @@ export function SiteFooter() {
                     <ul className="space-y-2">
                         {["Privacy Policy", "Terms of Service", "Cookie Protocol"].map((item) => (
                             <li key={item}>
-                                <Link href="#" className="text-neutral-600 hover:text-cyan-400 transition-colors duration-300">
+                                <Link href="#" className="text-neutral-600 transition-colors duration-300" onMouseEnter={(e) => e.currentTarget.style.color = primaryColor} onMouseLeave={(e) => e.currentTarget.style.color = ""}>
                                     {item}
                                 </Link>
                             </li>
@@ -78,12 +93,13 @@ export function SiteFooter() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="ENTER EMAIL"
-                            className="w-full bg-neutral-900 border-none px-4 py-3 text-xs tracking-widest font-label text-white placeholder:text-white/30 outline-none focus:ring-1 focus:ring-cyan-400"
+                            className="w-full bg-neutral-900 border-none px-4 py-3 text-xs tracking-widest font-label text-white placeholder:text-white/30 outline-none focus:ring-1"
+                            style={{ "--tw-ring-color": primaryColor } as any}
                             aria-label="Email subscription"
                         />
                         <button
                             className="absolute right-2 top-1/2 -translate-y-1/2 font-headline font-bold"
-                            style={{ color: "#72d2ff" }}
+                            style={{ color: primaryColor }}
                             aria-label="Subscribe"
                         >
                             →

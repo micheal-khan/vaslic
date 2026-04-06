@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import AvantGardeNavbar from "@/components/navbars/AvantGardeNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
 import { useCart } from "@/contexts/CartContext";
@@ -384,60 +385,11 @@ export default function AvantGardeProductClient({ product }: { product: any }) {
                 </section>
             </main>
 
-            {/* ── Footer ── */}
-            <footer className="w-full border-t border-zinc-200 bg-zinc-50">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-12 py-20 max-w-[1920px] mx-auto">
-                    <div>
-                        <div
-                            className="text-xl font-bold text-zinc-900 mb-8"
-                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            VASLIC KINETIC CURATIONS
-                        </div>
-                        <p className="text-zinc-400 max-w-sm text-sm leading-relaxed mb-8">
-                            An editorial ecosystem dedicated to the preservation of avant-garde textile architecture and brutalist aesthetics.
-                        </p>
-                        <div className="text-sm tracking-widest uppercase text-zinc-400">
-                            © 2026 VASLIC KINETIC CURATIONS. ALL RIGHTS RESERVED.
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-8">
-                        {[
-                            {
-                                heading: "The Archive",
-                                links: ["Sustainability", "Press Inquiry", "Accessibility"],
-                            },
-                            {
-                                heading: "Legal",
-                                links: ["Legal Notice", "Privacy Policy"],
-                            },
-                        ].map((col) => (
-                            <div key={col.heading} className="flex flex-col gap-4">
-                                <h5
-                                    className="font-bold uppercase tracking-[0.2em] text-xs mb-2"
-                                    style={{ color: CYAN, fontFamily: "'Space Grotesk', sans-serif" }}
-                                >
-                                    {col.heading}
-                                </h5>
-                                {col.links.map((l) => (
-                                    <button
-                                        key={l}
-                                        className="text-sm text-left tracking-widest uppercase text-zinc-400 transition-colors hover:underline"
-                                        style={{ textDecorationColor: CYAN, textUnderlineOffset: "4px" }}
-                                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = CYAN; }}
-                                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "#9ca3af"; }}
-                                    >
-                                        {l}
-                                    </button>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </footer>
-
-            {/* ── Theme Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="avant-garde" />
 
             {/* ── Fonts + Material Icons ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" />

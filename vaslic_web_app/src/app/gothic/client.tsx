@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
 import GothicNavbar from "@/components/navbars/GothicNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { UnitsCounter } from "@/components/UnitsCounter";
 
@@ -316,58 +317,7 @@ export default function GothicClientPage({ products, category }: { products: any
             <ThemeDock />
 
             {/* ── Footer ── */}
-            <footer className="pt-24 pb-12 px-8 relative z-10" style={{ background: "#0a0a0a" }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-20">
-                    <div>
-                        <div
-                            className="text-lg font-black text-neutral-200 uppercase mb-6"
-                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            VASLIC
-                        </div>
-                        <p className="text-neutral-600 text-sm leading-relaxed">
-                            A kinetic sanctuary for high-fashion mortality. Curated, numbered, and never repeated.
-                        </p>
-                    </div>
-                    {[
-                        { title: "Archive", links: ["Vault Registration", "Authentication Service"] },
-                        { title: "Legal", links: ["Privacy Policy", "Terms of Service"] },
-                        { title: "Support", links: ["Shipping", "Contact Grave"] },
-                    ].map((col) => (
-                        <div key={col.title}>
-                            <h4
-                                className="text-xs font-bold uppercase tracking-widest mb-6"
-                                style={{ color: "#737373", fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                {col.title}
-                            </h4>
-                            <ul className="space-y-3">
-                                {col.links.map((l) => (
-                                    <li key={l}>
-                                        <a
-                                            href="#"
-                                            className="text-neutral-600 hover:text-[#8b0000] transition-colors text-sm"
-                                        >
-                                            {l}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-                <div
-                    className="max-w-7xl mx-auto pt-8 text-center"
-                    style={{ borderTop: "1px solid #171717" }}
-                >
-                    <p
-                        className="text-[10px] tracking-widest text-neutral-700"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                        © 2026 VASLIC. No reprints. No restocks. No exceptions.
-                    </p>
-                </div>
-            </footer>
+            <SiteFooter theme="gothic" />
 
             {/* ── Material Icons + flicker animation ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

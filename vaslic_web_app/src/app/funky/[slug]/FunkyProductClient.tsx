@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, CheckCircle2, Bookmark } from "lucide-react";
 import FunkyNavbar from "@/components/navbars/FunkyNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
 import { useCart } from "@/contexts/CartContext";
@@ -353,8 +354,11 @@ export default function FunkyProductClient({ product }: { product: any }) {
                 </section>
             </main>
 
-            {/* ── Theme Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="funky" />
 
             {/* ── Fonts ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Righteous&family=Nunito:wght@300;400;600;700&display=swap" />

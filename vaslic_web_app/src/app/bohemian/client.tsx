@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight } from "lucide-react";
 import BohemianNavbar from "@/components/navbars/BohemianNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { UnitsCounter } from "@/components/UnitsCounter";
 
@@ -274,60 +275,11 @@ export default function BohemianClientPage({ products, category }: { products: a
                 </div>
             </aside>
 
-            {/* ── Footer ── */}
-            <footer
-                className="w-full py-12 px-8 border-t"
-                style={{
-                    background: BG,
-                    color: "#78716c",
-                    borderColor: "rgba(214,211,209,0.2)",
-                    fontFamily: "'Manrope', sans-serif",
-                    fontSize: "0.875rem",
-                    lineHeight: "1.625",
-                }}
-            >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
-                    <div className="space-y-4">
-                        <div className="text-xl font-bold text-stone-800">VASLIC</div>
-                        <p>© 2026 VASLIC. All rights reserved. Crafted with care for the Earth.</p>
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                        <span className="font-bold text-stone-800 mb-2">Shop</span>
-                        {["Ethical Sourcing", "Support", "Returns"].map((l) => (
-                            <a key={l} href="#" className="hover:text-stone-800 transition-colors">{l}</a>
-                        ))}
-                        <a href="#" className="underline" style={{ color: TERRA }}>Privacy Policy</a>
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                        <span className="font-bold text-stone-800 mb-2">Connect</span>
-                        {["Instagram", "Pinterest", "Journal"].map((l) => (
-                            <a key={l} href="#" className="hover:text-stone-800 transition-colors">{l}</a>
-                        ))}
-                    </div>
-                    <div className="flex flex-col space-y-4">
-                        <span className="font-bold text-stone-800 mb-2">Join the Inner Circle</span>
-                        <div className="flex">
-                            <input
-                                className="bg-white/50 border-none px-4 py-2 w-full text-[10px] tracking-widest focus:outline-none"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                                placeholder="Email Address"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <button
-                                className="bg-stone-900 text-white px-4 flex items-center justify-center"
-                                aria-label="Submit"
-                            >
-                                <ArrowRight size={16} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
             {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="bohemian" />
 
             {/* ── Google Material Symbols ── */}
             <link

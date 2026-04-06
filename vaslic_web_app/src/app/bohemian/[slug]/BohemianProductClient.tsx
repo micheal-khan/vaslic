@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, User, ArrowRight, CheckCircle2, Bookmark } from "lucide-react";
 import BohemianNavbar from "@/components/navbars/BohemianNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
 import { useCart } from "@/contexts/CartContext";
@@ -399,38 +400,11 @@ export default function BohemianProductClient({ product }: { product: any }) {
                 </section>
             </main>
 
-            {/* ── Theme Switcher Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
 
             {/* ── Footer ── */}
-            <footer
-                className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-start gap-8"
-                style={{ background: LINEN2, borderTop: "1px solid rgba(214,211,209,0.6)" }}
-            >
-                <div>
-                    <div
-                        className="text-lg font-bold mb-4"
-                        style={{ color: "#292524", fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                        VASLIC - Something for everyone
-                    </div>
-                    <p className="text-sm tracking-wide" style={{ color: "#78716c", fontFamily: "'Manrope', sans-serif" }}>
-                        © 2026 VASLIC - Something for everyone. All Rights Reserved.
-                    </p>
-                </div>
-                <div className="flex flex-wrap gap-x-12 gap-y-4">
-                    {["Privacy Policy", "Terms of Service", "Shipping & Returns", "Contact Us"].map((l) => (
-                        <a
-                            key={l}
-                            href="#"
-                            className="text-sm tracking-wide transition-colors"
-                            style={{ color: "#78716c", fontFamily: "'Manrope', sans-serif" }}
-                        >
-                            {l}
-                        </a>
-                    ))}
-                </div>
-            </footer>
+            <SiteFooter theme="bohemian" />
 
             {/* ── Material Icons + ticker keyframe ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

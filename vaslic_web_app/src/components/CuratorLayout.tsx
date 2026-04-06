@@ -7,9 +7,11 @@ import { useCart } from "@/contexts/CartContext";
 import { CartModal } from "./CartModal";
 import { createClient } from "@/lib/supabase/client";
 import { useEffect } from "react";
+import { SiteFooter } from "./SiteFooter";
 
 interface CuratorLayoutProps {
     children: React.ReactNode;
+    theme?: "gothic" | "bohemian" | "avant-garde" | "street" | "funky" | "default";
 }
 
 const sidebarLinks = [
@@ -20,7 +22,7 @@ const sidebarLinks = [
     { label: "The Vault", href: "/vault", icon: "inventory_2", filled: false },
 ];
 
-export default function CuratorLayout({ children }: CuratorLayoutProps) {
+export default function CuratorLayout({ children, theme = "default" }: CuratorLayoutProps) {
     const router = useRouter();
     const pathname = usePathname();
     const { totalItems } = useCart();
@@ -196,20 +198,11 @@ export default function CuratorLayout({ children }: CuratorLayoutProps) {
                 {children}
             </main>
 
+
             {/* ─── Footer ─── */}
-            <footer className="lg:pl-64 bg-black border-t border-zinc-800/30 w-full">
-                <div className="flex flex-col items-center gap-4 py-12 px-8 max-w-7xl mx-auto">
-                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-4">
-                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Sustainability</a>
-                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Shipping</a>
-                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Returns</a>
-                        <a className="font-body text-[10px] tracking-widest uppercase text-zinc-600 hover:text-cyan-500 transition-colors" href="#">Terms of Scarcity</a>
-                    </div>
-                    <p className="text-center font-body text-[10px] tracking-widest uppercase text-zinc-600 max-w-lg leading-relaxed">
-                        © 2026 VASLIC - KINETIC CURATION. ALL PIECES ARE SUBJECT TO THE NEVER REPRINT RULE. ASYMMETRICAL DISTRIBUTION GUARANTEED.
-                    </p>
-                </div>
-            </footer>
+            <div className="lg:pl-64">
+                <SiteFooter theme={theme} />
+            </div>
 
             <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 

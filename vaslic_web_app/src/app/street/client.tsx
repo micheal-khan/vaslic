@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
 import StreetNavbar from "@/components/navbars/StreetNavbar";
 import ThemeDock from "@/components/ThemeDock";
+import { SiteFooter } from "@/components/SiteFooter";
 import { UnitsCounter } from "@/components/UnitsCounter";
 
 // ─── Brand tokens ─────────────────────────────────────────────────────────────
@@ -286,66 +287,7 @@ export default function StreetClientPage({ products, category }: { products: any
             </main>
 
             {/* ── Footer ── */}
-            <footer className="w-full py-12 px-8" style={{ background: "#0a0a0a", fontFamily: "'Manrope', sans-serif", fontSize: "14px" }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                    <div className="space-y-6">
-                        <div className="text-lg font-black text-neutral-200">VASLIC</div>
-                        <p className="text-neutral-600">Something for everyone. Exclusive editions for the avant-garde spirit. Digital physicalities curated for the new era.</p>
-                        <div className="flex space-x-4">
-                            {["alternate_email", "share", "public"].map((icon) => (
-                                <span key={icon} className="material-symbols-outlined cursor-pointer text-neutral-600 hover:text-cyan-400 transition-colors">{icon}</span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="font-bold text-white uppercase text-xs tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Navigation</div>
-                        <ul className="space-y-2">
-                            {["Privacy Policy", "Terms of Service", "Vault Registration", "Shipping"].map((l) => (
-                                <li key={l}><a href="#" className="text-neutral-600 hover:text-cyan-400 transition-colors">{l}</a></li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="font-bold text-white uppercase text-xs tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Categories</div>
-                        <ul className="space-y-2">
-                            {[
-                                { label: "Gothic", href: "/gothic", active: false },
-                                { label: "Bohemian", href: "/bohemian", active: false },
-                                { label: "Avant-Garde", href: "/avant-garde", active: false },
-                                { label: "Street", href: "/street", active: true },
-                                { label: "Funky", href: "/funky", active: false },
-                            ].map((l) => (
-                                <li key={l.label}>
-                                    <Link href={l.href} className="transition-colors" style={{ color: l.active ? "white" : "#525252" }}>
-                                        {l.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="font-bold text-white uppercase text-xs tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>The Vault</div>
-                        <p className="text-neutral-600 text-xs">Enter your coordinates to receive drop alerts.</p>
-                        <div className="flex flex-col gap-2">
-                            <input
-                                className="text-[10px] px-4 py-2 w-full outline-none focus:ring-1 focus:ring-cyan-500"
-                                placeholder="E-MAIL ADDRESS"
-                                type="email"
-                                style={{ background: "#171717", border: "none", color: "#e5e2e1" }}
-                            />
-                            <button
-                                className="font-bold text-[10px] uppercase py-2 text-white transition-colors"
-                                style={{ background: "#0891b2", fontFamily: "'Space Grotesk', sans-serif" }}
-                            >
-                                Register
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 text-center md:text-left">
-                    <p className="text-neutral-600 text-[10px] uppercase tracking-[0.2em]">© 2026 VASLIC. No reprints. No restocks. No exceptions.</p>
-                </div>
-            </footer>
+            <SiteFooter theme="street" />
 
             {/* ── Theme Switcher ── */}
             <ThemeDock />

@@ -399,36 +399,11 @@ export default function StreetProductClient({ product }: { product: any }) {
                 </div>
             </main>
 
-            <div className="pb-12">
-                <SiteFooter />
-            </div>
-
-            {/* ── Fixed Bottom Yellow Ticker ── */}
-            <div
-                className="fixed bottom-0 left-0 w-full py-3 z-40 overflow-hidden"
-                style={{ background: YELLOW, color: "black", borderTop: "1px solid rgba(0,0,0,0.1)" }}
-            >
-                <div
-                    style={{
-                        display: "inline-block",
-                        whiteSpace: "nowrap",
-                        animation: "ticker 30s linear infinite",
-                    }}
-                >
-                    {[0, 1, 2, 3].map((i) => (
-                        <span
-                            key={i}
-                            className="font-black text-xs uppercase px-4"
-                            style={{ letterSpacing: "0.3em", fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                            Once it&apos;s gone, it&apos;s gone. Forever. No reprints. No restocks. No exceptions. •{" "}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            {/* ── Theme Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="street" />
 
             {/* ── Material Icons + Fonts ── */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

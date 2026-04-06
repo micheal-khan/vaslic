@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ShoppingCart, Maximize2, CheckCircle2, Bookmark } from "lucide-react";
 import GothicNavbar from "@/components/navbars/GothicNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { addWishlistItem } from "@/app/wishlist/actions";
 import { useCart } from "@/contexts/CartContext";
@@ -433,31 +434,11 @@ export default function GothicProductClient({ product }: { product: any }) {
                 </section>
             </main>
 
-            {/* ── Slim Footer ── */}
-            <footer style={{ background: "#030303", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                <div className="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-[1920px] mx-auto">
-                    <div className="mb-8 md:mb-0">
-                        <span className="text-lg font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>VASLIC.</span>
-                        <p
-                            className="text-[10px] tracking-[0.2em] uppercase mt-2"
-                            style={{ fontFamily: "'Manrope', sans-serif", color: "#525252" }}
-                        >
-                            © VASLIC. SOMETHING FOR EVERYONE. NEVER REPRINT.
-                        </p>
-                    </div>
-                    <div
-                        className="flex space-x-12 text-xs tracking-[0.2em] uppercase"
-                        style={{ fontFamily: "'Manrope', sans-serif" }}
-                    >
-                        {["Archives", "Ethics", "Shipping", "Contact"].map((l) => (
-                            <a key={l} href="#" className="transition-colors text-neutral-600 hover:text-sky-400">{l}</a>
-                        ))}
-                    </div>
-                </div>
-            </footer>
-
-            {/* ── Theme Switcher Dock ── */}
+            {/* ── Theme Switcher ── */}
             <ThemeDock />
+
+            {/* ── Footer ── */}
+            <SiteFooter theme="gothic" />
 
             {/* Material Icons */}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />

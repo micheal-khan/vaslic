@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
 import FunkyNavbar from "@/components/navbars/FunkyNavbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import ThemeDock from "@/components/ThemeDock";
 import { UnitsCounter } from "@/components/UnitsCounter";
 
@@ -272,37 +273,7 @@ export default function FunkyClientPage({ products, category }: { products: any[
             <ThemeDock />
 
             {/* ── Footer ── */}
-            <footer
-                className="w-full border-t"
-                style={{ borderColor: `${CYAN}1a`, background: NAV_BG }}
-            >
-                <div className="flex flex-col md:flex-row justify-between items-center px-12 py-10 gap-6">
-                    <div
-                        className="text-xl font-bold"
-                        style={{ fontFamily: "'Righteous', sans-serif", color: CYAN }}
-                    >
-                        VASLIC
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {["Privacy Policy", "Terms of Service", "Shipping Info", "Newsletter Signup"].map((item) => (
-                            <Link
-                                key={item}
-                                href="#"
-                                className="text-xs uppercase tracking-[0.2em] text-white/50 hover:text-[#00f5d4] underline decoration-[#ff007f] decoration-2 transition-opacity duration-300"
-                                style={{ fontFamily: "'Manrope', sans-serif" }}
-                            >
-                                {item}
-                            </Link>
-                        ))}
-                    </div>
-                    <div
-                        className="text-xs uppercase tracking-[0.2em] text-white/50"
-                        style={{ fontFamily: "'Manrope', sans-serif" }}
-                    >
-                        © 2026 VASLIC KINETIC CURATORS. ALL RIGHTS RESERVED.
-                    </div>
-                </div>
-            </footer>
+            <SiteFooter theme="funky" />
 
             {/* ── Animations ── */}
             <style>{`

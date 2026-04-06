@@ -15,7 +15,7 @@ export default function ThemeDock() {
 
     return (
         <div
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-7 px-8 py-4 rounded-full shadow-2xl pointer-events-auto"
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[40] flex items-center gap-7 px-8 py-4 rounded-full shadow-2xl pointer-events-auto"
             style={{
                 background: "rgba(15, 15, 15, 0.65)",
                 backdropFilter: "blur(20px)",
